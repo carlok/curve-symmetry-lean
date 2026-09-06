@@ -1,0 +1,35 @@
+import RotationSupport
+import Irreducibility
+import RealLocus
+import Elimination
+import GeometricRotation
+import RotationGroup
+import Translation
+import EuclideanCenter
+import ChangeCenter
+import DirectBound
+import Reflection
+import EuclideanParameters
+import ReflectionBound
+import FamilyQuadratic
+import Blowup
+import FamilyIrreducibility
+import FamilyRealLocus
+import FamilyRotations
+import Fermat
+import Sharpness
+import RealEquation
+import EqualityForm
+import Normalization
+import ExtremalClassification
+import IsometryInterface
+import CartesianCoordinates
+import CartesianReal
+import CartesianDescent
+import DirectIsometries
+import PaperBounds
+import FamilySingularities
+import FamilyCharts
+import FamilyTransport
+
+/-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

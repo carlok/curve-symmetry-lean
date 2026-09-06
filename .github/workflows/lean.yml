@@ -1,0 +1,42 @@
+name: Lean Linux build
+
+on:
+  push:
+    branches: ['codex/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lean-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Check package and source inventory
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_*.py'
+          python3 scripts/check_sources.py
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
+        with:
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Audit proof-library axioms
+        run: lake env lean -DwarningAsError=true verification/Audit.lean
+      - name: Ensure the build retained the committed dependency lock
+        run: git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json
+
+# This is clean-checkout Linux CI with upstream Mathlib artifacts, not the
+# isolated Comparator/NanoDa contract test required by Sprint 6.

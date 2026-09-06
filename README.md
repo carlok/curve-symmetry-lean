@@ -21,12 +21,33 @@ Proofs have been reconstructed, checked against exceptional cases, and tested wi
 A [Lean port](lean/README.md) now verifies every clause of Theorem 1: both bounds, sharpness in every degree, the normalized equality classification, and its converse. It starts with real Cartesian polynomials and actual Euclidean isometry groups; the direct subgroup is proved cyclic and identified by determinant `+1`. For Theorem 2, the local Jacobian and tangent-cone calculations and exact four-form coefficient tests are checked. **The global Möbius completeness argument, sphere-group classification, and genus assertions remain unported. No Palomar dry run has occurred.** The development reuses the existing Lean/Mathlib installation without copying or downloading libraries.
 
 The paper is unchanged during the formalization sprints. This is an independent
-Apache-2.0 project; its intended remote is the private repository
+Apache-2.0 project; its remote is the verified private repository
 `carlok/curve-symmetry-lean`. See [SPRINTS.md](SPRINTS.md) for completion gates
 and [migration evidence](verification/MIGRATION.md). No public release or
 Palomar submission is authorized by the current work.
 
 ## Reproduce
+
+The root is a Lake project pinned to Lean 4.32.0 and an exact Mathlib revision.
+On this Mac, reuse the installed dependency tree without downloading libraries:
+
+```sh
+rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
+```
+
+For a clean machine, with Elan installed:
+
+```sh
+lake exe cache get
+lake build
+lake env lean -DwarningAsError=true verification/Audit.lean
+python3 scripts/check_sources.py
+```
+
+The Linux workflow builds from a fresh private checkout, uses upstream Mathlib
+cache artifacts, and checks all project-namespace axiom dependencies. It is
+**not** the sandboxed Comparator/NanoDa dry run. The claim-by-claim boundary is
+in [COVERAGE.md](COVERAGE.md); the kernel does not check that editorial ledger.
 
 From this folder:
 

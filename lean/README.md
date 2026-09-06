@@ -154,8 +154,9 @@ rtk proxy sh lean/check.sh \
 ```
 
 On another machine, pass an existing populated Lake project with compiled
-Mathlib and an installed matching toolchain. The script reads `lean-toolchain`
-and uses the compiled package directories through `LEAN_PATH`. It invokes
+Mathlib and an installed matching toolchain. The script checks its toolchain
+and all nine dependency checkout revisions against this project's committed
+pins, then uses the compiled package directories through `LEAN_PATH`. It invokes
 neither Lake nor a package fetch, and invokes `elan run` without `--install`.
 Only this project's own module outputs go into the ignored `lean/.build/`.
 No Mathlib checkout, library cache, or toolchain is duplicated.
@@ -167,11 +168,19 @@ Verification environment:
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 
-The script compiles all 33 modules with warnings treated as errors. The 85
-endpoint axiom reports must list only `propext`, `Classical.choice`, and
-`Quot.sound`. There are no intentional proof holes, added axioms, or
+The script compiles all 33 mathematical modules and the aggregate import with
+warnings treated as errors. In addition to the 85 selected endpoint reports,
+`verification/Audit.lean` checks every `CurveSymmetry` declaration, including
+private names, against only `propext`, `Classical.choice`, and `Quot.sound`.
+There are no intentional proof holes, added axioms, or
 `native_decide` calls. This check reuses trusted local compiled dependencies;
 it is not a clean rebuild of Mathlib itself.
+
+The root TOML Lakefile, toolchain and exact manifest support a portable Lake
+build. Private Linux CI checks a clean project checkout with the pinned upstream
+dependency artifacts. See the [full coverage ledger](../COVERAGE.md) for the
+supporting claims that still need interfaces or proofs; completion of Theorem 1
+does not imply completion of every lemma and remark in its exposition.
 
 The existing library checkouts and TeX are unchanged. Local kernel verification
 does not certify novelty or replace the literature and independent-review

@@ -1,0 +1,52 @@
+name = "curve_symmetry"
+version = "0.1.0"
+defaultTargets = ["CurveSymmetry"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "81a5d257c8e410db227a6665ed08f64fea08e997"
+
+[[lean_lib]]
+name = "CurveSymmetry"
+srcDir = "lean"
+moreLeanArgs = ["-DwarningAsError=true"]
+# Flat module names are retained from the original port. The source audit
+# checks that these roots and the aggregate imports cover every Lean source.
+roots = [
+  "RotationSupport",
+  "Irreducibility",
+  "RealLocus",
+  "Elimination",
+  "GeometricRotation",
+  "RotationGroup",
+  "Translation",
+  "EuclideanCenter",
+  "ChangeCenter",
+  "DirectBound",
+  "Reflection",
+  "EuclideanParameters",
+  "ReflectionBound",
+  "FamilyQuadratic",
+  "Blowup",
+  "FamilyIrreducibility",
+  "FamilyRealLocus",
+  "FamilyRotations",
+  "Fermat",
+  "Sharpness",
+  "RealEquation",
+  "EqualityForm",
+  "Normalization",
+  "ExtremalClassification",
+  "IsometryInterface",
+  "CartesianCoordinates",
+  "CartesianReal",
+  "CartesianDescent",
+  "DirectIsometries",
+  "PaperBounds",
+  "FamilySingularities",
+  "FamilyCharts",
+  "FamilyTransport",
+  "CurveSymmetry",
+]
