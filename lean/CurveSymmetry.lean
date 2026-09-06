@@ -31,5 +31,9 @@ import PaperBounds
 import FamilySingularities
 import FamilyCharts
 import FamilyTransport
+import SphereGeometry
+import FamilyProjective
+import MobiusPair
+import FamilyMobiusPullback
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

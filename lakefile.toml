@@ -48,5 +48,9 @@ roots = [
   "FamilySingularities",
   "FamilyCharts",
   "FamilyTransport",
+  "SphereGeometry",
+  "FamilyProjective",
+  "MobiusPair",
+  "FamilyMobiusPullback",
   "CurveSymmetry",
 ]

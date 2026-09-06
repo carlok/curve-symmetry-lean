@@ -124,14 +124,33 @@ dependency through that classification.
   pullbacks cannot be proportional when `α` is nonreal. These statements
   cover arbitrary positive `m`; they do not assume completeness of the four
   map types.
+- [SphereGeometry.lean](SphereGeometry.lean) uses the standard one-point
+  compactification and Mathlib's full invertible-matrix projective action.
+  The family is defined by topological closure; the theorem that this adds
+  exactly infinity is proved from closedness and noncompactness.
+- [FamilyProjective.lean](FamilyProjective.lean) constructs the bihomogeneous
+  product-projective zero locus, proves its independence of representatives,
+  connects its four chart equations, and identifies its real diagonal with
+  the actual spherical closure. Both arbitrary Möbius and anti-Möbius actions
+  agree with the indicated product-projective actions on the real diagonal.
+- [FamilyMobiusPullback.lean](FamilyMobiusPullback.lean) proves that arbitrary
+  Möbius inclusion of spherical families forces polynomial divisibility of
+  the denominator-cleared pullback. It handles poles on the curve and assumes
+  no special matrix form. Scalar proportionality and singularity transport
+  remain pending.
+- [MobiusPair.lean](MobiusPair.lean) proves the standard matrix reduction to
+  dilation or inversion **if** the pair `0,∞` is preserved, including exact
+  actions at zero and infinity. Proving that an arbitrary equivalence of these
+  curves preserves the pair is still the main missing global step; this helper
+  does not conceal it as a hypothesis in an advertised completeness theorem.
 
 ## Remaining proof obligations
 
-1. **Ambient Möbius completeness.** Formalize the compactification in
-   `P¹ × P¹` and connect its singularities to the checked chart tests. Then
-   prove that an arbitrary equivalence of the spherical real loci induces an
-   equivalence of the complexified curves, transports the singular pair, and
-   therefore has one of the four map forms. This global bridge is not yet
+1. **Ambient Möbius completeness.** Complete the Zariski-closure and intrinsic
+   singularity interfaces for the constructed `P¹ × P¹` zero locus. Strengthen
+   arbitrary-matrix pullback divisibility to nonzero scalar proportionality,
+   prove that the resulting global equivalence transports the singular pair,
+   then apply the checked matrix reduction. This global bridge is not yet
    checked and must not be hidden in a theorem hypothesis advertised as the
    complete classification.
 2. **Sphere group and genus.** Establish the actual sphere actions, the
@@ -168,8 +187,8 @@ Verification environment:
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 
-The script compiles all 33 mathematical modules and the aggregate import with
-warnings treated as errors. In addition to the 85 selected endpoint reports,
+The script compiles all 37 mathematical modules and the aggregate import with
+warnings treated as errors. In addition to the selected endpoint reports,
 `verification/Audit.lean` checks every `CurveSymmetry` declaration, including
 private names, against only `propext`, `Classical.choice`, and `Quot.sound`.
 There are no intentional proof holes, added axioms, or

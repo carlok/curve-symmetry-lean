@@ -23,9 +23,9 @@ The abstract repeats the two main theorems and inherits their statuses.
 | Noncircle | Exclusion of every `Metric.sphere c R` with `R > 0`, not just centered circles. |
 | Extremal family | `extremalCurve m α = {z : ℂ | (z^m * ((‖z‖ : ℂ)^2 + α)).re = 0}`; `family_locus_eq` connects the polynomial. |
 | Nonreal normalized parameter | `α ≠ star α` and `‖α‖ = 1`; theorems needing neither normalization nor the stronger degree cutoff say so explicitly. |
-| Ambient Möbius action | **Pending:** standard projectivization of `ℂ²`, acted on by invertible complex-linear maps, with finite-chart and infinity interfaces. Arbitrary invertible matrices must be covered, not a type containing only the expected four forms. |
-| Spherical closure | **Pending:** topological closure of the finite real locus in the Riemann sphere, related by proof to the projective model; adjoining an extra point by fiat is insufficient. |
-| Compactified complex curve | **Pending:** the bihomogeneous zero locus in `ℙ¹ × ℙ¹`, with chart transitions and an intrinsic, invariant singularity notion. |
+| Ambient Möbius action | **Proved interface:** `MobiusMatrix` is Mathlib's full `GL(2,ℂ)`, acting on `Sphere = OnePoint ℂ`; `sphereProjectiveEquiv_action` connects the standard projectivization action. Finite/pole/infinity formulas are checked. No projective-topology homeomorphism is asserted; the sphere itself has its standard topology. |
+| Spherical closure | **Proved:** `sphericalFamily` is the actual topological closure. `sphericalFamily_eq` proves it gains exactly infinity; `sphericalFamily_projective_iff` identifies it with the real diagonal of the projective zero locus. |
+| Compactified complex curve | **Partial:** `familyProjectiveCurve` is a representative-independent bihomogeneous zero locus in standard `ℙ¹ × ℙ¹`, with the four displayed chart equations. Identification with the Zariski closure and an intrinsic, invariant singularity interface remain pending. |
 | Geometric genus | **Pending:** genus of the genuine smooth normalization (or a proved equivalent invariant). A defined branch-count expression is not a substitute. |
 
 ## Principal claims
@@ -37,7 +37,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | T1.3 | Degree `d ≥ 5` equality implies the normalized family under orientation-preserving similarity | **Proved:** `paper_equality_classification`; the actual image of the Cartesian locus is the stated real-part equation. | baseline |
 | T1.4 | Every family member with `m ≥ 3` attains the rotation bound | **Proved:** `paper_family_converse` (even without modulus-one normalization). | baseline |
 | T2.1 | For `m ≥ 2`, the family is infinite, geometrically irreducible, of degree `m+2` | **Proved ingredients:** `familyPolynomial_irreducible`, `family_degree`, `family_realLocus_infinite`, `exists_cartesian_equation`, `family_locus_eq`. A single paper-facing wrapper including `m=2` remains to be added. | 3 |
-| T2.2 | Every ambient holomorphic equivalence has form `cz` or `c/z`; every anti-equivalence has a conjugated form | **Open:** derive the global complexification lift, preservation of its two singularities, and reduction from an arbitrary matrix. Neither preservation nor the reduction may be assumed. | 2 |
+| T2.2 | Every ambient holomorphic equivalence has form `cz` or `c/z`; every anti-equivalence has a conjugated form | **Partial:** arbitrary-matrix pullback divisibility is proved in [FamilyMobiusPullback](lean/FamilyMobiusPullback.lean). [MobiusPair](lean/MobiusPair.lean) proves the group-theoretic reduction **conditional on pair preservation**; the curve-equivalence theorem still must derive that condition through global singularity transport. No completed completeness theorem is claimed. | 2 |
 | T2.3 | Exact self-map coefficients `c^(2m)=1` or `c^(2m)=conj(α)^2` | **Partial:** [`family_dilation_filter`, `family_inversion_filter`](lean/FamilyTransport.lean) are exact polynomial-pullback tests. Lift to actual sphere actions, including `0,∞`, and combine with T2.2. | 3 |
 | T2.4 | All self-equivalences holomorphic; no anti-Möbius symmetry | **Partial:** the two conjugated polynomial forms are excluded in [FamilyTransport](lean/FamilyTransport.lean). Need T2.2 and the zero-set/pullback bridge. | 3 |
 | T2.5 | Full ambient group is dihedral of order `4m` | **Open:** construct a group isomorphism for actual sphere maps; prove distinctness, count, and relations. | 3 |
@@ -58,17 +58,17 @@ The abstract repeats the two main theorems and inherits their statuses.
 | S08 | Nondegeneracy and nonreal ratio in the equality case; normalized nonzero similarity | **Proved:** [EqualityForm](lean/EqualityForm.lean), [Normalization](lean/Normalization.lean), [ExtremalClassification](lean/ExtremalClassification.lean). | baseline |
 | S09 | Fermat examples irreducible and infinite, with exactly `d` direct and `2d` total isometries | **Proved:** [Fermat](lean/Fermat.lean), [Sharpness](lean/Sharpness.lean), [CartesianDescent](lean/CartesianDescent.lean). | baseline |
 | S10 | Printed quintic Cartesian expansion, negative sign at a 60-degree rotation, exact order six | **Partial:** the general family results give irreducibility, degree five and six rotations; the exact displayed Cartesian identity and specified exponential rotation still need endpoints. Symbolic checks are not Lean proofs. | 4 |
-| G01 | Bidegree `(m+1,m+1)` and the bihomogeneous closure | **Open:** construct the actual projective product equation and prove closure/density and degree, without defining the curve solely by a preferred chart. | 2, 4 |
+| G01 | Bidegree `(m+1,m+1)` and the bihomogeneous closure | **Partial:** [FamilyProjective](lean/FamilyProjective.lean) constructs the equation on the standard projective product, proves scaling of degree `m+1` in each block and independence of representatives. Exact bidegree and identification with the Zariski closure remain; scaling alone is not an exact-degree proof. | 2, 4 |
 | G02 | Strict transform `H(t,Y)`; coprime coefficients; irreducibility descends | **Proved:** [FamilyQuadratic](lean/FamilyQuadratic.lean), [Blowup](lean/Blowup.lean), [FamilyIrreducibility](lean/FamilyIrreducibility.lean). Eisenstein replaces the paper's rational-function nonsquare argument for irreducibility. | baseline |
 | G03 | Only affine Jacobian singularity is the origin; same at the reciprocal chart | **Proved:** [FamilySingularities](lean/FamilySingularities.lean), using formal partial derivatives. | baseline |
-| G04 | Three denominator-clearing chart identities; mixed corners nonsingular | **Proved local identities:** [FamilyCharts](lean/FamilyCharts.lean). Boundary exhaustion and compatibility with the global singularity notion remain. | 2 |
+| G04 | Three denominator-clearing chart identities; mixed corners nonsingular | **Proved local identities:** [FamilyCharts](lean/FamilyCharts.lean). [FamilyProjective](lean/FamilyProjective.lean) now connects all four equations to homogeneous coordinates and classifies points with an infinity coordinate. Compatibility with the intrinsic global singularity notion remains. | 2 |
 | G05 | Singular pair exactly `(0,0),(∞,∞)` on the global curve | **Partial:** G03–G04; construct the global object and prove the complete chart/invariant-singularity interface. | 2 |
 | G06 | Both points ordinary `m`-fold, with the displayed tangent cones and `m` distinct tangent directions | **Partial:** lowest homogeneous terms and separable dehomogenized binary forms in [FamilyCharts](lean/FamilyCharts.lean). Need projective direction count, multiplicity, and geometric ordinary-point interface. | 4 |
 | G07 | Normalization is the quadratic function-field/double-cover model | **Open:** actual normalization/birational identification; polynomial irreducibility does not supply this by itself. | 4 |
 | G08 | Cover has exactly `2m+2` simple branch points, including `0,∞`; defining rational function is not a square | **Partial:** coefficient coprimality and polynomial separability are available. Valuations, ramification, the degree-two map, and all branch cases remain. | 4 |
 | G09 | Riemann–Hurwitz for that cover and geometric genus `m` | **Open:** prove missing foundations, not an assumed formula or numerical genus definition. | 4 |
 | G10 | Every positive-radius circle meets the family in exactly `2m` points | **Partial:** `family_point_of_norm` proves existence, hence infinitude/noncircle. Exact cardinality and the angle-modulo-period interpretation remain. | 4 |
-| G11 | Equivalence of spherical real loci induces the product-projective complex equivalence | **Open:** affine density S01 is only one ingredient; must handle poles/infinity, product action, closure, and both inclusions. | 2 |
+| G11 | Equivalence of spherical real loci induces the product-projective complex equivalence | **Partial:** `sphericalFamily_projective_iff`, `sphereRealDiagonal_action`, and `sphereRealDiagonal_anti_action` connect actual closure and product actions, including infinity. `family_dvd_mobiusPullback` handles arbitrary-matrix spherical inclusion even at poles. Nonzero scalar proportionality, global complex transport, and singularity invariance are still pending. | 2 |
 | G12 | Coefficient ratios in the four cases force scale one and the parameter tests | **Proved polynomial calculations:** [FamilyTransport](lean/FamilyTransport.lean). Their sphere-action application is T2.2–T2.7, not already proved by the calculation. | baseline, 3 |
 | G13 | Dihedral generators and relations; only the first map family is Euclidean | **Open:** actual actions at infinity and the exact-group interface, as in T2.5–T2.6. | 3 |
 
@@ -101,3 +101,8 @@ Every sprint must update the affected rows and record checks and commits in
 [SPRINTS.md](SPRINTS.md). A partial row stays partial until its full claim is
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
+
+Sprint 2's first checkpoint adds four mathematical modules, for 38 Lean files
+including the aggregate. Its conditional pair-stabilizer lemma is deliberately
+not used to relabel T2.2 as proved. Sprints 4–7 and the full-port objective are
+unchanged.
