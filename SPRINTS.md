@@ -14,7 +14,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | Sprint | Status | Completion evidence / commit |
 |---|---|---|
 | 0: relocation and private Git | Complete | `74e0e1228dc01aa1c8965b6818cf05f4e13750e7`; 81 migrated file hashes match, 33 modules / 85 axiom reports pass; remote verified private and pushed |
-| 1: reproducible package and statement inventory | In progress | Root package and [coverage ledger](COVERAGE.md) added; local/clean Linux checks pending |
+| 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Not started | Local Jacobian and chart calculations already checked |
 | 3: complete ambient symmetry theorem | Not started | Four-form coefficient tests already checked; completeness is not assumed |
 | 4: genus and remaining mathematical claims | Not started | Foundational interface still missing |
