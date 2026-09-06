@@ -35,5 +35,6 @@ import SphereGeometry
 import FamilyProjective
 import MobiusPair
 import FamilyMobiusPullback
+import FamilyBidegree
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

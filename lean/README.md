@@ -136,8 +136,12 @@ dependency through that classification.
 - [FamilyMobiusPullback.lean](FamilyMobiusPullback.lean) proves that arbitrary
   Möbius inclusion of spherical families forces polynomial divisibility of
   the denominator-cleared pullback. It handles poles on the curve and assumes
-  no special matrix form. Scalar proportionality and singularity transport
-  remain pending.
+  no special matrix form.
+- [FamilyBidegree.lean](FamilyBidegree.lean) strengthens this to **nonzero
+  scalar proportionality**. It proves both separate affine degrees are exactly
+  `m+1`, bounds the corresponding degrees of any matrix pullback, and rules
+  out an identically zero pullback using density on the sphere. Global
+  singularity transport remains pending.
 - [MobiusPair.lean](MobiusPair.lean) proves the standard matrix reduction to
   dilation or inversion **if** the pair `0,∞` is preserved, including exact
   actions at zero and infinity. Proving that an arbitrary equivalence of these
@@ -147,8 +151,8 @@ dependency through that classification.
 ## Remaining proof obligations
 
 1. **Ambient Möbius completeness.** Complete the Zariski-closure and intrinsic
-   singularity interfaces for the constructed `P¹ × P¹` zero locus. Strengthen
-   arbitrary-matrix pullback divisibility to nonzero scalar proportionality,
+   singularity interfaces for the constructed `P¹ × P¹` zero locus. Extend
+   the proved nonzero scalar pullback identity across all projective charts,
    prove that the resulting global equivalence transports the singular pair,
    then apply the checked matrix reduction. This global bridge is not yet
    checked and must not be hidden in a theorem hypothesis advertised as the
@@ -187,7 +191,7 @@ Verification environment:
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 
-The script compiles all 37 mathematical modules and the aggregate import with
+The script compiles all 38 mathematical modules and the aggregate import with
 warnings treated as errors. In addition to the selected endpoint reports,
 `verification/Audit.lean` checks every `CurveSymmetry` declaration, including
 private names, against only `propext`, `Classical.choice`, and `Quot.sound`.
