@@ -1,0 +1,364 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=teal,urlcolor=blue}
+\setlist{leftmargin=2em,itemsep=0.25ex,topsep=0.5ex}
+\allowdisplaybreaks % chktex 1
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Rea}{Re}
+\title{Sharp symmetry bounds for real algebraic curves}
+\author{Carlo Perassi}
+\date{September 5, 2026 --- working draft}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $C$ be an infinite real plane algebraic curve defined by a polynomial
+irreducible over $\C$, of degree $d\ge2$, and suppose that $C$ is not a circle.
+Its rotation group has order at most $\max\{d,2d-4\}$, whereas its full
+Euclidean symmetry group has order at most $2d$. Both bounds are sharp.
+For $d\ge5$ we classify the curves attaining the rotation bound: up to
+orientation-preserving similarity they are
+$\Rea(z^{d-2}(|z|^2+\alpha))=0$, where $|\alpha|=1$ and
+$\alpha\notin\R$. Their spherical closures have a dihedral group of
+$4d-8$ holomorphic M\"obius symmetries and no anti-M\"obius symmetry.
+The parameter is a complete invariant under holomorphic M\"obius equivalence,
+and is determined up to conjugation under full M\"obius equivalence.
+An irreducible quintic with a rotation of order six illustrates why a
+symmetry of a zero set need not fix its defining polynomial.
+\end{abstract}
+
+\section{Statements and context}
+
+Throughout, $f\in\R[x,y]$ is irreducible in $\C[x,y]$,
+$d=\deg f\ge2$, and $C=\{(x,y)\in\R^2:f(x,y)=0\}$ is infinite and
+is not a circle. The degree is the ordinary total degree, not a degree
+invariant under M\"obius transformations. Write $\Sym(C)$ for the group
+of Euclidean isometries preserving $C$, and $\Sym^+(C)$ for its
+orientation-preserving subgroup. The identity is counted in both groups.
+
+\begin{theorem}[Sharp bounds]\label{thm:bounds}
+The groups $\Sym(C)$ and $\Sym^+(C)$ are finite. If
+$N=|\Sym^+(C)|$, then
+\[
+ N\le\max\{d,2d-4\},\qquad |\Sym(C)|\le2d.
+\]
+Both bounds are attained in every degree $d\ge2$.
+If $d\ge5$ and $N=2d-4$, then an orientation-preserving similarity
+carries $C$ onto
+\begin{equation}\label{eq:family}
+ C_{m,\alpha}=\{z\in\C:\Rea(z^m(|z|^2+\alpha))=0\},
+ \qquad m=d-2,\quad |\alpha|=1,\quad \alpha\notin\R.
+\end{equation}
+Conversely every curve in~\eqref{eq:family} with $m\ge3$ attains that
+rotation bound.
+\end{theorem}
+
+The coefficient method behind the proof is classical. Lebmeir and
+Richter-Gebert~\cite[Section~4]{LRG}, and Lebmeir~\cite[Theorem~5.4]{Lebmeir},
+recover rotational symmetry from the differences of the weights $a-b$
+of the nonzero coefficients of $z^a\overline z^{\,b}$. We use this criterion
+with irreducibility to obtain degree bounds and their equality cases;
+we do not propose a new symmetry-detection method.
+Pach and de Zeeuw~\cite[Lemma~2.6]{PZ} use a bound of $4d$ on the number
+of isometries in a distinct-distance argument. The bound $2d$ above
+sharpens that auxiliary estimate; no improvement of their distance
+exponent is claimed.
+
+The distinction between fixing a polynomial and fixing its zero set
+matters even for an irreducible curve. The quintic
+\begin{equation}\label{eq:quintic}
+ f(x,y)=(x^2+y^2)(x^3-3xy^2)-3x^2y+y^3
+       =\Rea\bigl(z^3(|z|^2+i)\bigr)
+\end{equation}
+satisfies $f(e^{\pi i/3}z)=-f(z)$ and has exactly six rotations.
+Its irreducibility follows from Lemma~\ref{lem:geometry} below.
+Thus it is a counterexample to the degree restriction in~%
+\cite[Lemma~9]{ALVv1}, where the direct symmetry group is asserted to
+preserve a regular polygon with at most $\deg C$ vertices. This comparison
+concerns the cited arXiv version; the journal version has not been checked.
+
+The equality cases have more structure than their Euclidean symmetries
+alone reveal. Let $\widehat C_{m,\alpha}$ denote the closure of
+$C_{m,\alpha}$ in the Riemann sphere. A full M\"obius equivalence means
+either a holomorphic M\"obius map or such a map followed by complex
+conjugation, acting on the ambient sphere.
+
+\begin{theorem}[The extremal family]\label{thm:family}
+For every integer $m\ge2$ and every nonreal $\alpha$ of modulus one,
+$C_{m,\alpha}$ is an infinite geometrically irreducible curve of degree
+$m+2$. The full ambient M\"obius symmetry group of $\widehat C_{m,\alpha}$ consists of
+\begin{equation}\label{eq:group}
+ z\longmapsto cz\quad(c^{2m}=1),\qquad
+ z\longmapsto c/z\quad(c^{2m}=\overline\alpha^{\,2}).
+\end{equation}
+All these maps are holomorphic. The group is dihedral of order $4m$;
+the Euclidean symmetry group consists of the $2m$ rotations in the first
+set. For fixed $m$, the curves $\widehat C_{m,\alpha}$ and
+$\widehat C_{m,\beta}$ are holomorphically M\"obius equivalent if and
+only if $\beta=\alpha$, and anti-M\"obius equivalent if and only if
+$\beta=\overline\alpha$.
+\end{theorem}
+
+The absence of anti-M\"obius symmetries is an ambient statement, not a
+claim about the absence of a real structure on the complexified curve.
+Neither theorem concerns arbitrary automorphisms of its normalization.
+
+\section{The degree bounds}
+
+We first recall the finiteness argument, including the hypotheses needed
+to pass from a real zero set to a polynomial identity.
+
+\begin{lemma}\label{lem:sign}
+The group $\Sym(C)$ is finite, its direct subgroup is cyclic, and
+every $T\in\Sym(C)$ satisfies $f\circ T=\varepsilon(T)f$ with
+$\varepsilon(T)\in\{1,-1\}$. If $T$ is a reflection then
+$\varepsilon(T)=1$.
+\end{lemma}
+
+\begin{proof}
+A nonzero translation preserving $C$ would put infinitely many points
+of $C$ on a line: iterate any point of $C$ along the translation vector.
+By B\'ezout and irreducibility $C$ would be that line. A nontrivial
+glide reflection is excluded by squaring it.
+Two rotations with distinct centers cannot both preserve $C$.
+Indeed, write them as $R_a(z)=\lambda z+(1-\lambda)a$ and
+$R_b(z)=\mu z+(1-\mu)b$, where $\lambda,\mu\ne1$.
+Their commutator is a translation, and is nontrivial because
+$R_{a}R_{b}$ and $R_{b}R_{a}$ differ by
+$(1-\lambda)(1-\mu)(a-b)\ne0$.
+Thus all nonidentity rotations have one center $a$.
+The images of any point of $C\setminus\{a\}$ under distinct rotations
+are distinct points on one circle. B\'ezout bounds their number by $2d$.
+If there are no rotations, the direct subgroup is trivial.
+In either case it is a finite subgroup of the circle group, hence cyclic.
+The full group has index at most two over this subgroup.
+
+The real locus is infinite, hence Zariski dense in the irreducible
+complex curve $f=0$. Consequently $f\circ T$ is a nonzero scalar
+multiple of $f$, since these polynomials have the same degree.
+The scalar is real; iterating the finite-order map $T$ makes it $1$ or
+$-1$. If a reflection had scalar $-1$, then $f$ would vanish on its
+entire fixed line. That would give a linear factor, contrary to $d\ge2$
+and irreducibility.
+\end{proof}
+
+Identify $z=x+iy$ and set
+\[
+ P(X,Y)=f\bigl((X+Y)/2,(X-Y)/(2i)\bigr)
+       =\sum_{a+b\le d}p_{ab}X^{a}Y^{b}.
+\]
+The polynomial $P$ is irreducible and $p_{ba}=\overline{p_{ab}}$.
+Translate a rotation center to zero. For a primitive $N$th root
+$\zeta$, invariance of $C$ under $z\mapsto\zeta z$ says
+\begin{equation}\label{eq:weights}
+ P(\zeta X,\zeta^{-1}Y)=\varepsilon P(X,Y),\qquad
+ p_{ab}\ne0\ \Longrightarrow\ \zeta^{a-b}=\varepsilon.
+\end{equation}
+
+\begin{proof}[Proof of Theorem~\ref{thm:bounds}]
+Finiteness follows from Lemma~\ref{lem:sign}. If $N=1$ the bounds are
+immediate, so assume $N>1$ and apply~\eqref{eq:weights} to a generator.
+If $\varepsilon=1$ and $N>d$, every exponent has $a=b$.
+Thus $P=R(XY)$. Irreducibility forces $R$ to be linear, and the infinite
+real locus forces $C$ to be a circle, a contradiction. Therefore
+$\varepsilon=1$ implies $N\le d$.
+
+Suppose $N>d$ instead. Then $\varepsilon=-1$, $N=2m$ is even, and
+$a-b\equiv m\pmod{2m}$. Since $m>d/2$, the only possible weights are
+$m$ and $-m$. Hence
+\begin{equation}\label{eq:radial}
+ P=X^m A(XY)+Y^m\overline A(XY),\qquad
+ \deg A\le\left\lfloor\frac{d-m}{2}\right\rfloor,
+\end{equation}
+where $\overline A$ means coefficientwise conjugation.
+If $A$ were constant, $P$ would be a homogeneous binary form of degree
+$m\ge2$, hence reducible. Thus $\deg A\ge1$, giving
+$m\le d-2$ and $N\le2d-4$.
+
+If there is a reflection $S$, every rotation $R$ is a product of the
+reflections $RS$ and $S$. Both fix $f$ by Lemma~\ref{lem:sign}, so
+the generator has $\varepsilon=1$. Therefore $N\le d$ and
+$|\Sym(C)|=2N\le2d$. Without a reflection,
+$|\Sym(C)|=N\le\max\{d,2d-4\}<2d$.
+
+For sharpness of $2d$, use $\Rea(z^d)=1$ for each $d\ge2$.
+Its complexification $X^d+Y^d-2$ is irreducible by Eisenstein at
+$Y-\eta$ in $\C[Y][X]$, where $\eta^d=2$. The real locus is infinite,
+and its $d$ rotations and $d$ reflections give equality.
+These examples also attain the rotation bound for $d=2,3$.
+For every $d\ge4$, take $m=d-2$ and $\alpha=i$ in
+Theorem~\ref{thm:family}, whose proof is independent of the present
+theorem. It gives exactly $2d-4$ rotations.
+
+If $d\ge5$ and $N=2d-4>d$, equation~\eqref{eq:radial}
+has $m=d-2\ge3$ and $A(s)=a+bs$ with $a,b\ne0$.
+Here $b\ne0$ follows from the degree, and $a=0$ would give a factor
+$XY$. If $a/b$ were real, $P$ would factor as
+$(XY+a/b)(bX^m+\overline bY^m)$.
+Thus $a/b\notin\R$. Substitute $z=r e^{i\phi}w$, choosing
+$r^2=|a/b|$ and $e^{im\phi}b$ positive real, and rescale the equation
+by a nonzero real constant. This gives~\eqref{eq:family} with
+$\alpha=(a/b)/|a/b|$. The converse is Theorem~\ref{thm:family}.
+\end{proof}
+
+\section{Equality cases on the sphere}
+
+Put
+\begin{equation}\label{eq:complexification}
+ P_\alpha(X,Y)=X^m(\alpha+XY)+Y^m(\overline\alpha+XY),
+ \qquad m\ge2.
+\end{equation}
+Its closure $V_\alpha$ in $\PP^1\times\PP^1$ has bidegree
+$(m+1,m+1)$. This compactification, rather than the ordinary projective
+plane, lets ambient M\"obius maps act by regular automorphisms.
+
+\begin{lemma}\label{lem:geometry}
+For $|\alpha|=1$ and $\alpha\notin\R$, $P_\alpha$ is irreducible.
+The only singular points of $V_\alpha$ are $(0,0)$ and
+$(\infty,\infty)$, both ordinary $m$-fold points. Its normalization
+has genus $m$, and $C_{m,\alpha}$ is infinite.
+\end{lemma}
+
+\begin{proof}
+In the chart $X=tY$, remove the exceptional factor $Y^m$ to obtain
+\begin{equation}\label{eq:doublecover}
+ H(t,Y)=(\alpha t^m+\overline\alpha)+t(t^m+1)Y^2=0.
+\end{equation}
+The two coefficients in this quadratic in $Y$ are coprime in
+$\C[t]$: at $t=0$ the first is nonzero, and at $t^m=-1$ it is
+$\overline\alpha-\alpha\ne0$.
+The rational function
+\[
+ -\frac{\alpha t^m+\overline\alpha}{t(t^m+1)}
+\]
+has a simple pole at $t=0$, so it is not a square in $\C(t)$.
+Gauss's lemma makes $H$ irreducible. The change $X=tY$ is invertible
+where $Y\ne0$, and $P_\alpha$ has no factor $Y$, proving its
+irreducibility.
+
+On $XY\ne0$, equation~\eqref{eq:doublecover} is a local coordinate
+description. Its $Y$ derivative can vanish only at $t^m=-1$,
+where $H\ne0$. Thus there are no singularities there.
+The tangent cones at $(0,0)$ and $(\infty,\infty)$ are, respectively,
+$\alpha X^m+\overline\alpha Y^m$ and $u^m+v^m$, with
+$u=1/X$, $v=1/Y$. Each has $m$ distinct linear factors.
+The other two boundary points are $(\infty,0)$ and $(0,\infty)$.
+Near the first, the equation is
+\[
+ u^{m+1}P_\alpha(1/u,Y)
+ =\alpha u+Y+\overline\alpha u^{m+1}Y^m+u^{m}Y^{m+1},
+\]
+whose linear part is nonzero. The other point is treated by exchanging
+$X,Y$ and conjugating coefficients. Setting either coordinate to zero
+or infinity shows that these are all boundary points.
+
+The double cover~\eqref{eq:doublecover} has $2m+2$ simple branch
+points: the $m$ roots of each of its coprime degree-$m$ factors, and
+$0,\infty$. Riemann--Hurwitz gives $2g-2=-4+(2m+2)$, so $g=m$. % chktex 8
+For each $r>0$ the equation
+$\Rea(e^{im\theta}(r^2+\alpha))=0$ has $2m$ distinct angles
+modulo $2\pi$, because $r^2+\alpha\ne0$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:family}]
+The degree and real-locus assertions follow from~\eqref{eq:complexification}
+and Lemma~\ref{lem:geometry}. A holomorphic map $M$ acts on the
+complexification by $(X,Y)\mapsto(M(X),\overline M(Y))$;
+an anti-M\"obius map $M\circ\mathrm{conj}$ acts by
+$(X,Y)\mapsto(M(Y),\overline M(X))$.
+Here $\overline M$ conjugates the coefficients of $M$.
+The infinite real locus is Zariski dense, so an equivalence of the
+spherical real loci carries $V_\alpha$ onto $V_\beta$.
+It must preserve the unordered pair of singular points. Consequently
+the ambient map has one of the four forms
+\[
+ cz,\qquad c/z,\qquad c\overline z,\qquad c/\overline z
+ \quad(c\in\C^\times).
+\]
+
+Write $t=|c|^2$. Substitute each form into $P_\beta$, clearing the
+denominator by $X^{m+1}Y^{m+1}$ when needed. Proportionality to
+$P_\alpha$ forces the ratio of the coefficients of $X^m$ and
+$X^{m+1}Y$ to equal $\alpha$. In the four cases these ratios are
+\begin{equation}\label{eq:ratios}
+ \frac{\beta}{t},\qquad \frac{t}{\overline\beta},\qquad
+ \frac{\overline\beta}{t},\qquad \frac{t}{\beta},
+ \quad\text{respectively}.
+\end{equation}
+Since $|\alpha|=|\beta|=1$, necessarily $t=1$.
+The holomorphic cases therefore require $\alpha=\beta$; the
+antiholomorphic cases require $\alpha=\overline\beta$.
+These conditions are sufficient: use the identity or conjugation.
+In particular a self-equivalence cannot be antiholomorphic.
+
+For $\beta=\alpha$, comparison of the remaining coefficients gives
+$c^{2m}=1$ for $cz$, and $c^{2m}=\overline\alpha^{\,2}$ for $c/z$.
+Substitution verifies both identities, proving~\eqref{eq:group}.
+Choose $\zeta=e^{\pi i/m}$ and $c_0^m=\overline\alpha$.
+The maps $r(z)=\zeta z$ and $s(z)=c_0/z$ satisfy
+$r^{2m}=s^2=1$ and $srs=r^{-1}$; their $4m$ distinct maps are
+exactly~\eqref{eq:group}. Among them only the rotations are Euclidean
+isometries, since $c/z$ does not fix infinity.
+\end{proof}
+
+\begin{remark}[Scope of the classification]
+The restriction $d\ge5$ in the equality clause of
+Theorem~\ref{thm:bounds} is necessary: in degree four,
+$\Rea(z^4)=1$ also attains the rotation bound and is not in the
+$m=2$ family, since its normalization has genus three rather than two.
+For fixed $m\ge2$, the parameters $\alpha=e^{i\theta}$,
+$0<\theta<\pi$, give pairwise fully M\"obius-inequivalent examples.
+If $\alpha$ is algebraic, all the maps in~\eqref{eq:group} have
+algebraic coefficients. These are explicit consequences of the
+classification, not separate finiteness or descent theorems.
+\end{remark}
+
+\begin{thebibliography}{9}
+\raggedright % chktex 1
+\bibitem{LRG}
+P.~Lebmeir and J.~Richter-Gebert,
+\emph{Rotations, translations and symmetry detection for complexified curves},
+Computer Aided Geometric Design \textbf{25} (2008), 707--719.
+\href{https://doi.org/10.1016/j.cagd.2008.09.004}{doi:10.1016/j.cagd.2008.09.004}.
+Author manuscript:
+\href{https://science-to-touch.com/Articles/jrg/53_VorauPaper.pdf}{Section~4}.
+
+\bibitem{Lebmeir}
+P.~M.~Lebmeir,
+\emph{Feature Detection for Real Plane Algebraic Curves},
+doctoral thesis, Technische Universit\"at M\"unchen, 2009.
+\href{https://mediatum.ub.tum.de/doc/681056/512338.pdf}{Repository PDF}.
+
+\bibitem{PZ}
+J.~Pach and F.~de Zeeuw,
+\emph{Distinct distances on algebraic curves in the plane},
+\href{https://arxiv.org/abs/1308.0177v3}{arXiv:1308.0177v3} (2014),
+Lemma~2.6.
+
+\bibitem{ALVv1}
+J.~G.~Alc\'azar, M.~L\'avi\v cka and J.~Vr\v sek,
+\emph{Symmetries and similarities of planar algebraic curves using
+harmonic polynomials},
+\href{https://arxiv.org/abs/1801.09962v1}{arXiv:1801.09962v1} (2018),
+Lemma~9. A journal article with this title appeared in
+Journal of Computational and Applied Mathematics \textbf{357} (2019),
+302--318, \href{https://doi.org/10.1016/j.cam.2019.02.036}{doi:10.1016/j.cam.2019.02.036};
+the comparison here is with the arXiv version only.
+\end{thebibliography}
+\end{document}
