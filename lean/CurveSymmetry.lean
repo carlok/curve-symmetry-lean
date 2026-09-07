@@ -38,5 +38,8 @@ import FamilyMobiusPullback
 import FamilyBidegree
 import FamilyGlobalTransport
 import HomogeneousDifferential
+import PolynomialDifferential
+import HomogeneousCharts
+import FamilyGlobalSingularities
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -1,4 +1,4 @@
-# Lean port: Theorem 1 checked; ambient Möbius completeness still pending
+# Lean port: Theorem 1 and ambient four-form completeness checked
 
 Date: 2026-09-06. All clauses of Theorem 1 are checked: both symmetry upper
 bounds, finiteness, sharpness in every degree, the normalized equality
@@ -140,37 +140,41 @@ dependency through that classification.
 - [FamilyBidegree.lean](FamilyBidegree.lean) strengthens this to **nonzero
   scalar proportionality**. It proves both separate affine degrees are exactly
   `m+1`, bounds the corresponding degrees of any matrix pullback, and rules
-  out an identically zero pullback using density on the sphere. Global
-  singularity transport remains pending.
+  out an identically zero pullback using density on the sphere.
 - [FamilyGlobalTransport.lean](FamilyGlobalTransport.lean) extends the scalar
   identity to all homogeneous coordinates and proves that arbitrary Möbius
   or anti-Möbius spherical inclusion transports the entire constructed
   product-projective zero locus, including its boundary. One-sided inclusion
-  therefore already gives exact spherical equivalence. This still does not
-  prove invariance of an intrinsic singularity condition.
+  therefore already gives exact spherical equivalence.
 - [HomogeneousDifferential.lean](HomogeneousDifferential.lean) defines vanishing
   of the homogeneous equation and its complex differential using `HasFDerivAt`,
   proves independence from homogeneous representatives, and derives invariance
-  under both orientations from actual spherical inclusion. Its equivalence to
-  the computed chart Jacobians, hence its identification with the singular pair,
-  is still unproved. No nondifferentiability default is used.
+  under both orientations from actual spherical inclusion. No
+  nondifferentiability default is used.
+- [PolynomialDifferential.lean](PolynomialDifferential.lean) identifies formal
+  partial derivatives with the actual differential in any finite coordinate
+  space and proves equivalence with the existing chart-Jacobian predicate.
+- [HomogeneousCharts.lean](HomogeneousCharts.lean) proves that the homogeneous
+  differential condition is equivalent to its dehomogenized counterpart, using
+  differentiable local normalization and nonzero denominators. It connects the
+  affine, reciprocal, and mixed family equations to this condition.
+- [FamilyGlobalSingularities.lean](FamilyGlobalSingularities.lean) gives the
+  exact global Jacobian locus, handles the other mixed corner by factor
+  exchange, derives preservation of `0,∞`, and proves both ambient completeness
+  statements for `m ≥ 2`. These statements start from actual spherical
+  containment, with no assumed map form or pair preservation.
 - [MobiusPair.lean](MobiusPair.lean) proves the standard matrix reduction to
   dilation or inversion **if** the pair `0,∞` is preserved, including exact
-  actions at zero and infinity. Proving that an arbitrary equivalence of these
-  curves preserves the pair is still the main missing global step; this helper
-  does not conceal it as a hypothesis in an advertised completeness theorem.
+  actions at zero and infinity. The required hypothesis is now derived in
+  `family_mobius_preserves_pair` before this helper is applied.
 
 ## Remaining proof obligations
 
-1. **Ambient Möbius completeness.** Complete the Zariski-closure and intrinsic
-   singularity interfaces for the constructed `P¹ × P¹` zero locus. The scalar
-   identity and both orientations of global zero-locus transport are proved;
-   the representative-independent homogeneous differential condition is also
-   invariant. Next connect that condition to the four chart Jacobians and
-   prove that the resulting equivalence transports the singular pair,
-   then apply the checked matrix reduction. This global bridge is not yet
-   checked and must not be hidden in a theorem hypothesis advertised as the
-   complete classification.
+1. **Closure identification.** The ambient four-form completeness theorem is
+   proved. Identifying the constructed projective zero locus with the Zariski
+   closure remains G01 in the coverage ledger. The proof of completeness does
+   not assume this pending identification. Sprint 2 is not marked wholly
+   complete while that recorded obligation remains.
 2. **Sphere group and genus.** Establish the actual sphere actions, the
    dihedral group of order `4m`, and the complete holomorphic/antiholomorphic
    parameter-equivalence statements. The local tangent-cone data are checked,

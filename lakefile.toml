@@ -55,5 +55,8 @@ roots = [
   "FamilyBidegree",
   "FamilyGlobalTransport",
   "HomogeneousDifferential",
+  "PolynomialDifferential",
+  "HomogeneousCharts",
+  "FamilyGlobalSingularities",
   "CurveSymmetry",
 ]
