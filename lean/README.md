@@ -148,6 +148,12 @@ dependency through that classification.
   product-projective zero locus, including its boundary. One-sided inclusion
   therefore already gives exact spherical equivalence. This still does not
   prove invariance of an intrinsic singularity condition.
+- [HomogeneousDifferential.lean](HomogeneousDifferential.lean) defines vanishing
+  of the homogeneous equation and its complex differential using `HasFDerivAt`,
+  proves independence from homogeneous representatives, and derives invariance
+  under both orientations from actual spherical inclusion. Its equivalence to
+  the computed chart Jacobians, hence its identification with the singular pair,
+  is still unproved. No nondifferentiability default is used.
 - [MobiusPair.lean](MobiusPair.lean) proves the standard matrix reduction to
   dilation or inversion **if** the pair `0,∞` is preserved, including exact
   actions at zero and infinity. Proving that an arbitrary equivalence of these
@@ -159,7 +165,9 @@ dependency through that classification.
 1. **Ambient Möbius completeness.** Complete the Zariski-closure and intrinsic
    singularity interfaces for the constructed `P¹ × P¹` zero locus. The scalar
    identity and both orientations of global zero-locus transport are proved;
-   next prove that the resulting equivalence transports the singular pair,
+   the representative-independent homogeneous differential condition is also
+   invariant. Next connect that condition to the four chart Jacobians and
+   prove that the resulting equivalence transports the singular pair,
    then apply the checked matrix reduction. This global bridge is not yet
    checked and must not be hidden in a theorem hypothesis advertised as the
    complete classification.

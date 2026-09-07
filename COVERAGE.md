@@ -62,7 +62,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | G02 | Strict transform `H(t,Y)`; coprime coefficients; irreducibility descends | **Proved:** [FamilyQuadratic](lean/FamilyQuadratic.lean), [Blowup](lean/Blowup.lean), [FamilyIrreducibility](lean/FamilyIrreducibility.lean). Eisenstein replaces the paper's rational-function nonsquare argument for irreducibility. | baseline |
 | G03 | Only affine Jacobian singularity is the origin; same at the reciprocal chart | **Proved:** [FamilySingularities](lean/FamilySingularities.lean), using formal partial derivatives. | baseline |
 | G04 | Three denominator-clearing chart identities; mixed corners nonsingular | **Proved local identities:** [FamilyCharts](lean/FamilyCharts.lean). [FamilyProjective](lean/FamilyProjective.lean) now connects all four equations to homogeneous coordinates and classifies points with an infinity coordinate. Compatibility with the intrinsic global singularity notion remains. | 2 |
-| G05 | Singular pair exactly `(0,0),(∞,∞)` on the global curve | **Partial:** G03–G04; construct the global object and prove the complete chart/invariant-singularity interface. | 2 |
+| G05 | Singular pair exactly `(0,0),(∞,∞)` on the global curve | **Partial:** G03–G04; [HomogeneousDifferential](lean/HomogeneousDifferential.lean) now proves representative independence and both orientations of transport for vanishing of the homogeneous equation and its complex differential. Equivalence to the four chart Jacobians and the resulting exact pair classification remain unproved. | 2 |
 | G06 | Both points ordinary `m`-fold, with the displayed tangent cones and `m` distinct tangent directions | **Partial:** lowest homogeneous terms and separable dehomogenized binary forms in [FamilyCharts](lean/FamilyCharts.lean). Need projective direction count, multiplicity, and geometric ordinary-point interface. | 4 |
 | G07 | Normalization is the quadratic function-field/double-cover model | **Open:** actual normalization/birational identification; polynomial irreducibility does not supply this by itself. | 4 |
 | G08 | Cover has exactly `2m+2` simple branch points, including `0,∞`; defining rational function is not a square | **Partial:** coefficient coprimality and polynomial separability are available. Valuations, ramification, the degree-two map, and all branch cases remain. | 4 |
@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds six mathematical modules, for 40 Lean files
+Sprint 2 currently adds seven mathematical modules, for 41 Lean files
 including the aggregate. Its conditional pair-stabilizer lemma is deliberately
 not used to relabel T2.2 as proved. Sprints 4–7 and the full-port objective are
 unchanged.
