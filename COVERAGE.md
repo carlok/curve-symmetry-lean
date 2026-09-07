@@ -68,7 +68,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | G08 | Cover has exactly `2m+2` simple branch points, including `0,∞`; defining rational function is not a square | **Partial:** coefficient coprimality and polynomial separability are available. Valuations, ramification, the degree-two map, and all branch cases remain. | 4 |
 | G09 | Riemann–Hurwitz for that cover and geometric genus `m` | **Open:** prove missing foundations, not an assumed formula or numerical genus definition. | 4 |
 | G10 | Every positive-radius circle meets the family in exactly `2m` points | **Partial:** `family_point_of_norm` proves existence, hence infinitude/noncircle. Exact cardinality and the angle-modulo-period interpretation remain. | 4 |
-| G11 | Equivalence of spherical real loci induces the product-projective complex equivalence | **Partial:** `sphericalFamily_projective_iff`, `sphereRealDiagonal_action`, and `sphereRealDiagonal_anti_action` connect actual closure and product actions, including infinity. `family_mobius_proportional` proves the nonzero scalar polynomial identity from arbitrary-matrix spherical inclusion, without a no-poles assumption. Global complex transport and intrinsic singularity invariance are still pending. | 2 |
+| G11 | Equivalence of spherical real loci induces the product-projective complex equivalence | **Proved for the constructed bihomogeneous zero loci:** `family_mobius_complex_transport` and `family_anti_mobius_complex_transport` in [FamilyGlobalTransport](lean/FamilyGlobalTransport.lean) cover all projective points, including boundary charts, starting even from one-sided spherical inclusion. The affine scalar identity extends to homogeneous coordinates by polynomial continuity on complex vector spaces; no unproved topology on projectivization is used. G01's Zariski-closure identification and G05's intrinsic singularity interface remain separate obligations. | 2 |
 | G12 | Coefficient ratios in the four cases force scale one and the parameter tests | **Proved polynomial calculations:** [FamilyTransport](lean/FamilyTransport.lean). Their sphere-action application is T2.2–T2.7, not already proved by the calculation. | baseline, 3 |
 | G13 | Dihedral generators and relations; only the first map family is Euclidean | **Open:** actual actions at infinity and the exact-group interface, as in T2.5–T2.6. | 3 |
 
@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds five mathematical modules, for 39 Lean files
+Sprint 2 currently adds six mathematical modules, for 40 Lean files
 including the aggregate. Its conditional pair-stabilizer lemma is deliberately
 not used to relabel T2.2 as proved. Sprints 4–7 and the full-port objective are
 unchanged.

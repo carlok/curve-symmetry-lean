@@ -36,5 +36,6 @@ import FamilyProjective
 import MobiusPair
 import FamilyMobiusPullback
 import FamilyBidegree
+import FamilyGlobalTransport
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

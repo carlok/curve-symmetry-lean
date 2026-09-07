@@ -142,6 +142,12 @@ dependency through that classification.
   `m+1`, bounds the corresponding degrees of any matrix pullback, and rules
   out an identically zero pullback using density on the sphere. Global
   singularity transport remains pending.
+- [FamilyGlobalTransport.lean](FamilyGlobalTransport.lean) extends the scalar
+  identity to all homogeneous coordinates and proves that arbitrary Möbius
+  or anti-Möbius spherical inclusion transports the entire constructed
+  product-projective zero locus, including its boundary. One-sided inclusion
+  therefore already gives exact spherical equivalence. This still does not
+  prove invariance of an intrinsic singularity condition.
 - [MobiusPair.lean](MobiusPair.lean) proves the standard matrix reduction to
   dilation or inversion **if** the pair `0,∞` is preserved, including exact
   actions at zero and infinity. Proving that an arbitrary equivalence of these
@@ -151,9 +157,9 @@ dependency through that classification.
 ## Remaining proof obligations
 
 1. **Ambient Möbius completeness.** Complete the Zariski-closure and intrinsic
-   singularity interfaces for the constructed `P¹ × P¹` zero locus. Extend
-   the proved nonzero scalar pullback identity across all projective charts,
-   prove that the resulting global equivalence transports the singular pair,
+   singularity interfaces for the constructed `P¹ × P¹` zero locus. The scalar
+   identity and both orientations of global zero-locus transport are proved;
+   next prove that the resulting equivalence transports the singular pair,
    then apply the checked matrix reduction. This global bridge is not yet
    checked and must not be hidden in a theorem hypothesis advertised as the
    complete classification.
@@ -191,7 +197,7 @@ Verification environment:
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 
-The script compiles all 38 mathematical modules and the aggregate import with
+The script compiles all 39 mathematical modules and the aggregate import with
 warnings treated as errors. In addition to the selected endpoint reports,
 `verification/Audit.lean` checks every `CurveSymmetry` declaration, including
 private names, against only `propext`, `Classical.choice`, and `Quot.sound`.

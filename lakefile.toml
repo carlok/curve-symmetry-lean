@@ -53,5 +53,6 @@ roots = [
   "MobiusPair",
   "FamilyMobiusPullback",
   "FamilyBidegree",
+  "FamilyGlobalTransport",
   "CurveSymmetry",
 ]
