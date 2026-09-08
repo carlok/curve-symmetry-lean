@@ -12,6 +12,7 @@ genus belong to the later, still incomplete sprints.
 | `20d30663821b13484d4a6ca89cde4ea3520d32ed` | [34049153247](https://github.com/carlok/curve-symmetry-lean/actions/runs/34049153247) | Success |
 | `26c1f1fbc153f330f3a8ff2624ccc79bd63f948f` | [34085192057](https://github.com/carlok/curve-symmetry-lean/actions/runs/34085192057) | Success |
 | `35573d31255a8d4b202679c19239a9b10ce10b95` | [34086041192](https://github.com/carlok/curve-symmetry-lean/actions/runs/34086041192) | Success |
+| `b1869904449847c603ffb774ed17721b711b38cb` | [34156010492](https://github.com/carlok/curve-symmetry-lean/actions/runs/34156010492) | Success |
 
 The first checkpoint added the actual spherical closure, standard projective
 action, bihomogeneous family, conditional pair-stabilizer classification, and
@@ -51,8 +52,19 @@ The new endpoints require `m ≥ 2` and nonreal parameters. They need neither
 unit-modulus normalization nor an assumed matrix shape. Their selected axiom
 reports pass. The complete 44-file build passed warnings-as-errors on
 2026-09-07; all 722 declarations passed the permitted-axiom audit. All six
-package tests and `git diff --check` pass. Linux verification of this checkpoint
-will follow its scoped commit. The TeX and PDF hashes remain unchanged.
+package tests and `git diff --check` pass. Linux verification passed at the
+revision recorded above. The TeX and PDF hashes remain unchanged.
+
+The affine-closure checkpoint adds `AffineClosure.lean`, using Mathlib's
+`MvPolynomial.vanishingIdeal`, `PrimeSpectrum`, and its existing Zariski
+topology. It proves the exact principal vanishing ideal, its complex-point
+zero locus, and the actual affine spectral closure. All selected endpoints
+pass the permitted-axiom audit. The full 45-file build passed warnings-as-errors
+on 2026-09-08; all 732 declarations passed the axiom allowlist. The six package
+tests and `git diff --check` pass; TeX and PDF hashes remain unchanged. Private
+Linux verification will follow this checkpoint's commit. Projective
+boundary closure is explicitly still open; no topology or closure definition
+has been chosen to make that missing assertion tautological.
 
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No

@@ -58,5 +58,6 @@ roots = [
   "PolynomialDifferential",
   "HomogeneousCharts",
   "FamilyGlobalSingularities",
+  "AffineClosure",
   "CurveSymmetry",
 ]

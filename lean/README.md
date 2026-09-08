@@ -167,12 +167,18 @@ dependency through that classification.
   dilation or inversion **if** the pair `0,∞` is preserved, including exact
   actions at zero and infinity. The required hypothesis is now derived in
   `family_mobius_preserves_pair` before this helper is applied.
+- [AffineClosure.lean](AffineClosure.lean) proves that the real diagonal points
+  generate exactly the principal vanishing ideal of an irreducible plane curve
+  with infinite real locus. It gives the complex-point algebraic closure and
+  the actual Zariski closure in Mathlib's affine prime spectrum. This is not
+  yet the projective boundary-closure theorem.
 
 ## Remaining proof obligations
 
 1. **Closure identification.** The ambient four-form completeness theorem is
-   proved. Identifying the constructed projective zero locus with the Zariski
-   closure remains G01 in the coverage ledger. The proof of completeness does
+   proved. Affine Zariski closure is now checked; identifying the constructed
+   projective zero locus with the full projective closure remains G01 in the
+   coverage ledger. The proof of completeness does
    not assume this pending identification. Sprint 2 is not marked wholly
    complete while that recorded obligation remains.
 2. **Sphere group and genus.** Establish the actual sphere actions, the

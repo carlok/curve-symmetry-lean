@@ -41,5 +41,6 @@ import HomogeneousDifferential
 import PolynomialDifferential
 import HomogeneousCharts
 import FamilyGlobalSingularities
+import AffineClosure
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
