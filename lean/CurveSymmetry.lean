@@ -42,5 +42,6 @@ import PolynomialDifferential
 import HomogeneousCharts
 import FamilyGlobalSingularities
 import AffineClosure
+import ProjectiveBoundary
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

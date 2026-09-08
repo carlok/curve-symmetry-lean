@@ -66,6 +66,15 @@ Linux verification will follow this checkpoint's commit. Projective
 boundary closure is explicitly still open; no topology or closure definition
 has been chosen to make that missing assertion tautological.
 
+The short boundary checkpoint adds `ProjectiveBoundary.lean`: the complement
+of the standard affine chart on the constructed curve consists exactly of
+`(∞,0)`, `(0,∞)`, and `(∞,∞)`. The new module and aggregate compile with
+warnings-as-errors; the full imported namespace audit passes for 738
+declarations. The source/dependency preflight passes for 46 files and all nine
+pins. This was an incremental local build, not a fresh rebuild of every file.
+The next target is closure membership of the smooth mixed corner; the boundary
+decomposition itself does not discharge any closure-membership assertion.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

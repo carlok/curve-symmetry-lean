@@ -172,6 +172,10 @@ dependency through that classification.
   with infinite real locus. It gives the complex-point algebraic closure and
   the actual Zariski closure in Mathlib's affine prime spectrum. This is not
   yet the projective boundary-closure theorem.
+- [ProjectiveBoundary.lean](ProjectiveBoundary.lean) identifies the complement
+  of the standard affine chart on the curve as exactly `(∞,0)`, `(0,∞)`,
+  and `(∞,∞)`. It isolates the next closure targets without assuming that any
+  of them belongs to the required closure.
 
 ## Remaining proof obligations
 

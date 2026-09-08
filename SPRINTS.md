@@ -65,6 +65,11 @@ derive singular-pair preservation and the four possible map forms.
 Gate: completeness for arbitrary Möbius/anti-Möbius equivalences, with neither
 pair preservation nor the four-form reduction assumed.
 
+Next bounded target: prove closure membership of the smooth mixed boundary
+point `(∞,0)`, then transfer to `(0,∞)` by factor exchange. The exact boundary
+classification is checked; `(∞,∞)` and the projective Zariski-chart interface
+remain separate obligations.
+
 ## Sprint 3 — complete the ambient symmetry theorem
 
 Combine completeness with the exact coefficient filters. Prove the sphere
