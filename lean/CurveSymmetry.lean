@@ -44,5 +44,6 @@ import FamilyGlobalSingularities
 import AffineClosure
 import ProjectiveBoundary
 import MixedCornerClosure
+import ReciprocalCornerClosure
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

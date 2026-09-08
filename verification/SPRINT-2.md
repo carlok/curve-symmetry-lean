@@ -96,6 +96,26 @@ existing dependencies, not a fresh full rebuild. Source preflight passed for
 Next: the reciprocal chart at `(∞,∞)` with both axes deleted. G01 stays partial;
 neither the TeX nor the Palomar contract has been changed.
 
+The reciprocal-corner checkpoint adds `ReciprocalCornerClosure.lean` and
+generalizes the previous deleted-axis lemma to a divisor containing no
+irreducible component of the equation. Neither coordinate divides the
+reciprocal equation: evaluation at `(0,1)` and `(1,0)` gives `1`. Primality of
+irreducible factors therefore permits deleting the product of both coordinates.
+The complex-point density theorem places `(0,0)` of the reciprocal chart in
+the Zariski closure of its complex points with both coordinates nonzero.
+This holds for every `m > 0` and every complex parameter, without smoothness
+or irreducibility assumptions on the curve. Projective gluing is not claimed.
+
+The changed mixed module, new reciprocal module, and aggregate passed
+warnings-as-errors on 2026-09-08. The full imported namespace audit passed for
+755 declarations with the three permitted axioms. This was an incremental
+local build, not a full rebuild. Preflight passed for 48 files and nine exact
+dependency pins; six package tests and `git diff --check` passed. The TeX and
+PDF retain their migration hashes. Linux CI for the preceding mixed checkpoint
+was still running when checked; no new Linux success is asserted here.
+Next bounded target: the other mixed corner's explicit factor-exchange chart.
+G01 remains partial and all later sprint gates remain unchanged.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

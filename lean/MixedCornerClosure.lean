@@ -22,18 +22,16 @@ private theorem irreducible_factor_in_prime (p : PrimeSpectrum BPoly) (F : BPoly
       · obtain ⟨q, hq, hqa, hqI⟩ := ih ha haI
         exact ⟨q, hq, dvd_mul_of_dvd_right hqa i, hqI⟩
 
-/-- Deleting an irreducible coordinate divisor not dividing the equation
-does not change the hypersurface's Zariski closure. This argument also allows
-reducible equations: each component's generic point avoids the deleted axis. -/
-theorem hypersurface_deleted_axis_closure (F u : BPoly) (hu : Irreducible u)
-    (hnot : ¬ u ∣ F) :
+/-- Removing a divisor containing no component preserves the hypersurface's
+Zariski closure, including when the equation or removed divisor is reducible. -/
+theorem hypersurface_deleted_divisor_closure (F u : BPoly) (hF0 : F ≠ 0)
+    (havoid : ∀ q : BPoly, Irreducible q → q ∣ F → ¬ q ∣ u) :
     closure (PrimeSpectrum.zeroLocus ({F} : Set BPoly) ∩
       {p : PrimeSpectrum BPoly | u ∉ p.asIdeal}) =
       PrimeSpectrum.zeroLocus ({F} : Set BPoly) := by
   apply Set.Subset.antisymm
   · exact closure_minimal Set.inter_subset_left (PrimeSpectrum.isClosed_zeroLocus _)
   · intro p hp
-    have hF0 : F ≠ 0 := by intro h; apply hnot; simp [h]
     have hpF : F ∈ p.asIdeal := hp (Set.mem_singleton F)
     obtain ⟨q, hq, hqF, hqp⟩ := irreducible_factor_in_prime p F hF0 hpF
     let η : PrimeSpectrum BPoly := ⟨Ideal.span {q}, Ideal.isPrime_span_singleton_of_prime hq.prime⟩
@@ -45,12 +43,23 @@ theorem hypersurface_deleted_axis_closure (F u : BPoly) (hu : Irreducible u)
         exact Ideal.mem_span_singleton.mpr hqF
       · intro hqu
         have hd : q ∣ u := Ideal.mem_span_singleton.mp hqu
-        exact hnot ((hq.associated_of_dvd hu hd).symm.dvd.trans hqF)
+        exact havoid q hq hqF hd
     have hpη : p ∈ closure ({η} : Set (PrimeSpectrum BPoly)) := by
       rw [PrimeSpectrum.closure_singleton]
       change Ideal.span {q} ≤ p.asIdeal
       exact Ideal.span_le.mpr (Set.singleton_subset_iff.mpr hqp)
     exact closure_mono (Set.singleton_subset_iff.mpr hη) hpη
+
+/-- Specialization to one irreducible deleted divisor. -/
+theorem hypersurface_deleted_axis_closure (F u : BPoly) (hu : Irreducible u)
+    (hnot : ¬ u ∣ F) :
+    closure (PrimeSpectrum.zeroLocus ({F} : Set BPoly) ∩
+      {p : PrimeSpectrum BPoly | u ∉ p.asIdeal}) =
+      PrimeSpectrum.zeroLocus ({F} : Set BPoly) := by
+  apply hypersurface_deleted_divisor_closure F u
+  · intro h; apply hnot; simp [h]
+  · intro q hq hqF hd
+    exact hnot ((hq.associated_of_dvd hu hd).symm.dvd.trans hqF)
 
 lemma coordinate_zero_irreducible : Irreducible (X 0 : BPoly) := by
   have h := (Polynomial.irreducible_X (R := UPoly)).map toNested.symm.toMulEquiv
@@ -119,6 +128,17 @@ lemma punctured_complex_points_image (F u : BPoly) :
 
 /-- The punctured hypersurface is already dense using ordinary complex
 evaluation points; generic spectral points are not being substituted for them. -/
+theorem complex_points_deleted_divisor_closure (F u : BPoly) (hF0 : F ≠ 0)
+    (havoid : ∀ q : BPoly, Irreducible q → q ∣ F → ¬ q ∣ u) :
+    closure (affineSpectrumPoint '' {v : Fin 2 → ℂ | eval v F = 0 ∧ eval v u ≠ 0}) =
+      PrimeSpectrum.zeroLocus ({F} : Set BPoly) := by
+  rw [punctured_complex_points_image,
+    JacobsonSpace.closure_inter_closedPoints_eq_closure,
+    hypersurface_deleted_divisor_closure F u hF0 havoid]
+  exact (PrimeSpectrum.isClosed_zeroLocus _).isLocallyClosed.inter
+    (PrimeSpectrum.basicOpen u).isOpen.isLocallyClosed
+
+/-- Specialization of complex-point density to one irreducible divisor. -/
 theorem punctured_complex_points_closure (F u : BPoly) (hu : Irreducible u)
     (hnot : ¬ u ∣ F) :
     closure (affineSpectrumPoint '' {v : Fin 2 → ℂ | eval v F = 0 ∧ eval v u ≠ 0}) =

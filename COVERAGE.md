@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds thirteen mathematical modules, for 47 Lean files including
+Sprint 2 currently adds fourteen mathematical modules, for 48 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -113,6 +113,8 @@ that the constructed curve is its affine part plus exactly `(∞,0)`, `(0,∞)`,
 and `(∞,∞)`. [MixedCornerClosure](lean/MixedCornerClosure.lean) proves that the
 mixed-chart origin is in the Zariski closure of actual complex evaluation
 points with nonzero first coordinate. It uses Mathlib's prime spectrum and
-Jacobson topology, not a replacement definition of closure. G01 stays partial:
-the reciprocal chart with both axes deleted, factor exchange for the other
-mixed corner, and the affine/projective Zariski-chart interface remain.
+Jacobson topology, not a replacement definition of closure.
+[ReciprocalCornerClosure](lean/ReciprocalCornerClosure.lean) now proves density
+of complex points with both coordinates nonzero in the reciprocal chart,
+including its origin `(∞,∞)`. G01 stays partial: factor exchange for the other
+mixed corner and the affine/projective Zariski-chart interface remain.
