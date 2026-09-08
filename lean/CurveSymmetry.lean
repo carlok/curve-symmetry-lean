@@ -45,5 +45,6 @@ import AffineClosure
 import ProjectiveBoundary
 import MixedCornerClosure
 import ReciprocalCornerClosure
+import OtherMixedCornerClosure
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

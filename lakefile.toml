@@ -62,5 +62,6 @@ roots = [
   "ProjectiveBoundary",
   "MixedCornerClosure",
   "ReciprocalCornerClosure",
+  "OtherMixedCornerClosure",
   "CurveSymmetry",
 ]

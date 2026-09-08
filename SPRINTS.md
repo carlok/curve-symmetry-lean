@@ -69,10 +69,12 @@ The mixed corner now belongs to the Zariski closure of actual complex points
 with nonzero first coordinate in its affine chart (`MixedCornerClosure`).
 This is a chart-level theorem, not yet a projective closure identification.
 The reciprocal chart at `(∞,∞)` now has the corresponding density theorem
-with both axes deleted (`ReciprocalCornerClosure`). Next bounded target:
-transfer the mixed-corner result by factor exchange to `(0,∞)` with its
-explicit chart coordinates. The projective Zariski-chart interface remains
-a separate obligation; G01 is not complete.
+with both axes deleted (`ReciprocalCornerClosure`). `OtherMixedCornerClosure`
+transfers original affine points by `(X,Y) ↦ (1/Y,X)` and proves their chart
+closure contains the corner `(0,∞)`. Next bounded target: the corresponding
+explicit original-affine-point image identities for the first mixed and
+reciprocal charts, preparing a common chart interface. The projective
+Zariski-chart topology and gluing remain separate obligations; G01 is not complete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

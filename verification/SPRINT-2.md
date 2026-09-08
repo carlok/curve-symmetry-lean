@@ -116,6 +116,28 @@ was still running when checked; no new Linux success is asserted here.
 Next bounded target: the other mixed corner's explicit factor-exchange chart.
 G01 remains partial and all later sprint gates remain unchanged.
 
+The other-mixed-corner checkpoint adds `OtherMixedCornerClosure.lean`.
+`other_mixed_zero_iff` proves the chart-equation equivalence with its nonzero
+denominator condition. `other_mixed_affine_points_image` proves that original
+affine points with `Y ≠ 0`, mapped by `(X,Y) ↦ (1/Y,X)`, are exactly the
+punctured second mixed chart. The two closure endpoints use this explicit
+image identity, so their source sets are original affine curve points.
+The chart origin representing `(0,∞)` belongs to their affine spectral closure
+for every `m > 0` and every complex parameter. Global projective gluing is
+still not claimed.
+
+The new module and aggregate passed warnings-as-errors on 2026-09-08; the full
+imported namespace audit passed for 759 declarations with the three permitted
+axioms. This was an incremental local build. Preflight passed for 49 files
+and nine dependency pins; all six package tests and `git diff --check` passed.
+TeX and PDF hashes are unchanged. The preceding reciprocal checkpoint
+`e19539989f7fbfc9d1be4da6a5c8bc7d4a69d29f` passed private Linux CI
+([run 34224646788](https://github.com/carlok/curve-symmetry-lean/actions/runs/34224646788));
+the superseded mixed-only run was cancelled. CI of the present checkpoint
+is pending. Next: the analogous original-affine-point image identities for
+the first mixed and reciprocal charts. Projective topology/gluing and G01
+remain open; ordinary CI is not a Palomar dry run.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
