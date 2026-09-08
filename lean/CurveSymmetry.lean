@@ -43,5 +43,6 @@ import HomogeneousCharts
 import FamilyGlobalSingularities
 import AffineClosure
 import ProjectiveBoundary
+import MixedCornerClosure
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

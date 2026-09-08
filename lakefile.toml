@@ -60,5 +60,6 @@ roots = [
   "FamilyGlobalSingularities",
   "AffineClosure",
   "ProjectiveBoundary",
+  "MixedCornerClosure",
   "CurveSymmetry",
 ]

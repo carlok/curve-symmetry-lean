@@ -65,10 +65,12 @@ derive singular-pair preservation and the four possible map forms.
 Gate: completeness for arbitrary Möbius/anti-Möbius equivalences, with neither
 pair preservation nor the four-form reduction assumed.
 
-Next bounded target: prove closure membership of the smooth mixed boundary
-point `(∞,0)`, then transfer to `(0,∞)` by factor exchange. The exact boundary
-classification is checked; `(∞,∞)` and the projective Zariski-chart interface
-remain separate obligations.
+The mixed corner now belongs to the Zariski closure of actual complex points
+with nonzero first coordinate in its affine chart (`MixedCornerClosure`).
+This is a chart-level theorem, not yet a projective closure identification.
+Next bounded target: the reciprocal chart at `(∞,∞)`, deleting both axes.
+Factor exchange for the other mixed corner and the projective Zariski-chart
+interface remain separate obligations.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

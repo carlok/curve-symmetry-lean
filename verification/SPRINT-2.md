@@ -72,8 +72,29 @@ of the standard affine chart on the constructed curve consists exactly of
 warnings-as-errors; the full imported namespace audit passes for 738
 declarations. The source/dependency preflight passes for 46 files and all nine
 pins. This was an incremental local build, not a fresh rebuild of every file.
-The next target is closure membership of the smooth mixed corner; the boundary
-decomposition itself does not discharge any closure-membership assertion.
+The boundary decomposition itself does not discharge any closure-membership
+assertion. The private Linux build of this checkpoint passed at
+`308f03641a258d5e21e25b5b39c54605f6aa2057`
+([run 34187407886](https://github.com/carlok/curve-symmetry-lean/actions/runs/34187407886)).
+The preceding affine-only run was cancelled when superseded; the successful
+boundary snapshot includes that module too.
+
+The mixed-corner checkpoint adds `MixedCornerClosure.lean`. Deleting an
+irreducible divisor not dividing a hypersurface equation preserves its Zariski
+closure, proved component by component using generic points. Mathlib's
+Nullstellensatz and Jacobson-space theorem then give the same closure using
+actual complex evaluation points. Applied to the mixed chart, this places its
+origin in the closure of points with nonzero first coordinate, for every
+`m > 0` and arbitrary complex coefficients. This is not yet projective gluing.
+
+On 2026-09-08 the new module and aggregate passed warnings-as-errors, and the
+full imported namespace audit passed for 749 declarations with only `propext`,
+`Classical.choice`, and `Quot.sound`. This was an incremental local build using
+existing dependencies, not a fresh full rebuild. Source preflight passed for
+47 files and nine exact dependency pins; all six package tests and
+`git diff --check` passed. Linux verification of this new checkpoint is pending.
+Next: the reciprocal chart at `(∞,∞)` with both axes deleted. G01 stays partial;
+neither the TeX nor the Palomar contract has been changed.
 
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
