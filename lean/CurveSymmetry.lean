@@ -49,5 +49,6 @@ import OtherMixedCornerClosure
 import AffineChartImages
 import ProjectiveChartMaps
 import AffineZariskiTopology
+import InversionDenominators
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
