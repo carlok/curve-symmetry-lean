@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds seventeen mathematical modules, for 51 Lean files including
+Sprint 2 currently adds eighteen mathematical modules, for 52 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -127,7 +127,10 @@ now gives their standard homogeneous chart maps, affine-overlap identities,
 curve-equation interfaces, and exact boundary origins. G01 stays partial:
 the projective Zariski-topology/gluing interface remains. Chart injectivity
 and a four-chart cover are now proved in `ProjectiveChartMaps`, as are exact
-range descriptions by zero/infinity coordinate exclusions. The next interface
-step concerns the affine Zariski topology on complex evaluation points and
-coordinate-divisor open subsets; no open-embedding assertion follows merely
-from the checked set-theoretic range descriptions.
+range descriptions by zero/infinity coordinate exclusions.
+[AffineZariskiTopology](lean/AffineZariskiTopology.lean) equips complex coordinate
+points with the topology induced from the prime spectrum, proves the evaluation
+map is an embedding, proves polynomial nonvanishing sets open, and verifies
+the usual vanishing-ideal closure formula. Its instance is local: no Euclidean
+topology is overwritten. Transition continuity and projective gluing remain;
+the projective chart maps are not yet proved open embeddings.

@@ -78,9 +78,12 @@ chart maps, their affine-overlap identities, curve-equation interfaces, and
 boundary-origin identities. All four maps are now proved injective, and their
 ranges cover the product of projective lines. Their ranges are now identified
 exactly as complements of the relevant zero/infinity coordinate divisors.
-Next bounded target: an affine Zariski-topology interface for complex evaluation
-points and coordinate-divisor open subsets, preparing continuity of chart
-transitions. Projective topology and gluing remain obligations; G01 is not complete.
+`AffineZariskiTopology` now provides the induced complex-point topology, its
+embedding into the prime spectrum, polynomial nonvanishing opens, and the
+usual algebraic closure formula. It does not install a global instance on
+coordinate vectors. Next bounded target: continuity of the coordinate-inversion
+chart transitions on their nonzero domains. Projective topology and gluing
+remain obligations; G01 is not complete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

@@ -216,6 +216,28 @@ the new checkpoint's Linux result is pending. Next: the affine Zariski topology
 on complex evaluation points and coordinate-divisor open subsets, before
 transition continuity and projective gluing. G01 remains incomplete.
 
+The affine-topology checkpoint adds `AffineZariskiTopology.lean`. The topology
+on complex coordinate points is induced by evaluation into Mathlib's prime
+spectrum, with an instance local to the module's theorem section. Evaluation
+is proved injective and a topological embedding. Polynomial nonvanishing sets
+are open, polynomial zero sets closed, and both coordinate-deletion domains
+are open. Most importantly, `affineZariski_closure` identifies closure with
+the common zeros of the full vanishing ideal. The earlier real-diagonal
+spectral density theorem is transferred to actual complex coordinate points.
+No ambient Euclidean instance is changed and no projective topology is yet
+constructed. Next: continuity of inversion transitions on their nonzero domains.
+
+The preceding `c900075b57488244db527fd31003980e9c5a4180` checkpoint passed
+private Linux CI
+([run 34437842010](https://github.com/carlok/curve-symmetry-lean/actions/runs/34437842010)).
+On 2026-09-10 the new module and aggregate passed warnings-as-errors, and all
+815 imported namespace declarations passed the three-axiom allowlist. This
+was an incremental local build with existing dependencies. Preflight passed
+for 52 files and nine pins, six package tests and `git diff --check` passed,
+and the TeX/PDF migration hashes remain unchanged. This checkpoint's private
+Linux CI result is pending; these checks are not a Palomar dry run.
+G01 and the later sprint gates remain incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

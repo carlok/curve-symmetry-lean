@@ -48,5 +48,6 @@ import ReciprocalCornerClosure
 import OtherMixedCornerClosure
 import AffineChartImages
 import ProjectiveChartMaps
+import AffineZariskiTopology
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
