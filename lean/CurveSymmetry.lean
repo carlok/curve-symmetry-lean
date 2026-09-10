@@ -50,6 +50,5 @@ import AffineChartImages
 import ProjectiveChartMaps
 import AffineZariskiTopology
 import InversionDenominators
-import InversionContinuity
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
