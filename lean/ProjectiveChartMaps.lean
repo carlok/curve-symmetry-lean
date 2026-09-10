@@ -147,6 +147,81 @@ theorem projectiveChart_cover (p : ProjectiveLine × ProjectiveLine) :
   · exact Or.inr (Or.inl ⟨![x, y], rfl⟩)
   · exact Or.inr (Or.inr (Or.inr ⟨![x, y], rfl⟩))
 
+/-- The finite chart omits exactly infinity. -/
+theorem affineLinePoint_range (p : ProjectiveLine) :
+    p ∈ Set.range affineLinePoint ↔ p ≠ sphereProjectiveEquiv (∞ : Sphere) := by
+  obtain ⟨u, rfl⟩ := sphereProjectiveEquiv.surjective p
+  cases u using OnePoint.rec with
+  | infty =>
+      constructor
+      · rintro ⟨z, hz⟩
+        change sphereProjectiveEquiv (z : Sphere) = sphereProjectiveEquiv ∞ at hz
+        exact (OnePoint.coe_ne_infty z (sphereProjectiveEquiv.injective hz)).elim
+      · intro h; exact (h rfl).elim
+  | coe z =>
+      constructor
+      · intro _ h
+        exact OnePoint.coe_ne_infty z (sphereProjectiveEquiv.injective h)
+      · intro _; exact ⟨z, rfl⟩
+
+/-- The reciprocal chart omits exactly the finite point zero. -/
+theorem reciprocalLinePoint_range (p : ProjectiveLine) :
+    p ∈ Set.range reciprocalLinePoint ↔ p ≠ affineLinePoint 0 := by
+  constructor
+  · rintro ⟨z, rfl⟩ h
+    obtain ⟨a, ha⟩ := (Projectivization.mk_eq_mk_iff' ℂ _ _ _ _).mp h
+    have h0 := congrFun ha 0
+    simp at h0
+  · intro hp
+    obtain ⟨u, rfl⟩ := sphereProjectiveEquiv.surjective p
+    cases u using OnePoint.rec with
+    | infty => exact ⟨0, rfl⟩
+    | coe z =>
+        have hz : z ≠ 0 := by intro h; subst z; exact hp rfl
+        refine ⟨z⁻¹, ?_⟩
+        rw [reciprocalLinePoint_overlap (inv_ne_zero hz), inv_inv]
+        rfl
+
+private lemma pair_chart_range (f g : ℂ → ProjectiveLine)
+    (p : ProjectiveLine × ProjectiveLine) :
+    p ∈ Set.range (fun w : Fin 2 → ℂ => (f (w 0), g (w 1))) ↔
+      p.1 ∈ Set.range f ∧ p.2 ∈ Set.range g := by
+  constructor
+  · rintro ⟨w, rfl⟩; exact ⟨⟨w 0, rfl⟩, ⟨w 1, rfl⟩⟩
+  · rintro ⟨⟨x, hx⟩, ⟨y, hy⟩⟩
+    exact ⟨![x, y], Prod.ext hx hy⟩
+
+theorem affineProjectiveChart_range (p : ProjectiveLine × ProjectiveLine) :
+    p ∈ Set.range affineProjectiveChart ↔
+      p.1 ≠ sphereProjectiveEquiv (∞ : Sphere) ∧
+      p.2 ≠ sphereProjectiveEquiv (∞ : Sphere) := by
+  unfold affineProjectiveChart
+  rw [pair_chart_range, affineLinePoint_range, affineLinePoint_range]
+
+theorem mixedProjectiveChart_range (p : ProjectiveLine × ProjectiveLine) :
+    p ∈ Set.range mixedProjectiveChart ↔
+      p.1 ≠ affineLinePoint 0 ∧ p.2 ≠ sphereProjectiveEquiv (∞ : Sphere) := by
+  unfold mixedProjectiveChart
+  rw [pair_chart_range, reciprocalLinePoint_range, affineLinePoint_range]
+
+theorem otherMixedProjectiveChart_range (p : ProjectiveLine × ProjectiveLine) :
+    p ∈ Set.range otherMixedProjectiveChart ↔
+      p.1 ≠ sphereProjectiveEquiv (∞ : Sphere) ∧ p.2 ≠ affineLinePoint 0 := by
+  rw [← affineLinePoint_range, ← reciprocalLinePoint_range]
+  constructor
+  · rintro ⟨w, rfl⟩; exact ⟨⟨w 1, rfl⟩, ⟨w 0, rfl⟩⟩
+  · rintro ⟨⟨x, hx⟩, ⟨y, hy⟩⟩
+    exact ⟨![y, x], Prod.ext hx hy⟩
+
+theorem reciprocalProjectiveChart_range (p : ProjectiveLine × ProjectiveLine) :
+    p ∈ Set.range reciprocalProjectiveChart ↔
+      p.1 ≠ affineLinePoint 0 ∧ p.2 ≠ affineLinePoint 0 := by
+  unfold reciprocalProjectiveChart
+  rw [pair_chart_range,
+    reciprocalLinePoint_range, reciprocalLinePoint_range]
+
+#print axioms reciprocalProjectiveChart_range
+#print axioms otherMixedProjectiveChart_range
 #print axioms projectiveChart_cover
 #print axioms reciprocalProjectiveChart_injective
 #print axioms reciprocalProjectiveChart_overlap

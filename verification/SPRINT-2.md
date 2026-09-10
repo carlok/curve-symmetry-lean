@@ -196,6 +196,26 @@ still in progress when checked; this checkpoint's Linux verification is
 pending. Next: exact chart ranges as coordinate-divisor complements. G01
 remains incomplete, as do all later unfinished sprint gates.
 
+The exact-range checkpoint extends `ProjectiveChartMaps.lean`. The affine
+line chart omits precisely infinity and the reciprocal line chart omits
+precisely zero. Accordingly the four product charts omit, respectively,
+the coordinate divisors `(∞,∞)`, `(0,∞)`, `(∞,0)`, and `(0,0)`, where each
+entry specifies the excluded value in that factor, not a single excluded
+point. Both inclusions of each range description are proved with coordinate
+witnesses. These statements do not yet prove the ranges open in a projective
+Zariski topology.
+
+On 2026-09-10 the changed module and aggregate passed warnings-as-errors;
+all 804 imported namespace declarations passed the three-axiom allowlist.
+This was an incremental local build. Preflight passed for 51 files and nine
+pins, six package tests passed, and `git diff --check` passed. TeX/PDF were
+not edited. The preceding `bd13e8f51b6e1f251b1718e8e85c5364498dcc19` checkpoint
+passed private Linux CI
+([run 34436170752](https://github.com/carlok/curve-symmetry-lean/actions/runs/34436170752));
+the new checkpoint's Linux result is pending. Next: the affine Zariski topology
+on complex evaluation points and coordinate-divisor open subsets, before
+transition continuity and projective gluing. G01 remains incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
