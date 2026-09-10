@@ -238,18 +238,6 @@ and the TeX/PDF migration hashes remain unchanged. This checkpoint's private
 Linux CI result is pending; these checks are not a Palomar dry run.
 G01 and the later sprint gates remain incomplete.
 
-The denominator checkpoint adds `InversionDenominators.lean`. For either
-coordinate, substitution of its inverse into any polynomial admits a polynomial
-numerator after multiplication by a power of that coordinate. The proof is by
-polynomial induction, with nonzero denominators required throughout. It yields
-an exact zero-set equivalence on the inversion domain; this is not yet continuity.
-On 2026-09-10 the new module and aggregate passed warnings-as-errors, and all
-827 namespace declarations passed the three-axiom audit. Incremental local
-build only; 53-file/nine-pin preflight, six tests, and `git diff --check` passed.
-The previous `73b8cd4161fb4e4a3ffa588cce8148c23a338e41` private Linux snapshot
-passed ([run 34459221322](https://github.com/carlok/curve-symmetry-lean/actions/runs/34459221322)).
-The denominator checkpoint's Linux result is not yet available. TeX unchanged.
-
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
