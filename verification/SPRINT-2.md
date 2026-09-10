@@ -250,6 +250,25 @@ The previous `73b8cd4161fb4e4a3ffa588cce8148c23a338e41` private Linux snapshot
 passed ([run 34459221322](https://github.com/carlok/curve-symmetry-lean/actions/runs/34459221322)).
 The denominator checkpoint's Linux result is not yet available. TeX unchanged.
 
+The inversion-continuity checkpoint adds `InversionContinuity.lean`, using
+the denominator result from `128b416`. Preimages of arbitrary Zariski closed
+sets are proved closed by expressing them as intersections of polynomial
+zero sets and clearing each denominator. `continuous_invertCoordinate`
+works on either coordinate's nonzero domain; `coordinateInversionHomeomorph`
+upgrades it to an involutive homeomorphism of that domain, with its Zariski
+subspace topology. Euclidean continuity is not substituted for this proof.
+No assertion about an ambient projective open embedding has been added.
+
+On 2026-09-10 both new modules and the aggregate compiled with warnings-as-errors.
+The final imported namespace audit passed for 835 declarations with only
+`propext`, `Classical.choice`, and `Quot.sound`. These were incremental local
+builds. The 54-file/nine-pin preflight, six tests, and `git diff --check` passed;
+TeX/PDF migration hashes are unchanged. Both new commits' private Linux
+verification is pending, and no Palomar dry run is claimed.
+
+Next: coordinate exchange and simultaneous inversion on the two-coordinate
+nonzero domain, then projective topology/gluing. G01 remains incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

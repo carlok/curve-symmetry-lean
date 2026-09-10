@@ -83,9 +83,11 @@ embedding into the prime spectrum, polynomial nonvanishing opens, and the
 usual algebraic closure formula. It does not install a global instance on
 coordinate vectors. `InversionDenominators` now clears a power of the inverted
 coordinate in any polynomial and identifies the inverse images of polynomial
-zero sets on the nonzero domain. Next bounded target: continuity of these
-inversion transitions. Projective topology and gluing
-remain obligations; G01 is not complete.
+zero sets on the nonzero domain. `InversionContinuity` now proves that either
+coordinate inversion is a Zariski homeomorphism of its nonzero-coordinate
+domain. Next bounded target: coordinate exchange and simultaneous inversion
+on the two-coordinate nonzero domain, completing the transition primitives.
+Projective topology and gluing remain obligations; G01 is not complete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 
