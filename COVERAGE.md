@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds fifteen mathematical modules, for 49 Lean files including
+Sprint 2 currently adds sixteen mathematical modules, for 50 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -119,5 +119,8 @@ of complex points with both coordinates nonzero in the reciprocal chart,
 including its origin `(∞,∞)`. [OtherMixedCornerClosure](lean/OtherMixedCornerClosure.lean)
 identifies the image of original affine points under `(X,Y) ↦ (1/Y,X)` with
 the punctured second mixed chart and proves closure membership of its origin
-`(0,∞)`. G01 stays partial: analogous original-point image identities for the
-other two charts and the affine/projective Zariski-chart interface remain.
+`(0,∞)`. [AffineChartImages](lean/AffineChartImages.lean) supplies the analogous
+original-point image and closure identities for the first mixed and reciprocal
+charts. Thus all three boundary charts have closure descriptions sourced from
+original affine points. G01 stays partial: their common projective chart maps,
+overlap identities, and the projective Zariski-topology/gluing interface remain.

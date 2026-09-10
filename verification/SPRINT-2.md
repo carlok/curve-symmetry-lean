@@ -138,6 +138,28 @@ is pending. Next: the analogous original-affine-point image identities for
 the first mixed and reciprocal charts. Projective topology/gluing and G01
 remain open; ordinary CI is not a Palomar dry run.
 
+The original-point chart checkpoint adds `AffineChartImages.lean`. It proves
+exact image identities for `(X,Y) ↦ (1/X,Y)` on `X ≠ 0` and
+`(X,Y) ↦ (1/X,1/Y)` off both axes. The inverse constructions and nonzero
+denominator conditions are explicit. Combining these identities with the
+existing density theorems gives the full affine spectral closure of original
+curve points in each chart, for every `m > 0` and every complex parameter.
+Together with the preceding second mixed chart, all three boundary charts
+now have original-affine-point closure descriptions. This does not construct
+the global projective Zariski topology or prove chart gluing.
+
+The preceding checkpoint `c1c7d08bee8d3d2a07857836c6e547a2ec37f5d9` passed
+private Linux CI
+([run 34276610791](https://github.com/carlok/curve-symmetry-lean/actions/runs/34276610791)).
+On 2026-09-10 the new module and aggregate passed warnings-as-errors, and the
+full imported namespace audit passed for 767 declarations with only the three
+permitted axioms. This was an incremental local build using existing compiled
+dependencies, not a fresh full rebuild. Preflight passed for 50 files and nine
+exact dependency pins; six package tests and `git diff --check` passed. TeX
+and PDF migration hashes are unchanged. This checkpoint's Linux CI is pending.
+Next bounded target: common projective chart maps and their affine-overlap
+identities. G01 and the later sprint gates remain incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
