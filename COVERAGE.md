@@ -125,5 +125,7 @@ charts. Thus all three boundary charts have closure descriptions sourced from
 original affine points. [ProjectiveChartMaps](lean/ProjectiveChartMaps.lean)
 now gives their standard homogeneous chart maps, affine-overlap identities,
 curve-equation interfaces, and exact boundary origins. G01 stays partial:
-chart injectivity and covering, then the projective Zariski-topology/gluing
-interface remain.
+the projective Zariski-topology/gluing interface remains. Chart injectivity
+and a four-chart cover are now proved in `ProjectiveChartMaps`. Exact chart
+range descriptions are the next bounded interface step; the cover does not
+assert that the maps are open embeddings.

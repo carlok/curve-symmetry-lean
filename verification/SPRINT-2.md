@@ -180,6 +180,22 @@ no Linux success for either that snapshot or this new checkpoint is claimed.
 Next bounded target: chart injectivity and coverage of the product of
 projective lines. G01 remains incomplete.
 
+The chart-cover checkpoint extends `ProjectiveChartMaps.lean` without adding
+a module. Both projective-line chart maps and all four product chart maps are
+injective. `projectiveLine_chart_cover` and `projectiveChart_cover` give actual
+coordinate witnesses for every point. The second mixed chart retains its
+ordered coordinates `(1/Y,X)`. These are set-theoretic statements only; the
+cover is not declared open, and no embedding or gluing theorem is assumed.
+
+On 2026-09-10 the changed module and aggregate passed warnings-as-errors;
+the full imported namespace audit passed for 797 declarations with the three
+permitted axioms. This was an incremental local build. Preflight passed for
+51 files and nine dependency pins; six package tests and `git diff --check`
+passed. No TeX/PDF changes were made. The preceding `ac1ed5c` Linux run was
+still in progress when checked; this checkpoint's Linux verification is
+pending. Next: exact chart ranges as coordinate-divisor complements. G01
+remains incomplete, as do all later unfinished sprint gates.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

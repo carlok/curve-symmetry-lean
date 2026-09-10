@@ -75,9 +75,11 @@ closure contains the corner `(0,∞)`. `AffineChartImages` supplies the matching
 original-affine-point image and closure identities for the first mixed and
 reciprocal charts. `ProjectiveChartMaps` constructs the four standard homogeneous
 chart maps, their affine-overlap identities, curve-equation interfaces, and
-boundary-origin identities. Next bounded target: prove these maps are injective
-and their ranges cover the product of projective lines. The projective
-Zariski-chart topology and gluing remain separate obligations; G01 is not complete.
+boundary-origin identities. All four maps are now proved injective, and their
+ranges cover the product of projective lines. Next bounded target: identify
+their ranges exactly as complements of the relevant zero/infinity coordinate
+divisors. The projective Zariski-chart topology and gluing remain separate
+obligations; G01 is not complete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

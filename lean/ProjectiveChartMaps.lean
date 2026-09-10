@@ -84,6 +84,71 @@ theorem projectiveChart_origins :
       (sphereProjectiveEquiv (∞ : Sphere), sphereProjectiveEquiv (∞ : Sphere)) := by
   exact ⟨rfl, rfl, rfl⟩
 
+theorem affineLinePoint_injective : Function.Injective affineLinePoint := by
+  intro x y h
+  change sphereProjectiveEquiv (x : Sphere) = sphereProjectiveEquiv (y : Sphere) at h
+  exact OnePoint.coe_injective (sphereProjectiveEquiv.injective h)
+
+theorem reciprocalLinePoint_injective : Function.Injective reciprocalLinePoint := by
+  intro x y h
+  obtain ⟨a, ha⟩ := (Projectivization.mk_eq_mk_iff' ℂ _ _ _ _).mp h
+  have h0 := congrFun ha 0
+  have h1 := congrFun ha 1
+  simp only [Pi.smul_apply, smul_eq_mul, Matrix.cons_val_zero, mul_one] at h0
+  simpa [h0] using h1.symm
+
+theorem affineProjectiveChart_injective : Function.Injective affineProjectiveChart := by
+  intro v w h
+  have h0 := affineLinePoint_injective (congrArg Prod.fst h)
+  have h1 := affineLinePoint_injective (congrArg Prod.snd h)
+  ext i
+  fin_cases i <;> assumption
+
+theorem mixedProjectiveChart_injective : Function.Injective mixedProjectiveChart := by
+  intro v w h
+  have h0 := reciprocalLinePoint_injective (congrArg Prod.fst h)
+  have h1 := affineLinePoint_injective (congrArg Prod.snd h)
+  ext i
+  fin_cases i <;> assumption
+
+theorem otherMixedProjectiveChart_injective : Function.Injective otherMixedProjectiveChart := by
+  intro v w h
+  have h1 := affineLinePoint_injective (congrArg Prod.fst h)
+  have h0 := reciprocalLinePoint_injective (congrArg Prod.snd h)
+  ext i
+  fin_cases i <;> assumption
+
+theorem reciprocalProjectiveChart_injective : Function.Injective reciprocalProjectiveChart := by
+  intro v w h
+  have h0 := reciprocalLinePoint_injective (congrArg Prod.fst h)
+  have h1 := reciprocalLinePoint_injective (congrArg Prod.snd h)
+  ext i
+  fin_cases i <;> assumption
+
+theorem projectiveLine_chart_cover (p : ProjectiveLine) :
+    (∃ z, affineLinePoint z = p) ∨ (∃ z, reciprocalLinePoint z = p) := by
+  obtain ⟨u, rfl⟩ := sphereProjectiveEquiv.surjective p
+  cases u using OnePoint.rec with
+  | infty => exact Or.inr ⟨0, rfl⟩
+  | coe z => exact Or.inl ⟨z, rfl⟩
+
+/-- Every projective pair has coordinates in one of these four injective
+charts. This set-theoretic cover does not assert open embeddings. -/
+theorem projectiveChart_cover (p : ProjectiveLine × ProjectiveLine) :
+    (∃ w, affineProjectiveChart w = p) ∨
+    (∃ w, mixedProjectiveChart w = p) ∨
+    (∃ w, otherMixedProjectiveChart w = p) ∨
+    (∃ w, reciprocalProjectiveChart w = p) := by
+  rcases p with ⟨p, q⟩
+  rcases projectiveLine_chart_cover p with ⟨x, rfl⟩ | ⟨x, rfl⟩ <;>
+    rcases projectiveLine_chart_cover q with ⟨y, rfl⟩ | ⟨y, rfl⟩
+  · exact Or.inl ⟨![x, y], rfl⟩
+  · exact Or.inr (Or.inr (Or.inl ⟨![y, x], rfl⟩))
+  · exact Or.inr (Or.inl ⟨![x, y], rfl⟩)
+  · exact Or.inr (Or.inr (Or.inr ⟨![x, y], rfl⟩))
+
+#print axioms projectiveChart_cover
+#print axioms reciprocalProjectiveChart_injective
 #print axioms reciprocalProjectiveChart_overlap
 #print axioms projectiveChart_origins
 
