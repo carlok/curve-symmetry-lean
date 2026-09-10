@@ -73,9 +73,11 @@ with both axes deleted (`ReciprocalCornerClosure`). `OtherMixedCornerClosure`
 transfers original affine points by `(X,Y) ↦ (1/Y,X)` and proves their chart
 closure contains the corner `(0,∞)`. `AffineChartImages` supplies the matching
 original-affine-point image and closure identities for the first mixed and
-reciprocal charts. Next bounded target: construct the common projective chart
-maps and prove their affine-overlap identities. The projective Zariski-chart
-topology and gluing remain separate obligations; G01 is not complete.
+reciprocal charts. `ProjectiveChartMaps` constructs the four standard homogeneous
+chart maps, their affine-overlap identities, curve-equation interfaces, and
+boundary-origin identities. Next bounded target: prove these maps are injective
+and their ranges cover the product of projective lines. The projective
+Zariski-chart topology and gluing remain separate obligations; G01 is not complete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

@@ -47,5 +47,6 @@ import MixedCornerClosure
 import ReciprocalCornerClosure
 import OtherMixedCornerClosure
 import AffineChartImages
+import ProjectiveChartMaps
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -64,5 +64,6 @@ roots = [
   "ReciprocalCornerClosure",
   "OtherMixedCornerClosure",
   "AffineChartImages",
+  "ProjectiveChartMaps",
   "CurveSymmetry",
 ]

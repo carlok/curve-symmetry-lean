@@ -160,6 +160,26 @@ and PDF migration hashes are unchanged. This checkpoint's Linux CI is pending.
 Next bounded target: common projective chart maps and their affine-overlap
 identities. G01 and the later sprint gates remain incomplete.
 
+The projective-chart-map checkpoint adds `ProjectiveChartMaps.lean`. Its maps
+use the standard classes `[z:1]` and `[1:z]` in Mathlib's projectivization.
+The identity `[1:z] = [1/z:1]` is proved with `z ≠ 0`; it yields the three
+affine-overlap formulas in precisely the coordinate orders of the preceding
+chart closure statements. Four membership equivalences identify the pulled-back
+projective curve with the checked chart equations. The three chart origins
+are exactly `(∞,0)`, `(0,∞)`, and `(∞,∞)`. No topology is installed by these
+definitions, and no continuity, open embedding, or gluing is asserted.
+
+On 2026-09-10 the new module and aggregate passed warnings-as-errors, and the
+full imported namespace audit passed for 789 declarations with only the three
+permitted axioms. This was an incremental local build. Preflight passed for
+51 files and nine exact dependency pins; six package tests and
+`git diff --check` passed. The TeX and PDF migration hashes are unchanged.
+The preceding `7daaeab` private Linux run was still in progress when checked;
+no Linux success for either that snapshot or this new checkpoint is claimed.
+
+Next bounded target: chart injectivity and coverage of the product of
+projective lines. G01 remains incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
