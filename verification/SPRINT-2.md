@@ -251,6 +251,22 @@ passed private Linux CI
 ([run 34494270359](https://github.com/carlok/curve-symmetry-lean/actions/runs/34494270359)).
 New checkpoint CI is pending; no Palomar dry run is claimed.
 
+The coordinate-exchange checkpoint adds `CoordinateExchange.lean`, building
+on `1f49d05`. Coordinate swap is a Zariski homeomorphism of the plane and of
+the open subset where both coordinates are nonzero. It commutes with factor
+exchange in the affine and reciprocal projective charts; the second mixed
+chart already accounts for the reversed coordinate order. This does not
+restore the reverted inversion results or establish projective open embeddings.
+
+On 2026-09-12 the new module and aggregate passed warnings-as-errors; 837
+namespace declarations passed the three-axiom audit. Incremental local builds
+only; preflight passed for 54 files and nine pins, all six tests passed, and
+`git diff --check` passed. Original TeX/PDF hashes are unchanged. The existing
+user-saved `ONBOARDING.md` is updated and included with this checkpoint.
+Both new checkpoints' private Linux results are pending. Next: resolve the
+rollback decision before proceeding with inverse-coordinate transitions;
+global projective topology/gluing and G01 remain incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

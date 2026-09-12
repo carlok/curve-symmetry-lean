@@ -50,5 +50,6 @@ import AffineChartImages
 import ProjectiveChartMaps
 import AffineZariskiTopology
 import PolynomialZariskiMaps
+import CoordinateExchange
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
