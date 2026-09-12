@@ -316,3 +316,31 @@ The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
 been run. The TeX has not been changed.
+
+## Chart-final topology and real-diagonal closure checkpoint
+
+Two bounded steps, recorded together in the commit adding
+`ProjectiveAtlasTopology.lean` and `ProjectiveAtlasClosure.lean`:
+
+1. Construct the surjective four-chart atlas map and its coinduced topology.
+   Prove every chart continuous and closedness equivalent to closed chart
+   preimages. This construction contains no family equation or parameter.
+2. Prove closedness of the projective family and its exact complex-affine
+   closure for every positive m. For nonreal parameters, prove the stronger
+   real-diagonal closure theorem using affine irreducibility and density.
+
+Both new modules and the aggregate compiled with warnings as errors, reusing
+the installed dependencies. The first step's audit passed 889 declarations;
+the combined audit passed 894, using only `propext`, `Classical.choice`, and
+`Quot.sound`. Preflight passed for 60 files and nine exact dependency revisions;
+all six preflight tests passed. This is an incremental local check, not a
+fresh whole-library rebuild or Palomar verification.
+
+The previous checkpoint `9fb9136` passed private Linux run `34702115711`;
+restoration checkpoint `3164274` also passed (`34701698303`). This new
+checkpoint's Linux result is pending at commit time.
+
+The topology is explicitly the chart-final topology. The remaining G01 gate
+is to prove chart open embeddings and justify its identification with standard
+projective Zariski geometry. No topology identification, completed G01, genus
+theorem, or Palomar readiness is claimed. TeX and PDF remain untouched.

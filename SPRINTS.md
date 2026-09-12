@@ -92,9 +92,11 @@ the exact reciprocal-chart and curve-equation interfaces. `ProjectiveClosureGlui
 combines the chart density results: any chartwise closed set containing the
 affine curve contains the full projective family. It also proves ambient
 closure conditionally on chart continuity and closedness of the family.
-Next target: supply the standard projective Zariski-topology interface and
-discharge those hypotheses. This is not yet an unconditional projective
-closure theorem; G01 remains incomplete.
+`ProjectiveAtlasTopology` now constructs the family-independent chart-final
+topology and discharges chart continuity. `ProjectiveAtlasClosure` proves
+complex-affine and real-diagonal closure in it. Next target: prove the chart
+open embeddings from overlap compatibility and justify identification with
+standard projective Zariski geometry. G01 remains incomplete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

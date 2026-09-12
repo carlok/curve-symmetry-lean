@@ -72,5 +72,7 @@ roots = [
   "InversionContinuity",
   "SimultaneousInversion",
   "ProjectiveClosureGluing",
+  "ProjectiveAtlasTopology",
+  "ProjectiveAtlasClosure",
   "CurveSymmetry",
 ]

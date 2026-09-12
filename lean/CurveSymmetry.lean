@@ -55,5 +55,7 @@ import InversionDenominators
 import InversionContinuity
 import SimultaneousInversion
 import ProjectiveClosureGluing
+import ProjectiveAtlasTopology
+import ProjectiveAtlasClosure
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -34,7 +34,7 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is updated through simultaneous inversion and chartwise closure gluing.
+is updated through the chart-final topology and real-diagonal closure in it.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
@@ -217,10 +217,21 @@ ProjectiveClosureGluing is now checked:
 - family_closed_in_projective_charts: the family satisfies that predicate.
 - family_projective_closure_of_chart_continuity: for ANY ambient topology in which the four chart maps are continuous and the family is closed, the closure of the complex affine curve image is the full projective family.
 
-The last theorem is CONDITIONAL. No standard projective Zariski topology has
-yet been installed or proved to meet these hypotheses. Do not mark G01 complete
-or advertise unconditional global closure. The next task is this topology
-interface, not another repetition of the chart-density or inversion proofs.
+The last theorem is CONDITIONAL, but ProjectiveAtlasTopology now supplies a
+family-independent topology: the final topology of the disjoint union of the
+four standard affine charts, each with its proved affine Zariski topology.
+projectiveAtlas_isClosed_iff identifies closed sets with ClosedInProjectiveCharts;
+projectiveChart_continuous proves continuity of every chart. Instances stay LOCAL.
+ProjectiveAtlasClosure proves family_projectiveAtlas_affine_closure for m>0
+and arbitrary alpha, and family_projectiveAtlas_real_closure for m>0 and
+nonreal alpha. The latter starts from the actual affine real diagonal and
+includes all boundary points, using irreducibility and infinite real locus.
+
+These are unconditional theorems IN THE CHART-FINAL TOPOLOGY. Its identification
+with standard projective Zariski geometry is still pending. Do not mark G01
+complete. Next: use the checked overlap transitions to prove the four charts
+are open embeddings and justify the standard atlas topology, not another
+repetition of the density, inversion, or topology-relative closure proofs.
 The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
 spectrum objects rather than the current Projectivization point type; a bridge
 or a justified standard atlas construction still needs work. Merely declaring
@@ -265,7 +276,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 58 Lean files including the aggregate. Consult the latest
+The current source has 60 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled

@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds twenty-four mathematical modules, for 58 Lean files including
+Sprint 2 currently adds twenty-six mathematical modules, for 60 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -144,6 +144,10 @@ proves the torus homeomorphism and reciprocal-chart compatibility.
 [ProjectiveClosureGluing](lean/ProjectiveClosureGluing.lean) proves chartwise
 minimal closed containment and an ambient closure theorem conditional on
 four continuous charts and closedness of the projective family. G01 remains
-partial: a standard projective Zariski-topology interface satisfying those
-conditions is not yet supplied;
-the projective chart maps are not yet proved open embeddings.
+partial: [ProjectiveAtlasTopology](lean/ProjectiveAtlasTopology.lean) now supplies
+the family-independent final topology of the four affine Zariski charts and
+proves their continuity. [ProjectiveAtlasClosure](lean/ProjectiveAtlasClosure.lean)
+proves the exact closure of both the complex affine curve and (for nonreal
+parameters) its real diagonal in that topology. Identifying this construction
+with standard projective Zariski geometry remains: the projective chart maps
+are not yet proved open embeddings.
