@@ -87,9 +87,14 @@ homeomorphism of the plane and the two-coordinate nonzero domain, and connects
 it to factor exchange in the projective charts. With explicit user approval,
 `InversionDenominators` and `InversionContinuity` are restored: either coordinate
 inversion is a Zariski homeomorphism of its nonzero-coordinate domain.
-Next bounded target: simultaneous inversion on the two-coordinate nonzero
-domain and compatibility with the reciprocal chart transition. Projective topology and gluing
-remain obligations; G01 is not complete.
+`SimultaneousInversion` now proves the two-coordinate torus homeomorphism and
+the exact reciprocal-chart and curve-equation interfaces. `ProjectiveClosureGluing`
+combines the chart density results: any chartwise closed set containing the
+affine curve contains the full projective family. It also proves ambient
+closure conditionally on chart continuity and closedness of the family.
+Next target: supply the standard projective Zariski-topology interface and
+discharge those hypotheses. This is not yet an unconditional projective
+closure theorem; G01 remains incomplete.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

@@ -53,5 +53,7 @@ import PolynomialZariskiMaps
 import CoordinateExchange
 import InversionDenominators
 import InversionContinuity
+import SimultaneousInversion
+import ProjectiveClosureGluing
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

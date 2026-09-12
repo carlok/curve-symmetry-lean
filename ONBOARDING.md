@@ -34,12 +34,13 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is committed with the approved inversion-restoration checkpoint.
+is updated through simultaneous inversion and chartwise closure gluing.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
 - The subsequent CoordinateExchange checkpoint proves the swap homeomorphisms.
 - After those checkpoints the user explicitly approved restoring and re-verifying both inversion steps. They are now reinstated alongside the polynomial-map and coordinate-exchange results.
+- Restoration was committed as 3164274. Subsequent modules SimultaneousInversion and ProjectiveClosureGluing are now checked; see the latest verification report and Git HEAD.
 
 The earlier rollback removed:
 - lean/InversionDenominators.lean
@@ -204,9 +205,26 @@ InversionDenominators and InversionContinuity are now restored:
 - inverse images of polynomial zero sets have polynomial numerators on the nonzero domain;
 - coordinateInversionHomeomorph gives a Zariski homeomorphism for either coordinate's nonzero domain.
 
-The next gap is simultaneous inversion on the two-coordinate nonzero domain
-and its compatibility with the reciprocal chart, followed by projective
-topology/open embeddings/gluing. No projective topology has been installed yet.
+SimultaneousInversion is now checked:
+- simultaneousInversionHomeomorph is a Zariski homeomorphism of the torus;
+- simultaneousInversion_val gives the exact vector (1/X,1/Y);
+- simultaneousInversion_chart matches the affine/reciprocal projective charts;
+- simultaneousInversion_curve matches their curve equations.
+
+ProjectiveClosureGluing is now checked:
+- ClosedInProjectiveCharts S means all four chart preimages of S are affine-Zariski closed. It is a predicate, NOT a topology declaration.
+- family_projective_chart_gluing: if such S contains all complex affine curve points in the projective affine chart, it contains the full constructed projective family, for every m>0 and every complex parameter.
+- family_closed_in_projective_charts: the family satisfies that predicate.
+- family_projective_closure_of_chart_continuity: for ANY ambient topology in which the four chart maps are continuous and the family is closed, the closure of the complex affine curve image is the full projective family.
+
+The last theorem is CONDITIONAL. No standard projective Zariski topology has
+yet been installed or proved to meet these hypotheses. Do not mark G01 complete
+or advertise unconditional global closure. The next task is this topology
+interface, not another repetition of the chart-density or inversion proofs.
+The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
+spectrum objects rather than the current Projectivization point type; a bridge
+or a justified standard atlas construction still needs work. Merely declaring
+a topology to make the family closed does not meet the fidelity requirement.
 
 The individual inversion continuity step is done after explicit approval;
 do not ask again or redo it as a new result. Read the latest verification
@@ -247,7 +265,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 56 Lean files including the aggregate. Consult the latest
+The current source has 58 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled

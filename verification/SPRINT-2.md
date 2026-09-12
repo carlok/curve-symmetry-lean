@@ -285,6 +285,33 @@ no Linux success is asserted for it or this checkpoint. Next: simultaneous
 inversion on the two-coordinate nonzero domain and the reciprocal-chart
 interface. Projective topology/gluing, G01, and the later gates remain open.
 
+The simultaneous-inversion/gluing checkpoint adds two modules:
+
+- `SimultaneousInversion`: restrict both individual inversions to the torus,
+  compose them into an involutive Zariski homeomorphism, and identify its exact
+  vector formula, reciprocal-chart transition, and curve-equation equivalence.
+- `ProjectiveClosureGluing`: prove that any set closed in all four affine
+  charts and containing the affine curve contains the whole projective family.
+  All four chart-density results are used. The family itself is chartwise
+  closed. For any ambient topology satisfying chart continuity and closedness
+  of the family, its affine complex-point closure is consequently the entire
+  family. This ambient theorem is explicitly conditional, not a discharge of
+  the standard projective topology interface.
+
+On 2026-09-12 both modules and the aggregate passed warnings-as-errors; all
+879 namespace declarations passed the three-axiom audit. This was an incremental
+local build. Preflight passed for 58 files and nine pins; six tests and
+`git diff --check` passed. TeX/PDF migration hashes are unchanged. The preceding
+`3164274` Linux run 34701698303 was in progress when checked; new checkpoint
+CI is pending. `ONBOARDING.md` documents the exact conditional boundary.
+
+A targeted installed-source search found the projective-spectrum topology,
+but no ready-made Zariski topology on the current product of Projectivization
+point types. Supplying and justifying that standard topology, with the required
+chart continuity/closedness (and ordinary chart compatibility), remains the
+next obligation. No special topology has been chosen to force the conclusion;
+G01, the rest of the full port, and the Palomar dry run remain incomplete.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

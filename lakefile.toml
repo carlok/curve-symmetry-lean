@@ -70,5 +70,7 @@ roots = [
   "CoordinateExchange",
   "InversionDenominators",
   "InversionContinuity",
+  "SimultaneousInversion",
+  "ProjectiveClosureGluing",
   "CurveSymmetry",
 ]
