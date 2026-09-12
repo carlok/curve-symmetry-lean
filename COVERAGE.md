@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds eighteen mathematical modules, for 52 Lean files including
+Sprint 2 currently adds nineteen mathematical modules, for 53 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -132,5 +132,7 @@ range descriptions by zero/infinity coordinate exclusions.
 points with the topology induced from the prime spectrum, proves the evaluation
 map is an embedding, proves polynomial nonvanishing sets open, and verifies
 the usual vanishing-ideal closure formula. Its instance is local: no Euclidean
-topology is overwritten. Transition continuity and projective gluing remain;
+topology is overwritten. [PolynomialZariskiMaps](lean/PolynomialZariskiMaps.lean)
+proves the substitution identity and continuity of polynomial coordinate maps.
+The reverted inversion modules remain absent. Transition continuity and projective gluing remain;
 the projective chart maps are not yet proved open embeddings.

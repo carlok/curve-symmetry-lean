@@ -219,7 +219,7 @@ Verification environment:
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 
-The script compiles all 51 mathematical modules and the aggregate import with
+The script compiles all 52 mathematical modules and the aggregate import with
 warnings treated as errors. In addition to the selected endpoint reports,
 `verification/Audit.lean` checks every `CurveSymmetry` declaration, including
 private names, against only `propext`, `Classical.choice`, and `Quot.sound`.

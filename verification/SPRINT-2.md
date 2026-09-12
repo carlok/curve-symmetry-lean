@@ -238,6 +238,19 @@ and the TeX/PDF migration hashes remain unchanged. This checkpoint's private
 Linux CI result is pending; these checks are not a Palomar dry run.
 G01 and the later sprint gates remain incomplete.
 
+The polynomial-map checkpoint resumes after rollback `1398e34`, without
+restoring `InversionDenominators` or `InversionContinuity`. It adds
+`PolynomialZariskiMaps.lean`: evaluating after a polynomial coordinate map
+equals polynomial substitution, and inverse images of Zariski closed sets
+are closed. The local Zariski topology instance remains explicit.
+On 2026-09-12 the new module and aggregate compiled with warnings-as-errors;
+820 namespace declarations passed the three-axiom audit. This was an
+incremental local build. Preflight passed for 53 files and nine pins; six
+tests and `git diff --check` passed. Baseline `1398e34951f77a8a54d29fbfdbbb1950608b5a21`
+passed private Linux CI
+([run 34494270359](https://github.com/carlok/curve-symmetry-lean/actions/runs/34494270359)).
+New checkpoint CI is pending; no Palomar dry run is claimed.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet
