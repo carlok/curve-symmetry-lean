@@ -68,5 +68,7 @@ roots = [
   "AffineZariskiTopology",
   "PolynomialZariskiMaps",
   "CoordinateExchange",
+  "InversionDenominators",
+  "InversionContinuity",
   "CurveSymmetry",
 ]

@@ -267,6 +267,24 @@ Both new checkpoints' private Linux results are pending. Next: resolve the
 rollback decision before proceeding with inverse-coordinate transitions;
 global projective topology/gluing and G01 remain incomplete.
 
+The approved inversion-restoration checkpoint reinstates the proof files
+from `128b416` and `ee55b46` without reverting the later polynomial-map or
+coordinate-exchange work. The user explicitly approved this restoration after
+being asked. These are restored results, not new mathematical discoveries:
+polynomial denominator clearing and a Zariski homeomorphism for inversion of
+either coordinate on its nonzero domain. The old rollback warning is superseded
+in `ONBOARDING.md`; no further restoration decision is outstanding.
+
+On 2026-09-12 both restored modules were freshly compiled with warnings-as-errors,
+followed by the aggregate and full namespace audit. All 857 declarations passed
+the three-axiom allowlist. This was an incremental local build with existing
+dependencies, not a fresh full rebuild. Preflight passed for 56 files and nine
+pins; six tests and `git diff --check` passed. TeX/PDF migration hashes are
+unchanged. Previous `55b9733` Linux run 34701500285 was in progress when checked;
+no Linux success is asserted for it or this checkpoint. Next: simultaneous
+inversion on the two-coordinate nonzero domain and the reciprocal-chart
+interface. Projective topology/gluing, G01, and the later gates remain open.
+
 The Linux runner reported an action-runtime deprecation warning for the pinned
 checkout action; this did not invalidate the successful Lean build. No
 Comparator, independent checker, proof sandbox, or editorial review has yet

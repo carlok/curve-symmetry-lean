@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds twenty mathematical modules, for 54 Lean files including
+Sprint 2 currently adds twenty-two mathematical modules, for 56 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -136,6 +136,8 @@ topology is overwritten. [PolynomialZariskiMaps](lean/PolynomialZariskiMaps.lean
 proves the substitution identity and continuity of polynomial coordinate maps.
 [CoordinateExchange](lean/CoordinateExchange.lean) proves coordinate-swap
 homeomorphisms of the plane and torus, with the corresponding projective factor
-identities. The reverted inversion modules remain absent. Inversion-transition
-continuity and projective gluing remain;
+identities. With explicit approval, [InversionDenominators](lean/InversionDenominators.lean)
+and [InversionContinuity](lean/InversionContinuity.lean) are restored and prove
+denominator clearing and the individual inversion homeomorphisms on nonzero
+coordinate domains. Simultaneous-inversion compatibility and projective gluing remain;
 the projective chart maps are not yet proved open embeddings.

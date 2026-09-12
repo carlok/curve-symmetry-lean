@@ -51,5 +51,7 @@ import ProjectiveChartMaps
 import AffineZariskiTopology
 import PolynomialZariskiMaps
 import CoordinateExchange
+import InversionDenominators
+import InversionContinuity
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

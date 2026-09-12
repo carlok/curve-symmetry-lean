@@ -82,12 +82,13 @@ exactly as complements of the relevant zero/infinity coordinate divisors.
 embedding into the prime spectrum, polynomial nonvanishing opens, and the
 usual algebraic closure formula. It does not install a global instance on
 coordinate vectors. `PolynomialZariskiMaps` now proves polynomial substitution
-and Zariski continuity of arbitrary polynomial coordinate maps. The reverted
-inversion work remains absent. `CoordinateExchange` proves the swap is a Zariski
+and Zariski continuity of arbitrary polynomial coordinate maps. `CoordinateExchange` proves the swap is a Zariski
 homeomorphism of the plane and the two-coordinate nonzero domain, and connects
-it to factor exchange in the projective charts. Next bounded target: prove
-chart-transition continuity involving inverses, after explicitly resolving
-whether the reverted inversion implementation should be restored. Projective topology and gluing
+it to factor exchange in the projective charts. With explicit user approval,
+`InversionDenominators` and `InversionContinuity` are restored: either coordinate
+inversion is a Zariski homeomorphism of its nonzero-coordinate domain.
+Next bounded target: simultaneous inversion on the two-coordinate nonzero
+domain and compatibility with the reciprocal chart transition. Projective topology and gluing
 remain obligations; G01 is not complete.
 
 ## Sprint 3 — complete the ambient symmetry theorem

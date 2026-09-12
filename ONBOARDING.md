@@ -34,19 +34,23 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is committed with the coordinate-exchange checkpoint.
+is committed with the approved inversion-restoration checkpoint.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
 - The subsequent CoordinateExchange checkpoint proves the swap homeomorphisms.
-- Neither new checkpoint reinstates either reverted inversion module.
+- After those checkpoints the user explicitly approved restoring and re-verifying both inversion steps. They are now reinstated alongside the polynomial-map and coordinate-exchange results.
 
-The user explicitly requested this rollback. It removed:
+The earlier rollback removed:
 - lean/InversionDenominators.lean
 - lean/InversionContinuity.lean
 and their associated imports and documentation changes.
 
-Do not silently restore these commits. Their proofs remain recoverable from history, but are not part of the current verified source. Ask before reinstating the reverted work. The user's request for two other steps was implemented using polynomial maps and coordinate exchange, leaving that rollback intact.
+The rollback decision has since been explicitly resolved: the user answered
+yes to restoring and re-verifying these two steps. Both files are now present,
+using the historical proofs from 128b416 and ee55b46. No further restoration
+approval is needed for these files. Do not mistake this restoration for new
+mathematics, or undo it based on an older handoff.
 
 The discussion about “44/51 verified candidates,” a novelty-filtering prompt, and a TeX dossier on an external disk was explicitly identified as belonging to another project and cancelled. No such dossier should be pursued here. No prompt or dossier file was created, committed, or pushed.
 
@@ -195,11 +199,18 @@ CoordinateExchange:
 - affine/reciprocal chart identities agree with projective factor exchange;
 - otherMixedProjectiveChart already uses reversed coordinate order: it equals the swapped mixedProjectiveChart WITHOUT applying exchangeCoordinates again.
 
-The next mathematical gap is still inverse-coordinate transition continuity,
-followed by projective topology/open embeddings/gluing. Coordinate exchange
-alone does not close that gap. No projective topology has been installed yet.
+InversionDenominators and InversionContinuity are now restored:
+- polynomial denominators under one-coordinate inversion can be cleared;
+- inverse images of polynomial zero sets have polynomial numerators on the nonzero domain;
+- coordinateInversionHomeomorph gives a Zariski homeomorphism for either coordinate's nonzero domain.
 
-However, the previous implementation of denominator clearing and inversion continuity was explicitly reverted by the user. Before restoring that implementation, clarify whether it should be reinstated or whether the user wants a different route.
+The next gap is simultaneous inversion on the two-coordinate nonzero domain
+and its compatibility with the reciprocal chart, followed by projective
+topology/open embeddings/gluing. No projective topology has been installed yet.
+
+The individual inversion continuity step is done after explicit approval;
+do not ask again or redo it as a new result. Read the latest verification
+report for the recheck evidence and current Linux CI status.
 
 Do not keep multiplying tiny helper milestones without explaining how they close an actual coverage obligation. Favor coherent verified steps and report which gap remains afterward.
 
@@ -236,7 +247,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 54 Lean files including the aggregate. Consult the latest
+The current source has 56 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled
@@ -271,6 +282,6 @@ Preserve shared dependency sources and unrelated parent-repository files.
 FIRST RESPONSE
 Briefly report what the current repository confirms and identify the next
 coherent proof obligation. Polynomial-map continuity and coordinate exchange
-are done: do not repeat them as new work. Resolve the explicit rollback with
-the user before restoring inversion modules. Do not resume the cancelled
+and individual inversion continuity are done: do not repeat them as new work.
+The inversion restoration was explicitly approved. Do not resume the cancelled
 contribution-dossier task or advertise Palomar readiness.
