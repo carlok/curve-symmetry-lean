@@ -96,9 +96,11 @@ closure conditionally on chart continuity and closedness of the family.
 topology and discharges chart continuity. `ProjectiveAtlasClosure` proves
 complex-affine and real-diagonal closure in it. `ProjectiveAtlasOpenCover` proves
 the four chart ranges open and covering. `ProjectiveAffineEmbedding` proves the
-affine chart is an open embedding. Next: the other three chart open embeddings
-and identification with standard projective Zariski geometry. G01 remains
-incomplete.
+affine chart is an open embedding. `ProjectiveAtlasEmbeddings` now transports
+this result to the other three charts using explicit projective homeomorphisms.
+All four chart open embeddings are proved. Next: standard Zariski-topology
+identification/atlas characterization and a fidelity review of G01. G01 remains
+incomplete until that review is discharged.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

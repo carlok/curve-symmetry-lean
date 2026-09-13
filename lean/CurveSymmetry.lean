@@ -59,5 +59,6 @@ import ProjectiveAtlasTopology
 import ProjectiveAtlasClosure
 import ProjectiveAtlasOpenCover
 import ProjectiveAffineEmbedding
+import ProjectiveAtlasEmbeddings
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

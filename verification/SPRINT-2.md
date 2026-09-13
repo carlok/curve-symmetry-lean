@@ -375,3 +375,31 @@ Remaining G01 obligations: open embeddings for the two mixed charts and the
 reciprocal chart, then the standard projective Zariski-topology identification.
 An open range is not itself an embedding. The affine embedding is now proved
 and should not be repeated as a future milestone. G01 stays incomplete.
+
+## Remaining three chart embeddings checkpoint
+
+`ProjectiveAtlasEmbeddings.lean` completes the requested three targets:
+the first mixed, second mixed, and reciprocal chart open embeddings. Instead
+of repeating the affine proof, it constructs the homogeneous coordinate flip
+using `Projectivization.map`, proves first-factor flip and factor exchange are
+homeomorphisms in the atlas topology, and transports the affine open embedding.
+`projectiveChart_isOpenEmbedding` packages all four results. The factor-swap
+continuity proof uses the final-topology criterion, not a product-topology
+assumption. This closes the chart-embedding obligation entirely.
+
+The new module and aggregate compiled with warnings as errors. All 951
+namespace declarations passed the three-axiom audit. Preflight passed for 63
+files and nine dependency pins; all six tests passed. `git diff --check` passed;
+the TeX/PDF hashes are unchanged. These are incremental local checks against
+the installed dependencies, not an independent Palomar replay.
+
+Prior checkpoint `d9600da` received `startup_failure` in private Linux run
+`34749487043`; GitHub reports no jobs for that run. This is not evidence of a
+Lean proof failure or of successful Linux verification. The last confirmed
+successful Linux checkpoint remains `6ee646d`, run `34718581834`. The new
+checkpoint's Linux result is pending at commit time.
+
+Next: the standard Zariski-topology identification/atlas characterization and
+G01 fidelity review. The four-chart open cover, all open embeddings, and the
+topology-relative curve closures are proved and must not be repeated as
+future milestones. Later group/genus and Palomar obligations are unchanged.

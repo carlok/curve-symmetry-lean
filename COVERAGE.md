@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds twenty-eight mathematical modules, for 62 Lean files including
+Sprint 2 currently adds twenty-nine mathematical modules, for 63 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -154,5 +154,8 @@ with standard projective Zariski geometry remains.
 affine-overlap domains and an open four-chart cover, checking all sixteen
 overlap sets. [ProjectiveAffineEmbedding](lean/ProjectiveAffineEmbedding.lean)
 proves the affine chart is an open embedding using the inversion transitions.
-The other three chart open embeddings and the standard-topology identification
-remain pending; openness of their ranges alone does not discharge that gate.
+[ProjectiveAtlasEmbeddings](lean/ProjectiveAtlasEmbeddings.lean) now proves the
+other three open embeddings by homogeneous-coordinate flip and factor-exchange
+homeomorphisms. `projectiveChart_isOpenEmbedding` covers all four charts.
+The remaining G01 task is the standard-topology identification/atlas
+characterization and fidelity review, not further chart embedding proofs.

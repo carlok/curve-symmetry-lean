@@ -34,7 +34,7 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is updated through the open four-chart cover and affine-chart open embedding.
+is updated through the open embeddings of all four projective charts.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
@@ -173,7 +173,7 @@ ProjectiveChartMaps:
 - exact chart ranges as zero/infinity coordinate-divisor complements.
 
 These results in ProjectiveChartMaps are set-theoretic. The later atlas modules
-now prove an open cover and the affine chart's open embedding (see below).
+now prove an open cover and all four chart open embeddings (see below).
 
 AffineZariskiTopology:
 - topology on complex coordinate vectors induced by evaluation into PrimeSpectrum;
@@ -237,10 +237,17 @@ affineProjectiveChart_isOpenEmbedding using the actual inversion transitions.
 Thus the affine chart's subspace topology is proved to be the affine Zariski
 topology; this is not just a continuous injective map.
 
-Next: prove open embeddings for the two mixed charts and the reciprocal chart,
-then justify the standard atlas topology. Open range alone does NOT imply an
-embedding. Do not repeat the density, inversion, open-cover, affine-embedding,
-or topology-relative closure proofs as new milestones.
+ProjectiveAtlasEmbeddings now proves the other three open embeddings. It defines
+the ordinary homogeneous flip [x:y] -> [y:x] through Projectivization.map, proves
+first-factor flip and factor exchange homeomorphisms for the atlas topology,
+and transports the affine embedding. projectiveChart_isOpenEmbedding covers
+every chart. No product-topology instance on projective points is assumed.
+
+Next: finish the standard Zariski-topology identification/atlas characterization
+and review G01 against its actual paper statement. All chart embeddings and
+the open cover are DONE; do not invent more overlap or embedding milestones.
+The closure theorem in the chart-final topology is already proved too. Keep
+the remaining task about mathematical fidelity, not re-proving these results.
 The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
 spectrum objects rather than the current Projectivization point type; a bridge
 or a justified standard atlas construction still needs work. Merely declaring
@@ -285,7 +292,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 62 Lean files including the aggregate. Consult the latest
+The current source has 63 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled
