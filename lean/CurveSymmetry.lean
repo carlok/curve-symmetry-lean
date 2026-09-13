@@ -57,5 +57,7 @@ import SimultaneousInversion
 import ProjectiveClosureGluing
 import ProjectiveAtlasTopology
 import ProjectiveAtlasClosure
+import ProjectiveAtlasOpenCover
+import ProjectiveAffineEmbedding
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

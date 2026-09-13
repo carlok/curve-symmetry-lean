@@ -74,5 +74,7 @@ roots = [
   "ProjectiveClosureGluing",
   "ProjectiveAtlasTopology",
   "ProjectiveAtlasClosure",
+  "ProjectiveAtlasOpenCover",
+  "ProjectiveAffineEmbedding",
   "CurveSymmetry",
 ]

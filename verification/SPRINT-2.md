@@ -344,3 +344,34 @@ The topology is explicitly the chart-final topology. The remaining G01 gate
 is to prove chart open embeddings and justify its identification with standard
 projective Zariski geometry. No topology identification, completed G01, genus
 theorem, or Palomar readiness is claimed. TeX and PDF remain untouched.
+
+## Open atlas and affine embedding checkpoint
+
+Three bounded steps are recorded together in the commit adding
+`ProjectiveAtlasOpenCover.lean` and `ProjectiveAffineEmbedding.lean`:
+
+1. Prove the exact affine-chart overlap domains: the whole plane, the first
+   coordinate nonzero domain (for either mixed chart), and the two-coordinate
+   torus. The second mixed chart retains its `(1/Y,X)` coordinate order.
+2. Check all sixteen chart-range preimages and prove the four chart ranges
+   constitute an open cover in the chart-final topology.
+3. Prove the affine chart is an open map by pulling its open images back into
+   all four charts. The inversion, exchanged inversion, and simultaneous
+   inversion transitions are continuous on their proved open domains. Together
+   with injectivity and continuity, this proves an actual open embedding.
+
+Both new modules and the aggregate compiled with warnings as errors. The full
+namespace audit passed for 922 declarations, allowing only `propext`,
+`Classical.choice`, and `Quot.sound`. Preflight passed for 62 files and nine
+exact dependency pins; all six preflight tests passed. `git diff --check`
+passed, and TeX/PDF hashes remain unchanged. This was an incremental local
+check using installed dependencies, not a fresh whole-library rebuild.
+
+The preceding commit `6ee646d` passed private Linux run `34718581834`. The new
+checkpoint's Linux result is pending at commit time. No Palomar verification
+or independent checker has run.
+
+Remaining G01 obligations: open embeddings for the two mixed charts and the
+reciprocal chart, then the standard projective Zariski-topology identification.
+An open range is not itself an embedding. The affine embedding is now proved
+and should not be repeated as a future milestone. G01 stays incomplete.

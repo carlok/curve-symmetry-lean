@@ -34,7 +34,7 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is updated through the chart-final topology and real-diagonal closure in it.
+is updated through the open four-chart cover and affine-chart open embedding.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
@@ -172,7 +172,8 @@ ProjectiveChartMaps:
 - four-chart coverage;
 - exact chart ranges as zero/infinity coordinate-divisor complements.
 
-These projective chart results are set-theoretic. They do not yet prove open embeddings.
+These results in ProjectiveChartMaps are set-theoretic. The later atlas modules
+now prove an open cover and the affine chart's open embedding (see below).
 
 AffineZariskiTopology:
 - topology on complex coordinate vectors induced by evaluation into PrimeSpectrum;
@@ -229,9 +230,17 @@ includes all boundary points, using irreducibility and infinite real locus.
 
 These are unconditional theorems IN THE CHART-FINAL TOPOLOGY. Its identification
 with standard projective Zariski geometry is still pending. Do not mark G01
-complete. Next: use the checked overlap transitions to prove the four charts
-are open embeddings and justify the standard atlas topology, not another
-repetition of the density, inversion, or topology-relative closure proofs.
+complete. ProjectiveAtlasOpenCover now proves the exact affine-overlap domains,
+openness of all four chart ranges (checking all sixteen overlaps), and coverage.
+ProjectiveAffineEmbedding proves affineProjectiveChart_isOpenMap and
+affineProjectiveChart_isOpenEmbedding using the actual inversion transitions.
+Thus the affine chart's subspace topology is proved to be the affine Zariski
+topology; this is not just a continuous injective map.
+
+Next: prove open embeddings for the two mixed charts and the reciprocal chart,
+then justify the standard atlas topology. Open range alone does NOT imply an
+embedding. Do not repeat the density, inversion, open-cover, affine-embedding,
+or topology-relative closure proofs as new milestones.
 The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
 spectrum objects rather than the current Projectivization point type; a bridge
 or a justified standard atlas construction still needs work. Merely declaring
@@ -276,7 +285,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 60 Lean files including the aggregate. Consult the latest
+The current source has 62 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled

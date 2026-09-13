@@ -102,7 +102,7 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds twenty-six mathematical modules, for 60 Lean files including
+Sprint 2 currently adds twenty-eight mathematical modules, for 62 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
@@ -149,5 +149,10 @@ the family-independent final topology of the four affine Zariski charts and
 proves their continuity. [ProjectiveAtlasClosure](lean/ProjectiveAtlasClosure.lean)
 proves the exact closure of both the complex affine curve and (for nonreal
 parameters) its real diagonal in that topology. Identifying this construction
-with standard projective Zariski geometry remains: the projective chart maps
-are not yet proved open embeddings.
+with standard projective Zariski geometry remains.
+[ProjectiveAtlasOpenCover](lean/ProjectiveAtlasOpenCover.lean) now proves exact
+affine-overlap domains and an open four-chart cover, checking all sixteen
+overlap sets. [ProjectiveAffineEmbedding](lean/ProjectiveAffineEmbedding.lean)
+proves the affine chart is an open embedding using the inversion transitions.
+The other three chart open embeddings and the standard-topology identification
+remain pending; openness of their ranges alone does not discharge that gate.
