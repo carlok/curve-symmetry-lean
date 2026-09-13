@@ -4,7 +4,7 @@ PROJECT
 Repository: /Users/carlo/Documents/varie/hacks/lean4/curve_symmetry
 Private GitHub: carlok/curve-symmetry-lean
 Remote: git@github.com:carlok/curve-symmetry-lean.git
-Working branch: codex/sprint-2
+Working branch: codex/sprint-3
 License: Apache-2.0
 
 First inspect the current Git status, branch, history, and repository instructions. Preserve unrelated changes. Read:
@@ -34,7 +34,7 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is updated through atlas uniqueness, global irreducibility, and completion of Sprint 2.
+is updated through Sprint 3's actual-sphere coefficient filters and no-anti-map theorem.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
@@ -77,7 +77,7 @@ Kernel verification does not certify novelty, statement fidelity, usefulness, or
 SPRINT STATUS
 0 — relocation and private Git: complete.
 1 — portable package and coverage inventory: complete.
-2 — global geometry: complete at the classical complex-point atlas scope; arbitrary ambient completeness, Zariski closure and global irreducibility are proved. Linux confirmation of this checkpoint is pending.
+2 — global geometry: complete at the classical complex-point atlas scope; arbitrary ambient completeness, Zariski closure and global irreducibility are proved. Completion commit d29fd22 passed private Linux run 34749984410.
 3 — full ambient symmetry theorem: not complete.
 4 — normalization, ramification, genuine genus, remaining claims: not complete; highest foundational risk.
 5 — Palomar statement contract and metadata: not started.
@@ -252,9 +252,18 @@ G01 is complete at this classical complex-point scope, using the existing
 exact separate degrees and bihomogeneous equation. A separate scheme comparison
 is not claimed or needed for this paper assertion; normalization/genus remain.
 
-Next: Sprint 3, first combine ambient completeness with the coefficient filters
-for actual sphere maps (including 0 and infinity), then the full group and
-parameter theorem. All chart/topology-relative closure work is DONE. Do not
+Sprint 3 now has FamilySphereDilation and FamilySphereInversion: spherical
+inclusion yields a nonzero scalar polynomial identity; the exact root tests
+are necessary and sufficient. Both include pointwise membership equivalences
+on the whole sphere. FamilySphereClassification combines these with arbitrary
+ambient completeness: family_mobius_self_filter, family_mobius_self_mem_iff,
+family_mobius_parameter_necessary, family_anti_mobius_parameter_necessary,
+and family_no_anti_mobius_self. T2.3 and T2.4 are proved. T2.7 has global
+necessity, but its existential equivalence wrappers remain.
+
+Next: package identity/conjugation sufficiency for T2.7 and construct the
+actual dihedral group/isomorphism/count, retaining all m=2 obligations.
+All chart/topology-relative closure work is DONE. Do not
 add more atlas milestones or treat genus as a numerical branch-count definition.
 The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
 spectrum objects rather than the current Projectivization point type; a bridge
@@ -300,7 +309,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 65 Lean files including the aggregate. Consult the latest
+The current source has 68 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled

@@ -79,5 +79,8 @@ roots = [
   "ProjectiveAtlasEmbeddings",
   "ProjectiveAtlasUniqueness",
   "ProjectiveCurveIrreducibility",
+  "FamilySphereDilation",
+  "FamilySphereInversion",
+  "FamilySphereClassification",
   "CurveSymmetry",
 ]

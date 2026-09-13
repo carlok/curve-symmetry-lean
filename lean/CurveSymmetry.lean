@@ -62,5 +62,8 @@ import ProjectiveAffineEmbedding
 import ProjectiveAtlasEmbeddings
 import ProjectiveAtlasUniqueness
 import ProjectiveCurveIrreducibility
+import FamilySphereDilation
+import FamilySphereInversion
+import FamilySphereClassification
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -38,11 +38,11 @@ The abstract repeats the two main theorems and inherits their statuses.
 | T1.4 | Every family member with `m ≥ 3` attains the rotation bound | **Proved:** `paper_family_converse` (even without modulus-one normalization). | baseline |
 | T2.1 | For `m ≥ 2`, the family is infinite, geometrically irreducible, of degree `m+2` | **Proved ingredients:** `familyPolynomial_irreducible`, `family_degree`, `family_realLocus_infinite`, `exists_cartesian_equation`, `family_locus_eq`. A single paper-facing wrapper including `m=2` remains to be added. | 3 |
 | T2.2 | Every ambient holomorphic equivalence has form `cz` or `c/z`; every anti-equivalence has a conjugated form | **Proved:** `family_mobius_complete` and `family_anti_mobius_complete` in [FamilyGlobalSingularities](lean/FamilyGlobalSingularities.lean), for `m ≥ 2` and nonreal parameters, starting even from one-sided actual spherical containment. The forms hold at every sphere point. Pair preservation follows from the global Jacobian locus and is not an input hypothesis. | 2 |
-| T2.3 | Exact self-map coefficients `c^(2m)=1` or `c^(2m)=conj(α)^2` | **Partial:** [`family_dilation_filter`, `family_inversion_filter`](lean/FamilyTransport.lean) are exact polynomial-pullback tests. Lift to actual sphere actions, including `0,∞`, and combine with T2.2. | 3 |
-| T2.4 | All self-equivalences holomorphic; no anti-Möbius symmetry | **Partial:** the two conjugated polynomial forms are excluded in [FamilyTransport](lean/FamilyTransport.lean). Need T2.2 and the zero-set/pullback bridge. | 3 |
+| T2.3 | Exact self-map coefficients `c^(2m)=1` or `c^(2m)=conj(α)^2` | **Proved:** `family_mobius_self_filter` in [FamilySphereClassification](lean/FamilySphereClassification.lean) covers arbitrary ambient matrices. [FamilySphereDilation](lean/FamilySphereDilation.lean) and [FamilySphereInversion](lean/FamilySphereInversion.lean) give exact actual-sphere tests, including `0,∞`; `family_mobius_self_mem_iff` proves preservation in both directions. | 3 |
+| T2.4 | All self-equivalences holomorphic; no anti-Möbius symmetry | **Proved:** `family_no_anti_mobius_self` in [FamilySphereClassification](lean/FamilySphereClassification.lean) excludes even one-sided anti-Möbius self-inclusion, for every ambient matrix and `m ≥ 2`. | 3 |
 | T2.5 | Full ambient group is dihedral of order `4m` | **Open:** construct a group isomorphism for actual sphere maps; prove distinctness, count, and relations. | 3 |
 | T2.6 | Full Euclidean group consists of exactly the `2m` rotations | **Partial:** `family_direct_card` for `m ≥ 2`; `family_no_opposite` only for `m ≥ 3`. Cover `m=2`, then identify the actual maps. | 3 |
-| T2.7 | Fixed-`m` holomorphic equivalence iff `β=α`; anti-equivalence iff `β=conj(α)` | **Partial:** normalized four-form coefficient comparisons in [FamilyTransport](lean/FamilyTransport.lean). Need global necessity and actual identity/conjugation sufficiency. | 3 |
+| T2.7 | Fixed-`m` holomorphic equivalence iff `β=α`; anti-equivalence iff `β=conj(α)` | **Partial:** global necessity now proved by `family_mobius_parameter_necessary` and `family_anti_mobius_parameter_necessary`, even for one-sided inclusion. Explicit existential equivalence wrappers with identity/conjugation sufficiency remain. | 3 |
 
 ## Supporting geometry and proof claims
 
@@ -103,7 +103,8 @@ proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
 Sprint 2 adds thirty-one mathematical modules, for 65 Lean files including
-the aggregate. T2.2 is now proved because pair preservation has been derived
+the aggregate at its completion. Sprint 3 now adds three modules (68 files total).
+T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 is now proved via the classical affine-atlas construction.
 The paragraphs below record the route, not remaining chart obligations. Sprints 4–7 and the full-port objective are

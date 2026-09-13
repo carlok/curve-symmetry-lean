@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: atlas uniqueness/global irreducibility checkpoint, 2026-09-13.
+Snapshot: Sprint 3 actual-sphere filters checkpoint, 2026-09-13.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -12,6 +12,7 @@ Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 | Theorem 1: equality classification | For `d ≥ 5`, maximal direct symmetry forces the normalized family under an orientation-preserving similarity. |
 | Theorem 1: converse | The family with `m ≥ 3` and nonreal parameter attains the rotation bound. |
 | Theorem 2: ambient completeness | For `m ≥ 2`, arbitrary Möbius/anti-Möbius containment forces the two holomorphic or two conjugated map forms, including zero and infinity. |
+| Theorem 2: coefficient tests and no anti-map | Exact two root conditions characterize actual Möbius self-inclusion, which preserves membership in both directions; no anti-Möbius self-inclusion exists. |
 | Projective geometry (G01) | Bihomogeneous closure and exact separate degrees `(m+1,m+1)` in the uniquely characterized classical Zariski atlas; global topological irreducibility. |
 
 Theorem 1 has five `paper_*` theorem endpoints. Ambient completeness has two
@@ -42,11 +43,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 65 |
-| Written theorem/lemma declarations | 444 |
+| Lean source files (including aggregate) | 68 |
+| Written theorem/lemma declarations | 460 |
 | Written definitions/abbreviations/structures/inductives | 119 |
-| Lean source lines, including comments and blank lines | 6,890 |
-| Audited namespace declarations, including generated/private machinery | 960 |
+| Lean source lines, including comments and blank lines | 7,190 |
+| Audited namespace declarations, including generated/private machinery | 990 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -57,7 +58,7 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Previous commit `d288a71` passed private Linux run `34749643398`; this snapshot's
+Previous commit `d29fd22` passed private Linux run `34749984410`; this snapshot's
 Linux result is pending at commit time. No faithful Palomar dry run, NanoDa
 replay, independent human review or novelty certification has been completed.
 TeX and PDF are unchanged. Sprints 0–2 are mathematically complete at their
