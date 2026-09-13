@@ -15,7 +15,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 |---|---|---|
 | 0: relocation and private Git | Complete | `74e0e1228dc01aa1c8965b6818cf05f4e13750e7`; 81 migrated file hashes match, 33 modules / 85 axiom reports pass; remote verified private and pushed |
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
-| 2: global geometry and Möbius completeness | In progress — completeness gate proved | Both ambient completeness theorems and affine Zariski closure checked; G01's projective boundary-closure identification remains outstanding; [checkpoint evidence](verification/SPRINT-2.md) |
+| 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Current Linux confirmation pending. |
 | 3: complete ambient symmetry theorem | Not started | Four-form coefficient tests already checked; completeness is not assumed |
 | 4: genus and remaining mathematical claims | Not started | Foundational interface still missing |
 | 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
@@ -98,9 +98,12 @@ complex-affine and real-diagonal closure in it. `ProjectiveAtlasOpenCover` prove
 the four chart ranges open and covering. `ProjectiveAffineEmbedding` proves the
 affine chart is an open embedding. `ProjectiveAtlasEmbeddings` now transports
 this result to the other three charts using explicit projective homeomorphisms.
-All four chart open embeddings are proved. Next: standard Zariski-topology
-identification/atlas characterization and a fidelity review of G01. G01 remains
-incomplete until that review is discharged.
+All four chart open embeddings are proved. `ProjectiveAtlasUniqueness` now
+characterizes the topology uniquely by this standard affine atlas, completing
+the classical point-level G01 closure interpretation. `ProjectiveCurveIrreducibility`
+proves global irreducibility. Next: Sprint 3's exact sphere-action coefficient
+filters and full ambient group. Do not extend the completed chart programme
+into an unnecessary scheme comparison; normalization and genus remain Sprint 4.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 

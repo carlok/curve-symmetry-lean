@@ -77,5 +77,7 @@ roots = [
   "ProjectiveAtlasOpenCover",
   "ProjectiveAffineEmbedding",
   "ProjectiveAtlasEmbeddings",
+  "ProjectiveAtlasUniqueness",
+  "ProjectiveCurveIrreducibility",
   "CurveSymmetry",
 ]

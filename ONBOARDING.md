@@ -34,7 +34,7 @@ Use the user's current AGENTS.md instructions, including:
 
 CURRENT CHECKPOINT AND ROLLBACK
 Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is updated through the open embeddings of all four projective charts.
+is updated through atlas uniqueness, global irreducibility, and completion of Sprint 2.
 - Baseline 1398e34 reverted the inversion work and passed private Linux CI.
 - 1632652 reverted ee55b46; 1398e34 reverted 128b416.
 - New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
@@ -77,7 +77,7 @@ Kernel verification does not certify novelty, statement fidelity, usefulness, or
 SPRINT STATUS
 0 — relocation and private Git: complete.
 1 — portable package and coverage inventory: complete.
-2 — global geometry: in progress; arbitrary ambient four-form completeness is proved, but projective Zariski-closure identification remains incomplete.
+2 — global geometry: complete at the classical complex-point atlas scope; arbitrary ambient completeness, Zariski closure and global irreducibility are proved. Linux confirmation of this checkpoint is pending.
 3 — full ambient symmetry theorem: not complete.
 4 — normalization, ramification, genuine genus, remaining claims: not complete; highest foundational risk.
 5 — Palomar statement contract and metadata: not started.
@@ -228,9 +228,9 @@ and arbitrary alpha, and family_projectiveAtlas_real_closure for m>0 and
 nonreal alpha. The latter starts from the actual affine real diagonal and
 includes all boundary points, using irreducibility and infinite real locus.
 
-These are unconditional theorems IN THE CHART-FINAL TOPOLOGY. Its identification
-with standard projective Zariski geometry is still pending. Do not mark G01
-complete. ProjectiveAtlasOpenCover now proves the exact affine-overlap domains,
+These are unconditional theorems IN THE CHART-FINAL TOPOLOGY, now characterized
+uniquely by the standard affine-Zariski open atlas (see below).
+ProjectiveAtlasOpenCover proves the exact affine-overlap domains,
 openness of all four chart ranges (checking all sixteen overlaps), and coverage.
 ProjectiveAffineEmbedding proves affineProjectiveChart_isOpenMap and
 affineProjectiveChart_isOpenEmbedding using the actual inversion transitions.
@@ -243,11 +243,19 @@ first-factor flip and factor exchange homeomorphisms for the atlas topology,
 and transports the affine embedding. projectiveChart_isOpenEmbedding covers
 every chart. No product-topology instance on projective points is assumed.
 
-Next: finish the standard Zariski-topology identification/atlas characterization
-and review G01 against its actual paper statement. All chart embeddings and
-the open cover are DONE; do not invent more overlap or embedding milestones.
-The closure theorem in the chart-final topology is already proved too. Keep
-the remaining task about mathematical fidelity, not re-proving these results.
+ProjectiveAtlasUniqueness proves existence and uniqueness of the topology in
+which these four standard affine-Zariski charts are open embeddings. This is
+the classical atlas construction, not a topology chosen for the curve.
+ProjectiveCurveIrreducibility proves irreducibility of the real diagonal in
+the complex affine Zariski topology and of the complete projective curve.
+G01 is complete at this classical complex-point scope, using the existing
+exact separate degrees and bihomogeneous equation. A separate scheme comparison
+is not claimed or needed for this paper assertion; normalization/genus remain.
+
+Next: Sprint 3, first combine ambient completeness with the coefficient filters
+for actual sphere maps (including 0 and infinity), then the full group and
+parameter theorem. All chart/topology-relative closure work is DONE. Do not
+add more atlas milestones or treat genus as a numerical branch-count definition.
 The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
 spectrum objects rather than the current Projectivization point type; a bridge
 or a justified standard atlas construction still needs work. Merely declaring
@@ -292,7 +300,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 63 Lean files including the aggregate. Consult the latest
+The current source has 65 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled

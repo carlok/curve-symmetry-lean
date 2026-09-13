@@ -25,7 +25,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | Nonreal normalized parameter | `α ≠ star α` and `‖α‖ = 1`; theorems needing neither normalization nor the stronger degree cutoff say so explicitly. |
 | Ambient Möbius action | **Proved interface:** `MobiusMatrix` is Mathlib's full `GL(2,ℂ)`, acting on `Sphere = OnePoint ℂ`; `sphereProjectiveEquiv_action` connects the standard projectivization action. Finite/pole/infinity formulas are checked. No projective-topology homeomorphism is asserted; the sphere itself has its standard topology. |
 | Spherical closure | **Proved:** `sphericalFamily` is the actual topological closure. `sphericalFamily_eq` proves it gains exactly infinity; `sphericalFamily_projective_iff` identifies it with the real diagonal of the projective zero locus. |
-| Compactified complex curve | **Partial:** `familyProjectiveCurve` is a representative-independent bihomogeneous zero locus in standard `ℙ¹ × ℙ¹`, with the four displayed chart equations. Identification with the Zariski closure and an intrinsic, invariant singularity interface remain pending. |
+| Compactified complex curve | **Proved at the classical complex-point level:** `familyProjectiveCurve` is the bihomogeneous zero locus and Zariski closure in the unique topology making the four standard affine-Zariski charts open embeddings. Global topological irreducibility is proved. This is not a scheme/normalization construction; geometric multiplicities and genus remain separate. |
 | Geometric genus | **Pending:** genus of the genuine smooth normalization (or a proved equivalent invariant). A defined branch-count expression is not a substitute. |
 
 ## Principal claims
@@ -58,7 +58,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | S08 | Nondegeneracy and nonreal ratio in the equality case; normalized nonzero similarity | **Proved:** [EqualityForm](lean/EqualityForm.lean), [Normalization](lean/Normalization.lean), [ExtremalClassification](lean/ExtremalClassification.lean). | baseline |
 | S09 | Fermat examples irreducible and infinite, with exactly `d` direct and `2d` total isometries | **Proved:** [Fermat](lean/Fermat.lean), [Sharpness](lean/Sharpness.lean), [CartesianDescent](lean/CartesianDescent.lean). | baseline |
 | S10 | Printed quintic Cartesian expansion, negative sign at a 60-degree rotation, exact order six | **Partial:** the general family results give irreducibility, degree five and six rotations; the exact displayed Cartesian identity and specified exponential rotation still need endpoints. Symbolic checks are not Lean proofs. | 4 |
-| G01 | Bidegree `(m+1,m+1)` and the bihomogeneous closure | **Partial:** [FamilyProjective](lean/FamilyProjective.lean) constructs the representative-independent equation and proves scaling of degree `m+1` in each block. `family_degreeOf` in [FamilyBidegree](lean/FamilyBidegree.lean) proves both affine degrees are exactly `m+1`. [AffineClosure](lean/AffineClosure.lean) now proves the exact real-diagonal vanishing ideal and affine Zariski closure in Mathlib's prime spectrum, as well as the complex-point algebraic closure. Identification of the projective closure, including its boundary, remains. | 2, 4 |
+| G01 | Bidegree `(m+1,m+1)` and the bihomogeneous closure | **Proved, classical complex-point interpretation:** [FamilyProjective](lean/FamilyProjective.lean) gives the representative-independent equation and block scaling; `family_degreeOf` proves both exact degrees. [ProjectiveAtlasClosure](lean/ProjectiveAtlasClosure.lean) proves the complex-affine and real-diagonal closures including all boundary points. [ProjectiveAtlasUniqueness](lean/ProjectiveAtlasUniqueness.lean) characterizes the topology uniquely by the four standard affine-Zariski open embeddings. [ProjectiveCurveIrreducibility](lean/ProjectiveCurveIrreducibility.lean) proves the full curve topologically irreducible. No scheme-theoretic intersection or normalization invariant is substituted for genus. | 2 |
 | G02 | Strict transform `H(t,Y)`; coprime coefficients; irreducibility descends | **Proved:** [FamilyQuadratic](lean/FamilyQuadratic.lean), [Blowup](lean/Blowup.lean), [FamilyIrreducibility](lean/FamilyIrreducibility.lean). Eisenstein replaces the paper's rational-function nonsquare argument for irreducibility. | baseline |
 | G03 | Only affine Jacobian singularity is the origin; same at the reciprocal chart | **Proved:** [FamilySingularities](lean/FamilySingularities.lean), using formal partial derivatives. | baseline |
 | G04 | Three denominator-clearing chart identities; mixed corners nonsingular | **Proved:** [FamilyCharts](lean/FamilyCharts.lean) and [FamilyProjective](lean/FamilyProjective.lean) give the equations. [PolynomialDifferential](lean/PolynomialDifferential.lean) identifies formal partial derivatives with the analytic differential; [HomogeneousCharts](lean/HomogeneousCharts.lean) proves local-normalization compatibility, including the reciprocal and mixed charts. Factor exchange covers the other mixed corner. | 2 |
@@ -102,10 +102,11 @@ Every sprint must update the affected rows and record checks and commits in
 proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
-Sprint 2 currently adds twenty-nine mathematical modules, for 63 Lean files including
+Sprint 2 adds thirty-one mathematical modules, for 65 Lean files including
 the aggregate. T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
-was relabeled. G01 remains partial. Sprints 4–7 and the full-port objective are
+was relabeled. G01 is now proved via the classical affine-atlas construction.
+The paragraphs below record the route, not remaining chart obligations. Sprints 4–7 and the full-port objective are
 unchanged.
 
 Next G01 target: [ProjectiveBoundary](lean/ProjectiveBoundary.lean) proves
@@ -157,5 +158,10 @@ proves the affine chart is an open embedding using the inversion transitions.
 [ProjectiveAtlasEmbeddings](lean/ProjectiveAtlasEmbeddings.lean) now proves the
 other three open embeddings by homogeneous-coordinate flip and factor-exchange
 homeomorphisms. `projectiveChart_isOpenEmbedding` covers all four charts.
-The remaining G01 task is the standard-topology identification/atlas
-characterization and fidelity review, not further chart embedding proofs.
+[ProjectiveAtlasUniqueness](lean/ProjectiveAtlasUniqueness.lean) completes the
+atlas characterization: this is the unique topology making all four standard
+affine-Zariski charts open embeddings. This supplies the classical Zariski
+interpretation of the paper's closure assertion, without assuming any curve
+closed or any density statement. [ProjectiveCurveIrreducibility](lean/ProjectiveCurveIrreducibility.lean)
+also proves global topological irreducibility. G01 is complete at that ordinary
+complex-point scope; a separate scheme-theoretic comparison is not claimed.

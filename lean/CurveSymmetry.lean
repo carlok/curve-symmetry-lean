@@ -60,5 +60,7 @@ import ProjectiveAtlasClosure
 import ProjectiveAtlasOpenCover
 import ProjectiveAffineEmbedding
 import ProjectiveAtlasEmbeddings
+import ProjectiveAtlasUniqueness
+import ProjectiveCurveIrreducibility
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

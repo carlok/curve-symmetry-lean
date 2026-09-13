@@ -179,12 +179,10 @@ dependency through that classification.
 
 ## Remaining proof obligations
 
-1. **Closure identification.** The ambient four-form completeness theorem is
-   proved. Affine Zariski closure is now checked; identifying the constructed
-   projective zero locus with the full projective closure remains G01 in the
-   coverage ledger. The proof of completeness does
-   not assume this pending identification. Sprint 2 is not marked wholly
-   complete while that recorded obligation remains.
+1. **Sprint 2 is complete.** Arbitrary ambient completeness and G01's closure
+   identification are proved using the uniquely characterized standard affine
+   Zariski atlas. The whole projective curve is topologically irreducible.
+   This is classical complex-point geometry, not a normalization construction.
 2. **Sphere group and genus.** Establish the actual sphere actions, the
    dihedral group of order `4m`, and the complete holomorphic/antiholomorphic
    parameter-equivalence statements. The local tangent-cone data are checked,
@@ -219,7 +217,7 @@ Verification environment:
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 
-The script compiles all 62 mathematical modules and the aggregate import with
+The script compiles all 64 mathematical modules and the aggregate import with
 warnings treated as errors. In addition to the selected endpoint reports,
 `verification/Audit.lean` checks every `CurveSymmetry` declaration, including
 private names, against only `propext`, `Classical.choice`, and `Quot.sound`.

@@ -1,8 +1,8 @@
-# Sprint 2 checkpoints — incomplete
+# Sprint 2 checkpoints — mathematically complete at classical point-atlas scope
 
 These are ordinary Lean build and axiom-audit results, not a Palomar dry run.
 The chart compatibility, exact global Jacobian locus, and arbitrary Möbius
-completeness are now proved. G01's Zariski-closure identification remains open;
+completeness are now proved. G01's Zariski closure and atlas characterization are proved;
 the complete ambient symmetry group, parameter filters on sphere actions, and
 genus belong to the later, still incomplete sprints.
 
@@ -403,3 +403,37 @@ Next: the standard Zariski-topology identification/atlas characterization and
 G01 fidelity review. The four-chart open cover, all open embeddings, and the
 topology-relative curve closures are proved and must not be repeated as
 future milestones. Later group/genus and Palomar obligations are unchanged.
+
+## Atlas uniqueness and global irreducibility — completion checkpoint
+
+Two steps:
+
+1. `projectiveAtlasTopology_characterization` proves that the constructed
+   topology is the unique topology making the four standard affine-Zariski
+   charts open embeddings. Existence was proved by the previous checkpoint;
+   uniqueness follows from their open cover. No curve equation occurs in this
+   characterization.
+2. `familyProjectiveCurve_isIrreducible` proves topological irreducibility of
+   the complete projective curve for positive m and nonreal alpha. The proof
+   uses the exact real-diagonal vanishing ideal, primality, the induced affine
+   spectrum topology, and the already proved projective closure theorem.
+
+Fidelity review of the paper's bidegree/closure assertion (TeX lines 227–228):
+the four charts are the ordinary homogeneous-coordinate charts; each has the
+affine topology induced from Mathlib's prime spectrum, already verified by its
+vanishing-ideal closure formula. They are open embeddings and characterize the
+ambient topology uniquely. This is the classical complex-point Zariski atlas
+construction. Together with exact separate degrees, block homogeneity and the
+boundary-inclusive closure theorem, it discharges G01. No separate scheme
+comparison is claimed, and none is required for this point-level assertion.
+Normalization, ordinary multiplicity and genuine genus remain explicitly open.
+Sprint 2's arbitrary-ambient completeness gate was already proved, so this
+checkpoint completes Sprint 2; next work belongs to Sprint 3.
+
+Both new modules and the aggregate compiled with warnings as errors. All 960
+namespace declarations passed the three-axiom audit. Preflight passed for 65
+files and nine exact dependency pins; all six tests passed. `git diff --check`
+passed and TeX/PDF hashes remain unchanged. Checks were incremental and reused
+installed dependencies. Prior checkpoint `d288a71` passed private Linux run
+`34749643398`; this completion checkpoint's Linux result is pending at commit.
+No Palomar dry run, independent checker, or human mathematical review is claimed.
