@@ -107,6 +107,16 @@ into an unnecessary scheme comparison; normalization and genus remain Sprint 4.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 
+2026-09-14 package 3 COMPLETE: `FamilyDihedral` proves the isomorphism of the
+actual ambient sphere group with `DihedralGroup (2*m)`, order `4m`, and
+generators/relations/exhaustion. This includes `m=2`; T2.4 already excludes
+anti-Möbius additions. Four explicit composition laws handle zero and infinity.
+The completion commit is the commit adding
+`verification/package-3-completion.md`. Local module/aggregate compilation
+with warnings as errors, full namespace audit (1,075 declarations), preflight
+and six tests passed. Full Sprint 3 is not complete: T2.6 and the remaining
+algebraic-coefficient/parameter-family consequences remain.
+
 2026-09-14 package 3 checkpoint: `FamilyAmbientGroup` defines actual sphere
 symmetries independently of the normal forms. Completeness gives the two
 root-constrained families; parameters are injective and the families disjoint.

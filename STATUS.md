@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 3 actual ambient-group checkpoint, 2026-09-14.
+Snapshot: Sprint 3 package 3 complete, 2026-09-14.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -15,6 +15,7 @@ Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 | Theorem 2: ambient completeness | For `m ≥ 2`, arbitrary Möbius/anti-Möbius containment forces the two holomorphic or two conjugated map forms, including zero and infinity. |
 | Theorem 2: coefficient tests and no anti-map | Exact two root conditions characterize actual Möbius self-inclusion, which preserves membership in both directions; no anti-Möbius self-inclusion exists. |
 | Theorem 2: parameter equivalence | Actual spherical loci are holomorphically equivalent iff `β=α`, antiholomorphically equivalent iff `β=conj(α)`, for normalized nonreal parameters and `m ≥ 2`. |
+| Theorem 2: full ambient group | Actual sphere symmetry group is dihedral of order `4m`, with exact-order generators and exhaustive normal forms, for every `m ≥ 2` and normalized nonreal parameter. No anti-Möbius additions exist. |
 | Projective geometry (G01) | Bihomogeneous closure and exact separate degrees `(m+1,m+1)` in the uniquely characterized classical Zariski atlas; global topological irreducibility. |
 
 Theorem 1 has five `paper_*` theorem endpoints. Ambient completeness has two
@@ -36,9 +37,9 @@ is still incomplete.
 
 ## Still missing
 
-Sprint 3: dihedral isomorphism/order `4m` for the now-defined actual ambient group,
-algebraic-coefficient consequence, plus the remaining
-`m=2` interfaces. Sprint 4: ordinary multiple-point geometry, normalization,
+Sprint 3: full Euclidean-group identification including `m=2`,
+algebraic-coefficient consequence, and the remaining parameter-family consequence.
+Sprint 4: ordinary multiple-point geometry, normalization,
 ramification, Riemann–Hurwitz, genuine genus `m`, and remaining paper remarks.
 Sprints 5–7: Palomar contract, faithful private dry run and final TeX integration.
 
@@ -46,11 +47,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 70 |
-| Written theorem/lemma declarations | 472 |
-| Written definitions/abbreviations/structures/inductives | 126 |
-| Lean source lines, including comments and blank lines | 7,381 |
-| Audited namespace declarations, including generated/private machinery | 1,021 |
+| Lean source files (including aggregate) | 71 |
+| Written theorem/lemma declarations | 489 |
+| Written definitions/abbreviations/structures/inductives | 130 |
+| Lean source lines, including comments and blank lines | 7,633 |
+| Audited namespace declarations, including generated/private machinery | 1,075 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -61,7 +62,7 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Previous commit `9993b04` passed private Linux runs `34819328710` and `34819389215`; this snapshot's
+Previous commit `30bcfb0` passed private Linux runs `34823034995` and `34823034336`; this snapshot's
 Linux result is pending at commit time. No faithful Palomar dry run, NanoDa
 replay, independent human review or novelty certification has been completed.
 TeX and PDF are unchanged. Sprints 0–2 are mathematically complete at their

@@ -67,5 +67,6 @@ import FamilySphereInversion
 import FamilySphereClassification
 import PaperFamilyGeometry
 import FamilyAmbientGroup
+import FamilyDihedral
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

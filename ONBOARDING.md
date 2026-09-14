@@ -269,8 +269,15 @@ FamilyAmbientGroup now defines the actual group as the intersection of the
 Möbius permutation image and the spherical-set stabilizer. Its normal-form
 theorem is derived from ambient completeness, not assumed in the definition.
 Dilation and inversion parameters are injective and their images disjoint.
-Next: prove the dihedral isomorphism/count and multiplication relations for
-this group, retaining all m=2 obligations. Package 3 is not complete.
+Package 3 is complete: FamilyDihedral proves all four composition laws on the
+sphere, a faithful cyclic-root-indexed action, its surjectivity onto the actual
+group, the dihedral isomorphism, order 4m, and exact-order generators with the
+conjugation relation and exhaustive normal forms. Endpoints:
+familyAmbientGroup_dihedral, familyAmbientGroup_card,
+familyAmbientGroup_generators. All include m=2.
+Next: package 4, the full Euclidean group identification (including m=2).
+Do not repeat the dihedral construction. The algebraic-coefficient and remaining
+parameter-family consequences still follow; Sprint 3 as a whole is incomplete.
 All chart/topology-relative closure work is DONE. Do not
 add more atlas milestones or treat genus as a numerical branch-count definition.
 The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
@@ -317,7 +324,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 70 Lean files including the aggregate. Consult the latest
+The current source has 71 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled
