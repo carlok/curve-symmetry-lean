@@ -1,375 +1,240 @@
-Continue CurveSym: a complete Lean formalization of a paper on sharp symmetry bounds for real algebraic curves, ultimately targeting a private Palomar-ready candidate.
+# CurveSym — handoff prompt for the next LLM
 
-PROJECT
-Repository: /Users/carlo/Documents/varie/hacks/lean4/curve_symmetry
-Private GitHub: carlok/curve-symmetry-lean
-Remote: git@github.com:carlok/curve-symmetry-lean.git
-Working branch: codex/sprint-3
-License: Apache-2.0
+Continue the complete Lean formalization of sharp symmetry bounds for real
+algebraic curves, ultimately producing a private Palomar-ready candidate.
+Read this entire handoff before acting. Updated 2026-09-14.
 
-First inspect the current Git status, branch, history, and repository instructions. Preserve unrelated changes. Read:
-- SPRINTS.md
-- COVERAGE.md
-- verification/SPRINT-2.md
-- lean/README.md
-- CHECKS.md
-- sharp_symmetry_bounds.tex
+## Work in the correct checkout
 
-These files, not this handoff, are authoritative if the state has changed.
+**Active repository:**
+`/Users/carlo/Documents/varie/hacks/lean4/curve_symmetry`
 
-WORKING AGREEMENT
-Work one bounded, mathematically meaningful step per request, unless the user explicitly requests more. Verify the step, update the coverage and verification records, and commit and push to the existing private branch. Clearly distinguish local checks from completed Linux CI.
+Private GitHub: `carlok/curve-symmetry-lean`
+Remote: `git@github.com:carlok/curve-symmetry-lean.git`
+Working branch: `codex/sprint-3`
+Main branch: `codex/main` (not a branch literally named main).
+License: Apache-2.0.
 
-Do not create recurring background work. The previous readiness automation was paused to avoid consuming tokens between sessions.
+**A second local checkout exists:**
+`/Users/carlo/Documents/varie/hacks/lean4/curve-symmetry-lean`.
+It was inspected read-only on this date: clean at `004c3df`, an old Sprint 1
+checkpoint, tracking the same remote. It is NOT where the recent work was
+done. Do not switch to it, delete it, merge it, or overwrite it without a
+user request. Use explicit working directories in tools.
 
-Do not publish the repository, contact Palomar or mathematicians, or submit anything externally. Private readiness is not registry acceptance.
+The desktop task may start in the still older directory
+`/Users/carlo/Documents/varie/hacks/t/transcendental`; that is not this
+project's active root either.
 
-Use the user's current AGENTS.md instructions, including:
-- Read /Users/carlo/.codex/RTK.md and /Users/carlo/.codex/KARPATHY.md.
-- Prefix shell commands with rtk, normally `rtk proxy`.
-- If the repository contains .codegraph/, consult CodeGraph before locating or understanding code. Check whether Lean is actually indexed; earlier checks found limited language coverage.
-- Use apply_patch for source edits.
-- The relocated repository may lie outside writable sandbox roots; request appropriate tool escalation rather than bypassing restrictions.
-- Do not duplicate or modify the installed Lean/Mathlib dependencies.
+## First actions and working agreement
 
-CURRENT CHECKPOINT AND ROLLBACK
-Updated 2026-09-12. Inspect Git for the current immutable HEAD; this handoff
-is updated through Sprint 3's actual-sphere coefficient filters and no-anti-map theorem.
-- Baseline 1398e34 reverted the inversion work and passed private Linux CI.
-- 1632652 reverted ee55b46; 1398e34 reverted 128b416.
-- New checkpoint 1f49d05 proves polynomial-map Zariski continuity.
-- The subsequent CoordinateExchange checkpoint proves the swap homeomorphisms.
-- After those checkpoints the user explicitly approved restoring and re-verifying both inversion steps. They are now reinstated alongside the polynomial-map and coordinate-exchange results.
-- Restoration was committed as 3164274. Subsequent modules SimultaneousInversion and ProjectiveClosureGluing are now checked; see the latest verification report and Git HEAD.
+1. Inspect current Git status, branch, log and applicable repository instructions.
+2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
+   verification/arc-and-circle-completion.md, and sharp_symmetry_bounds.tex.
+3. Confirm the next requested scope with the current user message. Without a
+   request to continue proofs, do not begin another package merely because this
+   handoff lists it.
 
-The earlier rollback removed:
-- lean/InversionDenominators.lean
-- lean/InversionContinuity.lean
-and their associated imports and documentation changes.
+Current source and Git evidence override this document if they have advanced.
+Preserve unrelated or uncommitted changes. Work one meaningful bounded step
+per request unless more are explicitly requested. Explain what coverage gap
+each step closes; avoid endless helper milestones.
 
-The rollback decision has since been explicitly resolved: the user answered
-yes to restoring and re-verifying these two steps. Both files are now present,
-using the historical proofs from 128b416 and ee55b46. No further restoration
-approval is needed for these files. Do not mistake this restoration for new
-mathematics, or undo it based on an older handoff.
+Read /Users/carlo/.codex/RTK.md and /Users/carlo/.codex/KARPATHY.md.
+Prefix shell commands with `rtk`, normally `rtk proxy`. Use apply_patch for
+edits. If .codegraph/ exists, consult CodeGraph before code exploration; it
+was absent in this active repository at the recent checks.
+Do not spawn agents unless authorized by the current instructions.
 
-The discussion about “44/51 verified candidates,” a novelty-filtering prompt, and a TeX dossier on an external disk was explicitly identified as belonging to another project and cancelled. No such dossier should be pursued here. No prompt or dossier file was created, committed, or pushed.
+The active repository can be outside the task's writable sandbox roots.
+Use the appropriate escalation; never bypass rejection. Earlier approval
+service capacity errors were not GitHub failures.
 
-OBJECTIVE AND HONESTY BOUNDARY
-The fixed objective is the full mathematical paper, not Theorem 1 alone.
+After a verified implementation checkpoint, update coverage, status,
+verification evidence and this handoff as needed. Use scoped commits, then
+fast-forward codex/main and push the authorized private branches. Return to
+codex/sprint-3. Do not force-push or delete branches. Keep main current.
 
-Theorem 1 is formalized against real Cartesian curves and actual Euclidean isometry groups. Theorem 2 and supporting global geometry are incomplete.
+Do not create recurring work, publish the repository, contact experts or
+Palomar, or make an external submission. Those are not authorized.
 
-Never close a gap by:
-- assuming the conclusion as a hypothesis;
-- redefining an invariant to make the conclusion tautological;
-- replacing geometric genus with a numerical branch-count formula;
-- treating polynomial-pullback classification as classification of arbitrary ambient maps without proving the bridge;
-- treating chart-level closure as global projective closure.
+## Current immutable proof checkpoint
 
-The proof library must remain hole-free. The allowed proof axioms are exactly:
-propext, Classical.choice, Quot.sound.
+The current completion snapshot is the commit introducing
+`verification/arc-and-circle-completion.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/arc-and-circle-completion.md`.
+It succeeds 54f2f1a and completes the parameter arc and circle-section packages.
+Inspect Git rather than assuming a clean tree. Keep both branches current.
 
-Only a future isolated statement-only Challenge file may contain intentional theorem placeholders. Library definitions and Solution must not depend on them. No custom axioms, sorry, or native_decide.
+Local checks for that proof checkpoint:
 
-Kernel verification does not certify novelty, statement fidelity, usefulness, or independent human review.
+- Changed modules and aggregate compiled incrementally with warnings as errors.
+- Complete namespace axiom audit: 1,125 declarations.
+- Source preflight: 75 Lean modules, nine exact dependency pins.
+- All six package tests passed; whitespace check passed.
+- 510 written theorem/lemma declarations, 133 written definitions/etc.,
+  7,991 Lean source lines. Counts include machinery, not novel results.
 
-SPRINT STATUS
-0 — relocation and private Git: complete.
-1 — portable package and coverage inventory: complete.
-2 — global geometry: complete at the classical complex-point atlas scope; arbitrary ambient completeness, Zariski closure and global irreducibility are proved. Completion commit d29fd22 passed private Linux run 34749984410.
-3 — full ambient symmetry theorem: not complete.
-4 — normalization, ramification, genuine genus, remaining claims: not complete; highest foundational risk.
-5 — Palomar statement contract and metadata: not started.
-6 — faithful private Linux dry run: not started.
-7 — TeX integration: not started.
+Private Linux runs 34849856938 and 34849856066 for 54f2f1a both passed.
+The new completion snapshot needs its own CI result; do not inherit that success.
+The preceding f8021b8 passed runs 34848974678 and 34848974599.
+Ordinary CI is not a Palomar dry run or independent replay.
 
-Do not refactor the original TeX/PDF for formalization before Sprint 6 passes. Keep the full-port objective explicit.
+## Fixed objective and honesty boundary
 
-MATHEMATICAL SETTING
-The family is
-C_{m,α} = {z ∈ C : Re(z^m (|z|² + α)) = 0}.
+The goal remains the FULL paper, not Theorem 1 alone. Never close gaps by
+assuming conclusions, using custom axioms, redefining invariants conveniently,
+or replacing genuine genus by an arithmetic branch-count formula.
+Only propext, Classical.choice, and Quot.sound are permitted proof axioms.
+No sorry or native_decide in the library. Only a future isolated Challenge
+may contain intentional theorem placeholders; neither definitions nor Solution
+may depend on them.
 
-Its complexified affine equation is
-P_{m,α}(X,Y)
-  = X^m(α + XY) + Y^m(conjugate(α) + XY).
+Kernel checking does not establish novelty, usefulness, statement fidelity,
+editorial acceptance or independent human review. No such certification exists.
+Do not edit the paper TeX/PDF for formalization until Sprint 6 passes.
 
-Important distinctions:
-- ordinary total degree: m+2;
-- bihomogeneous degree: (m+1,m+1);
-- claimed normalization genus: m, still requiring genuine formal foundations.
+## Mathematics and completed coverage
 
-Nonreal parameters are essential in the relevant theorems.
-Some results allow any nonreal α; others require |α|=1.
-Some hold for m>0, some m≥2, and the extremal classification requires m≥3, equivalently degree≥5.
-Read each declaration rather than propagating stronger or weaker hypotheses informally.
+The real family is
+`C(m,alpha) = {z in C : Re(z^m (|z|^2 + alpha)) = 0}`.
+Its affine complexification is
+`X^m(alpha + XY) + Y^m(conjugate(alpha) + XY)`.
+Total degree is m+2; bidegree is (m+1,m+1). Claimed genuine normalization
+genus m remains unproved in Lean.
 
-The formal core uses:
-- BPoly = MvPolynomial (Fin 2) C;
-- realLocus P evaluates P at (z, conjugate z);
-- actual Euclidean isometries for paper-facing symmetry groups;
-- Sphere = OnePoint C;
-- standard Projectivization C (Fin 2 → C);
-- arbitrary GL(2,C) matrices for Möbius transformations.
+Types: BPoly is MvPolynomial (Fin 2) C; realLocus evaluates at (z,conj z);
+Sphere is OnePoint C; Möbius matrices are GL(2,C) acting on the standard
+projective line. Actual symmetry groups use transformations, not redundant
+matrix representatives. Euclidean groups use Mathlib isometry equivalences.
 
-PROVED GLOBAL COMPLETENESS
-Relevant modules:
-- FamilyGlobalTransport
-- HomogeneousDifferential
-- PolynomialDifferential
-- HomogeneousCharts
-- FamilyGlobalSingularities
+Read exact hypotheses. Most current normalized family conclusions assume
+m>=2, alpha nonreal, and norm alpha=1. Some earlier statements allow any
+nonreal alpha; equality classification requires m>=3. Do not silently alter
+these boundaries.
 
-The global chart-Jacobian singular locus of the constructed bihomogeneous family is exactly the two diagonal points:
-(0,0), (∞,∞).
+Theorem 1 is formalized for real Cartesian curves and actual isometry groups.
+Sprint 2 is complete at the classical complex-point Zariski-atlas scope:
+arbitrary ambient completeness, global closure and irreducibility are proved.
+Singular-pair preservation is DERIVED, not assumed.
 
-For m≥2 and nonreal parameters, arbitrary ambient Möbius or anti-Möbius maps satisfying the relevant spherical containment are proved to have the two holomorphic or two conjugated forms:
-cz, c/z, c conjugate(z), c/conjugate(z).
+Sprint 3 packages 1–6 are complete:
 
-Pair preservation is derived, not assumed. The formulas cover every sphere point, including zero and infinity.
+| Package | Main checked declarations/modules |
+|---|---|
+| 1: basic family geometry | PaperFamilyGeometry.paper_family_geometry (namespace CurveSymmetry) |
+| 2: exact parameter equivalence | family_mobius_equivalence_iff; family_anti_mobius_equivalence_iff in FamilySphereClassification |
+| 3: full ambient group | familyAmbientGroup_dihedral, familyAmbientGroup_card, familyAmbientGroup_generators in FamilyDihedral |
+| 4: full Euclidean group | family_affine_self_filter, family_isometry_iff_rotation, family_isometry_card in FamilyEuclidean |
+| 5: algebraic coefficients | familyAmbientGroup_algebraic_representative in FamilyAlgebraic |
+| 6: distinct parameter family | family_arc_equivalence_iff in FamilyParameterArc |
 
-This does not itself complete the exact group, parameter equivalence, projective-closure, or genus claims.
+The first table entry refers to the file PaperFamilyGeometry; the actual Lean
+name is CurveSymmetry.paper_family_geometry, not a nested file namespace.
+All declarations above are under CurveSymmetry.
 
-RECENT CHART AND TOPOLOGY WORK
-The following modules are in the retained source:
+Important details:
 
-AffineClosure:
-- exact vanishing ideal of the infinite real diagonal of an irreducible curve;
-- actual affine spectral Zariski closure using Mathlib PrimeSpectrum.
+- familyAmbientGroup is the Möbius permutation image intersected with the
+  spherical-set stabilizer, defined independently of normal forms.
+- Its group is dihedral of order 4m, with generators/relations/exhaustion;
+  no anti-Möbius self-inclusion exists. Zero and infinity are included.
+- The full Euclidean group consists exactly of centered root rotations,
+  a^(2m)=1, with order 2m. Translation is eliminated, not assumed absent.
+  The m=2 opposite-symmetry gap is closed for normalized parameters.
+- Algebraic alpha gives an algebraic-entry matrix REPRESENTATIVE of every
+  ambient symmetry. Arbitrary scalar rescalings need not be algebraic.
+- Polynomial pullbacks alone were not used as substitutes for actual maps.
 
-ProjectiveBoundary:
-- the constructed projective curve outside its finite-by-finite chart consists exactly of:
-  (∞,0), (0,∞), (∞,∞).
-- This is a set decomposition, not a closure theorem.
+## Completed new packages; next proof work
 
-MixedCornerClosure:
-- deleting an irreducible divisor not dividing the equation preserves hypersurface closure;
-- density also holds using actual complex evaluation points, through Nullstellensatz/Jacobson arguments;
-- mixed-chart origin lies in the relevant closure.
+The final Sprint 3 consequence is now proved:
+for fixed m>=2, alpha=exp(i theta), 0<theta<pi, gives pairwise fully
+Möbius-inequivalent examples.
 
-ReciprocalCornerClosure:
-- reciprocal chart density after deleting both coordinate axes;
-- includes the origin representing (∞,∞);
-- checks nondivisibility by both coordinates.
+FamilyParameterArc supplies the unit/nonreal/injective/conjugation-exclusion
+facts and family_arc_equivalence_iff for actual spherical equivalences of
+both parities. R02 is closed; the Sprint 3 gate audit is recorded in the
+completion report. Do not redo any of packages 1–6.
 
-OtherMixedCornerClosure:
-- explicit original-point map (X,Y) ↦ (1/Y,X);
-- exact image identity with the punctured second mixed chart;
-- corresponding affine spectral closure and origin membership.
+The first Sprint 4 package also closes G10. FamilyCircleSections proves
+familyCircleRootEquiv (a free root-rotation orbit) and
+family_metric_circle_card (exactly 2m points on every positive-radius centered
+metric circle). It only assumes m>0 and nonreal alpha, not normalization.
 
-AffineChartImages:
-- matching original-point image and closure identities for:
-  (X,Y) ↦ (1/X,Y);
-  (X,Y) ↦ (1/X,1/Y).
+Next choose a bounded remaining Sprint 4 obligation from COVERAGE.md, e.g.
+G06's projective tangent directions and ordinary-multiple-point interface.
+Read the exact existing FamilyCharts statements first. G07–G09 require genuine
+normalization/ramification/genus foundations; do not replace them by numerical
+identities or opportunistically rename helper steps as completed packages.
 
-ProjectiveChartMaps:
-- standard line charts [z:1] and [1:z];
-- four product chart maps, with the second mixed chart ordered as (1/Y,X);
-- affine-overlap identities with explicit nonzero conditions;
-- curve-membership equivalences;
-- exact boundary-origin identities;
-- injectivity of all charts;
-- four-chart coverage;
-- exact chart ranges as zero/infinity coordinate-divisor complements.
+## Remaining major work
 
-These results in ProjectiveChartMaps are set-theoretic. The later atlas modules
-now prove an open cover and all four chart open embeddings (see below).
+Sprints 0–3 complete at their stated scopes.
+Sprint 4 is the highest-risk foundation task: actual normalization/double
+cover, ramification, Riemann–Hurwitz and genuine genus m; ordinary
+multiple-point geometry and remaining substantive remarks, including the
+quartic comparison. No ready-made full genus interface was found in the
+installed Mathlib. Do not manufacture an invariant or weaken the goal.
 
-AffineZariskiTopology:
-- topology on complex coordinate vectors induced by evaluation into PrimeSpectrum;
-- evaluation is injective and a topological embedding;
-- polynomial nonvanishing sets are open;
-- polynomial zero sets are closed;
-- coordinate-deletion domains are open;
-- closure equals the common zero set of the vanishing ideal;
-- real-diagonal closure transferred to complex coordinate points.
+Sprint 5: accurate compact Challenge/Solution, permitted import closure,
+Comparator configuration, schema-valid metadata, pinned tools and honest
+literature/review status. Preserve inspected arXiv vs uninspected journal
+version distinctions.
+Sprint 6: immutable clean private Linux contract-faithful dry run, protected
+Comparator, isolated Challenge, credential/network-free proof sandbox,
+NanoDa replay and failing negative controls. No simulated sandbox counts.
+Sprint 7: only then TeX integration, theorem links, reproducibility and AI
+disclosures, PDF checks and final revision-bound verification.
 
-Its topology instance is LOCAL. Do not overwrite the ordinary Euclidean topology on coordinate vectors globally or confuse Euclidean and Zariski continuity.
+Palomar-ready does not mean accepted, registered or human-reviewed.
 
-WHAT COMES NEXT
-Two additional prerequisites are now proved:
+## Do not reopen resolved history
 
-PolynomialZariskiMaps:
-- polynomialPointMap evaluates two coordinate polynomials;
-- polynomialPointMap_eval proves substitution commutes with evaluation;
-- polynomialPointMap_continuous proves continuity in the explicitly local Zariski topology, using polynomial zero sets.
+All atlas/gluing/inversion continuity work is complete at its stated scope.
+ProjectiveAtlasUniqueness supplies the standard affine-Zariski open-atlas
+characterization; ProjectiveCurveIrreducibility closes global irreducibility.
+A separate scheme comparison is not currently a missing paper obligation.
+Topology instances remain local: do not confuse Euclidean and Zariski topology.
 
-CoordinateExchange:
-- exchangeCoordinates swaps the two coordinates and is involutive;
-- coordinateExchangeHomeomorph is a Zariski homeomorphism of the affine plane;
-- coordinateExchangeTorusHomeomorph restricts it to both coordinates nonzero;
-- affine/reciprocal chart identities agree with projective factor exchange;
-- otherMixedProjectiveChart already uses reversed coordinate order: it equals the swapped mixedProjectiveChart WITHOUT applying exchangeCoordinates again.
+Earlier rollback of 128b416 and ee55b46 was followed by explicit authorization
+to restore and reverify the inversion work. It is restored and used. Do not
+undo it or ask again based on stale history.
+The “44/51 candidates”, novelty-filter prompt and external-disk TeX dossier
+discussion belonged to another project and was cancelled here. Do not resume it.
 
-InversionDenominators and InversionContinuity are now restored:
-- polynomial denominators under one-coordinate inversion can be cleared;
-- inverse images of polynomial zero sets have polynomial numerators on the nonzero domain;
-- coordinateInversionHomeomorph gives a Zariski homeomorphism for either coordinate's nonzero domain.
+## Build and audit commands
 
-SimultaneousInversion is now checked:
-- simultaneousInversionHomeomorph is a Zariski homeomorphism of the torus;
-- simultaneousInversion_val gives the exact vector (1/X,1/Y);
-- simultaneousInversion_chart matches the affine/reciprocal projective charts;
-- simultaneousInversion_curve matches their curve equations.
+Run from the active repository. Lean: leanprover/lean4:v4.32.0.
+Mathlib: 81a5d257c8e410db227a6665ed08f64fea08e997.
+Reuse installation: /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean.
+Do not clone duplicate dependencies, modify their sources, or update pins.
+Root lakefile.toml and lake-manifest.json describe the portable package.
 
-ProjectiveClosureGluing is now checked:
-- ClosedInProjectiveCharts S means all four chart preimages of S are affine-Zariski closed. It is a predicate, NOT a topology declaration.
-- family_projective_chart_gluing: if such S contains all complex affine curve points in the projective affine chart, it contains the full constructed projective family, for every m>0 and every complex parameter.
-- family_closed_in_projective_charts: the family satisfies that predicate.
-- family_projective_closure_of_chart_continuity: for ANY ambient topology in which the four chart maps are continuous and the family is closed, the closure of the complex affine curve image is the full projective family.
-
-The last theorem is CONDITIONAL, but ProjectiveAtlasTopology now supplies a
-family-independent topology: the final topology of the disjoint union of the
-four standard affine charts, each with its proved affine Zariski topology.
-projectiveAtlas_isClosed_iff identifies closed sets with ClosedInProjectiveCharts;
-projectiveChart_continuous proves continuity of every chart. Instances stay LOCAL.
-ProjectiveAtlasClosure proves family_projectiveAtlas_affine_closure for m>0
-and arbitrary alpha, and family_projectiveAtlas_real_closure for m>0 and
-nonreal alpha. The latter starts from the actual affine real diagonal and
-includes all boundary points, using irreducibility and infinite real locus.
-
-These are unconditional theorems IN THE CHART-FINAL TOPOLOGY, now characterized
-uniquely by the standard affine-Zariski open atlas (see below).
-ProjectiveAtlasOpenCover proves the exact affine-overlap domains,
-openness of all four chart ranges (checking all sixteen overlaps), and coverage.
-ProjectiveAffineEmbedding proves affineProjectiveChart_isOpenMap and
-affineProjectiveChart_isOpenEmbedding using the actual inversion transitions.
-Thus the affine chart's subspace topology is proved to be the affine Zariski
-topology; this is not just a continuous injective map.
-
-ProjectiveAtlasEmbeddings now proves the other three open embeddings. It defines
-the ordinary homogeneous flip [x:y] -> [y:x] through Projectivization.map, proves
-first-factor flip and factor exchange homeomorphisms for the atlas topology,
-and transports the affine embedding. projectiveChart_isOpenEmbedding covers
-every chart. No product-topology instance on projective points is assumed.
-
-ProjectiveAtlasUniqueness proves existence and uniqueness of the topology in
-which these four standard affine-Zariski charts are open embeddings. This is
-the classical atlas construction, not a topology chosen for the curve.
-ProjectiveCurveIrreducibility proves irreducibility of the real diagonal in
-the complex affine Zariski topology and of the complete projective curve.
-G01 is complete at this classical complex-point scope, using the existing
-exact separate degrees and bihomogeneous equation. A separate scheme comparison
-is not claimed or needed for this paper assertion; normalization/genus remain.
-
-Sprint 3 now has FamilySphereDilation and FamilySphereInversion: spherical
-inclusion yields a nonzero scalar polynomial identity; the exact root tests
-are necessary and sufficient. Both include pointwise membership equivalences
-on the whole sphere. FamilySphereClassification combines these with arbitrary
-ambient completeness: family_mobius_self_filter, family_mobius_self_mem_iff,
-family_mobius_parameter_necessary, family_anti_mobius_parameter_necessary,
-and family_no_anti_mobius_self. T2.3 and T2.4 are proved. PaperFamilyGeometry
-adds paper_family_geometry, closing T2.1 in one real-Cartesian endpoint for
-every m>=2 and nonreal alpha; do not repeat this packaging task. T2.7 is now
-complete: family_mobius_equivalence_iff and family_anti_mobius_equivalence_iff
-state existential ambient transformations with exact spherical-image equality.
-Identity and conjugation supply sufficiency; infinity is included.
-
-FamilyAmbientGroup now defines the actual group as the intersection of the
-Möbius permutation image and the spherical-set stabilizer. Its normal-form
-theorem is derived from ambient completeness, not assumed in the definition.
-Dilation and inversion parameters are injective and their images disjoint.
-Package 3 is complete: FamilyDihedral proves all four composition laws on the
-sphere, a faithful cyclic-root-indexed action, its surjectivity onto the actual
-group, the dihedral isomorphism, order 4m, and exact-order generators with the
-conjugation relation and exhaustive normal forms. Endpoints:
-familyAmbientGroup_dihedral, familyAmbientGroup_card,
-familyAmbientGroup_generators. All include m=2.
-Package 4 first part is checked in FamilyEuclidean: affineMobiusMatrix bridges
-affine maps to sphere actions; family_no_conjugate_affine excludes even
-one-sided conjugate-affine self-inclusion for normalized parameters and m>=2.
-family_no_opposite_normalized closes the quartic opposite-symmetry gap;
-family_isometry_direct applies to arbitrary actual Euclidean isometries.
-Packages 4 and 5 are complete. FamilyEuclidean now has family_affine_self_filter
-(translation vanishes), family_isometry_iff_rotation (actual isometries iff
-centered root rotations), and family_isometry_card (full actual group order 2m).
-FamilyAlgebraic proves algebraicity over Q from the root equations and gives
-familyAmbientGroup_algebraic_representative. This means existence of an
-algebraic-entry matrix inducing the same sphere action, not algebraicity of
-every scalar-rescaled representative. All normalized conclusions include m=2.
-Next: package 6, the remaining parameter-family consequence. Do not repeat the
-dihedral/Euclidean construction. Sprint 3 as a whole remains incomplete.
-All chart/topology-relative closure work is DONE. Do not
-add more atlas milestones or treat genus as a numerical branch-count definition.
-The search found Mathlib ProjectiveSpectrum.Topology, but it uses projective
-spectrum objects rather than the current Projectivization point type; a bridge
-or a justified standard atlas construction still needs work. Merely declaring
-a topology to make the family closed does not meet the fidelity requirement.
-
-The individual inversion continuity step is done after explicit approval;
-do not ask again or redo it as a new result. Read the latest verification
-report for the recheck evidence and current Linux CI status.
-
-Do not keep multiplying tiny helper milestones without explaining how they close an actual coverage obligation. Favor coherent verified steps and report which gap remains afterward.
-
-BUILD ENVIRONMENT
-Lean toolchain: leanprover/lean4:v4.32.0
-Mathlib revision:
-81a5d257c8e410db227a6665ed08f64fea08e997
-
-Existing dependency installation:
- /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
-
-Use the root lakefile.toml and exact lake-manifest.json. There are nine pinned package revisions. Do not run dependency updates casually.
-
-Full local library check, from the project root:
+```sh
 rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
-
-Source/dependency preflight:
 rtk proxy python3 -B scripts/check_sources.py --reuse /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
-
-Package tests:
 rtk proxy python3 -B -m unittest discover -s scripts -p 'test_*.py'
+rtk proxy git diff --check
+```
 
-The full imported namespace audit is verification/Audit.lean.
-Run it with `lean`, not `lean --run`; it uses run_cmd and has no main.
+For an incremental build, construct LEAN_PATH from this project's lean/.build
+plus each installed dependency's .lake/build/lib/lean. Compile changed modules
+in dependency order, then CurveSymmetry.lean, then verification/Audit.lean.
+Use elan run leanprover/lean4:v4.32.0 lean -DwarningAsError=true.
+Audit.lean uses run_cmd, not main: do NOT pass --run.
+New modules must appear in both the aggregate imports and Lake roots.
+Beware stale ignored oleans; report incremental checks as incremental.
 
-For incremental compilation, assemble LEAN_PATH from:
-- this project's lean/.build;
-- each existing dependency package's .lake/build/lib/lean.
+## Paper preservation
 
-Compile changed dependencies before dependents, then the aggregate:
-lean/CurveSymmetry.lean
-and then verification/Audit.lean.
-Use -DwarningAsError=true.
+Unchanged hashes:
 
-Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
+```text
+3aff1c6edf6f189de6fa56c690631c266364a3b129408eb0fd5a200ceb186925 sharp_symmetry_bounds.tex
+8b1f71e7a4f5dbce7fce3de383b675411e3fbba21bea4939609991f47a10ffd1 sharp_symmetry_bounds.pdf
+```
 
-The current source has 73 Lean files including the aggregate. Consult the latest
-entry of verification/SPRINT-2.md for its completed audit count and CI status.
-These counts include implementation/helper/generated declarations; they are
-not counts of novel theorems. In particular this is NOT the cancelled
-44/51-candidate project.
-
-VERIFICATION REPORTING
-Record:
-- exact commit;
-- changed modules and mathematical statements;
-- hypotheses and exceptional cases;
-- local full build versus incremental build;
-- complete namespace axiom audit;
-- preflight and tests;
-- actual private Linux CI result, when available;
-- remaining coverage obligations.
-
-A queued, cancelled, or superseded CI run is not a successful run.
-Ordinary private Lean CI is not a Palomar-style dry run.
-
-The eventual faithful private dry run must include the real contract checks, protected Comparator configuration, isolated Challenge, sandboxed verification without credentials/network, NanoDa replay, and failing negative controls. Do not claim these happened before they actually happen.
-
-PRESERVATION
-Original TeX SHA256:
-3aff1c6edf6f189de6fa56c690631c266364a3b129408eb0fd5a200ceb186925
-
-Original PDF SHA256:
-8b1f71e7a4f5dbce7fce3de383b675411e3fbba21bea4939609991f47a10ffd1
-
-Keep these unchanged until the agreed editorial sprint.
-Preserve shared dependency sources and unrelated parent-repository files.
-
-FIRST RESPONSE
-Briefly report what the current repository confirms and identify the next
-coherent proof obligation. Polynomial-map continuity and coordinate exchange
-and individual inversion continuity are done: do not repeat them as new work.
-The inversion restoration was explicitly approved. Do not resume the cancelled
-contribution-dossier task or advertise Palomar readiness.
+First response: identify the correct checkout, summarize current evidence,
+and state the next bounded obligation authorized by the user's request.
+Do not advertise full-port completion or Palomar readiness.

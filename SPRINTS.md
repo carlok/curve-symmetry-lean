@@ -107,6 +107,15 @@ into an unnecessary scheme comparison; normalization and genus remain Sprint 4.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 
+2026-09-14 COMPLETE. Package 6, `family_arc_equivalence_iff`, closes R02.
+Gate audit: T2.1–T2.7 and the Sprint 3 consequences G13/R02/R03 are proved
+for actual transformations, including zero/infinity and m=2. G01's
+classical complex-point scope is unchanged. Normalization/genus obligations
+remain in Sprint 4 and are not certified by this completion.
+Completion commit: the commit introducing `verification/arc-and-circle-completion.md`.
+Both new modules and aggregate passed warnings-as-errors compilation;
+whole-namespace audit passed (1,125), preflight and six package tests passed.
+
 2026-09-14 packages 4 and 5 COMPLETE: actual Euclidean self-isometries are
 exactly centered root rotations, with full group order 2m (including m=2);
 every ambient symmetry for algebraic normalized alpha has an algebraic-entry
@@ -153,6 +162,12 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-14 first package COMPLETE: G10's exact centered-circle section.
+`familyCircleRootEquiv` gives a free transitive root-rotation parametrization,
+and `family_metric_circle_card` gives exactly 2m actual points. This holds for
+all m>0 and nonreal alpha, without parameter normalization. Sprint 4 itself
+remains incomplete, especially G06–G09 and R01.
 
 Construct normalization and the double cover with its ramification data.
 Prove the required Riemann–Hurwitz machinery and actual genus `m`. Complete

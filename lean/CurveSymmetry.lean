@@ -70,5 +70,7 @@ import FamilyAmbientGroup
 import FamilyDihedral
 import FamilyEuclidean
 import FamilyAlgebraic
+import FamilyParameterArc
+import FamilyCircleSections
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

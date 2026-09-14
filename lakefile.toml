@@ -87,5 +87,7 @@ roots = [
   "FamilyDihedral",
   "FamilyEuclidean",
   "FamilyAlgebraic",
+  "FamilyParameterArc",
+  "FamilyCircleSections",
   "CurveSymmetry",
 ]
