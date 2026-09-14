@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 3 parameter-equivalence checkpoint, 2026-09-14.
+Snapshot: Sprint 3 actual ambient-group checkpoint, 2026-09-14.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -36,7 +36,7 @@ is still incomplete.
 
 ## Still missing
 
-Sprint 3: full exact ambient group, dihedral isomorphism/order `4m`,
+Sprint 3: dihedral isomorphism/order `4m` for the now-defined actual ambient group,
 algebraic-coefficient consequence, plus the remaining
 `m=2` interfaces. Sprint 4: ordinary multiple-point geometry, normalization,
 ramification, Riemann–Hurwitz, genuine genus `m`, and remaining paper remarks.
@@ -46,11 +46,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 69 |
-| Written theorem/lemma declarations | 463 |
-| Written definitions/abbreviations/structures/inductives | 119 |
-| Lean source lines, including comments and blank lines | 7,258 |
-| Audited namespace declarations, including generated/private machinery | 996 |
+| Lean source files (including aggregate) | 70 |
+| Written theorem/lemma declarations | 472 |
+| Written definitions/abbreviations/structures/inductives | 126 |
+| Lean source lines, including comments and blank lines | 7,381 |
+| Audited namespace declarations, including generated/private machinery | 1,021 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 

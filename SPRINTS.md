@@ -107,6 +107,14 @@ into an unnecessary scheme comparison; normalization and genus remain Sprint 4.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 
+2026-09-14 package 3 checkpoint: `FamilyAmbientGroup` defines actual sphere
+symmetries independently of the normal forms. Completeness gives the two
+root-constrained families; parameters are injective and the families disjoint.
+Incremental warnings-as-errors build, aggregate compilation, all-namespace
+axiom audit (1,021 declarations), preflight, and six package tests passed.
+Package 3 remains incomplete: dihedral multiplication/isomorphism and order
+`4m` are not yet proved. See `verification/ambient-group-checkpoint.md`.
+
 Combine completeness with the exact coefficient filters. Prove the sphere
 actions at zero and infinity, the dihedral group of order `4m`, exactly `2m`
 Euclidean rotations, no anti-Möbius self-equivalence, and both complete
