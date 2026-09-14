@@ -36,7 +36,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | T1.2 | Each bound attained in every degree `d ≥ 2` | **Proved:** `paper_rotation_sharp`, `paper_full_sharp` in [PaperBounds](lean/PaperBounds.lean). | baseline |
 | T1.3 | Degree `d ≥ 5` equality implies the normalized family under orientation-preserving similarity | **Proved:** `paper_equality_classification`; the actual image of the Cartesian locus is the stated real-part equation. | baseline |
 | T1.4 | Every family member with `m ≥ 3` attains the rotation bound | **Proved:** `paper_family_converse` (even without modulus-one normalization). | baseline |
-| T2.1 | For `m ≥ 2`, the family is infinite, geometrically irreducible, of degree `m+2` | **Proved ingredients:** `familyPolynomial_irreducible`, `family_degree`, `family_realLocus_infinite`, `exists_cartesian_equation`, `family_locus_eq`. A single paper-facing wrapper including `m=2` remains to be added. | 3 |
+| T2.1 | For `m ≥ 2`, the family is infinite, geometrically irreducible, of degree `m+2` | **Proved:** `paper_family_geometry` in [PaperFamilyGeometry](lean/PaperFamilyGeometry.lean) provides one real Cartesian equation with all these properties and its exact family locus, including `m=2`. Any nonreal parameter is allowed; modulus-one normalization is unnecessary. | 3 |
 | T2.2 | Every ambient holomorphic equivalence has form `cz` or `c/z`; every anti-equivalence has a conjugated form | **Proved:** `family_mobius_complete` and `family_anti_mobius_complete` in [FamilyGlobalSingularities](lean/FamilyGlobalSingularities.lean), for `m ≥ 2` and nonreal parameters, starting even from one-sided actual spherical containment. The forms hold at every sphere point. Pair preservation follows from the global Jacobian locus and is not an input hypothesis. | 2 |
 | T2.3 | Exact self-map coefficients `c^(2m)=1` or `c^(2m)=conj(α)^2` | **Proved:** `family_mobius_self_filter` in [FamilySphereClassification](lean/FamilySphereClassification.lean) covers arbitrary ambient matrices. [FamilySphereDilation](lean/FamilySphereDilation.lean) and [FamilySphereInversion](lean/FamilySphereInversion.lean) give exact actual-sphere tests, including `0,∞`; `family_mobius_self_mem_iff` proves preservation in both directions. | 3 |
 | T2.4 | All self-equivalences holomorphic; no anti-Möbius symmetry | **Proved:** `family_no_anti_mobius_self` in [FamilySphereClassification](lean/FamilySphereClassification.lean) excludes even one-sided anti-Möbius self-inclusion, for every ambient matrix and `m ≥ 2`. | 3 |
@@ -103,7 +103,7 @@ proved with the stated ordinary meaning. Completed T1 rows do not compensate
 for incomplete T2 or genus rows.
 
 Sprint 2 adds thirty-one mathematical modules, for 65 Lean files including
-the aggregate at its completion. Sprint 3 now adds three modules (68 files total).
+the aggregate at its completion. Sprint 3 now adds four modules (69 files total).
 T2.2 is now proved because pair preservation has been derived
 from actual spherical containment, not because the earlier conditional helper
 was relabeled. G01 is now proved via the classical affine-atlas construction.

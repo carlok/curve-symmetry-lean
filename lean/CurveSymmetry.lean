@@ -65,5 +65,6 @@ import ProjectiveCurveIrreducibility
 import FamilySphereDilation
 import FamilySphereInversion
 import FamilySphereClassification
+import PaperFamilyGeometry
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

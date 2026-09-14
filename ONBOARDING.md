@@ -258,7 +258,9 @@ are necessary and sufficient. Both include pointwise membership equivalences
 on the whole sphere. FamilySphereClassification combines these with arbitrary
 ambient completeness: family_mobius_self_filter, family_mobius_self_mem_iff,
 family_mobius_parameter_necessary, family_anti_mobius_parameter_necessary,
-and family_no_anti_mobius_self. T2.3 and T2.4 are proved. T2.7 has global
+and family_no_anti_mobius_self. T2.3 and T2.4 are proved. PaperFamilyGeometry
+adds paper_family_geometry, closing T2.1 in one real-Cartesian endpoint for
+every m>=2 and nonreal alpha; do not repeat this packaging task. T2.7 has global
 necessity, but its existential equivalence wrappers remain.
 
 Next: package identity/conjugation sufficiency for T2.7 and construct the
@@ -309,7 +311,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 68 Lean files including the aggregate. Consult the latest
+The current source has 69 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled

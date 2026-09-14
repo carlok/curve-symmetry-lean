@@ -82,5 +82,6 @@ roots = [
   "FamilySphereDilation",
   "FamilySphereInversion",
   "FamilySphereClassification",
+  "PaperFamilyGeometry",
   "CurveSymmetry",
 ]

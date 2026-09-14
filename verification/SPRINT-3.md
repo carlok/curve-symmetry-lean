@@ -42,3 +42,20 @@ for parameter equivalence, and prove the algebraic-coefficient corollary.
 Normalization/genus and the faithful Palomar dry run remain untouched.
 No independent human review, registry acceptance or novelty certification is
 implied by the agent review or kernel checks.
+
+## Package 1 — paper-facing basic family geometry
+
+`CurveSymmetry.paper_family_geometry` in `PaperFamilyGeometry.lean` packages T2.1:
+for every m>=2 and nonreal alpha there exists a real Cartesian equation f,
+geometrically irreducible over C, of total degree m+2, whose actual locus is
+the displayed family and is infinite. No modulus-one assumption or stronger
+m>=3 cutoff is introduced. The witness comes from the existing Cartesian
+descent theorem. This is endpoint packaging, not a new mathematical result.
+
+The module and aggregate compiled with warnings as errors; all 993 namespace
+declarations passed the three-axiom audit. Preflight passed for 69 files and
+nine pins, and all six tests passed. `git diff --check` passed. TeX/PDF hashes
+remain unchanged. These are incremental local checks. Prior commit `0fced06`
+passed private Linux runs `34762684748` (sprint branch) and `34762846686` (main);
+the new checkpoint's Linux check is pending at commit time. T2.1 is complete;
+no further group, genus or Palomar obligation is claimed complete.
