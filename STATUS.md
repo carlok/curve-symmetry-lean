@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 3 package 3 complete, 2026-09-14.
+Snapshot: Sprint 3 package 4 first part, 2026-09-14.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -37,7 +37,7 @@ is still incomplete.
 
 ## Still missing
 
-Sprint 3: full Euclidean-group identification including `m=2`,
+Sprint 3: full Euclidean-group identification (opposite maps now excluded even at `m=2`),
 algebraic-coefficient consequence, and the remaining parameter-family consequence.
 Sprint 4: ordinary multiple-point geometry, normalization,
 ramification, Riemann–Hurwitz, genuine genus `m`, and remaining paper remarks.
@@ -47,11 +47,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 71 |
-| Written theorem/lemma declarations | 489 |
-| Written definitions/abbreviations/structures/inductives | 130 |
-| Lean source lines, including comments and blank lines | 7,633 |
-| Audited namespace declarations, including generated/private machinery | 1,075 |
+| Lean source files (including aggregate) | 72 |
+| Written theorem/lemma declarations | 494 |
+| Written definitions/abbreviations/structures/inductives | 131 |
+| Lean source lines, including comments and blank lines | 7,705 |
+| Audited namespace declarations, including generated/private machinery | 1,085 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -62,7 +62,7 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Previous commit `30bcfb0` passed private Linux runs `34823034995` and `34823034336`; this snapshot's
+Previous commit `8d34a48` passed private Linux runs `34848016730` and `34848016706`; this snapshot's
 Linux result is pending at commit time. No faithful Palomar dry run, NanoDa
 replay, independent human review or novelty certification has been completed.
 TeX and PDF are unchanged. Sprints 0–2 are mathematically complete at their

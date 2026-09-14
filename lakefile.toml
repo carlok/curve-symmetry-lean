@@ -85,5 +85,6 @@ roots = [
   "PaperFamilyGeometry",
   "FamilyAmbientGroup",
   "FamilyDihedral",
+  "FamilyEuclidean",
   "CurveSymmetry",
 ]

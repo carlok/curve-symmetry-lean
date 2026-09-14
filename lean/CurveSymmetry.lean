@@ -68,5 +68,6 @@ import FamilySphereClassification
 import PaperFamilyGeometry
 import FamilyAmbientGroup
 import FamilyDihedral
+import FamilyEuclidean
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

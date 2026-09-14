@@ -275,7 +275,13 @@ group, the dihedral isomorphism, order 4m, and exact-order generators with the
 conjugation relation and exhaustive normal forms. Endpoints:
 familyAmbientGroup_dihedral, familyAmbientGroup_card,
 familyAmbientGroup_generators. All include m=2.
-Next: package 4, the full Euclidean group identification (including m=2).
+Package 4 first part is checked in FamilyEuclidean: affineMobiusMatrix bridges
+affine maps to sphere actions; family_no_conjugate_affine excludes even
+one-sided conjugate-affine self-inclusion for normalized parameters and m>=2.
+family_no_opposite_normalized closes the quartic opposite-symmetry gap;
+family_isometry_direct applies to arbitrary actual Euclidean isometries.
+Next: eliminate the translation coefficient, identify exact rotations, and
+package the full actual Euclidean group cardinality. Package 4 is incomplete.
 Do not repeat the dihedral construction. The algebraic-coefficient and remaining
 parameter-family consequences still follow; Sprint 3 as a whole is incomplete.
 All chart/topology-relative closure work is DONE. Do not
@@ -324,7 +330,7 @@ Use -DwarningAsError=true.
 
 Be alert to stale ignored .olean files after rollback. Audit the current aggregate and source inventory, not whatever compiled artifacts happen to remain in lean/.build.
 
-The current source has 71 Lean files including the aggregate. Consult the latest
+The current source has 72 Lean files including the aggregate. Consult the latest
 entry of verification/SPRINT-2.md for its completed audit count and CI status.
 These counts include implementation/helper/generated declarations; they are
 not counts of novel theorems. In particular this is NOT the cancelled
