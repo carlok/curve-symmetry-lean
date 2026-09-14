@@ -63,6 +63,63 @@ theorem family_isometry_direct {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
     exact False.elim (family_no_conjugate_affine hm ha hα ha0
       (fun z hz => (he z) ▸ hf z hz))
 
+/-- Affine self-inclusion forces a centered root rotation. -/
+theorem family_affine_self_filter {m : ℕ} (hm : 2 ≤ m) {α a b : ℂ}
+    (ha : α ≠ star α) (hα : ‖α‖ = 1) (ha0 : a ≠ 0)
+    (hf : ∀ z ∈ extremalCurve m α, a * z + b ∈ extremalCurve m α) :
+    b = 0 ∧ a ^ (2 * m) = 1 := by
+  have hs : ∀ p ∈ sphericalFamily m α,
+      affineMobiusMatrix a b ha0 • p ∈ sphericalFamily m α := by
+    intro p hp
+    cases p using OnePoint.rec with
+    | infty => simpa [affineMobiusMatrix_infinity] using
+        infinity_mem_sphericalFamily (by omega : 0 < m) ha
+    | coe z =>
+      simpa [affineMobiusMatrix_finite] using
+        (finite_mem_sphericalFamily_iff (by omega) ha (a * z + b)).mpr
+          (hf z ((finite_mem_sphericalFamily_iff (by omega) ha z).mp hp))
+  obtain ⟨c, hc, ⟨hr, he⟩ | ⟨hr, he⟩⟩ :=
+    (family_mobius_self_filter hm ha hα (affineMobiusMatrix a b ha0)).mp hs
+  · have h0 := he ((0 : ℂ) : Sphere)
+    have h1 := he ((1 : ℂ) : Sphere)
+    have hb : b = 0 := by simpa [affineMobiusMatrix_finite, sphereDilation] using h0
+    have hac : a = c := by simpa [affineMobiusMatrix_finite, sphereDilation, hb] using h1
+    exact ⟨hb, hac ▸ hr⟩
+  · have hi := he ∞
+    simp [affineMobiusMatrix_infinity, sphereInversion] at hi
+
+/-- Exact characterization of actual Euclidean self-isometries. -/
+theorem family_isometry_iff_rotation {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
+    (ha : α ≠ star α) (hα : ‖α‖ = 1) (f : ℂ ≃ᵢ ℂ) :
+    (∀ z, f z ∈ extremalCurve m α ↔ z ∈ extremalCurve m α) ↔
+      ∃ a : ℂ, a ^ (2 * m) = 1 ∧ ∀ z, f z = a * z := by
+  constructor
+  · intro hf
+    obtain ⟨a, b, hn, he⟩ := family_isometry_direct hm ha hα f
+      (fun z hz => (hf z).mpr hz)
+    have ha0 : a ≠ 0 := by intro hz; simp [hz] at hn
+    obtain ⟨hb, hr⟩ := family_affine_self_filter hm ha hα ha0
+      (fun z hz => (he z) ▸ (hf z).mpr hz)
+    exact ⟨a, hr, fun z => by simpa [hb] using he z⟩
+  · rintro ⟨a, hr, he⟩ z
+    have hs := family_root_symmetry (by omega : 0 < m) hr α
+    rw [he, ← family_locus_eq]
+    simpa only [add_zero] using hs.2 z
+
+/-- The full group of actual Euclidean isometries has exactly 2m elements. -/
+theorem family_isometry_card {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
+    (ha : α ≠ star α) (hα : ‖α‖ = 1) :
+    Nat.card (isometrySetGroup (extremalCurve m α)) = 2 * m := by
+  letI := family_no_opposite_normalized hm ha hα
+  rw [← family_locus_eq, ← Nat.card_congr (euclideanIsometryEquiv (familyPolynomial m α))]
+  change Nat.card (DirectSymmetries (familyPolynomial m α) ⊕
+    OppositeSymmetries (familyPolynomial m α)) = _
+  rw [Nat.card_congr (Equiv.sumEmpty _ _)]
+  exact family_direct_card hm ha
+
+#print axioms family_affine_self_filter
+#print axioms family_isometry_iff_rotation
+#print axioms family_isometry_card
 #print axioms family_no_conjugate_affine
 #print axioms family_no_opposite_normalized
 #print axioms family_isometry_direct

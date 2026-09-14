@@ -107,6 +107,15 @@ into an unnecessary scheme comparison; normalization and genus remain Sprint 4.
 
 ## Sprint 3 — complete the ambient symmetry theorem
 
+2026-09-14 packages 4 and 5 COMPLETE: actual Euclidean self-isometries are
+exactly centered root rotations, with full group order 2m (including m=2);
+every ambient symmetry for algebraic normalized alpha has an algebraic-entry
+matrix representative. Coverage T2.6, G13, R03 is closed. Incremental module
+and aggregate checks with warnings as errors, all-namespace audit (1,096),
+preflight and six package tests passed. The completion commit introduces
+`verification/packages-4-5-completion.md`. Package 6 remains before closing
+Sprint 3; no genus or Palomar readiness claim follows.
+
 2026-09-14 package 4 first part: `FamilyEuclidean` proves the affine-to-sphere
 interface, exclusion of conjugate-affine self-inclusions, absence of opposite
 symmetries including m=2, and directness of every actual Euclidean self-isometry.
