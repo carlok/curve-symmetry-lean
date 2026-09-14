@@ -42,7 +42,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | T2.4 | All self-equivalences holomorphic; no anti-Möbius symmetry | **Proved:** `family_no_anti_mobius_self` in [FamilySphereClassification](lean/FamilySphereClassification.lean) excludes even one-sided anti-Möbius self-inclusion, for every ambient matrix and `m ≥ 2`. | 3 |
 | T2.5 | Full ambient group is dihedral of order `4m` | **Open:** construct a group isomorphism for actual sphere maps; prove distinctness, count, and relations. | 3 |
 | T2.6 | Full Euclidean group consists of exactly the `2m` rotations | **Partial:** `family_direct_card` for `m ≥ 2`; `family_no_opposite` only for `m ≥ 3`. Cover `m=2`, then identify the actual maps. | 3 |
-| T2.7 | Fixed-`m` holomorphic equivalence iff `β=α`; anti-equivalence iff `β=conj(α)` | **Partial:** global necessity now proved by `family_mobius_parameter_necessary` and `family_anti_mobius_parameter_necessary`, even for one-sided inclusion. Explicit existential equivalence wrappers with identity/conjugation sufficiency remain. | 3 |
+| T2.7 | Fixed-`m` holomorphic equivalence iff `β=α`; anti-equivalence iff `β=conj(α)` | **Proved:** `family_mobius_equivalence_iff` and `family_anti_mobius_equivalence_iff` in [FamilySphereClassification](lean/FamilySphereClassification.lean) use existential ambient matrices and equality of the actual spherical images. Necessity follows even from inclusion; identity and conjugation provide sufficiency. Both normalized parameters are nonreal and `m ≥ 2`. | 3 |
 
 ## Supporting geometry and proof claims
 

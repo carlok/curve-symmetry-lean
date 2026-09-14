@@ -260,10 +260,12 @@ ambient completeness: family_mobius_self_filter, family_mobius_self_mem_iff,
 family_mobius_parameter_necessary, family_anti_mobius_parameter_necessary,
 and family_no_anti_mobius_self. T2.3 and T2.4 are proved. PaperFamilyGeometry
 adds paper_family_geometry, closing T2.1 in one real-Cartesian endpoint for
-every m>=2 and nonreal alpha; do not repeat this packaging task. T2.7 has global
-necessity, but its existential equivalence wrappers remain.
+every m>=2 and nonreal alpha; do not repeat this packaging task. T2.7 is now
+complete: family_mobius_equivalence_iff and family_anti_mobius_equivalence_iff
+state existential ambient transformations with exact spherical-image equality.
+Identity and conjugation supply sufficiency; infinity is included.
 
-Next: package identity/conjugation sufficiency for T2.7 and construct the
+Next: construct the
 actual dihedral group/isomorphism/count, retaining all m=2 obligations.
 All chart/topology-relative closure work is DONE. Do not
 add more atlas milestones or treat genus as a numerical branch-count definition.

@@ -69,6 +69,50 @@ theorem family_no_anti_mobius_self {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
   intro hmap
   exact ha (family_anti_mobius_parameter_necessary hm ha ha hα hα g hmap)
 
+/-- Complete holomorphic parameter classification using equality of the actual
+spherical loci under an ambient Möbius transformation. -/
+theorem family_mobius_equivalence_iff {m : ℕ} (hm : 2 ≤ m) {α β : ℂ}
+    (ha : α ≠ star α) (hb : β ≠ star β) (hα : ‖α‖ = 1) (hβ : ‖β‖ = 1) :
+    (∃ g : MobiusMatrix, (fun p : Sphere => g • p) '' sphericalFamily m α =
+      sphericalFamily m β) ↔ β = α := by
+  constructor
+  · rintro ⟨g, hg⟩
+    apply family_mobius_parameter_necessary hm ha hb hα hβ g
+    intro p hp
+    rw [← hg]
+    exact ⟨p, hp, rfl⟩
+  · rintro rfl
+    exact ⟨1, by simp⟩
+
+/-- Complete antiholomorphic parameter classification; conjugation supplies
+the reverse implication, including its action at infinity. -/
+theorem family_anti_mobius_equivalence_iff {m : ℕ} (hm : 2 ≤ m) {α β : ℂ}
+    (ha : α ≠ star α) (hb : β ≠ star β) (hα : ‖α‖ = 1) (hβ : ‖β‖ = 1) :
+    (∃ g : MobiusMatrix,
+      (fun p : Sphere => g • OnePoint.map (star : ℂ → ℂ) p) '' sphericalFamily m α =
+        sphericalFamily m β) ↔ β = star α := by
+  constructor
+  · rintro ⟨g, hg⟩
+    apply family_anti_mobius_parameter_necessary hm ha hb hα hβ g
+    intro p hp
+    rw [← hg]
+    exact ⟨p, hp, rfl⟩
+  · rintro rfl
+    refine ⟨1, ?_⟩
+    simp only [one_smul]
+    ext q
+    constructor
+    · rintro ⟨p, hp, rfl⟩
+      apply (conjugate_mem_sphericalFamily_iff (by omega) ha
+        (OnePoint.map (star : ℂ → ℂ) p)).mp
+      simpa only [sphere_conjugation_involutive] using hp
+    · intro hq
+      exact ⟨OnePoint.map (star : ℂ → ℂ) q,
+        (conjugate_mem_sphericalFamily_iff (by omega) ha q).mpr hq,
+        sphere_conjugation_involutive q⟩
+
+#print axioms family_mobius_equivalence_iff
+#print axioms family_anti_mobius_equivalence_iff
 #print axioms family_mobius_self_filter
 #print axioms family_mobius_parameter_necessary
 #print axioms family_no_anti_mobius_self

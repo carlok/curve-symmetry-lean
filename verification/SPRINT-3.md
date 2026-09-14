@@ -59,3 +59,22 @@ remain unchanged. These are incremental local checks. Prior commit `0fced06`
 passed private Linux runs `34762684748` (sprint branch) and `34762846686` (main);
 the new checkpoint's Linux check is pending at commit time. T2.1 is complete;
 no further group, genus or Palomar obligation is claimed complete.
+
+## Package 2 — complete parameter equivalences
+
+Added `family_mobius_equivalence_iff` and
+`family_anti_mobius_equivalence_iff` to `FamilySphereClassification.lean`.
+For fixed m>=2 and normalized nonreal parameters, they assert existence of an
+ambient matrix carrying the entire source spherical locus exactly onto the
+target iff beta=alpha or beta=conj(alpha), respectively. Existing necessity
+uses only inclusion. Sufficiency explicitly chooses the identity matrix,
+with conjugation in the antiholomorphic action; its sphere involution proves
+both set inclusions, including infinity. T2.7 is complete.
+
+The changed module and aggregate compiled with warnings as errors, and all
+996 namespace declarations passed the three-axiom audit. Preflight passed for
+69 files and nine dependency pins; all six tests passed. `git diff --check`
+passed; TeX/PDF hashes are unchanged. This was an incremental local check.
+Prior commit `9993b04` passed private Linux runs `34819328710` and `34819389215`;
+this checkpoint's Linux result is pending at commit. No group-order, genus or
+Palomar completion is claimed.
