@@ -241,11 +241,20 @@ Todo, in intended order:
       kernels, distinct points distinct ideals (QuadraticRing; commit
       introducing verification/points-of-double-cover.md)
 - [ ] Confirm CI for the G07b-2a/2b commit; record run ID here
-- [ ] G07b-2c places containing t ↔ maximal ideals of R: a valuation subring
-      O ⊇ ℂ[t] contains R (valuation rings are integrally closed), and
-      overrings of the DVR R_𝔪 are R_𝔪 and L
-      (ValuationSubring.primeSpectrumOrderEquiv); two places over t = c
-      when h(c) ≠ 0, one when h(c) = 0
+- [ ] G07b-2c places containing t ↔ maximal ideals (next package). Plan:
+      work inside R := integralClosure ℂ[X] L (Dedekind, fraction field L,
+      = image of QuadRing by quadRingMap_range). Place := ValuationSubring L
+      containing ℂ, ≠ ⊤. (i) O ∋ t ⇒ O ⊇ R: constants, t ∈ O and w ∈ O since
+      w² = h(t) ∈ O (in a valuation ring x² ∈ O ⇒ x ∈ O). (ii) center
+      𝔪 := comap of O's maximal ideal is maximal and nonzero. (iii)
+      existence for each 𝔪: LocalSubring.exists_le_valuationSubring applied
+      to R_𝔪. (iv) uniqueness: R_𝔪 is a DVR
+      (IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain),
+      its overrings are R_𝔪 and L (ValuationSubring.primeSpectrumOrderEquiv),
+      so a dominating O equals R_𝔪. Then count: two places over t = c when
+      h(c) ≠ 0, one when h(c) = 0 (quadRing_isMaximal_iff,
+      quadEval_ker_injective). Expect instance friction transporting
+      IsFractionRing and DVR structure to a ValuationSubring of L.
 - [ ] G07b-3 place over t = ∞ (chart s = 1/t, w' = w/t^(m+1)), then the full
       place classification using RatFunc.valuation_isEquiv_infty_or_adic
 - [ ] G08 exactly 2m+2 ramified places incl. 0, ∞; index two
