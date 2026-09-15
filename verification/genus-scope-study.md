@@ -84,10 +84,11 @@ covers both the family (`n=2`, `deg f = 2m+1`) and R01's quartic (`n=4`,
 `deg f = 4`). Recommended order: do the odd-degree hyperelliptic case first,
 then decide whether to generalize for R01.
 
-## Decisions for the user
+## Decisions (user, 2026-09-15)
 
-1. Approve route B's definition of genus and the fidelity statement above.
-2. Confirm that R01 must go through genus as printed. The alternative would be
-   another non-similarity invariant, which changes the remark's proof.
+1. Route B approved: genus means the function-field genus defined above, with
+   the fidelity statement recorded in COVERAGE.
+2. R01 must go through genus as printed; another non-similarity invariant
+   does not close it.
 
-G07a does not depend on either decision and is the next bounded package.
+G07a is the next bounded package.

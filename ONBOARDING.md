@@ -11,8 +11,10 @@ Read this entire handoff before acting. Updated 2026-09-15.
 
 Private GitHub: `carlok/curve-symmetry-lean`
 Remote: `git@github.com:carlok/curve-symmetry-lean.git`
-Working branch: `codex/sprint-3`
-Main branch: `codex/main` (not a branch literally named main).
+Working branch: `codex/main` only (GitHub default; not literally `main`).
+Sprint completion points are annotated tags `sprint-0-complete` to
+`sprint-3-complete`. The old `codex/sprint-*` branches were deleted on
+2026-09-15 with user approval; all their commits are in `codex/main`.
 License: Apache-2.0.
 
 **A second local checkout exists:**
@@ -51,9 +53,11 @@ Use the appropriate escalation; never bypass rejection. Earlier approval
 service capacity errors were not GitHub failures.
 
 After a verified implementation checkpoint, update coverage, status,
-verification evidence and this handoff as needed. Use scoped commits, then
-fast-forward codex/main and push the authorized private branches. Return to
-codex/sprint-3. Do not force-push or delete branches. Keep main current.
+verification evidence and this handoff as needed. Use scoped commits directly
+on codex/main and push it (one CI run per push; the workflow cancels an
+in-progress run on the same branch, so wait for CI before pushing again when
+its result matters). Do not force-push. Do not delete branches or tags
+without a user request. Tag a sprint's completion commit `sprint-N-complete`.
 
 Do not create recurring work, publish the repository, contact experts or
 Palomar, or make an external submission. Those are not authorized.
@@ -65,7 +69,7 @@ The current completion snapshot is the commit introducing
 `git log -1 --format=%H -- verification/sign-and-radial-form.md`.
 It succeeds 2cff8af and adds the Lemma 3 sign (S03, S04) and equation (5)
 (S07) packages.
-Inspect Git rather than assuming a clean tree. Keep both branches current.
+Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
@@ -214,9 +218,10 @@ Todo, in intended order:
 Todo, in intended order:
 
 - [x] CI for ba20da2 passed (runs 34938739018, 34938739562)
-- [ ] USER DECISION: approve function-field genus definition (route B) and
-      whether R01 must use genus; see the scope study
-- [ ] USER DECISION: branch policy (single codex/main + sprint tags?)
+- [x] User decision: genus = function-field genus (route B); R01 must go
+      through genus as printed
+- [x] User decision: single codex/main branch, sprint completion tags,
+      old codex/sprint-* branches deleted
 - [ ] G07a function field of V_α = ℂ(t)[w]/(w² − h_α), h_α squarefree of
       degree 2m+1, degree-two extension (definition-independent; next)
 - [ ] G07b places of K_α over ℂ(t) (Ostrowski + integral closure)
