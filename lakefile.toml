@@ -94,5 +94,6 @@ roots = [
   "OrdinaryMultiplePoints",
   "IsometrySign",
   "RadialAntiForm",
+  "FamilyFunctionField",
   "CurveSymmetry",
 ]

@@ -17,7 +17,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; normalization, ramification and genus (G07–G09) and R01 remain. |
+| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover) proved; places, ramification and genus (G07b–G09) and R01 remain. |
 | 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
 | 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
@@ -162,6 +162,16 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-15 G07a COMPLETE. After the genus scope study (function-field genus
+approved by the user), FamilyFunctionField proves that the function field of
+the family curve is `ℂ(t)[W]/(W² − h)` with `t = X/Y` transcendental,
+`h = −t(t^m+1)(α t^m + conj α)` squarefree of degree `2m+1`, and degree two
+over `ℂ(t)`. Module and aggregate passed warnings-as-errors compilation;
+namespace audit 1,286; preflight 81 modules and nine pins; six tests. Previous
+proof snapshot `ba20da2` passed Linux runs 34938739018 and 34938739562.
+Completion commit introduces `verification/function-field-double-cover.md`.
+Work now happens on `codex/main` only; sprint completions are tagged.
 
 2026-09-15 two packages COMPLETE: Lemma 3 sign (S03, S04) and equation (5)
 (S07). IsometrySign proves `f∘T = ±f` for every actual isometry of a real

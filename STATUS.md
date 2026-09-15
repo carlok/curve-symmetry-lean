@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4 Lemma 3 sign and equation (5) packages, 2026-09-15.
+Snapshot: Sprint 4 function-field double cover (G07a), 2026-09-15.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -12,6 +12,7 @@ Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 | Theorem 1: equality classification | For `d ≥ 5`, maximal direct symmetry forces the normalized family under an orientation-preserving similarity. |
 | Theorem 1: converse | The family with `m ≥ 3` and nonreal parameter attains the rotation bound. |
 | Lemma 3 sign (S03, S04) | Every actual isometry of the Cartesian curve satisfies `f∘T = ±f` pointwise; orientation-reversing ones have sign `+1` and are reflections, never glide reflections. |
+| Function-field double cover (G07a) | The function field of the family curve is `ℂ(t)[w]/(w² − h)`, `t = X/Y`, with `h` squarefree of degree `2m+1`; degree two over `ℂ(t)`. Places, ramification and genus are not yet proved. |
 | Equation (5) (S07) | A rotation of order `N > d` forces `N = 2m`, sign `-1`, `P = X^m A(XY) + Y^m conj(A)(XY)` with `1 ≤ deg A ≤ ⌊(d-m)/2⌋`, hence `m ≤ d-2`. |
 | Theorem 2: basic family geometry | One real Cartesian equation is geometrically irreducible, has degree `m+2`, and has the exact infinite family locus, for every `m ≥ 2` and nonreal parameter. |
 | Theorem 2: ambient completeness | For `m ≥ 2`, arbitrary Möbius/anti-Möbius containment forces the two holomorphic or two conjugated map forms, including zero and infinity. |
@@ -55,11 +56,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 80 |
-| Written theorem/lemma declarations | 550 |
-| Written definitions/abbreviations/structures/inductives | 143 |
-| Lean source lines, including comments and blank lines | 8,770 |
-| Audited namespace declarations, including generated/private machinery | 1,223 |
+| Lean source files (including aggregate) | 81 |
+| Written theorem/lemma declarations | 577 |
+| Written definitions/abbreviations/structures/inductives | 152 |
+| Lean source lines, including comments and blank lines | 9,166 |
+| Audited namespace declarations, including generated/private machinery | 1,286 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -70,9 +71,8 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Proof snapshot `ba20da2` passed private Linux runs `34938739018` and `34938739562`
-(previous `2cff8af`: `34937614030`, `34937613937`). A later documentation-only
-genus scope study changed no Lean source. No faithful Palomar dry run, NanoDa
+Previous proof snapshot `ba20da2` passed private Linux runs `34938739018` and
+`34938739562`; this snapshot's Linux result is pending at commit time. No faithful Palomar dry run, NanoDa
 replay, independent human review or novelty certification has been completed.
 TeX and PDF are unchanged. Sprints 0–3 are mathematically complete at their
 stated scope; the complete paper and Palomar readiness are not.

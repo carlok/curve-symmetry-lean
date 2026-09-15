@@ -32,7 +32,8 @@ project's active root either.
 
 1. Inspect current Git status, branch, log and applicable repository instructions.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
-   verification/sign-and-radial-form.md, and sharp_symmetry_bounds.tex.
+   verification/genus-scope-study.md, verification/function-field-double-cover.md,
+   and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
    handoff lists it.
@@ -65,24 +66,24 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/sign-and-radial-form.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/sign-and-radial-form.md`.
-It succeeds 2cff8af and adds the Lemma 3 sign (S03, S04) and equation (5)
-(S07) packages.
+`verification/function-field-double-cover.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/function-field-double-cover.md`.
+It adds G07a (FamilyFunctionField) on top of ba20da2 and the documentation-only
+scope-study and branch-policy commits.
 Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
-- New modules and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,223 declarations.
-- Source preflight: 80 Lean modules, nine exact dependency pins.
+- New module and aggregate compiled incrementally with warnings as errors.
+- Complete namespace axiom audit: 1,286 declarations.
+- Source preflight: 81 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 550 written theorem/lemma declarations, 143 written definitions/etc.,
-  8,770 Lean source lines. Counts include machinery, not novel results.
+- 577 written theorem/lemma declarations, 152 written definitions/etc.,
+  9,166 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux runs 34937614030 and 34937613937 for 2cff8af both passed.
+Private Linux runs 34938739018 and 34938739562 for ba20da2 both passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding 6fb2109 passed runs 34927233633 and 34927232893.
+The preceding 2cff8af passed runs 34937614030 and 34937613937.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -189,8 +190,11 @@ opposite_symmetry_fixed_point excludes glide reflections. RadialAntiForm
 closes S07: paper_high_order_radial_form derives N = 2m, sign -1, equation (5)
 with 1 <= deg A <= (d-m)/2 and m <= d-2. Do not redo these.
 
-All bounded non-genus Sprint 4 rows are now closed. The remaining rows
-G07–G09 and R01 need foundations; start with the scope study in the tracker.
+All bounded non-genus Sprint 4 rows are now closed. The genus meaning is the
+user-approved function-field genus (verification/genus-scope-study.md).
+FamilyFunctionField proves G07a: family_functionField_double_cover identifies
+Frac(ℂ[X,Y]/(P_α)) with ℂ(t)[W]/(W² − h), h squarefree of degree 2m+1, using
+Fact instances for 0 < m and α ≠ star α. Continue with G07b from the tracker.
 G07–G09 require genuine
 normalization/ramification/genus foundations; do not replace them by numerical
 identities or opportunistically rename helper steps as completed packages.
@@ -222,8 +226,12 @@ Todo, in intended order:
       through genus as printed
 - [x] User decision: single codex/main branch, sprint completion tags,
       old codex/sprint-* branches deleted
-- [ ] G07a function field of V_α = ℂ(t)[w]/(w² − h_α), h_α squarefree of
-      degree 2m+1, degree-two extension (definition-independent; next)
+- [x] G07a function field of V_α = ℂ(t)[w]/(w² − h_α), h_α squarefree of
+      degree 2m+1, degree-two extension (FamilyFunctionField)
+- [ ] Confirm CI for the G07a commit; record run IDs here
+- [ ] G07b first step: prove ℂ[t][w]/(w² − h) is integrally closed (the
+      integral closure of ℂ[t] in K) using squarefree h; then place
+      classification via RatFunc.valuation_isEquiv_infty_or_adic
 - [ ] G07b places of K_α over ℂ(t) (Ostrowski + integral closure)
 - [ ] G08 exactly 2m+2 ramified places incl. 0, ∞; index two
 - [ ] G09a Ω_{K/ℂ} rank one, order of differentials at places

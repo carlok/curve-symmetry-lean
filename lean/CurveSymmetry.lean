@@ -77,5 +77,6 @@ import QuinticExample
 import OrdinaryMultiplePoints
 import IsometrySign
 import RadialAntiForm
+import FamilyFunctionField
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
