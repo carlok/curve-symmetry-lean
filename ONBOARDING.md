@@ -2,7 +2,7 @@
 
 Continue the complete Lean formalization of sharp symmetry bounds for real
 algebraic curves, ultimately producing a private Palomar-ready candidate.
-Read this entire handoff before acting. Updated 2026-09-14.
+Read this entire handoff before acting. Updated 2026-09-15.
 
 ## Work in the correct checkout
 
@@ -30,7 +30,7 @@ project's active root either.
 
 1. Inspect current Git status, branch, log and applicable repository instructions.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
-   verification/arc-and-circle-completion.md, and sharp_symmetry_bounds.tex.
+   verification/tangents-and-quintic.md, and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
    handoff lists it.
@@ -61,21 +61,21 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/arc-and-circle-completion.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/arc-and-circle-completion.md`.
-It succeeds 54f2f1a and completes the parameter arc and circle-section packages.
+`verification/tangents-and-quintic.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/tangents-and-quintic.md`.
+It succeeds 8688b5e and adds the tangent-direction and explicit quintic packages.
 Inspect Git rather than assuming a clean tree. Keep both branches current.
 
 Local checks for that proof checkpoint:
 
 - Changed modules and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,125 declarations.
-- Source preflight: 75 Lean modules, nine exact dependency pins.
+- Complete namespace axiom audit: 1,149 declarations.
+- Source preflight: 77 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 510 written theorem/lemma declarations, 133 written definitions/etc.,
-  7,991 Lean source lines. Counts include machinery, not novel results.
+- 522 written theorem/lemma declarations, 137 written definitions/etc.,
+  8,177 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux runs 34849856938 and 34849856066 for 54f2f1a both passed.
+Private Linux runs 34880827187 and 34880827101 for 8688b5e both passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
 The preceding f8021b8 passed runs 34848974678 and 34848974599.
 Ordinary CI is not a Palomar dry run or independent replay.
@@ -162,9 +162,18 @@ familyCircleRootEquiv (a free root-rotation orbit) and
 family_metric_circle_card (exactly 2m points on every positive-radius centered
 metric circle). It only assumes m>0 and nonreal alpha, not normalization.
 
+Two further bounded packages are now checked:
+BinaryTangentDirections defines the homogeneous zero locus on the actual
+projective line, proves representative independence, and counts exactly m
+directions for the two diagonal tangent cones. QuinticExample proves the
+printed Cartesian expression, sign reversal under exp(pi*i/3), exact order
+six of the actual Euclidean rotation, and the six-element isometry count.
+S10 is closed; G06 remains partial, specifically its multiplicity and
+geometric ordinary-point interface. Do not repeat the direction count.
+
 Next choose a bounded remaining Sprint 4 obligation from COVERAGE.md, e.g.
-G06's projective tangent directions and ordinary-multiple-point interface.
-Read the exact existing FamilyCharts statements first. G07–G09 require genuine
+that G06 interface or S04/S07. Read the exact FamilyCharts statements first.
+G07–G09 require genuine
 normalization/ramification/genus foundations; do not replace them by numerical
 identities or opportunistically rename helper steps as completed packages.
 

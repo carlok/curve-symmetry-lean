@@ -89,5 +89,7 @@ roots = [
   "FamilyAlgebraic",
   "FamilyParameterArc",
   "FamilyCircleSections",
+  "BinaryTangentDirections",
+  "QuinticExample",
   "CurveSymmetry",
 ]

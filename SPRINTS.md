@@ -163,6 +163,16 @@ denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
 
+2026-09-15 two bounded packages COMPLETE: projective tangent-direction count
+and the explicit quintic calculation. BinaryTangentDirections proves that the
+homogeneous zero condition is independent of representatives and has exactly
+m points in the actual projective line. This advances G06 but does not close
+its multiplicity/ordinary-point obligation. QuinticExample closes S10's
+displayed formula, sign change, and exact order of the specified actual
+Euclidean rotation. Both modules and aggregate passed warnings-as-errors
+compilation; namespace audit 1,149; preflight 77 modules/nine pins; six tests.
+Completion commit introduces `verification/tangents-and-quintic.md`.
+
 2026-09-14 first package COMPLETE: G10's exact centered-circle section.
 `familyCircleRootEquiv` gives a free transitive root-rotation parametrization,
 and `family_metric_circle_card` gives exactly 2m actual points. This holds for

@@ -72,5 +72,7 @@ import FamilyEuclidean
 import FamilyAlgebraic
 import FamilyParameterArc
 import FamilyCircleSections
+import BinaryTangentDirections
+import QuinticExample
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
