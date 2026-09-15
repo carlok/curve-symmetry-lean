@@ -92,5 +92,7 @@ roots = [
   "BinaryTangentDirections",
   "QuinticExample",
   "OrdinaryMultiplePoints",
+  "IsometrySign",
+  "RadialAntiForm",
   "CurveSymmetry",
 ]

@@ -75,5 +75,7 @@ import FamilyCircleSections
 import BinaryTangentDirections
 import QuinticExample
 import OrdinaryMultiplePoints
+import IsometrySign
+import RadialAntiForm
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

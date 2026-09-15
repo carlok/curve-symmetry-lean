@@ -17,7 +17,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | In progress | G06, G10 and S10 proved; normalization, ramification and genus (G07–G09, R01), S04 and S07 remain. |
+| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; normalization, ramification and genus (G07–G09) and R01 remain. |
 | 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
 | 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
@@ -162,6 +162,18 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-15 two packages COMPLETE: Lemma 3 sign (S03, S04) and equation (5)
+(S07). IsometrySign proves `f∘T = ±f` for every actual isometry of a real
+Cartesian curve, with sign `+1` and a fixed point (no glide reflection) for
+every orientation-reversing symmetry. RadialAntiForm proves the
+`X^m A(XY) + Y^m conj(A)(XY)` synthesis, both degree bounds, nonconstant `A`,
+and the Cartesian endpoint starting from a rotation of order greater than the
+degree. Both modules and aggregate passed warnings-as-errors compilation;
+namespace audit 1,223; preflight 80 modules and nine pins; six tests. Previous
+snapshot `2cff8af` passed Linux runs 34937614030 and 34937613937. Completion
+commit introduces `verification/sign-and-radial-form.md`. Only the genus
+foundations G07–G09 and the quartic comparison R01 remain in Sprint 4.
 
 2026-09-15 ordinary multiple-point package COMPLETE, closing G06 at the
 standard-chart algebraic-multiplicity scope. OrdinaryMultiplePoints defines

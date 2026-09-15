@@ -30,7 +30,7 @@ project's active root either.
 
 1. Inspect current Git status, branch, log and applicable repository instructions.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
-   verification/ordinary-multiple-points.md, and sharp_symmetry_bounds.tex.
+   verification/sign-and-radial-form.md, and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
    handoff lists it.
@@ -61,23 +61,24 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/ordinary-multiple-points.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/ordinary-multiple-points.md`.
-It succeeds 6fb2109 and adds the ordinary multiple-point package (G06).
+`verification/sign-and-radial-form.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/sign-and-radial-form.md`.
+It succeeds 2cff8af and adds the Lemma 3 sign (S03, S04) and equation (5)
+(S07) packages.
 Inspect Git rather than assuming a clean tree. Keep both branches current.
 
 Local checks for that proof checkpoint:
 
-- New module and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,185 declarations.
-- Source preflight: 78 Lean modules, nine exact dependency pins.
+- New modules and aggregate compiled incrementally with warnings as errors.
+- Complete namespace axiom audit: 1,223 declarations.
+- Source preflight: 80 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 534 written theorem/lemma declarations, 141 written definitions/etc.,
-  8,416 Lean source lines. Counts include machinery, not novel results.
+- 550 written theorem/lemma declarations, 143 written definitions/etc.,
+  8,770 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux runs 34927233633 and 34927232893 for 6fb2109 both passed.
+Private Linux runs 34937614030 and 34937613937 for 2cff8af both passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding 8688b5e passed runs 34880827187 and 34880827101.
+The preceding 6fb2109 passed runs 34927233633 and 34927232893.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -178,19 +179,52 @@ chart origins (0,0) and (∞,∞) ordinary m-fold, and multiplicity one at every
 other zero of the four chart equations. Invariance of multiplicity under
 nonlinear chart transitions or ambient maps is NOT claimed; do not advertise it.
 
-Next choose a bounded remaining Sprint 4 obligation from COVERAGE.md, e.g.
-S07 (general A(XY) radial synthesis and its degree estimate, see
-RotationSupport) or S04 (general Cartesian affine sign character).
+IsometrySign closes S03/S04: paper_isometry_sign gives f(Tz) = ε f(z) with
+ε = ±1 for every actual isometry, ε = 1 for opposite ones, and
+opposite_symmetry_fixed_point excludes glide reflections. RadialAntiForm
+closes S07: paper_high_order_radial_form derives N = 2m, sign -1, equation (5)
+with 1 <= deg A <= (d-m)/2 and m <= d-2. Do not redo these.
+
+All bounded non-genus Sprint 4 rows are now closed. The remaining rows
+G07–G09 and R01 need foundations; start with the scope study in the tracker.
 G07–G09 require genuine
 normalization/ramification/genus foundations; do not replace them by numerical
 identities or opportunistically rename helper steps as completed packages.
+
+## Package tracker (done / todo)
+
+Keep this list current after every package; it is the working queue.
+Status words: DONE = checked, committed and pushed; WIP = uncommitted work in
+the tree; TODO = not started. Coverage IDs refer to COVERAGE.md.
+
+Done:
+
+- [x] Sprints 0–2 (baseline, package, global geometry/completeness; G01–G05, G11)
+- [x] Sprint 3 packages 1–6 (T2.1–T2.7, G12, G13, R02, R03)
+- [x] Sprint 4: G10 circle sections (`8688b5e`)
+- [x] Sprint 4: tangent directions + S10 quintic (`6fb2109`, CI passed)
+- [x] Sprint 4: G06 ordinary multiple points (`2cff8af`, CI passed)
+- [x] Sprint 4: S03 + S04 Lemma 3 sign, S07 equation (5) (IsometrySign,
+      RadialAntiForm; commit introducing verification/sign-and-radial-form.md)
+
+Todo, in intended order:
+
+- [ ] Confirm CI for the S03/S04/S07 commit; record run IDs above
+- [ ] Scope study before G07: inspect Mathlib for function fields, integral
+      closure, Dedekind/valuation and genus interfaces; write the chosen
+      honest definition of "normalization" and "genus" into COVERAGE first
+- [ ] G07 normalization = quadratic function-field / double-cover model
+- [ ] G08 branch points, valuations, ramification of the double cover
+- [ ] G09 Riemann–Hurwitz and genuine geometric genus m
+- [ ] R01 quartic genus comparison (genus 3 vs 2), needs G07–G09 machinery
+- [ ] Sprint 4 gate audit, then Sprints 5–7 (contract, dry run, TeX)
 
 ## Remaining major work
 
 Sprints 0–3 complete at their stated scopes.
 Sprint 4 is the highest-risk foundation task: actual normalization/double
-cover, ramification, Riemann–Hurwitz and genuine genus m; S04/S07 and
-remaining substantive remarks, including the quartic comparison. No ready-made full genus interface was found in the
+cover, ramification, Riemann–Hurwitz and genuine genus m, and the quartic
+genus comparison R01. No ready-made full genus interface was found in the
 installed Mathlib. Do not manufacture an invariant or weaken the goal.
 
 Sprint 5: accurate compact Challenge/Solution, permitted import closure,
