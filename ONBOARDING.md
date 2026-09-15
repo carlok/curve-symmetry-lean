@@ -258,7 +258,7 @@ Todo, in intended order:
       h(c) ≠ 0, one when h(c) = 0 (quadRing_isMaximal_iff,
       quadEval_ker_injective). Expect instance friction transporting
       IsFractionRing and DVR structure to a ValuationSubring of L.
-- [ ] Confirm CI for the G07b-2c commit; record run ID here
+- [x] CI for G07b-2c commit e209f92 passed (run 34945242761)
 - [ ] G07b-3 places not containing t (over t = ∞). Plan: t ∉ O ⇒ s = 1/t ∈ O
       with s in O's maximal ideal. Use the chart s = 1/t, w' = w·s^(m+1):
       w'² = s·h̃(s), h̃(s) = s^(2m+1) h(1/s) = reversal of h, of degree 2m with
