@@ -26,7 +26,7 @@ The abstract repeats the two main theorems and inherits their statuses.
 | Ambient Möbius action | **Proved interface:** `MobiusMatrix` is Mathlib's full `GL(2,ℂ)`, acting on `Sphere = OnePoint ℂ`; `sphereProjectiveEquiv_action` connects the standard projectivization action. Finite/pole/infinity formulas are checked. No projective-topology homeomorphism is asserted; the sphere itself has its standard topology. |
 | Spherical closure | **Proved:** `sphericalFamily` is the actual topological closure. `sphericalFamily_eq` proves it gains exactly infinity; `sphericalFamily_projective_iff` identifies it with the real diagonal of the projective zero locus. |
 | Compactified complex curve | **Proved at the classical complex-point level:** `familyProjectiveCurve` is the bihomogeneous zero locus and Zariski closure in the unique topology making the four standard affine-Zariski charts open embeddings. Global topological irreducibility is proved. This is not a scheme/normalization construction; geometric multiplicities and genus remain separate. |
-| Geometric genus | **Pending:** genus of the genuine smooth normalization (or a proved equivalent invariant). A defined branch-count expression is not a substitute. |
+| Geometric genus | **Pending:** genus of the genuine smooth normalization (or a proved equivalent invariant). A defined branch-count expression is not a substitute. **Proposed, awaiting approval** ([scope study](verification/genus-scope-study.md)): the genus of the function field of `V_α`, i.e. `dim_ℂ` of differentials in `Ω_{K/ℂ}` with nonnegative order at every discrete valuation of `K` trivial on `ℂ`. The pinned Mathlib has no genus, Riemann–Roch or Riemann–Hurwitz. |
 
 ## Principal claims
 

@@ -209,14 +209,22 @@ Done:
 
 Todo, in intended order:
 
-- [ ] Confirm CI for the S03/S04/S07 commit; record run IDs above
-- [ ] Scope study before G07: inspect Mathlib for function fields, integral
-      closure, Dedekind/valuation and genus interfaces; write the chosen
-      honest definition of "normalization" and "genus" into COVERAGE first
-- [ ] G07 normalization = quadratic function-field / double-cover model
-- [ ] G08 branch points, valuations, ramification of the double cover
-- [ ] G09 Riemann–Hurwitz and genuine geometric genus m
-- [ ] R01 quartic genus comparison (genus 3 vs 2), needs G07–G09 machinery
+- [x] Genus scope study: verification/genus-scope-study.md (no Lean changes)
+
+Todo, in intended order:
+
+- [x] CI for ba20da2 passed (runs 34938739018, 34938739562)
+- [ ] USER DECISION: approve function-field genus definition (route B) and
+      whether R01 must use genus; see the scope study
+- [ ] USER DECISION: branch policy (single codex/main + sprint tags?)
+- [ ] G07a function field of V_α = ℂ(t)[w]/(w² − h_α), h_α squarefree of
+      degree 2m+1, degree-two extension (definition-independent; next)
+- [ ] G07b places of K_α over ℂ(t) (Ostrowski + integral closure)
+- [ ] G08 exactly 2m+2 ramified places incl. 0, ∞; index two
+- [ ] G09a Ω_{K/ℂ} rank one, order of differentials at places
+- [ ] G09b holomorphic differentials span t^i dt/w (i<m): genus m;
+      Hurwitz degree identity for this cover
+- [ ] R01 quartic genus 3 vs 2 (likely Kummer-cover generalization)
 - [ ] Sprint 4 gate audit, then Sprints 5–7 (contract, dry run, TeX)
 
 ## Remaining major work
