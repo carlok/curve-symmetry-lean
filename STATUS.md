@@ -71,8 +71,8 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Previous proof snapshot `ba20da2` passed private Linux runs `34938739018` and
-`34938739562`; this snapshot's Linux result is pending at commit time. No faithful Palomar dry run, NanoDa
+Proof snapshot `cac8e03` passed private Linux run `34940883130`
+(previous `ba20da2`: `34938739018`, `34938739562`). No faithful Palomar dry run, NanoDa
 replay, independent human review or novelty certification has been completed.
 TeX and PDF are unchanged. Sprints 0–3 are mathematically complete at their
 stated scope; the complete paper and Palomar readiness are not.

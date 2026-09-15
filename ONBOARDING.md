@@ -228,7 +228,7 @@ Todo, in intended order:
       old codex/sprint-* branches deleted
 - [x] G07a function field of V_α = ℂ(t)[w]/(w² − h_α), h_α squarefree of
       degree 2m+1, degree-two extension (FamilyFunctionField)
-- [ ] Confirm CI for the G07a commit; record run IDs here
+- [x] CI for G07a commit cac8e03 passed (run 34940883130, codex/main)
 - [ ] G07b first step: prove ℂ[t][w]/(w² − h) is integrally closed (the
       integral closure of ℂ[t] in K) using squarefree h; then place
       classification via RatFunc.valuation_isEquiv_infty_or_adic
