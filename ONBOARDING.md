@@ -34,6 +34,7 @@ project's active root either.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
    verification/genus-scope-study.md, verification/function-field-double-cover.md,
    verification/quadratic-integral-closure.md, verification/points-of-double-cover.md,
+   verification/finite-places.md,
    and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
@@ -67,24 +68,24 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/points-of-double-cover.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/points-of-double-cover.md`.
-It adds G07b-2a (QuadraticDedekind) and G07b-2b (QuadraticRing) on top of the
-G07b-1 snapshot 9327385.
+`verification/finite-places.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/finite-places.md`.
+It adds G07b-2c (DedekindPlaces, QuadraticPlaces) on top of the G07b-2a/2b
+snapshot 6e43f53.
 Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
 - New modules and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,343 declarations.
-- Source preflight: 84 Lean modules, nine exact dependency pins.
+- Complete namespace axiom audit: 1,383 declarations.
+- Source preflight: 86 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 607 written theorem/lemma declarations, 159 written definitions/etc.,
-  9,688 Lean source lines. Counts include machinery, not novel results.
+- 627 written theorem/lemma declarations, 163 written definitions/etc.,
+  10,064 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux run 34943343401 for 9327385 passed.
+Private Linux run 34944104779 for 6e43f53 passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding cac8e03 passed run 34940883130.
+The preceding 9327385 passed run 34943343401.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -240,8 +241,10 @@ Todo, in intended order:
       closure; maximal ideals of S ↔ points (c, d), d² = h(c), via evaluation
       kernels, distinct points distinct ideals (QuadraticRing; commit
       introducing verification/points-of-double-cover.md)
-- [ ] Confirm CI for the G07b-2a/2b commit; record run ID here
-- [ ] G07b-2c places containing t ↔ maximal ideals (next package). Plan:
+- [x] CI for G07b-2a/2b commit 6e43f53 passed (run 34944104779)
+- [x] G07b-2c places containing t ↔ points (c, d), d² = h(c) (DedekindPlaces
+      generic, QuadraticPlaces family; commit introducing
+      verification/finite-places.md). Original plan, kept for reference:
       work inside R := integralClosure ℂ[X] L (Dedekind, fraction field L,
       = image of QuadRing by quadRingMap_range). Place := ValuationSubring L
       containing ℂ, ≠ ⊤. (i) O ∋ t ⇒ O ⊇ R: constants, t ∈ O and w ∈ O since
@@ -255,8 +258,16 @@ Todo, in intended order:
       h(c) ≠ 0, one when h(c) = 0 (quadRing_isMaximal_iff,
       quadEval_ker_injective). Expect instance friction transporting
       IsFractionRing and DVR structure to a ValuationSubring of L.
-- [ ] G07b-3 place over t = ∞ (chart s = 1/t, w' = w/t^(m+1)), then the full
-      place classification using RatFunc.valuation_isEquiv_infty_or_adic
+- [ ] Confirm CI for the G07b-2c commit; record run ID here
+- [ ] G07b-3 places not containing t (over t = ∞). Plan: t ∉ O ⇒ s = 1/t ∈ O
+      with s in O's maximal ideal. Use the chart s = 1/t, w' = w·s^(m+1):
+      w'² = s·h̃(s), h̃(s) = s^(2m+1) h(1/s) = reversal of h, of degree 2m with
+      h̃(0) = leading coeff of h ≠ 0 (h(0) = 0 since t ∣ h). s·h̃ is squarefree.
+      Build a ring/field iso L ≅ QuadField (X·h̃) sending t ↦ 1/s, w ↦ w' /
+      s^(m+1), then apply quad_finite_place_classification to X·h̃: places
+      containing s with s in the center are the points (0, e), e² = 0·h̃(0),
+      so exactly one place over ∞. Combine with G07b-2c for the full list.
+      No need for Ostrowski: every valuation subring contains t or 1/t.
 - [ ] G08 exactly 2m+2 ramified places incl. 0, ∞; index two
 - [ ] G09a Ω_{K/ℂ} rank one, order of differentials at places
 - [ ] G09b holomorphic differentials span t^i dt/w (i<m): genus m;

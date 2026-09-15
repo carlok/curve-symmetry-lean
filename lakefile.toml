@@ -98,5 +98,7 @@ roots = [
   "QuadraticIntegralClosure",
   "QuadraticDedekind",
   "QuadraticRing",
+  "DedekindPlaces",
+  "QuadraticPlaces",
   "CurveSymmetry",
 ]

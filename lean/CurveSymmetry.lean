@@ -81,5 +81,7 @@ import FamilyFunctionField
 import QuadraticIntegralClosure
 import QuadraticDedekind
 import QuadraticRing
+import DedekindPlaces
+import QuadraticPlaces
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
