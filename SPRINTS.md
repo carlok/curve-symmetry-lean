@@ -16,8 +16,8 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 0: relocation and private Git | Complete | `74e0e1228dc01aa1c8965b6818cf05f4e13750e7`; 81 migrated file hashes match, 33 modules / 85 axiom reports pass; remote verified private and pushed |
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
-| 3: complete ambient symmetry theorem | In progress | Basic family geometry (T2.1), actual sphere coefficient tests/no anti-map (T2.3–T2.4), and both parameter equivalences (T2.7) proved. Exact group/count and full Euclidean identification still open. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | Not started | Foundational interface still missing |
+| 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
+| 4: genus and remaining mathematical claims | In progress | G06, G10 and S10 proved; normalization, ramification and genus (G07–G09, R01), S04 and S07 remain. |
 | 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
 | 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
@@ -162,6 +162,18 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-15 ordinary multiple-point package COMPLETE, closing G06 at the
+standard-chart algebraic-multiplicity scope. OrdinaryMultiplePoints defines
+multiplicity by powers of the point's maximal ideal and proves that `(0,0)` and
+`(∞,∞)` are ordinary `m`-fold points of their chart equations, with explicit
+pairwise nonproportional linear factors of the displayed cones. Every other
+zero of the four chart equations has multiplicity one. Chart-transition
+invariance of multiplicity is not claimed. Module and aggregate passed
+warnings-as-errors compilation; namespace audit 1,185; preflight 78 modules and
+nine pins; six tests. The previous snapshot `6fb2109` passed Linux runs
+34927233633 and 34927232893. Completion commit introduces
+`verification/ordinary-multiple-points.md`.
 
 2026-09-15 two bounded packages COMPLETE: projective tangent-direction count
 and the explicit quintic calculation. BinaryTangentDirections proves that the

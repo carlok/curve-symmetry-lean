@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4 tangent-direction and quintic packages, 2026-09-15.
+Snapshot: Sprint 4 ordinary multiple-point package, 2026-09-15.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -21,7 +21,8 @@ Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 | Parameter family | Upper-semicircle angles give distinct curves modulo both ambient Möbius parities for fixed m>=2. |
 | Circle sections | Every positive-radius centered metric circle meets the family in exactly 2m points, parametrized freely by root rotations; m>0 and any nonreal parameter suffice. |
 | Quintic calculation | Printed Cartesian expression equals the family function; the specified 60-degree Euclidean rotation has order six and negates it; its full isometry group has six elements. |
-| Tangent directions | Each diagonal tangent cone has exactly m directions on the actual projective line, independently of representatives. Ordinary-point/multiplicity geometry remains separate. |
+| Tangent directions | Each diagonal tangent cone has exactly m directions on the actual projective line, independently of representatives. |
+| Ordinary multiple points (G06) | In their standard charts, `(0,0)` and `(∞,∞)` have algebraic multiplicity exactly `m`, with tangent cones splitting into `m` pairwise nonproportional linear factors. Every other zero of the four chart equations has multiplicity one. Chart-transition invariance of multiplicity is not claimed. |
 | Projective geometry (G01) | Bihomogeneous closure and exact separate degrees `(m+1,m+1)` in the uniquely characterized classical Zariski atlas; global topological irreducibility. |
 
 Theorem 1 has five `paper_*` theorem endpoints. Ambient completeness has two
@@ -44,7 +45,7 @@ is still incomplete.
 ## Still missing
 
 Sprint 3 is complete at its stated ambient-transformation scope.
-Sprint 4: ordinary multiple-point geometry, normalization,
+Sprint 4: normalization,
 ramification, Riemann–Hurwitz, genuine genus `m`, and remaining paper remarks.
 Sprints 5–7: Palomar contract, faithful private dry run and final TeX integration.
 
@@ -52,11 +53,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 77 |
-| Written theorem/lemma declarations | 522 |
-| Written definitions/abbreviations/structures/inductives | 137 |
-| Lean source lines, including comments and blank lines | 8,177 |
-| Audited namespace declarations, including generated/private machinery | 1,149 |
+| Lean source files (including aggregate) | 78 |
+| Written theorem/lemma declarations | 534 |
+| Written definitions/abbreviations/structures/inductives | 141 |
+| Lean source lines, including comments and blank lines | 8,416 |
+| Audited namespace declarations, including generated/private machinery | 1,185 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -67,7 +68,7 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Previous commit `8688b5e` passed private Linux runs `34880827187` and `34880827101`; this snapshot's
+Previous commit `6fb2109` passed private Linux runs `34927233633` and `34927232893`; this snapshot's
 Linux result is pending at commit time. No faithful Palomar dry run, NanoDa
 replay, independent human review or novelty certification has been completed.
 TeX and PDF are unchanged. Sprints 0–3 are mathematically complete at their

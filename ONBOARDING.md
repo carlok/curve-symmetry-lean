@@ -30,7 +30,7 @@ project's active root either.
 
 1. Inspect current Git status, branch, log and applicable repository instructions.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
-   verification/tangents-and-quintic.md, and sharp_symmetry_bounds.tex.
+   verification/ordinary-multiple-points.md, and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
    handoff lists it.
@@ -61,23 +61,23 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/tangents-and-quintic.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/tangents-and-quintic.md`.
-It succeeds 8688b5e and adds the tangent-direction and explicit quintic packages.
+`verification/ordinary-multiple-points.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/ordinary-multiple-points.md`.
+It succeeds 6fb2109 and adds the ordinary multiple-point package (G06).
 Inspect Git rather than assuming a clean tree. Keep both branches current.
 
 Local checks for that proof checkpoint:
 
-- Changed modules and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,149 declarations.
-- Source preflight: 77 Lean modules, nine exact dependency pins.
+- New module and aggregate compiled incrementally with warnings as errors.
+- Complete namespace axiom audit: 1,185 declarations.
+- Source preflight: 78 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 522 written theorem/lemma declarations, 137 written definitions/etc.,
-  8,177 Lean source lines. Counts include machinery, not novel results.
+- 534 written theorem/lemma declarations, 141 written definitions/etc.,
+  8,416 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux runs 34880827187 and 34880827101 for 8688b5e both passed.
+Private Linux runs 34927233633 and 34927232893 for 6fb2109 both passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding f8021b8 passed runs 34848974678 and 34848974599.
+The preceding 8688b5e passed runs 34880827187 and 34880827101.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -168,11 +168,19 @@ projective line, proves representative independence, and counts exactly m
 directions for the two diagonal tangent cones. QuinticExample proves the
 printed Cartesian expression, sign reversal under exp(pi*i/3), exact order
 six of the actual Euclidean rotation, and the six-element isometry count.
-S10 is closed; G06 remains partial, specifically its multiplicity and
-geometric ordinary-point interface. Do not repeat the direction count.
+S10 is closed. Do not repeat the direction count.
+
+OrdinaryMultiplePoints now closes G06 at the standard-chart algebraic scope.
+pointIdeal/HasMultiplicityAt use powers of the maximal ideal; OrdinaryAtOrigin
+adds a tangent cone equal to a nonzero multiple of n pairwise nonproportional
+linear forms. family_ordinary_multiple_points (m>=2, nonreal alpha) proves both
+chart origins (0,0) and (∞,∞) ordinary m-fold, and multiplicity one at every
+other zero of the four chart equations. Invariance of multiplicity under
+nonlinear chart transitions or ambient maps is NOT claimed; do not advertise it.
 
 Next choose a bounded remaining Sprint 4 obligation from COVERAGE.md, e.g.
-that G06 interface or S04/S07. Read the exact FamilyCharts statements first.
+S07 (general A(XY) radial synthesis and its degree estimate, see
+RotationSupport) or S04 (general Cartesian affine sign character).
 G07–G09 require genuine
 normalization/ramification/genus foundations; do not replace them by numerical
 identities or opportunistically rename helper steps as completed packages.
@@ -181,9 +189,8 @@ identities or opportunistically rename helper steps as completed packages.
 
 Sprints 0–3 complete at their stated scopes.
 Sprint 4 is the highest-risk foundation task: actual normalization/double
-cover, ramification, Riemann–Hurwitz and genuine genus m; ordinary
-multiple-point geometry and remaining substantive remarks, including the
-quartic comparison. No ready-made full genus interface was found in the
+cover, ramification, Riemann–Hurwitz and genuine genus m; S04/S07 and
+remaining substantive remarks, including the quartic comparison. No ready-made full genus interface was found in the
 installed Mathlib. Do not manufacture an invariant or weaken the goal.
 
 Sprint 5: accurate compact Challenge/Solution, permitted import closure,

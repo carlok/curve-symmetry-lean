@@ -74,5 +74,6 @@ import FamilyParameterArc
 import FamilyCircleSections
 import BinaryTangentDirections
 import QuinticExample
+import OrdinaryMultiplePoints
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

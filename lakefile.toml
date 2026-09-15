@@ -91,5 +91,6 @@ roots = [
   "FamilyCircleSections",
   "BinaryTangentDirections",
   "QuinticExample",
+  "OrdinaryMultiplePoints",
   "CurveSymmetry",
 ]
