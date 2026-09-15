@@ -78,5 +78,6 @@ import OrdinaryMultiplePoints
 import IsometrySign
 import RadialAntiForm
 import FamilyFunctionField
+import QuadraticIntegralClosure
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
