@@ -17,7 +17,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover) and G07b-1 (integral closure) proved; places (G07b-2/3), ramification and genus (G08–G09) and R01 remain. |
+| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover) proved; places (G07b-2c, G07b-3), ramification and genus (G08–G09) and R01 remain. |
 | 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
 | 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
@@ -162,6 +162,16 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-15 G07b-2a and G07b-2b COMPLETE. QuadraticDedekind makes the integral
+closure of `ℂ[t]` in `ℂ(t)[W]/(W² − h)` a Dedekind domain with that fraction
+field. QuadraticRing embeds `ℂ[t][W]/(W² − h)` onto it (squarefree `h`) and
+proves its maximal ideals are exactly the evaluation kernels at points
+`(c,d)` with `d² = h(c)`, distinct for distinct points. Both modules and the
+aggregate passed warnings-as-errors compilation; namespace audit 1,343;
+preflight 84 modules and nine pins; six tests. Previous proof snapshot
+`9327385` passed Linux run 34943343401. Completion commit introduces
+`verification/points-of-double-cover.md`.
 
 2026-09-15 G07b-1 COMPLETE. QuadraticIntegralClosure proves that for
 squarefree `h` the elements of `ℂ(t)[W]/(W² − h)` integral over `ℂ[t]` are

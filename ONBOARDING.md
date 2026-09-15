@@ -33,7 +33,7 @@ project's active root either.
 1. Inspect current Git status, branch, log and applicable repository instructions.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
    verification/genus-scope-study.md, verification/function-field-double-cover.md,
-   verification/quadratic-integral-closure.md,
+   verification/quadratic-integral-closure.md, verification/points-of-double-cover.md,
    and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
@@ -67,23 +67,24 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/quadratic-integral-closure.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/quadratic-integral-closure.md`.
-It adds G07b-1 (QuadraticIntegralClosure) on top of the G07a snapshot cac8e03.
+`verification/points-of-double-cover.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/points-of-double-cover.md`.
+It adds G07b-2a (QuadraticDedekind) and G07b-2b (QuadraticRing) on top of the
+G07b-1 snapshot 9327385.
 Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
-- New module and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,308 declarations.
-- Source preflight: 82 Lean modules, nine exact dependency pins.
+- New modules and aggregate compiled incrementally with warnings as errors.
+- Complete namespace axiom audit: 1,343 declarations.
+- Source preflight: 84 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 588 written theorem/lemma declarations, 155 written definitions/etc.,
-  9,362 Lean source lines. Counts include machinery, not novel results.
+- 607 written theorem/lemma declarations, 159 written definitions/etc.,
+  9,688 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux run 34940883130 for cac8e03 passed.
+Private Linux run 34943343401 for 9327385 passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding ba20da2 passed runs 34938739018 and 34938739562.
+The preceding cac8e03 passed run 34940883130.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -232,10 +233,19 @@ Todo, in intended order:
 - [x] G07b-1 integral closure of ℂ[t] in ℂ(t)[W]/(W² − h) is ℂ[t] ⊕ ℂ[t]·w
       for squarefree h (QuadraticIntegralClosure; commit introducing
       verification/quadratic-integral-closure.md)
-- [ ] Confirm CI for the G07b-1 commit; record run ID here
-- [ ] G07b-2 places over finite t = c: valuation subrings containing ℂ[t]
-      are localizations of the integral closure at maximal ideals (c, d),
-      d² = h(c); two when h(c) ≠ 0, one when h(c) = 0
+- [x] CI for G07b-1 commit 9327385 passed (run 34943343401)
+- [x] G07b-2a integral closure of ℂ[t] in L is a Dedekind domain with
+      fraction field L (QuadraticDedekind)
+- [x] G07b-2b concrete ring S = ℂ[t][W]/(W² − h) embeds onto that integral
+      closure; maximal ideals of S ↔ points (c, d), d² = h(c), via evaluation
+      kernels, distinct points distinct ideals (QuadraticRing; commit
+      introducing verification/points-of-double-cover.md)
+- [ ] Confirm CI for the G07b-2a/2b commit; record run ID here
+- [ ] G07b-2c places containing t ↔ maximal ideals of R: a valuation subring
+      O ⊇ ℂ[t] contains R (valuation rings are integrally closed), and
+      overrings of the DVR R_𝔪 are R_𝔪 and L
+      (ValuationSubring.primeSpectrumOrderEquiv); two places over t = c
+      when h(c) ≠ 0, one when h(c) = 0
 - [ ] G07b-3 place over t = ∞ (chart s = 1/t, w' = w/t^(m+1)), then the full
       place classification using RatFunc.valuation_isEquiv_infty_or_adic
 - [ ] G08 exactly 2m+2 ramified places incl. 0, ∞; index two

@@ -79,5 +79,7 @@ import IsometrySign
 import RadialAntiForm
 import FamilyFunctionField
 import QuadraticIntegralClosure
+import QuadraticDedekind
+import QuadraticRing
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

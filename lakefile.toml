@@ -96,5 +96,7 @@ roots = [
   "RadialAntiForm",
   "FamilyFunctionField",
   "QuadraticIntegralClosure",
+  "QuadraticDedekind",
+  "QuadraticRing",
   "CurveSymmetry",
 ]
