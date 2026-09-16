@@ -267,7 +267,7 @@ Todo, in intended order:
       ramification indices; "simple" not separately formalized.
 - [x] G08 exactly 2m+2 branch points (FamilyBranchPoints; commit
       introducing verification/branch-points.md)
-- [ ] Confirm CI for the G08 commit; record run ID here
+- [x] CI for G08 commit 4a526be passed (run 35118101524)
 - [ ] NEXT (user decision 2026-09-16): first Palomar entry for Theorem 1 only.
       Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
       CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above
