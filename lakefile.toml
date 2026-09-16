@@ -100,5 +100,6 @@ roots = [
   "QuadraticRing",
   "DedekindPlaces",
   "QuadraticPlaces",
+  "QuadraticInfinity",
   "CurveSymmetry",
 ]

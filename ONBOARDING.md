@@ -2,7 +2,7 @@
 
 Continue the complete Lean formalization of sharp symmetry bounds for real
 algebraic curves, ultimately producing a private Palomar-ready candidate.
-Read this entire handoff before acting. Updated 2026-09-15.
+Read this entire handoff before acting. Updated 2026-09-16.
 
 ## Work in the correct checkout
 
@@ -34,7 +34,7 @@ project's active root either.
 2. Read STATUS.md, COVERAGE.md, SPRINTS.md, CHECKS.md, lean/README.md,
    verification/genus-scope-study.md, verification/function-field-double-cover.md,
    verification/quadratic-integral-closure.md, verification/points-of-double-cover.md,
-   verification/finite-places.md,
+   verification/finite-places.md, verification/infinite-place.md,
    and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
@@ -68,24 +68,23 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/finite-places.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/finite-places.md`.
-It adds G07b-2c (DedekindPlaces, QuadraticPlaces) on top of the G07b-2a/2b
-snapshot 6e43f53.
+`verification/infinite-place.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/infinite-place.md`.
+It adds G07b-3 (QuadraticInfinity) on top of the G07b-2c snapshot e209f92.
 Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
-- New modules and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,383 declarations.
-- Source preflight: 86 Lean modules, nine exact dependency pins.
+- New module and aggregate compiled incrementally with warnings as errors.
+- Complete namespace axiom audit: 1,420 declarations.
+- Source preflight: 87 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 627 written theorem/lemma declarations, 163 written definitions/etc.,
-  10,064 Lean source lines. Counts include machinery, not novel results.
+- 652 written theorem/lemma declarations, 167 written definitions/etc.,
+  10,444 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux run 34944104779 for 6e43f53 passed.
+Private Linux run 34945242761 for e209f92 passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding 9327385 passed run 34943343401.
+The preceding 6e43f53 passed run 34944104779.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -259,7 +258,18 @@ Todo, in intended order:
       quadEval_ker_injective). Expect instance friction transporting
       IsFractionRing and DVR structure to a ValuationSubring of L.
 - [x] CI for G07b-2c commit e209f92 passed (run 34945242761)
-- [ ] G07b-3 places not containing t (over t = ∞). Plan: t ∉ O ⇒ s = 1/t ∈ O
+- [x] G07b-3 places not containing t (over t = ∞) (QuadraticInfinity; commit
+      introducing verification/infinite-place.md). G07 complete.
+- [ ] Confirm CI for the G07b-3 commit; record run ID here
+- [ ] G08 next: (i) h_α has exactly 2m+1 distinct roots, including 0
+      (squarefree + natDegree); (ii) ramification: over roots of h and over ∞
+      the place has index 2 (value group of the place vs ℂ(t)), over other c
+      the two places are unramified; (iii) conclude 2m+2 branch points.
+      Decide first how to state ramification index for ValuationSubring
+      places honestly (e.g. via the DVR localization over ℂ[t]_(t−c)).
+- (done) G07b-3 original plan, kept for reference:
+      Refinement: the chart at infinity is the family with conj α,
+      w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O
       with s in O's maximal ideal. Use the chart s = 1/t, w' = w·s^(m+1):
       w'² = s·h̃(s), h̃(s) = s^(2m+1) h(1/s) = reversal of h, of degree 2m with
       h̃(0) = leading coeff of h ≠ 0 (h(0) = 0 since t ∣ h). s·h̃ is squarefree.

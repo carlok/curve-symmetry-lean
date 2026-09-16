@@ -17,7 +17,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover) and G07b-2c (places over the finite `t`-line) proved; the place over `t = ∞` (G07b-3), ramification and genus (G08–G09) and R01 remain. |
+| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; ramification and genus (G08–G09) and R01 remain. |
 | 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
 | 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
@@ -162,6 +162,16 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-16 G07b-3 COMPLETE. QuadraticInfinity builds the ring isomorphism
+`ℂ(t)[W]/(W² − h_α) ≃ ℂ(s)[W]/(W² − h_{conj α})`, `t ↦ 1/s`, and proves
+`family_place_classification`: every valuation subring `O ≠ L` containing the
+constants is a point place `(c,d)`, `d² = h_α(c)`, or the unique place over
+`t = ∞`. G07 is now proved at the approved function-field reading. Module and
+aggregate passed warnings-as-errors compilation; namespace audit 1,420;
+preflight 87 modules and nine pins; six tests. Previous proof snapshot
+`e209f92` passed Linux run 34945242761. Completion commit introduces
+`verification/infinite-place.md`.
 
 2026-09-15 G07b-2c COMPLETE. DedekindPlaces proves that a valuation subring
 `O ≠ K` containing a Dedekind domain `A` is the localization at its nonzero

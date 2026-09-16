@@ -83,5 +83,6 @@ import QuadraticDedekind
 import QuadraticRing
 import DedekindPlaces
 import QuadraticPlaces
+import QuadraticInfinity
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
