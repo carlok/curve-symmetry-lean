@@ -101,5 +101,6 @@ roots = [
   "DedekindPlaces",
   "QuadraticPlaces",
   "QuadraticInfinity",
+  "FamilyBranchPoints",
   "CurveSymmetry",
 ]

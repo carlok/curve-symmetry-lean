@@ -35,6 +35,7 @@ project's active root either.
    verification/genus-scope-study.md, verification/function-field-double-cover.md,
    verification/quadratic-integral-closure.md, verification/points-of-double-cover.md,
    verification/finite-places.md, verification/infinite-place.md,
+   verification/branch-points.md,
    and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
@@ -68,23 +69,23 @@ Palomar, or make an external submission. Those are not authorized.
 ## Current immutable proof checkpoint
 
 The current completion snapshot is the commit introducing
-`verification/infinite-place.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/infinite-place.md`.
-It adds G07b-3 (QuadraticInfinity) on top of the G07b-2c snapshot e209f92.
+`verification/branch-points.md`; recover its exact hash with
+`git log -1 --format=%H -- verification/branch-points.md`.
+It adds G08 (FamilyBranchPoints) on top of the G07b-3 snapshot 24404dd.
 Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
 - New module and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,420 declarations.
-- Source preflight: 87 Lean modules, nine exact dependency pins.
+- Complete namespace axiom audit: 1,440 declarations.
+- Source preflight: 88 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 652 written theorem/lemma declarations, 167 written definitions/etc.,
-  10,444 Lean source lines. Counts include machinery, not novel results.
+- 659 written theorem/lemma declarations, 169 written definitions/etc.,
+  10,647 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux run 34945242761 for e209f92 passed.
+Private Linux run 35093882792 for 24404dd passed.
 The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding 6e43f53 passed run 34944104779.
+The preceding e209f92 passed run 34945242761.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
@@ -261,12 +262,23 @@ Todo, in intended order:
 - [x] G07b-3 places not containing t (over t = ∞) (QuadraticInfinity; commit
       introducing verification/infinite-place.md). G07 complete.
 - [x] CI for G07b-3 commit 24404dd passed (run 35093882792)
-- [ ] G08 next: (i) h_α has exactly 2m+1 distinct roots, including 0
-      (squarefree + natDegree); (ii) ramification: over roots of h and over ∞
-      the place has index 2 (value group of the place vs ℂ(t)), over other c
-      the two places are unramified; (iii) conclude 2m+2 branch points.
-      Decide first how to state ramification index for ValuationSubring
-      places honestly (e.g. via the DVR localization over ℂ[t]_(t−c)).
+- [x] User decision (2026-09-16): ramification uses the simplest honest
+      reading: branch point = fewer than two places over the point; no
+      ramification indices; "simple" not separately formalized.
+- [x] G08 exactly 2m+2 branch points (FamilyBranchPoints; commit
+      introducing verification/branch-points.md)
+- [ ] Confirm CI for the G08 commit; record run ID here
+- [ ] NEXT (user decision 2026-09-16): first Palomar entry for Theorem 1 only.
+      Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
+      CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above
+      300 lines / 32 KiB; repository ≤ 500 MiB; one repo/commit may carry
+      several entries with separate configuration paths. Steps: draft an
+      isolated Challenge with the five Theorem 1 statements (paper_sharp_bounds,
+      paper_rotation_sharp, paper_full_sharp, paper_equality_classification,
+      paper_family_converse) and only the definitions they need; Solution
+      proving them from the library; comparator.json; formalization.yaml;
+      static contract checks. Still no submission: Sprint 6 dry run first.
+- [ ] Deferred: G09 genus m via holomorphic differentials; R01 quartic.
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O
