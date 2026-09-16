@@ -260,7 +260,7 @@ Todo, in intended order:
 - [x] CI for G07b-2c commit e209f92 passed (run 34945242761)
 - [x] G07b-3 places not containing t (over t = ∞) (QuadraticInfinity; commit
       introducing verification/infinite-place.md). G07 complete.
-- [ ] Confirm CI for the G07b-3 commit; record run ID here
+- [x] CI for G07b-3 commit 24404dd passed (run 35093882792)
 - [ ] G08 next: (i) h_α has exactly 2m+1 distinct roots, including 0
       (squarefree + natDegree); (ii) ramification: over roots of h and over ∞
       the place has index 2 (value group of the place vs ℂ(t)), over other c
