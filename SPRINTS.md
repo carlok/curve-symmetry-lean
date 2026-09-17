@@ -18,7 +18,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
 | 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; genus (G09) and R01 remain, deferred for a first Theorem 1 Palomar entry. |
-| 5: Palomar contract and editorial preparation | Not started | Requires complete mathematical coverage |
+| 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1; see the staged-submission section below |
 | 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
 
@@ -274,6 +274,27 @@ the installed Mathlib search did not locate a ready-made interface. Missing
 foundations must be proved. No calendar estimate is promised.
 
 ## Sprint 5 — Palomar contract and editorial preparation
+
+2026-09-17 staged submission strategy (user decision). The first Palomar entry
+covers Theorem 1 only (sharp bounds, sharpness, equality classification,
+converse), all already proved. It lives in the nested project
+`palomar/theorem1/` (Challenge, Solution, comparator.json, formalization.yaml).
+Sprint 6's private contract-faithful dry run still precedes any submission.
+After a review outcome: `revision_required` or alignment/metadata problems ->
+fix and resubmit the corrected commit; `rejected` for research interest -> do
+not expect Theorem 2 alone to pass; the user then considers going public in
+stages (e.g. prove2me, then GitHub). Going public is not authorized until the
+user explicitly says so. Genus work (G09, R01) is deferred, not abandoned.
+Palomar limits checked 2026-09-16/17: Challenge hard limit 1,000 lines /
+100 KiB, warning above 300 lines / 32 KiB; repository <= 500 MiB; several
+entries may share one repository and commit via separate configuration paths.
+
+Challenge draft 2026-09-17: `palomar/theorem1/Challenge.lean`, 90 lines,
+4.7 KiB, imports only Mathlib, compiles with the five intended `sorry`
+placeholders. Definitions: `realCurve`, `symmetries`, `directSymmetries`
+(affine form `z ↦ az+b`, `|a| = 1`), `extremalCurve`; cyclicity stated as
+"exactly the integer powers of one isometry". Not yet done: Solution,
+comparator.json, formalization.yaml, nested lakefile, CI for the entry.
 
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;

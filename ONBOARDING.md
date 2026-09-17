@@ -2,7 +2,7 @@
 
 Continue the complete Lean formalization of sharp symmetry bounds for real
 algebraic curves, ultimately producing a private Palomar-ready candidate.
-Read this entire handoff before acting. Updated 2026-09-16.
+Read this entire handoff before acting. Updated 2026-09-17.
 
 ## Work in the correct checkout
 
@@ -90,7 +90,10 @@ Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
 
-The goal remains the FULL paper, not Theorem 1 alone. Never close gaps by
+The goal remains the FULL paper, not Theorem 1 alone. Staged exception (user
+decision 2026-09-17, SPRINTS Sprint 5): a first Palomar entry for Theorem 1 is
+prepared in palomar/theorem1/ before the genus work; it still needs the Sprint 6
+private dry run and an explicit user go before any submission. Never close gaps by
 assuming conclusions, using custom axioms, redefining invariants conveniently,
 or replacing genuine genus by an arithmetic branch-count formula.
 Only propext, Classical.choice, and Quot.sound are permitted proof axioms.
@@ -268,7 +271,17 @@ Todo, in intended order:
 - [x] G08 exactly 2m+2 branch points (FamilyBranchPoints; commit
       introducing verification/branch-points.md)
 - [x] CI for G08 commit 4a526be passed (run 35118101524)
-- [ ] NEXT (user decision 2026-09-16): first Palomar entry for Theorem 1 only.
+- [x] Strategy recorded in SPRINTS Sprint 5 (user decision 2026-09-17): staged
+      Palomar entry for Theorem 1 first; triage by review outcome; going
+      public only on explicit user go.
+- [x] Theorem 1 Challenge draft palomar/theorem1/Challenge.lean (90 lines,
+      4.7 KiB, Mathlib-only, compiles with 5 sorry placeholders)
+- [ ] Next: Solution.lean (same namespace SharpSymmetryBounds, identical
+      definition copies, proofs from the library via PaperBounds endpoints),
+      nested lakefile with path dependency on the root package,
+      comparator.json, formalization.yaml (AI disclosure, sources incl.
+      Lebmeir–Richter-Gebert background, arXiv vs journal note)
+- (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
       Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
       CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above
       300 lines / 32 KiB; repository ≤ 500 MiB; one repo/commit may carry
