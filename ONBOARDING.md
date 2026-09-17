@@ -293,7 +293,13 @@ Todo, in intended order:
 - [x] Public repo Lean build run 35183535298 passed; Palomar preflight run
       35183549777 (full mode, their real verifier) status pass, no errors or
       warnings; report saved in verification/palomar/
+- [x] Public repo made self-contained for review: docs/THEOREM1.md, yaml
+      and README updated; commit 85ddda8 build run 35184663672 and preflight
+      run 35184670576 both pass (no errors/warnings). Public repo is canonical
+      for the entry.
 - [ ] Optional: negative controls (would add public throwaway commits)
+- [ ] USER ACTION: submit carlok/sharp-symmetry-bounds-lean@85ddda8 on
+      palomar-registry.org when ready (no automated submission)
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).

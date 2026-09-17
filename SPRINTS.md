@@ -19,7 +19,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
 | 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; genus (G09) and R01 remain, deferred for a first Theorem 1 Palomar entry. |
 | 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1; see the staged-submission section below |
-| 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, run 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003: status pass, no errors or warnings. Negative controls not run |
+| 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings. Negative controls not run |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
 
 Starting checkpoint: 33 Lean modules and 85 axiom reports. Every clause of
@@ -360,6 +360,19 @@ Challenge rendering, editorial review and registration. The disposable
 negative controls from the original Sprint 6 plan (changed theorem type,
 forbidden axiom, forbidden Challenge import) were not run; running them on the
 public repository would publish throwaway commits.
+
+2026-09-17 reviewer material added to the public repository (user request: make
+it self-contained for Palomar review): `docs/THEOREM1.md` (informal statement,
+11-step proof outline mapped to Lean declarations, fidelity notes,
+reproduction); `formalization.yaml` now cites that document as the location of
+the original proof, records the preflight and an eighth fidelity divergence;
+README links it; a stale comment in DirectBound was corrected. Public commit
+85ddda80b8f95c322bb0a80afd9e07e50f5b6f05: Lean build run 35184663672 passed;
+Palomar preflight run 35184670576 status pass, stage complete, no errors or
+warnings (report `verification/palomar/theorem1-preflight-35184670576.json`).
+The public repository is now the canonical source for the Theorem 1 entry;
+`palomar/theorem1/` here is the development copy and differs in metadata
+wording. Submitting commit 85ddda8 is the user's action.
 
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
