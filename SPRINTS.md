@@ -19,7 +19,7 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
 | 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; genus (G09) and R01 remain, deferred for a first Theorem 1 Palomar entry. |
 | 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1; see the staged-submission section below |
-| 6: private contract-faithful Linux dry run | Not started | Requires frozen contract and full proofs |
+| 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, run 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003: status pass, no errors or warnings. Negative controls not run |
 | 7: TeX integration and final snapshot | Not started | Requires successful dry run |
 
 Starting checkpoint: 33 Lean modules and 85 axiom reports. Every clause of
@@ -345,6 +345,21 @@ Its `palomar-preflight.yml` calls Palomar's reusable verifier at
 PalomarSubmission@ec6064aea91e2f99187f3f46a2652e4d977ce755 in `full` mode; the
 first preflight run is 35183549777 (advisory, not a submission). The paper
 TeX/PDF is not included. The private repository remains private.
+
+2026-09-17 preflight result: PASS. Public Lean build run 35183535298 passed.
+Preflight run 35183549777 (profile palomar-standard-v1, mode full) built the
+pinned Landrun, Comparator 575674928e23, NanoDa 68d5ca9db226 and lean4export,
+ran Comparator with the challenge provenance audit, and reported status
+`pass`, stage `complete`, no errors, no warnings. The Challenge (90 lines,
+4,683 bytes, imports only Mathlib) was classified as allowlisted Mathlib
+provenance; the licence was detected as Apache-2.0; the Mathlib cache was
+available. The bounded report is saved as
+`verification/palomar/theorem1-preflight-35183549777.json`. Limits: a
+preflight is advisory (Palomar may still differ on rerun) and excludes
+Challenge rendering, editorial review and registration. The disposable
+negative controls from the original Sprint 6 plan (changed theorem type,
+forbidden axiom, forbidden Challenge import) were not run; running them on the
+public repository would publish throwaway commits.
 
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;

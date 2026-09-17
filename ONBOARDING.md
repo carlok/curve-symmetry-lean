@@ -290,8 +290,10 @@ Todo, in intended order:
       "Codex Sol". Public repo carlok/sharp-symmetry-bounds-lean created
       (commit 4408003, 30 closure modules + entry at root). If refused: make it
       private or delete it and continue here. This private repo stays private.
-- [ ] Confirm public repo Lean build run 35183535298 and Palomar preflight
-      run 35183549777 (full mode, advisory); record outcome
+- [x] Public repo Lean build run 35183535298 passed; Palomar preflight run
+      35183549777 (full mode, their real verifier) status pass, no errors or
+      warnings; report saved in verification/palomar/
+- [ ] Optional: negative controls (would add public throwaway commits)
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).

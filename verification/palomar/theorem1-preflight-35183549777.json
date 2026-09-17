@@ -1,0 +1,694 @@
+{
+  "challenge": {
+    "bytes": 4683,
+    "canonical_olean_sha256": "e041848632d94e438835019fae9a42ba4f39a12da7bce9b18903ac901afd3941",
+    "dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "direct_imports": [
+      "Mathlib"
+    ],
+    "lines": 90,
+    "module": "Challenge",
+    "path": "Challenge.lean",
+    "sha256": "bfc1e3a045ed84c03f237f67c23d59170cab3f6e1d436aea797b394310844f16",
+    "transitive_source_count": 2,
+    "trust_level": "high",
+    "untrusted_sources": []
+  },
+  "checked_at": "2026-09-17T05:00:37Z",
+  "classification": {
+    "arxiv": [
+      {
+        "code": "math.AG",
+        "name": "Algebraic Geometry"
+      },
+      {
+        "code": "math.MG",
+        "name": "Metric Geometry"
+      }
+    ],
+    "msc2020": [
+      {
+        "code": "14H50",
+        "name": "Plane and space curves"
+      },
+      {
+        "code": "14P05",
+        "name": "Real algebraic sets"
+      },
+      {
+        "code": "51N20",
+        "name": "Euclidean analytic geometry"
+      }
+    ]
+  },
+  "comparator": {
+    "challenge_module": "Challenge",
+    "definition_names": [],
+    "path": "comparator.json",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "sha256": "83f71881a4b310cf8d285e6495f613408739a332bccbcc0fea15a4824607d1cb",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "SharpSymmetryBounds.sharp_bounds",
+      "SharpSymmetryBounds.rotation_bound_sharp",
+      "SharpSymmetryBounds.full_bound_sharp",
+      "SharpSymmetryBounds.equality_classification",
+      "SharpSymmetryBounds.family_attains_bound"
+    ]
+  },
+  "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+  "comparator_log_tail": "Building PalomarCanonical54f0794ec49393d94dab4a77.Challenge\nExporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, SharpSymmetryBounds.sharp_bounds, SharpSymmetryBounds.rotation_bound_sharp, SharpSymmetryBounds.full_bound_sharp, SharpSymmetryBounds.equality_classification, SharpSymmetryBounds.family_attains_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from PalomarCanonical54f0794ec49393d94dab4a77.Challenge\nBuilding Solution\n\u2139 [8655/8686] Built RotationSupport (3.9s)\ninfo: lean/RotationSupport.lean:248:0: 'CurveSymmetry.anti_degree_gap' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/RotationSupport.lean:249:0: 'CurveSymmetry.anti_four_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/RotationSupport.lean:250:0: 'CurveSymmetry.anti_real_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/RotationSupport.lean:251:0: 'CurveSymmetry.fixed_support' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/RotationSupport.lean:252:0: 'CurveSymmetry.polynomial_rotation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8656/8686] Built Irreducibility (3.2s)\ninfo: lean/Irreducibility.lean:97:0: 'CurveSymmetry.irreducible_anti_degree_gap' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Irreducibility.lean:167:0: 'CurveSymmetry.irreducible_radial_form' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Irreducibility.lean:168:0: 'CurveSymmetry.irreducible_rotation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8657/8686] Built RealLocus (2.2s)\ninfo: lean/RealLocus.lean:48:0: 'CurveSymmetry.radial_realLocus_is_circle' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/RealLocus.lean:49:0: 'CurveSymmetry.realLocus_rotation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8658/8686] Built Elimination (3.1s)\ninfo: lean/Elimination.lean:70:0: 'CurveSymmetry.elimination_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Elimination.lean:118:0: 'CurveSymmetry.dvd_of_realLocus_subset' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Elimination.lean:136:0: 'CurveSymmetry.proportional_of_realLocus_subset' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8659/8686] Built GeometricRotation (2.9s)\ninfo: lean/GeometricRotation.lean:129:0: 'CurveSymmetry.rotation_sign_of_realLocus' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/GeometricRotation.lean:130:0: 'CurveSymmetry.geometric_rotation_order_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8660/8686] Built RotationGroup (2.8s)\ninfo: lean/RotationGroup.lean:109:0: 'CurveSymmetry.centered_rotation_group_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8661/8686] Built Translation (2.7s)\ninfo: lean/Translation.lean:123:0: 'CurveSymmetry.no_translation_symmetry' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8662/8686] Built EuclideanCenter (2.1s)\ninfo: lean/EuclideanCenter.lean:65:0: 'CurveSymmetry.direct_symmetries_common_center' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8663/8686] Built ChangeCenter (2.0s)\ninfo: lean/ChangeCenter.lean:110:0: 'CurveSymmetry.shift_degree' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8664/8686] Built DirectBound (2.5s)\ninfo: lean/DirectBound.lean:57:0: 'CurveSymmetry.direct_euclidean_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8665/8686] Built Reflection (2.9s)\ninfo: lean/Reflection.lean:109:0: 'CurveSymmetry.reflection_fixes_equation' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8666/8686] Built EuclideanParameters (2.3s)\ninfo: lean/EuclideanParameters.lean:111:0: 'CurveSymmetry.oppositeDirectEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/EuclideanParameters.lean:112:0: 'CurveSymmetry.opposite_centered' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8667/8686] Built ReflectionBound (2.8s)\ninfo: lean/ReflectionBound.lean:132:0: 'CurveSymmetry.centered_rotation_bound_with_reflection' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/ReflectionBound.lean:133:0: 'CurveSymmetry.direct_bound_with_opposite' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/ReflectionBound.lean:134:0: 'CurveSymmetry.full_euclidean_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8668/8686] Built FamilyQuadratic (2.6s)\ninfo: lean/FamilyQuadratic.lean:134:0: 'CurveSymmetry.familyReciprocal_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/FamilyQuadratic.lean:135:0: 'CurveSymmetry.familyQuadratic_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8669/8686] Built Blowup (2.5s)\ninfo: lean/Blowup.lean:91:0: 'CurveSymmetry.irreducible_of_blowup' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8670/8686] Built FamilyIrreducibility (2.6s)\ninfo: lean/FamilyIrreducibility.lean:46:0: 'CurveSymmetry.familyPolynomial_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8671/8686] Built FamilyRealLocus (2.5s)\ninfo: lean/FamilyRealLocus.lean:85:0: 'CurveSymmetry.family_point_of_norm' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/FamilyRealLocus.lean:86:0: 'CurveSymmetry.family_realLocus_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/FamilyRealLocus.lean:87:0: 'CurveSymmetry.family_not_circle' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8672/8686] Built FamilyRotations (2.7s)\ninfo: lean/FamilyRotations.lean:102:0: 'CurveSymmetry.family_degree' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/FamilyRotations.lean:103:0: 'CurveSymmetry.family_direct_card' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/FamilyRotations.lean:104:0: 'CurveSymmetry.family_no_opposite' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8673/8686] Built Fermat (2.5s)\ninfo: lean/Fermat.lean:102:0: 'CurveSymmetry.fermat_irreducible' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Fermat.lean:103:0: 'CurveSymmetry.fermat_realLocus_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Fermat.lean:104:0: 'CurveSymmetry.fermat_degree' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8674/8686] Built Sharpness (2.4s)\ninfo: lean/Sharpness.lean:107:0: 'CurveSymmetry.fermat_full_card' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Sharpness.lean:108:0: 'CurveSymmetry.rotation_bound_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/Sharpness.lean:109:0: 'CurveSymmetry.full_bound_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8675/8686] Built RealEquation (2.5s)\ninfo: lean/RealEquation.lean:60:0: 'CurveSymmetry.exists_real_equation' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8676/8686] Built EqualityForm (2.6s)\ninfo: lean/EqualityForm.lean:68:0: 'CurveSymmetry.irreducible_anti_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8677/8686] Built Normalization (3.1s)\ninfo: lean/Normalization.lean:92:0: 'CurveSymmetry.normalize_twoParameter' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8678/8686] Built ExtremalClassification (2.5s)\ninfo: lean/ExtremalClassification.lean:82:0: 'CurveSymmetry.centered_extremal_classification' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/ExtremalClassification.lean:83:0: 'CurveSymmetry.extremal_classification' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8679/8686] Built IsometryInterface (2.4s)\ninfo: lean/IsometryInterface.lean:134:0: 'CurveSymmetry.euclideanIsometryEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/IsometryInterface.lean:135:0: 'CurveSymmetry.isometry_group_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/IsometryInterface.lean:136:0: 'CurveSymmetry.isometry_bound_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8680/8686] Built CartesianCoordinates (4.9s)\ninfo: lean/CartesianCoordinates.lean:134:0: 'CurveSymmetry.complexifyEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/CartesianCoordinates.lean:135:0: 'CurveSymmetry.complexify_degree' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/CartesianCoordinates.lean:136:0: 'CurveSymmetry.eval_complexify' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8681/8686] Built CartesianReal (2.2s)\ninfo: lean/CartesianReal.lean:81:0: 'CurveSymmetry.cartesian_direct_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/CartesianReal.lean:82:0: 'CurveSymmetry.cartesian_isometry_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/CartesianReal.lean:83:0: 'CurveSymmetry.cartesian_extremal_classification' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8682/8686] Built CartesianDescent (3.4s)\ninfo: lean/CartesianDescent.lean:85:0: 'CurveSymmetry.exists_cartesian_equation' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/CartesianDescent.lean:86:0: 'CurveSymmetry.cartesian_rotation_bound_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/CartesianDescent.lean:87:0: 'CurveSymmetry.cartesian_full_bound_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8683/8686] Built DirectIsometries (2.5s)\ninfo: lean/DirectIsometries.lean:117:0: 'CurveSymmetry.directIsometryEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/DirectIsometries.lean:118:0: 'CurveSymmetry.direct_isometry_group_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/DirectIsometries.lean:119:0: 'CurveSymmetry.cartesian_direct_isometry_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [8684/8686] Built PaperBounds (2.5s)\ninfo: lean/PaperBounds.lean:129:0: 'CurveSymmetry.mem_direct_isometry_iff_det' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/PaperBounds.lean:130:0: 'CurveSymmetry.paper_sharp_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/PaperBounds.lean:131:0: 'CurveSymmetry.paper_equality_classification' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/PaperBounds.lean:132:0: 'CurveSymmetry.paper_rotation_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/PaperBounds.lean:133:0: 'CurveSymmetry.paper_full_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: lean/PaperBounds.lean:134:0: 'CurveSymmetry.paper_family_converse' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2714 [8685/8686] Built Solution (4.8s)\nBuild completed successfully (8686 jobs).\nExporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, SharpSymmetryBounds.sharp_bounds, SharpSymmetryBounds.rotation_bound_sharp, SharpSymmetryBounds.full_bound_sharp, SharpSymmetryBounds.equality_classification, SharpSymmetryBounds.family_attains_bound, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution\nRunning nanoda kernel on solution\nnanoda kernel accepts the solution\nRunning Lean default kernel on solution.\nLean default kernel accepts the solution\nYour solution is okay!",
+  "errors": [],
+  "existing_id": null,
+  "formalization": {
+    "automation_method_count": 1,
+    "path": "formalization.yaml",
+    "project_name": "Sharp symmetry bounds for real plane algebraic curves (Theorem 1)",
+    "review_status": "self-assessed",
+    "sha256": "a29dc17dff4b351d0ddf0faf56ac0539d1837bc97282bc7224de8f05c3e404bf",
+    "source_count": 5
+  },
+  "lake_manifest": {
+    "path": "lake-manifest.json",
+    "sha256": "ca251ffe8af896d4e455641206a2502a656e5eafd6fc2de85f53f97f1c3b5a04"
+  },
+  "lakefile": {
+    "format": "toml",
+    "path": "lakefile.toml",
+    "sha256": "08b8980e44254164bdaabbe19088670a15e4ed51b8d73d17598198289982334c"
+  },
+  "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+  "lean4export_commit": "4e7915201d3f9f04470d9eae002fa695f7cdc589",
+  "lean_toolchain": "leanprover/lean4:v4.32.0",
+  "lean_toolchain_path": "lean-toolchain",
+  "license": {
+    "declared_identifier": "Apache-2.0",
+    "detected_identifier": "Apache-2.0",
+    "path": "LICENSE",
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+  },
+  "mathlib_cache": {
+    "available": true,
+    "required": true
+  },
+  "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+  "orcid_validation": {
+    "checked_at": "2026-09-17T04:52:49Z",
+    "records": [],
+    "registry": "https://orcid.org",
+    "schema_version": 1
+  },
+  "phase": "verification",
+  "project_dependencies": [
+    {
+      "name": "mathlib",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    {
+      "name": "plausible",
+      "repository": "leanprover-community/plausible",
+      "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "repository": "leanprover-community/LeanSearchClient",
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "repository": "leanprover-community/import-graph",
+      "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    {
+      "name": "proofwidgets",
+      "repository": "leanprover-community/ProofWidgets4",
+      "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    },
+    {
+      "name": "aesop",
+      "repository": "leanprover-community/aesop",
+      "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    {
+      "name": "Qq",
+      "repository": "leanprover-community/quote4",
+      "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    {
+      "name": "batteries",
+      "repository": "leanprover-community/batteries",
+      "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    {
+      "name": "Cli",
+      "repository": "leanprover/lean4-cli",
+      "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+      "url": "https://github.com/leanprover/lean4-cli"
+    }
+  ],
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Carlo Perassi"
+          }
+        ],
+        "location": "Unpublished working note by the author; not included in this repository",
+        "note": "Unpublished working note. The bounds, their sharpness and the equality classification are presented there; no independent expert review has taken place and novelty has not been certified.",
+        "relationship": "other",
+        "title": "Sharp symmetry bounds for real algebraic curves (working draft, 2026), Theorem 1",
+        "type": "original-proof"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter Lebmeir"
+          },
+          {
+            "name": "J\u00fcrgen Richter-Gebert"
+          }
+        ],
+        "identifier": "doi:10.1016/j.cagd.2008.09.004",
+        "location": "Computer Aided Geometric Design 25 (2008), 707-719, Section 4",
+        "note": "Source of the coefficient-weight criterion for rotational symmetry used in the proof. The contribution claimed here is the sharp bounds and equality classification, not this method.",
+        "relationship": "background",
+        "title": "Rotations, translations and symmetry detection for complexified curves",
+        "type": "article"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Peter M. Lebmeir"
+          }
+        ],
+        "location": "Doctoral thesis, Technische Universit\u00e4t M\u00fcnchen, 2009, Theorem 5.4",
+        "note": "Same coefficient method, credited as background.",
+        "relationship": "background",
+        "title": "Feature Detection for Real Plane Algebraic Curves",
+        "type": "thesis"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "J\u00e1nos Pach"
+          },
+          {
+            "name": "Frank de Zeeuw"
+          }
+        ],
+        "identifier": "arXiv:1308.0177v3",
+        "location": "https://arxiv.org/abs/1308.0177v3, Lemma 2.6",
+        "note": "Uses an auxiliary bound of 4d symmetries; the 2d bound here sharpens that constant only, not their distance exponent.",
+        "relationship": "background",
+        "title": "Distinct distances on algebraic curves in the plane",
+        "type": "preprint"
+      },
+      {
+        "author_endorsement": "not-contacted",
+        "authors": [
+          {
+            "name": "Juan Gerardo Alc\u00e1zar"
+          },
+          {
+            "name": "Miroslav L\u00e1vi\u010dka"
+          },
+          {
+            "name": "Jan Vr\u0161ek"
+          }
+        ],
+        "identifier": "arXiv:1801.09962v1",
+        "location": "https://arxiv.org/abs/1801.09962v1, Lemma 9",
+        "note": "The irreducible quintic Re(z^3(|z|^2 + i)) = 0 has six rotations, contradicting the degree restriction in Lemma 9 of this arXiv version. A journal article with this title appeared in J. Comput. Appl. Math. 357 (2019); that version was not inspected and no claim is made about it.",
+        "relationship": "background",
+        "title": "Symmetries and similarities of planar algebraic curves using harmonic polynomials",
+        "type": "preprint"
+      }
+    ],
+    "related_formalizations": [],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Carlo Perassi"
+      }
+    ],
+    "result_origin": "original"
+  },
+  "resource_usage": [
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13200,
+      "peak_tasks_observed": 1,
+      "phase": "touch",
+      "returncode": 0,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.0,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.007,
+      "max_rss_kib": 13196,
+      "peak_tasks_observed": 1,
+      "phase": "landrun",
+      "returncode": 0,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.003,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13204,
+      "peak_tasks_observed": 1,
+      "phase": "touch",
+      "returncode": 1,
+      "system_cpu_seconds": 0.003,
+      "user_cpu_seconds": 0.001,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 52780000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "touch:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13196,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 0,
+      "system_cpu_seconds": 0.011,
+      "user_cpu_seconds": 0.014,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 1,
+      "system_cpu_seconds": 0.008,
+      "user_cpu_seconds": 0.018,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 73694000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 524288,
+      "phase": "python3.11:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.029,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 1,
+      "system_cpu_seconds": 0.007,
+      "user_cpu_seconds": 0.023,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 85129000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 524288,
+      "phase": "python3.11:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.022,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 1,
+      "system_cpu_seconds": 0.008,
+      "user_cpu_seconds": 0.014,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 69568000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "python3.11:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 2.179,
+      "max_rss_kib": 879984,
+      "peak_tasks_observed": 1,
+      "phase": "lake",
+      "returncode": 0,
+      "system_cpu_seconds": 0.393,
+      "user_cpu_seconds": 1.839,
+      "workspace_disk_peak_bytes": 679936
+    },
+    {
+      "elapsed_seconds": 0.064,
+      "max_rss_kib": 88220,
+      "peak_tasks_observed": 1,
+      "phase": "lean",
+      "returncode": 0,
+      "system_cpu_seconds": 0.048,
+      "user_cpu_seconds": 0.034,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 49.13,
+      "max_rss_kib": 1014916,
+      "peak_tasks_observed": 1,
+      "phase": "lake",
+      "returncode": 0,
+      "system_cpu_seconds": 39.937,
+      "user_cpu_seconds": 70.821,
+      "workspace_disk_peak_bytes": 7662047232
+    },
+    {
+      "elapsed_seconds": 6.798,
+      "max_rss_kib": 985156,
+      "peak_tasks_observed": 1,
+      "phase": "lake",
+      "returncode": 0,
+      "system_cpu_seconds": 3.079,
+      "user_cpu_seconds": 7.279,
+      "workspace_disk_peak_bytes": 1449984
+    },
+    {
+      "elapsed_seconds": 2.642,
+      "max_rss_kib": 877832,
+      "peak_tasks_observed": 1,
+      "phase": "lake",
+      "returncode": 0,
+      "system_cpu_seconds": 0.547,
+      "user_cpu_seconds": 2.044,
+      "workspace_disk_peak_bytes": 679936
+    },
+    {
+      "elapsed_seconds": 10.354,
+      "max_rss_kib": 6618476,
+      "peak_tasks_observed": 1,
+      "phase": "lean",
+      "returncode": 0,
+      "system_cpu_seconds": 2.911,
+      "user_cpu_seconds": 2.928,
+      "workspace_disk_peak_bytes": 4096
+    },
+    {
+      "elapsed_seconds": 0.071,
+      "max_rss_kib": 88420,
+      "peak_tasks_observed": 1,
+      "phase": "lean",
+      "returncode": 0,
+      "system_cpu_seconds": 0.04,
+      "user_cpu_seconds": 0.048,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.061,
+      "max_rss_kib": 88712,
+      "peak_tasks_observed": 1,
+      "phase": "lean",
+      "returncode": 0,
+      "system_cpu_seconds": 0.038,
+      "user_cpu_seconds": 0.037,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "touch",
+      "returncode": 0,
+      "system_cpu_seconds": 0.003,
+      "user_cpu_seconds": 0.002,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.006,
+      "max_rss_kib": 13204,
+      "peak_tasks_observed": 1,
+      "phase": "landrun",
+      "returncode": 0,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.002,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.004,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "touch",
+      "returncode": 1,
+      "system_cpu_seconds": 0.003,
+      "user_cpu_seconds": 0.001,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 54661000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "touch:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.047,
+      "max_rss_kib": 13192,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 0,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.022,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.024,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 0,
+      "system_cpu_seconds": 0.008,
+      "user_cpu_seconds": 0.016,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13384,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 1,
+      "system_cpu_seconds": 0.009,
+      "user_cpu_seconds": 0.016,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 71995000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 524288,
+      "phase": "python3.11:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.025,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 1,
+      "system_cpu_seconds": 0.006,
+      "user_cpu_seconds": 0.02,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 72910000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 262144,
+      "phase": "python3.11:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.022,
+      "max_rss_kib": 13368,
+      "peak_tasks_observed": 1,
+      "phase": "python3.11",
+      "returncode": 1,
+      "system_cpu_seconds": 0.005,
+      "user_cpu_seconds": 0.017,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_usage_nanoseconds": 70381000,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 524288,
+      "phase": "python3.11:cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 1.186,
+      "max_rss_kib": 832028,
+      "peak_tasks_observed": 1,
+      "phase": "lake",
+      "returncode": 0,
+      "system_cpu_seconds": 0.54,
+      "user_cpu_seconds": 0.677,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 1.183,
+      "max_rss_kib": 832240,
+      "peak_tasks_observed": 1,
+      "phase": "lake",
+      "returncode": 0,
+      "system_cpu_seconds": 0.549,
+      "user_cpu_seconds": 0.669,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "elapsed_seconds": 233.916,
+      "max_rss_kib": 6665200,
+      "peak_tasks_observed": 1,
+      "phase": "comparator",
+      "returncode": 0,
+      "system_cpu_seconds": 31.639,
+      "user_cpu_seconds": 236.973,
+      "workspace_disk_peak_bytes": 418574336
+    }
+  ],
+  "schema_version": 1,
+  "solution": {
+    "module": "Solution",
+    "path": "Solution.lean",
+    "sha256": "23f13981e25d668bcf3718be0c5df926db27387bc19932d424e432797e174a6d"
+  },
+  "source": {
+    "bytes": 185312,
+    "commit": "4408003da5abd6a6b6e3ad2643f3b7dcfc0c392c",
+    "repository": "carlok/sharp-symmetry-bounds-lean",
+    "repository_url": "https://github.com/carlok/sharp-symmetry-bounds-lean",
+    "tree_url": "https://github.com/carlok/sharp-symmetry-bounds-lean/tree/4408003da5abd6a6b6e3ad2643f3b7dcfc0c392c"
+  },
+  "stage": "complete",
+  "status": "pass",
+  "submission": {
+    "authorization": {
+      "relationship": "maintainer"
+    },
+    "requested_paths": {
+      "comparator_config_path": "comparator.json",
+      "formalization_metadata_path": "",
+      "project_path": ""
+    },
+    "submission_id": "t1preflight1"
+  },
+  "verification_profile": {
+    "id": "palomar-standard-v1",
+    "limits": {
+      "execution_budget_seconds": 19800,
+      "file_size_max_bytes": 1099511627776,
+      "job_timeout_minutes": 350,
+      "memory_high_percent": 95,
+      "memory_max_percent": 98,
+      "minimum_host_memory_bytes": 15032385536,
+      "minimum_workspace_free_bytes": 21474836480,
+      "open_files_max": 1048576,
+      "tasks_max": 32768
+    },
+    "observed_host": {
+      "architecture": "x86_64",
+      "memory_bytes": 16766414848,
+      "memory_high_bytes": 15928094105,
+      "memory_max_bytes": 16431086551,
+      "workspace_free_bytes": 115200389120
+    },
+    "runner": {
+      "architecture": "x86_64",
+      "label": "ubuntu-24.04",
+      "provider": "github-hosted"
+    },
+    "sha256": "4131827553c344dc2bd49853ed3c1e651cdf74c5fb9cb2034ad90a38b9385c99",
+    "trusted_tools": {
+      "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+      "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+      "lean4export": "release derived from the submitted Lean toolchain",
+      "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840"
+    }
+  },
+  "warnings": [],
+  "workflow_url": "https://github.com/carlok/sharp-symmetry-bounds-lean/actions/runs/35183549777"
+}
