@@ -286,10 +286,14 @@ Todo, in intended order:
       (SPRINTS Sprint 5, 2026-09-17). USER TO CONFIRM: author/maintainer
       name, model names in automation.models (Codex model not recorded),
       review status self-assessed, cost fields.
-- [ ] USER DECISION (Sprint 6 blocker): Palomar's verifier and reusable
-      preflight only clone PUBLIC repositories. Options A public whole repo,
-      B separate minimal public repo for Theorem 1, C private approximation
-      building pinned Comparator/Landrun/NanoDa in private CI. See SPRINTS.
+- [x] User decision 2026-09-17: option B, fields confirmed, Codex model
+      "Codex Sol". Public repo carlok/sharp-symmetry-bounds-lean created
+      (commit 4408003, 30 closure modules + entry at root). If refused: make it
+      private or delete it and continue here. This private repo stays private.
+- [ ] Confirm public repo Lean build run 35183535298 and Palomar preflight
+      run 35183549777 (full mode, advisory); record outcome
+- [ ] Only after a passing preflight and an explicit user go: the actual
+      Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
       Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
       CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above

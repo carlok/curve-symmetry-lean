@@ -104,7 +104,7 @@ status:
 automation:
   methods:
     - method: agent
-      models: ["Claude Opus 5 (claude-opus-5)", "OpenAI Codex agent (model version not recorded in the repository)"]
+      models: ["Claude Opus 5 (claude-opus-5)", "Codex Sol"]
   framework: "Claude Code and Codex CLI coding agents"
   tool_setup: >-
     AI coding agents wrote and repaired the Lean proofs, statements and

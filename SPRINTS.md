@@ -334,6 +334,18 @@ import closure of PaperBounds; (C) keep everything private and build/run the
 pinned Comparator, Landrun and NanoDa in private CI against a local checkout,
 which is a close approximation but not contract-faithful at the clone step.
 
+2026-09-17 user decision: option B. User confirmed the metadata fields and the
+Codex model name "Codex Sol". If Palomar refuses the entry, the small public
+repository may be made private or deleted and work returns to this private
+repository. Created PUBLIC repository `carlok/sharp-symmetry-bounds-lean`
+(fresh history, commit 4408003da5abd6a6b6e3ad2643f3b7dcfc0c392c, noreply
+author address) with only the 30 library modules in the import closure of
+PaperBounds, the entry files at the repository root, and a Lean build workflow.
+Its `palomar-preflight.yml` calls Palomar's reusable verifier at
+PalomarSubmission@ec6064aea91e2f99187f3f46a2652e4d977ce755 in `full` mode; the
+first preflight run is 35183549777 (advisory, not a submission). The paper
+TeX/PDF is not included. The private repository remains private.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.
