@@ -309,6 +309,31 @@ theorems use only propext, Classical.choice, Quot.sound. New workflow
 `palomar-theorem1.yml` builds the nested project and repeats both pre-checks.
 Not yet done: formalization.yaml, real Comparator/NanoDa run (Sprint 6).
 
+2026-09-17 formalization.yaml drafted in `palomar/theorem1/` (original-proof
+source = the note; Lebmeir–Richter-Gebert, Lebmeir, Pach–de Zeeuw and the
+Alcázar–Lávička–Vršek arXiv v1 as background; AI agent disclosure; review
+`self-assessed`, no independent human review; seven listed fidelity
+divergences). Validated offline with Palomar's own loaders from
+PalomarRegistry/PalomarSubmission@ec6064aea91e2f99187f3f46a2652e4d977ce755:
+`submission_contract.load_formalization_metadata` and
+`verify_submission.load_comparator_config` both accept the files; taxonomy
+codes math.AG, math.MG, 14H50, 14P05, 51N20 exist in their snapshots. Lean
+4.32.0 meets their minimum v4.28.0.
+
+Sprint 6 blocker found 2026-09-17: Palomar's verifier (also the reusable
+preflight workflow `submission.yml`, profile palomar-standard-v1: Comparator
+575674928e239f5bc452aab72d1dd7b0f1326494, Landrun
+811cfff51ceaf3d9843708aa6d22e9b84ccac8b4, NanoDa
+68d5ca9db226849b41a6fff59d796ff19d0a8840) clones the submitted repository over
+credential-free HTTPS and its input requires a public repository. A private
+repository cannot be verified by the real pipeline, and a Palomar submission
+itself requires a public repository. Options need a user decision: (A) make
+`carlok/curve-symmetry-lean` public; (B) create a separate minimal public
+repository containing only the Theorem 1 entry and the library modules in the
+import closure of PaperBounds; (C) keep everything private and build/run the
+pinned Comparator, Landrun and NanoDa in private CI against a local checkout,
+which is a close approximation but not contract-faithful at the clone step.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.

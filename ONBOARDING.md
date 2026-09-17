@@ -281,10 +281,14 @@ Todo, in intended order:
       palomar-theorem1.yml (commit adding palomar/theorem1/Solution.lean)
 - [ ] Confirm both CI workflows for that commit; the hand-derived nested
       lake-manifest.json is only validated once Lake builds it in CI
-- [ ] Next: formalization.yaml (AI disclosure, human authors/maintainers,
-      sources: note as original-proof, Lebmeir–Richter-Gebert and Lebmeir as
-      background, arXiv vs journal note for Alcázar–Lávička–Vršek, review
-      status unchecked), then Sprint 6 private Comparator/NanoDa dry run
+- [x] formalization.yaml drafted; accepted by Palomar's own offline loaders
+      (SPRINTS Sprint 5, 2026-09-17). USER TO CONFIRM: author/maintainer
+      name, model names in automation.models (Codex model not recorded),
+      review status self-assessed, cost fields.
+- [ ] USER DECISION (Sprint 6 blocker): Palomar's verifier and reusable
+      preflight only clone PUBLIC repositories. Options A public whole repo,
+      B separate minimal public repo for Theorem 1, C private approximation
+      building pinned Comparator/Landrun/NanoDa in private CI. See SPRINTS.
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
       Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
       CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above
