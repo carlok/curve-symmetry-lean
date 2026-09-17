@@ -293,8 +293,21 @@ Challenge draft 2026-09-17: `palomar/theorem1/Challenge.lean`, 90 lines,
 4.7 KiB, imports only Mathlib, compiles with the five intended `sorry`
 placeholders. Definitions: `realCurve`, `symmetries`, `directSymmetries`
 (affine form `z ↦ az+b`, `|a| = 1`), `extremalCurve`; cyclicity stated as
-"exactly the integer powers of one isometry". Not yet done: Solution,
-comparator.json, formalization.yaml, nested lakefile, CI for the entry.
+"exactly the integer powers of one isometry".
+
+2026-09-17 Solution and comparator. `palomar/theorem1/Solution.lean` copies the
+four definitions verbatim and derives the five theorems from the library
+endpoints (`paper_*`); `comparator.json` compares the five theorems with
+`definition_names` empty and only the three permitted axioms. Nested
+`lakefile.toml` requires the root package by path `../..`; `lean-toolchain` is
+the root pin; `lake-manifest.json` is hand-derived from the root manifest
+(path package plus inherited pinned Git packages) and awaits Lake validation in
+CI. Local pre-checks (not Comparator): Solution compiles with warnings as
+errors; `scripts/palomar/dump_decls.sh` shows identical elaborated theorem
+types and definition types/values in Challenge and Solution; the five Solution
+theorems use only propext, Classical.choice, Quot.sound. New workflow
+`palomar-theorem1.yml` builds the nested project and repeats both pre-checks.
+Not yet done: formalization.yaml, real Comparator/NanoDa run (Sprint 6).
 
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;

@@ -1,0 +1,52 @@
+name: Palomar Theorem 1 entry build
+
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - 'palomar/theorem1/**'
+      - 'scripts/palomar/**'
+      - 'lean/**'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - '.github/workflows/palomar-theorem1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: palomar-theorem1-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
+        with:
+          lake-package-directory: palomar/theorem1
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Pre-check (not Comparator) statements and definitions agree
+        working-directory: palomar/theorem1
+        run: |
+          lake env sh ../../scripts/palomar/dump_decls.sh Challenge > /tmp/challenge.txt
+          lake env sh ../../scripts/palomar/dump_decls.sh Solution > /tmp/solution.txt
+          diff /tmp/challenge.txt /tmp/solution.txt
+      - name: Pre-check (not Comparator) Solution axioms
+        working-directory: palomar/theorem1
+        run: lake env lean ../../scripts/palomar/CheckSolutionAxioms.lean
+      - name: Ensure the build retained the committed manifest
+        run: git diff --exit-code -- palomar/theorem1/lake-manifest.json palomar/theorem1/lakefile.toml palomar/theorem1/lean-toolchain
+
+# Ordinary CI build of the nested Palomar project. It is not the sandboxed
+# Comparator/NanoDa verification required by Sprint 6.

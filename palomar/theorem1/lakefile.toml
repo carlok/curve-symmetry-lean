@@ -1,0 +1,15 @@
+name = "sharp_symmetry_bounds_theorem1"
+version = "0.1.0"
+defaultTargets = ["Challenge", "Solution"]
+
+# The Solution uses the proof library of this repository by a contained path
+# dependency; Mathlib and its dependencies are pinned through that package.
+[[require]]
+name = "curve_symmetry"
+path = "../.."
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"

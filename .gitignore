@@ -24,3 +24,4 @@ lean/.build/
 .cursor/
 .vscode/
 verification/local/
+palomar/**/.build/

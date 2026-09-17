@@ -276,11 +276,15 @@ Todo, in intended order:
       public only on explicit user go.
 - [x] Theorem 1 Challenge draft palomar/theorem1/Challenge.lean (90 lines,
       4.7 KiB, Mathlib-only, compiles with 5 sorry placeholders)
-- [ ] Next: Solution.lean (same namespace SharpSymmetryBounds, identical
-      definition copies, proofs from the library via PaperBounds endpoints),
-      nested lakefile with path dependency on the root package,
-      comparator.json, formalization.yaml (AI disclosure, sources incl.
-      Lebmeir–Richter-Gebert background, arXiv vs journal note)
+- [x] Solution.lean, comparator.json, nested lakefile/toolchain/manifest,
+      statement and axiom pre-checks (scripts/palomar/), CI workflow
+      palomar-theorem1.yml (commit adding palomar/theorem1/Solution.lean)
+- [ ] Confirm both CI workflows for that commit; the hand-derived nested
+      lake-manifest.json is only validated once Lake builds it in CI
+- [ ] Next: formalization.yaml (AI disclosure, human authors/maintainers,
+      sources: note as original-proof, Lebmeir–Richter-Gebert and Lebmeir as
+      background, arXiv vs journal note for Alcázar–Lávička–Vršek, review
+      status unchecked), then Sprint 6 private Comparator/NanoDa dry run
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
       Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
       CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above
