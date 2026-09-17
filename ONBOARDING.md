@@ -279,8 +279,9 @@ Todo, in intended order:
 - [x] Solution.lean, comparator.json, nested lakefile/toolchain/manifest,
       statement and axiom pre-checks (scripts/palomar/), CI workflow
       palomar-theorem1.yml (commit adding palomar/theorem1/Solution.lean)
-- [ ] Confirm both CI workflows for that commit; the hand-derived nested
-      lake-manifest.json is only validated once Lake builds it in CI
+- [x] CI for e09725c passed: Lean Linux build run 35182828662 and Palomar
+      Theorem 1 entry build run 35182828668 (Lake accepted the hand-derived
+      nested manifest unchanged; statement and axiom pre-checks passed)
 - [x] formalization.yaml drafted; accepted by Palomar's own offline loaders
       (SPRINTS Sprint 5, 2026-09-17). USER TO CONFIRM: author/maintainer
       name, model names in automation.models (Codex model not recorded),
