@@ -331,6 +331,11 @@ Todo, in intended order:
       record, which would need a new version to cover them.
 - [x] The first submission (85ddda8, provenance contradiction) was withdrawn by
       the user; it never registered.
+- [x] Public repository presentation (commits c31d363, 5cc8c57): twelve topics,
+      homepage set to the record permalink, CITATION.cff citing
+      PALOMAR-2026-09-18-000007, README badges for build, record, toolchain and
+      license. No Lean, Challenge, Solution, comparator or formalization.yaml
+      change, so the registered artifact is untouched.
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
