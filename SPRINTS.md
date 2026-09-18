@@ -374,6 +374,15 @@ The public repository is now the canonical source for the Theorem 1 entry;
 `palomar/theorem1/` here is the development copy and differs in metadata
 wording. Submitting commit 85ddda8 is the user's action.
 
+2026-09-18: the user submitted the entry at submit.palomar-registry.org
+(repository carlok/sharp-symmetry-bounds-lean, commit
+85ddda80b8f95c322bb0a80afd9e07e50f5b6f05). The status page URL carries a
+secret fragment and is therefore NOT recorded here; the user holds it. Palomar
+re-runs mechanical verification in its own public Actions and then performs a
+private editorial review; the user decides afterwards whether to register or
+withdraw. Nothing further is authorized here: no automated submission, no
+registration, no publication of the note.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.

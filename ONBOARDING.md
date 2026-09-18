@@ -298,8 +298,13 @@ Todo, in intended order:
       run 35184670576 both pass (no errors/warnings). Public repo is canonical
       for the entry.
 - [ ] Optional: negative controls (would add public throwaway commits)
-- [ ] USER ACTION: submit carlok/sharp-symmetry-bounds-lean@85ddda8 on
-      palomar-registry.org when ready (no automated submission)
+- [x] User submitted carlok/sharp-symmetry-bounds-lean@85ddda8 on 2026-09-18.
+      Status page URL holds a secret fragment; the user keeps it, it is not
+      stored in this repository.
+- [ ] Await Palomar mechanical verification and private editorial review; the
+      user decides register vs withdraw. On revision_required: fix here, copy
+      to the public repo as a new commit, rerun the preflight workflow, submit
+      that commit.
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
