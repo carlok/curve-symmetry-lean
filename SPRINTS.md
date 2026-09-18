@@ -392,6 +392,20 @@ is saved as `verification/palomar/theorem1-official-verification-35342709088.jso
 Editorial review is private to the user; register vs withdraw is the user's
 decision.
 
+2026-09-18 automated editorial review (reviewer model codex:gpt-5.6-sol):
+problems identified, registration not offered, one requested change. Mechanical
+verification succeeded and the statements and account were called otherwise
+sound; the single objection was a provenance contradiction, since the metadata
+declared `original-proof` while the account says the working note came first.
+Fix (public commit ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413): the note is now
+`type: unpublished working note`, `relationship: formalizes`, with the
+chronology stated in its note field and in docs/THEOREM1.md, so the result
+origin is source-based. No Lean, Challenge, Solution or comparator change.
+Public Lean build run 35345758932 and Palomar preflight run 35345766939 both
+pass (report `verification/palomar/theorem1-preflight-35345766939.json`).
+The corrected commit must be submitted as a NEW submission with the Palomar ID
+left blank; the earlier submission can be withdrawn. Both are user actions.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.

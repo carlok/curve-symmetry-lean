@@ -303,10 +303,13 @@ Todo, in intended order:
       stored in this repository.
 - [x] Palomar mechanical verification PASSED on the submitted commit (public
       run 35342709088, request ta4ks1u1dce6; report saved in verification/palomar/)
-- [ ] Await the private editorial review; the
-      user decides register vs withdraw. On revision_required: fix here, copy
-      to the public repo as a new commit, rerun the preflight workflow, submit
-      that commit.
+- [x] Automated editorial review 2026-09-18: one requested change, a
+      provenance contradiction (original-proof vs a preceding working note).
+      Fixed in public commit ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413: the
+      note is now a `formalizes` source, result origin source-based. Build run
+      35345758932 and preflight run 35345766939 pass.
+- [ ] USER ACTION: submit ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413 as a NEW
+      submission (Palomar ID blank) and optionally withdraw the earlier one
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
