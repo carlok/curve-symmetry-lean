@@ -311,9 +311,21 @@ Todo, in intended order:
 - [x] Second submission of ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413 passed
       mechanical verification (run 35351732435) and the automated editorial
       review with NO problems identified (2026-09-18).
-- [ ] USER DECISION: register (makes record, review, repo and commit public,
-      pre-launch) or withdraw. Not authorized for the assistant. Also
-      optionally withdraw the earlier submission.
+- [x] USER REGISTERED the result on 2026-09-18 (assistant not involved in the
+      action). Registry record `PALOMAR-2026-09-18-000007`, version 1,
+      registered 14:29:47Z, status `registered`, trust level `high`, review
+      outcome `neutral` with no warnings. Permalink
+      https://palomar-registry.org/entry?id=PALOMAR-2026-09-18-000007&version=1 ;
+      record JSON
+      https://data.palomar-registry.org/entries/PALOMAR-2026-09-18-000007-v1.json
+      (copy saved as
+      verification/palomar/theorem1-registry-record-PALOMAR-2026-09-18-000007-v1.json).
+      Preservation fork PalomarArchive/carlok--sharp-symmetry-bounds-lean--f3036be09495
+      with immutable tag
+      refs/tags/palomar/PALOMAR-2026-09-18-000007-v1/ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413,
+      plus archive forks of all ten pinned Lean dependencies. Only the public
+      repository carlok/sharp-symmetry-bounds-lean is exposed; this private
+      repository is not referenced by the record.
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).

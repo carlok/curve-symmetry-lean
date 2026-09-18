@@ -418,6 +418,31 @@ review, repository and commit public and creates immutable source-preservation
 tags; the submitter's GitHub identity is not published. That choice is the
 user's alone and is not authorized here.
 
+2026-09-18 registration (user action, 14:29:47Z). The record is public as
+`PALOMAR-2026-09-18-000007` version 1, status `registered`, trust level `high`,
+review outcome `neutral` with no warnings, challenge 90 lines / 4,683 bytes,
+dependency provenance allowlisted. Human permalink
+`https://palomar-registry.org/entry?id=PALOMAR-2026-09-18-000007&version=1`;
+machine record
+`https://data.palomar-registry.org/entries/PALOMAR-2026-09-18-000007-v1.json`,
+also reachable by repository at
+`https://data.palomar-registry.org/repositories/carlok/sharp-symmetry-bounds-lean.json`.
+A copy of the record is stored as
+`verification/palomar/theorem1-registry-record-PALOMAR-2026-09-18-000007-v1.json`.
+Mechanical evidence cites run 35351732435, Comparator
+`575674928e239f5bc452aab72d1dd7b0f1326494`, NanoDa
+`68d5ca9db226849b41a6fff59d796ff19d0a8840`, Landrun
+`811cfff51ceaf3d9843708aa6d22e9b84ccac8b4`, lean4export
+`4e7915201d3f9f04470d9eae002fa695f7cdc589`. Source preservation created the
+fork `PalomarArchive/carlok--sharp-symmetry-bounds-lean--f3036be09495` at commit
+`ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413` with an immutable tag, and archive
+forks of all ten pinned dependencies including Mathlib
+`81a5d257c8e410db227a6665ed08f64fea08e997`. Registration is not a novelty
+certificate and not a human review: the editorial review was automated
+(`codex:gpt-5.6-sol`). Only Theorem 1 is registered; the rest of this private
+library is not covered. The submission status URL keeps its secret fragment and
+is still not stored here.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.
