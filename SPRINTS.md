@@ -406,6 +406,18 @@ pass (report `verification/palomar/theorem1-preflight-35345766939.json`).
 The corrected commit must be submitted as a NEW submission with the Palomar ID
 left blank; the earlier submission can be withdrawn. Both are user actions.
 
+2026-09-18 second submission (commit ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413,
+submitted 13:41:49Z): mechanical verification passed (public run 35351732435,
+status pass, stage complete, no errors or warnings; report saved as
+`verification/palomar/theorem1-official-verification-35351732435.json`), the
+Challenge rendering check ran, and the automated editorial review (model
+codex:gpt-5.6-sol, 14:08:42Z) identified NO problems with statements,
+definitions, presentation, literature account or research interest. Palomar now
+offers register or withdraw. Registration is pre-launch: it makes the record,
+review, repository and commit public and creates immutable source-preservation
+tags; the submitter's GitHub identity is not published. That choice is the
+user's alone and is not authorized here.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.

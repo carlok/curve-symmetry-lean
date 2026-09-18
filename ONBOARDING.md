@@ -308,8 +308,12 @@ Todo, in intended order:
       Fixed in public commit ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413: the
       note is now a `formalizes` source, result origin source-based. Build run
       35345758932 and preflight run 35345766939 pass.
-- [ ] USER ACTION: submit ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413 as a NEW
-      submission (Palomar ID blank) and optionally withdraw the earlier one
+- [x] Second submission of ced9fe2d4d2aa42aa03bbc19b1b56cdcd18c9413 passed
+      mechanical verification (run 35351732435) and the automated editorial
+      review with NO problems identified (2026-09-18).
+- [ ] USER DECISION: register (makes record, review, repo and commit public,
+      pre-launch) or withdraw. Not authorized for the assistant. Also
+      optionally withdraw the earlier submission.
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
