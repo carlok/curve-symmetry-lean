@@ -383,6 +383,15 @@ private editorial review; the user decides afterwards whether to register or
 withdraw. Nothing further is authorized here: no automated submission, no
 registration, no publication of the note.
 
+Palomar's own mechanical verification of the submission passed: public run
+https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/35342709088
+(request id ta4ks1u1dce6, mode full, profile palomar-standard-v1) fetched
+carlok/sharp-symmetry-bounds-lean@85ddda80b8f95c322bb0a80afd9e07e50f5b6f05 and
+reported status pass, stage complete, no errors or warnings; its bounded report
+is saved as `verification/palomar/theorem1-official-verification-35342709088.json`.
+Editorial review is private to the user; register vs withdraw is the user's
+decision.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.

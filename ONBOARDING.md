@@ -301,7 +301,9 @@ Todo, in intended order:
 - [x] User submitted carlok/sharp-symmetry-bounds-lean@85ddda8 on 2026-09-18.
       Status page URL holds a secret fragment; the user keeps it, it is not
       stored in this repository.
-- [ ] Await Palomar mechanical verification and private editorial review; the
+- [x] Palomar mechanical verification PASSED on the submitted commit (public
+      run 35342709088, request ta4ks1u1dce6; report saved in verification/palomar/)
+- [ ] Await the private editorial review; the
       user decides register vs withdraw. On revision_required: fix here, copy
       to the public repo as a new commit, rerun the preflight workflow, submit
       that commit.
