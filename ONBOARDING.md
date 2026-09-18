@@ -326,6 +326,11 @@ Todo, in intended order:
       plus archive forks of all ten pinned Lean dependencies. Only the public
       repository carlok/sharp-symmetry-bounds-lean is exposed; this private
       repository is not referenced by the record.
+- [x] Public README links the record (public commit c31d363, 2026-09-18). The
+      registered commit stays ced9fe2; later public commits do not alter the
+      record, which would need a new version to cover them.
+- [x] The first submission (85ddda8, provenance contradiction) was withdrawn by
+      the user; it never registered.
 - [ ] Only after a passing preflight and an explicit user go: the actual
       Palomar submission (the user submits; no automated submission)
 - (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
