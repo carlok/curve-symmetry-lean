@@ -390,9 +390,10 @@ Todo, in intended order:
       (PlaceUniformizers).
 - [x] CI for G09a-2e commit a0ff4e7 passed (run 35435065432; Palomar Theorem 1
       entry build 35435065437 also passed)
-- [ ] G09a-2f the ramified point places: h(c) = 0 forces d = 0, w generates the
-      maximal ideal, and dt = (2w/h'(t))·dw with h'(t) a unit there, which is
-      ord_v(dt) = 1.
+- [x] G09a-2f the ramified point places: h(c) = 0 forces d = 0, w generates the
+      maximal ideal (t − c = w²/k with k(c) ≠ 0 from squarefreeness), h'(t) is a
+      unit there, and h'(t)·(f·dt) = (2·f·w)·dw, which is ord_v(dt) = 1
+      (PlaceUniformizers).
 - [ ] G09a-2g the value at ∞ (−3), read at the conjugate point place through the
       chart isomorphism of G09a-2d; a ℤ-valued order only if G09b needs one.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;

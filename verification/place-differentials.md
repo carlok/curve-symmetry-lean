@@ -105,8 +105,24 @@ since `d(t − c) = dt`. With G09a-2c, the coefficient of `f·dt` at such a plac
 is `f` itself, so `f·dt` is regular there exactly when `f` is in the local ring.
 That is `ord_v(dt) = 0` in structural form; no `ℤ`-valued order is introduced.
 
-The ramified point places (`h(c) = 0`, uniformizer `w`, `ord_v(dt) = 1`) and the
-value `−3` at infinity are G09a-2f and G09a-2g.
+The ramified point places are G09a-2f, below; the value `−3` at infinity is
+G09a-2g.
+
+## Ramified point places (G09a-2f)
+
+At a point place with `h(c) = 0`, the hypothesis `d² = h(c)` forces `d = 0`.
+Squarefreeness makes `c` a simple root: `h = (X − c)·k` with `k(c) ≠ 0`
+(`exists_factor_of_root`), so in the local ring `t − c = w²·k(t)⁻¹` and `w`
+generates the maximal ideal (`quad_ramified_uniformizer`); an element
+`a + b·w` of the point ideal has `a(c) = 0`, so `a` is a multiple of `t − c`.
+
+`quad_ramified_derivative_isUnit`: `h'(c) = k(c) ≠ 0`, so `h'(t)` is invertible
+in that local ring. `quad_ramified_coeff` then turns `quad_D_root` of G09a-1
+into `h'(t)·(f·dt) = (2·f·w)·dw`: against the uniformizer the coefficient of
+`f·dt` is `f` times a unit times exactly one factor of `w`. That is
+`ord_v(dt) = 1`, again without a `ℤ`-valued order.
+
+The value `−3` at infinity is G09a-2g.
 
 ## Scope
 
@@ -117,7 +133,7 @@ divisor, Riemann–Roch or Riemann–Hurwitz statement is assumed anywhere.
 ## Checks
 
 - Both modules compile with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,523 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,533 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 93 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
