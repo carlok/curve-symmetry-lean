@@ -348,7 +348,14 @@ Todo, in intended order:
       paper_family_converse) and only the definitions they need; Solution
       proving them from the library; comparator.json; formalization.yaml;
       static contract checks. Still no submission: Sprint 6 dry run first.
-- [ ] Deferred: G09 genus m via holomorphic differentials; R01 quartic.
+- [x] G09a-1 Ω_{K/ℂ} is free of rank one on dt, for every squarefree h and for
+      the family (QuadraticDifferentials; commit introducing
+      verification/differentials-rank.md). Base change along the two formally
+      étale maps ℂ[t] → ℂ(t) → K; also the chain rule and 2w·dw = h'(t)·dt.
+- [ ] G09a-2 order of a differential at a place, uniformizer-independent;
+      ord_v(dt) at each place type of G07b-2c and G07b-3.
+- [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
+      deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O

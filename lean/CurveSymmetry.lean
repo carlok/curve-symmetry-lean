@@ -85,5 +85,6 @@ import DedekindPlaces
 import QuadraticPlaces
 import QuadraticInfinity
 import FamilyBranchPoints
+import QuadraticDifferentials
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4 branch points of the double cover (G08), 2026-09-16.
+Snapshot: Sprint 4 rank of the differentials (G09a-1), 2026-09-19.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -12,7 +12,7 @@ Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 | Theorem 1: equality classification | For `d ≥ 5`, maximal direct symmetry forces the normalized family under an orientation-preserving similarity. |
 | Theorem 1: converse | The family with `m ≥ 3` and nonreal parameter attains the rotation bound. |
 | Lemma 3 sign (S03, S04) | Every actual isometry of the Cartesian curve satisfies `f∘T = ±f` pointwise; orientation-reversing ones have sign `+1` and are reflections, never glide reflections. |
-| Function-field double cover (G07a) | The function field of the family curve is `ℂ(t)[w]/(w² − h)`, `t = X/Y`, with `h` squarefree of degree `2m+1`; degree two over `ℂ(t)`. Its elements integral over `ℂ[t]` are exactly `a + b·w`, `a, b ∈ ℂ[t]` (G07b-1); that closure is Dedekind and equals `ℂ[t][W]/(W² − h)`, whose maximal ideals are exactly the points `(c,d)` with `d² = h(c)` (G07b-2a/2b). Places containing `ℂ[t]` correspond bijectively to these points: two over `t = c` when `h(c) ≠ 0`, one when `h(c) = 0` (G07b-2c). Exactly one further place lies over `t = ∞`, found through the isomorphism with the conjugate family's chart (G07b-3). With branch points defined by fibre count (recorded choice), there are exactly `2m+2`: `∞` and the `2m+1` roots of `h` (G08). Ramification indices and genus are not formalized. |
+| Function-field double cover (G07a) | The function field of the family curve is `ℂ(t)[w]/(w² − h)`, `t = X/Y`, with `h` squarefree of degree `2m+1`; degree two over `ℂ(t)`. Its elements integral over `ℂ[t]` are exactly `a + b·w`, `a, b ∈ ℂ[t]` (G07b-1); that closure is Dedekind and equals `ℂ[t][W]/(W² − h)`, whose maximal ideals are exactly the points `(c,d)` with `d² = h(c)` (G07b-2a/2b). Places containing `ℂ[t]` correspond bijectively to these points: two over `t = c` when `h(c) ≠ 0`, one when `h(c) = 0` (G07b-2c). Exactly one further place lies over `t = ∞`, found through the isomorphism with the conjugate family's chart (G07b-3). With branch points defined by fibre count (recorded choice), there are exactly `2m+2`: `∞` and the `2m+1` roots of `h` (G08). Its differentials `Ω[K⁄ℂ]` form a one-dimensional `K`-vector space spanned by `dt`, with `2w·dw = h'(t)·dt` (G09a-1). Ramification indices, orders of differentials and the genus are not formalized. |
 | Equation (5) (S07) | A rotation of order `N > d` forces `N = 2m`, sign `-1`, `P = X^m A(XY) + Y^m conj(A)(XY)` with `1 ≤ deg A ≤ ⌊(d-m)/2⌋`, hence `m ≤ d-2`. |
 | Theorem 2: basic family geometry | One real Cartesian equation is geometrically irreducible, has degree `m+2`, and has the exact infinite family locus, for every `m ≥ 2` and nonreal parameter. |
 | Theorem 2: ambient completeness | For `m ≥ 2`, arbitrary Möbius/anti-Möbius containment forces the two holomorphic or two conjugated map forms, including zero and infinity. |
@@ -48,9 +48,9 @@ is still incomplete.
 ## Still missing
 
 Sprint 3 is complete at its stated ambient-transformation scope.
-Sprint 4: differentials, Riemann–Hurwitz and genuine genus `m` (G09), and the
-quartic comparison (R01), deferred by user decision in favour of a first
-Palomar entry for Theorem 1. G08 is proved at the recorded fibre-count reading.
+Sprint 4: orders of differentials at places, holomorphic differentials and
+genuine genus `m` (G09a-2, G09b), and the quartic comparison (R01). The rank of
+`Ω[K⁄ℂ]` is proved (G09a-1); the genus itself is not. G08 is proved at the recorded fibre-count reading.
 The normalization model (G07) is proved at the approved function-field reading.
 Sprints 5–7: Palomar contract, faithful private dry run and final TeX integration.
 
@@ -58,11 +58,11 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 88 |
-| Written theorem/lemma declarations | 659 |
-| Written definitions/abbreviations/structures/inductives | 169 |
-| Lean source lines, including comments and blank lines | 10,647 |
-| Audited namespace declarations, including generated/private machinery | 1,440 |
+| Lean source files (including aggregate) | 89 |
+| Written theorem/lemma declarations | 667 |
+| Written definitions/abbreviations/structures/inductives | 174 |
+| Lean source lines, including comments and blank lines | 10,806 |
+| Audited namespace declarations, including generated/private machinery | 1,475 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
