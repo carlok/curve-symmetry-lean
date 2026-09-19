@@ -104,6 +104,23 @@ theorem quad_D_t_ne_zero : KaehlerDifferential.D ℂ (QuadField h) (quadT h) ≠
 theorem quad_kaehler_finrank : Module.finrank (QuadField h) Ω[QuadField h⁄ℂ] = 1 := by
   rw [Module.finrank_eq_card_basis (quadKaehlerBasis h), Fintype.card_unit]
 
+/-- A differential that spans is nonzero, because the space is one-dimensional. -/
+theorem quad_D_ne_zero_of_span {x : QuadField h}
+    (hspan : Submodule.span (QuadField h) {KaehlerDifferential.D ℂ (QuadField h) x} = ⊤) :
+    KaehlerDifferential.D ℂ (QuadField h) x ≠ 0 := by
+  intro hzero
+  rw [hzero, Submodule.span_singleton_eq_bot.mpr rfl] at hspan
+  haveI : Subsingleton Ω[QuadField h⁄ℂ] := by
+    constructor
+    intro y z
+    have hy : y ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial
+    have hz : z ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial
+    rw [Submodule.mem_bot] at hy hz
+    rw [hy, hz]
+  have hfin := quad_kaehler_finrank h
+  rw [Module.finrank_eq_zero_of_subsingleton] at hfin
+  exact zero_ne_one hfin
+
 /-- Every differential is a multiple of `dt`. -/
 theorem quad_exists_smul_D_t (ω : Ω[QuadField h⁄ℂ]) :
     ∃ c : QuadField h, ω = c • KaehlerDifferential.D ℂ (QuadField h) (quadT h) := by

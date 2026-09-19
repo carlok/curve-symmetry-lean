@@ -375,11 +375,17 @@ Todo, in intended order:
       re-split here: infinity and the numerical values are 2d and 2e.
 - [x] CI for G09a-2c commit 6b77f3e passed (run 35433426654; Palomar Theorem 1
       entry build 35433426677 also passed)
-- [ ] G09a-2d the same local statement at the place over t = ∞, through the
-      chart isomorphism of G07b-3 with the conjugate family.
+- [x] G09a-2d the place over t = ∞, through the chart isomorphism of G07b-3:
+      it is upgraded to a ℂ-algebra isomorphism, and the preimage of a
+      uniformizer of the conjugate family's point place (0,0) lies in the local
+      ring at infinity with a nonzero spanning differential
+      (InfinityDifferentials, with the generic transport lemma
+      kaehler_span_D_equiv in LocalDifferentials). Not included: the
+      coefficient-unit statement at infinity.
 - [ ] G09a-2e define ord_v of a differential (ℤ-valued, from the place's
-      valuation of the coefficient) and compute ord_v(dt): 0 at unramified
-      places, 1 at each root of h, −3 at ∞.
+      valuation of the coefficient); at ∞ the natural route is to read it at the
+      conjugate point place through the chart isomorphism. Then compute
+      ord_v(dt): 0 at unramified places, 1 at each root of h, −3 at ∞.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
 - (done) G07b-3 original plan, kept for reference:

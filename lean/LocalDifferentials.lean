@@ -147,6 +147,24 @@ theorem kaehler_span_map_eq_top {v : Ω[S⁄R]} (hv : Submodule.span S {v} = ⊤
 
 end BaseChangeSpan
 
+section Transport
+
+variable {R A B : Type*} [CommRing R] [CommRing A] [CommRing B] [Algebra R A] [Algebra R B]
+
+/-- A generator of the differentials transports along an isomorphism of `R`-algebras. -/
+theorem kaehler_span_D_equiv (e : A ≃ₐ[R] B) {a : A}
+    (ha : Submodule.span A {KaehlerDifferential.D R A a} = ⊤) :
+    Submodule.span B {KaehlerDifferential.D R B (e a)} = ⊤ := by
+  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  haveI : IsScalarTower R A B :=
+    IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
+  haveI : Algebra.FormallyEtale A B :=
+    Algebra.FormallyEtale.of_equiv (AlgEquiv.ofRingEquiv (f := e.toRingEquiv) fun _ => rfl)
+  have hspan := kaehler_span_map_eq_top R A B ha
+  rwa [KaehlerDifferential.map_D] at hspan
+
+end Transport
+
 #print axioms localKaehler_span_eq_top
 
 end CurveSymmetry

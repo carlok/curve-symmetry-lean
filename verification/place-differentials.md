@@ -69,20 +69,37 @@ instances (`KaehlerDifferential.module'` versus the restriction along
 `O_v → K`), which made rewriting fail; the field-coefficient formulation avoids
 the ambiguity and says the same thing.
 
+## The place at infinity (G09a-2d)
+
+`kaehler_span_D_equiv` (generic): a generator of the differentials transports
+along an isomorphism of `R`-algebras. The proof gives `B` the `A`-algebra
+structure of the isomorphism, which is then formally étale over `A` because `A`
+is formally étale over itself, and reuses `kaehler_span_map_eq_top`.
+
+`familyInfinityAlgEquiv` upgrades the ring isomorphism of G07b-3 to a
+`ℂ`-algebra isomorphism; it fixes constants by `familyInfinityMap_polyC`.
+`family_infinity_differential_spans` then states, for the place over `t = ∞`:
+the preimage `x` of a uniformizer of the conjugate family's point place `(0,0)`
+lies in the local ring at infinity, `dx` spans `Ω[K⁄ℂ]` and `dx ≠ 0`.
+`familyInfinity_unit_iff` transports membership, for an element and its inverse,
+so the units of the two local rings correspond.
+
+Not included: the coefficient-unit statement at infinity, which needs the
+transport of an identity in `Ω`, not just of a generator. For G09a-2e the
+natural route is to read the order at infinity at the conjugate point place
+through this isomorphism, rather than redoing the local theory in that chart.
+
 ## Scope
 
-The place at infinity (G07b-3) is not covered: it is not one of the point places
-of `ℂ[t][W]/(W² − h)`, and the same argument has to be run in the chart at
-infinity, which G07b-3 identifies with the conjugate family (G09a-2d). Still
-undefined here: `ord_v` itself, `ord_v(dt)`, holomorphic differentials, the
+Still undefined here: `ord_v` itself, `ord_v(dt)`, holomorphic differentials, the
 genus (G09a-2e, G09b). No
 divisor, Riemann–Roch or Riemann–Hurwitz statement is assumed anywhere.
 
 ## Checks
 
 - Both modules compile with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,501 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,513 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 91 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 92 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
 - Private Linux runs 35432466431 (`8957029`) and 35433426654 (`6b77f3e`) passed.

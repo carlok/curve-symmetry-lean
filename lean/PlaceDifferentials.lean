@@ -118,20 +118,8 @@ theorem quadLocal_D_uniformizer_spans {u : quadLocalRing h c d hd}
 /-- The differential of a uniformizer is not zero. -/
 theorem quadLocal_D_uniformizer_ne_zero {u : quadLocalRing h c d hd}
     (hu : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u}) :
-    KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) ≠ 0 := by
-  intro hzero
-  have hspan := quadLocal_D_uniformizer_spans h c d hd hu
-  rw [hzero, Submodule.span_singleton_eq_bot.mpr rfl] at hspan
-  haveI : Subsingleton Ω[QuadField h⁄ℂ] := by
-    constructor
-    intro x y
-    have hx : x ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial
-    have hy : y ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial
-    rw [Submodule.mem_bot] at hx hy
-    rw [hx, hy]
-  have hfin := quad_kaehler_finrank h
-  rw [Module.finrank_eq_zero_of_subsingleton] at hfin
-  exact zero_ne_one hfin
+    KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) ≠ 0 :=
+  quad_D_ne_zero_of_span h (quadLocal_D_uniformizer_spans h c d hd hu)
 
 /-- Every differential of the function field is a multiple of `du`. -/
 theorem quadLocal_exists_coeff {u : quadLocalRing h c d hd}

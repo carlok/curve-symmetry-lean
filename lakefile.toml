@@ -105,5 +105,6 @@ roots = [
   "QuadraticDifferentials",
   "LocalDifferentials",
   "PlaceDifferentials",
+  "InfinityDifferentials",
   "CurveSymmetry",
 ]
