@@ -399,9 +399,15 @@ Todo, in intended order:
 - [x] G09a-2g the value at ∞: through the chart isomorphism t ↦ 1/s, dt reads at
       the conjugate ramified place (0,0) as −2w'·dw' over s²·h'(s), with h'(s) a
       unit and s = w'²·(unit), i.e. ord(dt) = 1 − 4 = −3 (InfinityDifferentials).
-- [ ] G09b holomorphic differentials = span of t^i dt/w (i < m), genus m, and
-      deg div(dt) = 2m − 2. Needs a regularity criterion at all places at once,
-      so probably a ℤ-valued order after all; expect to split it.
+- [x] G09b-1 regularity of a differential at a point place: definition free of
+      uniformizer choices, plus the two criteria — f·dt is regular where
+      h(c) ≠ 0 iff f is in the local ring, and where h(c) = 0 iff f·w is
+      (HolomorphicDifferentials; verification/holomorphic-differentials.md).
+- [ ] G09b-2 the same criterion at the place over t = ∞ (needs transport of an
+      identity in Ω along the chart isomorphism, the piece G09a-2d left out).
+- [ ] G09b-3 the holomorphic differentials as a ℂ-subspace, and the basis
+      t^i dt/w for i < m.
+- [ ] G09b-4 genus m, and the degree identity deg div(dt) = 2m − 2.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
 - (done) G07b-3 original plan, kept for reference:

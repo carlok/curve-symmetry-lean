@@ -107,5 +107,6 @@ roots = [
   "PlaceDifferentials",
   "PlaceUniformizers",
   "InfinityDifferentials",
+  "HolomorphicDifferentials",
   "CurveSymmetry",
 ]

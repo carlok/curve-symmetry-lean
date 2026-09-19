@@ -90,5 +90,6 @@ import LocalDifferentials
 import PlaceDifferentials
 import PlaceUniformizers
 import InfinityDifferentials
+import HolomorphicDifferentials
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
