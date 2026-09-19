@@ -364,6 +364,9 @@ Todo, in intended order:
       submodule does not depend on the choice (PlaceDifferentials; commit
       introducing verification/place-differentials.md). The place at infinity
       still needs the same argument in the chart of G07b-3.
+- [x] CI for G09a-2a/2b commit 8957029 passed (run 35432466431; the run on the
+      intermediate commit 61c51e3 was cancelled by the concurrency group, and
+      8957029 contains it). Palomar Theorem 1 entry build 35432466491 also passed.
 - [ ] G09a-2c the place at infinity, then define ord_v of a differential and
       compute ord_v(dt): 0 at unramified places, 1 at the roots of h, −3 at ∞.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
