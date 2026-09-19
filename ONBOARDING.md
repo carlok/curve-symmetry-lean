@@ -373,6 +373,8 @@ Todo, in intended order:
       place does not depend on the uniformizer (PlaceDifferentials, with the
       generic base-change span lemma in LocalDifferentials). The package was
       re-split here: infinity and the numerical values are 2d and 2e.
+- [x] CI for G09a-2c commit 6b77f3e passed (run 35433426654; Palomar Theorem 1
+      entry build 35433426677 also passed)
 - [ ] G09a-2d the same local statement at the place over t = ∞, through the
       chart isomorphism of G07b-3 with the conjugate family.
 - [ ] G09a-2e define ord_v of a differential (ℤ-valued, from the place's
