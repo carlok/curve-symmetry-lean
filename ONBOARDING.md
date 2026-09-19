@@ -403,10 +403,13 @@ Todo, in intended order:
       uniformizer choices, plus the two criteria — f·dt is regular where
       h(c) ≠ 0 iff f is in the local ring, and where h(c) = 0 iff f·w is
       (HolomorphicDifferentials; verification/holomorphic-differentials.md).
-- [ ] G09b-2 the same criterion at the place over t = ∞ (needs transport of an
-      identity in Ω along the chart isomorphism, the piece G09a-2d left out).
-- [ ] G09b-3 the holomorphic differentials as a ℂ-subspace, and the basis
-      t^i dt/w for i < m.
+- [x] G09b-2 regularity at the place over t = ∞, defined as regularity of the
+      transported differential at the conjugate point place, with the closed
+      form of the coefficient against w' (InfinityRegularity; the generic
+      transport map kaehlerTransport is in LocalDifferentials).
+- [ ] G09b-3 cancel the units 2, h'(s) and k in the infinity criterion to get
+      ord(φ f) ≥ 3, then the holomorphic differentials as a ℂ-subspace and the
+      basis t^i dt/w for i < m.
 - [ ] G09b-4 genus m, and the degree identity deg div(dt) = 2m − 2.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.

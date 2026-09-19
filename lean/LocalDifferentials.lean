@@ -163,6 +163,26 @@ theorem kaehler_span_D_equiv (e : A ≃ₐ[R] B) {a : A}
   have hspan := kaehler_span_map_eq_top R A B ha
   rwa [KaehlerDifferential.map_D] at hspan
 
+/-- Differentials transported along an isomorphism of `R`-algebras. -/
+noncomputable def kaehlerTransport (e : A ≃ₐ[R] B) : Ω[A⁄R] →+ Ω[B⁄R] :=
+  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  haveI : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
+  (KaehlerDifferential.map R R A B).toAddMonoidHom
+
+@[simp] lemma kaehlerTransport_D (e : A ≃ₐ[R] B) (a : A) :
+    kaehlerTransport e (KaehlerDifferential.D R A a) = KaehlerDifferential.D R B (e a) := by
+  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  haveI : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
+  exact KaehlerDifferential.map_D R R A B a
+
+lemma kaehlerTransport_smul (e : A ≃ₐ[R] B) (a : A) (ω : Ω[A⁄R]) :
+    kaehlerTransport e (a • ω) = e a • kaehlerTransport e ω := by
+  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  haveI : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
+  show KaehlerDifferential.map R R A B (a • ω) = _
+  rw [map_smul, ← IsScalarTower.algebraMap_smul B a]
+  rfl
+
 end Transport
 
 #print axioms localKaehler_span_eq_top

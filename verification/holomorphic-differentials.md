@@ -33,11 +33,26 @@ place a holomorphic differential may have one pole in `f`, which is the
 a ramified place: `h` is squarefree, so it is nonzero, and in characteristic
 zero a nonzero derivative follows from `h(c) = 0`.
 
+## Regularity at infinity (G09b-2)
+
+`kaehlerTransport` (generic, in `LocalDifferentials`): an isomorphism of
+`R`-algebras carries `Ω[A⁄R]` to `Ω[B⁄R]`, with `d a ↦ d (e a)` and
+`c·ω ↦ e(c)·(transport ω)`. It is built from `KaehlerDifferential.map` for the
+algebra structure that the isomorphism itself provides.
+
+`IsRegularAtInfinity ω` is regularity of `kaehlerTransport ω` at the conjugate
+family's point place `(0, 0)`, which is where the chart isomorphism sends the
+place over `t = ∞`. For `ω = f·dt` the transport is `φ(f)·d(1/s)`, and G09a-2g
+turns that into a coefficient against the uniformizer `w'`:
+`φ(f)·(−2w')/(s²·h_conj'(s))` (`isRegularAtInfinity_iff`).
+
+Left for G09b-3: cancelling `2`, `h_conj'(s)` and the factor `k` of
+`s·k = w'²`, all units of that local ring, which turns the criterion into
+`ord(φ f) ≥ 3`.
+
 ## Scope
 
-Not here: regularity at the place over `t = ∞`, which needs the transport of an
-identity in `Ω` along the chart isomorphism (the piece G09a-2d left out); the
-space of holomorphic differentials and the claim that it is spanned by
+Not here: the space of holomorphic differentials and the claim that it is spanned by
 `tⁱ·dt/w` for `i < m`; the genus; and the degree identity
 `deg div(dt) = 2m − 2`. No divisor, Riemann–Roch or Riemann–Hurwitz statement is
 assumed anywhere.
@@ -45,7 +60,7 @@ assumed anywhere.
 ## Checks
 
 - Compiles with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,567 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,581 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 94 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 95 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
