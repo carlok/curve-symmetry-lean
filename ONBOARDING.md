@@ -367,8 +367,17 @@ Todo, in intended order:
 - [x] CI for G09a-2a/2b commit 8957029 passed (run 35432466431; the run on the
       intermediate commit 61c51e3 was cancelled by the concurrency group, and
       8957029 contains it). Palomar Theorem 1 entry build 35432466491 also passed.
-- [ ] G09a-2c the place at infinity, then define ord_v of a differential and
-      compute ord_v(dt): 0 at unramified places, 1 at the roots of h, −3 at ∞.
+- [x] G09a-2c at a point place: du spans the differentials of the function field
+      over it, du ≠ 0, every differential is f·du, and two uniformizers give
+      coefficients differing by a unit of the local ring — so an order at the
+      place does not depend on the uniformizer (PlaceDifferentials, with the
+      generic base-change span lemma in LocalDifferentials). The package was
+      re-split here: infinity and the numerical values are 2d and 2e.
+- [ ] G09a-2d the same local statement at the place over t = ∞, through the
+      chart isomorphism of G07b-3 with the conjugate family.
+- [ ] G09a-2e define ord_v of a differential (ℤ-valued, from the place's
+      valuation of the coefficient) and compute ord_v(dt): 0 at unramified
+      places, 1 at each root of h, −3 at ∞.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
 - (done) G07b-3 original plan, kept for reference:

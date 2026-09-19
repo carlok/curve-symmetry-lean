@@ -95,6 +95,119 @@ theorem quadLocal_kaehler_span_congr {u u' : quadLocalRing h c d hd}
         {KaehlerDifferential.D ℂ (quadLocalRing h c d hd) u'} :=
   localKaehler_span_congr (quadLocal_residue h c d hd) hu hu'
 
+/-- Pushing a differential of the local ring into the function field. -/
+lemma quadLocal_map_D (x : quadLocalRing h c d hd) :
+    KaehlerDifferential.map ℂ ℂ (quadLocalRing h c d hd) (QuadField h)
+        (KaehlerDifferential.D ℂ (quadLocalRing h c d hd) x) =
+      KaehlerDifferential.D ℂ (QuadField h) (x : QuadField h) :=
+  KaehlerDifferential.map_D ℂ ℂ (quadLocalRing h c d hd) (QuadField h) x
+
+instance quadLocalRing_formallyEtale :
+    Algebra.FormallyEtale (quadLocalRing h c d hd) (QuadField h) :=
+  Algebra.FormallyEtale.of_isLocalization (nonZeroDivisors (quadLocalRing h c d hd))
+
+/-- The differential of a uniformizer spans the differentials of the function field. -/
+theorem quadLocal_D_uniformizer_spans {u : quadLocalRing h c d hd}
+    (hu : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u}) :
+    Submodule.span (QuadField h)
+      {KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h)} = ⊤ := by
+  have hmap := kaehler_span_map_eq_top ℂ (quadLocalRing h c d hd) (QuadField h)
+    (quadLocal_kaehler_span_eq_top h c d hd hu)
+  rwa [quadLocal_map_D] at hmap
+
+/-- The differential of a uniformizer is not zero. -/
+theorem quadLocal_D_uniformizer_ne_zero {u : quadLocalRing h c d hd}
+    (hu : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u}) :
+    KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) ≠ 0 := by
+  intro hzero
+  have hspan := quadLocal_D_uniformizer_spans h c d hd hu
+  rw [hzero, Submodule.span_singleton_eq_bot.mpr rfl] at hspan
+  haveI : Subsingleton Ω[QuadField h⁄ℂ] := by
+    constructor
+    intro x y
+    have hx : x ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial
+    have hy : y ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial
+    rw [Submodule.mem_bot] at hx hy
+    rw [hx, hy]
+  have hfin := quad_kaehler_finrank h
+  rw [Module.finrank_eq_zero_of_subsingleton] at hfin
+  exact zero_ne_one hfin
+
+/-- Every differential of the function field is a multiple of `du`. -/
+theorem quadLocal_exists_coeff {u : quadLocalRing h c d hd}
+    (hu : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u})
+    (ω : Ω[QuadField h⁄ℂ]) :
+    ∃ f : QuadField h, ω = f • KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) := by
+  have hmem : ω ∈ Submodule.span (QuadField h)
+      {KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h)} := by
+    rw [quadLocal_D_uniformizer_spans h c d hd hu]; trivial
+  obtain ⟨f, hf⟩ := Submodule.mem_span_singleton.mp hmem
+  exact ⟨f, hf.symm⟩
+
+/-- Two uniformizers at the same place have differentials that differ by a unit of the
+local ring. This is what makes an order of a differential at the place independent of the
+uniformizer used to read it off. -/
+theorem quadLocal_D_uniformizer_unit {u u' : quadLocalRing h c d hd}
+    (hu : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u})
+    (hu' : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u'}) :
+    ∃ e : QuadField h, e ∈ quadLocalRing h c d hd ∧ e⁻¹ ∈ quadLocalRing h c d hd ∧
+      KaehlerDifferential.D ℂ (QuadField h) (u' : QuadField h) =
+        e • KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) := by
+  obtain ⟨a, ha⟩ := localKaehler_exists_smul (quadLocal_residue h c d hd) hu
+    (KaehlerDifferential.D ℂ (quadLocalRing h c d hd) u')
+  obtain ⟨b, hb⟩ := localKaehler_exists_smul (quadLocal_residue h c d hd) hu'
+    (KaehlerDifferential.D ℂ (quadLocalRing h c d hd) u)
+  have hpush : ∀ (x y : quadLocalRing h c d hd) (z : quadLocalRing h c d hd),
+      KaehlerDifferential.D ℂ (quadLocalRing h c d hd) x =
+          z • KaehlerDifferential.D ℂ (quadLocalRing h c d hd) y →
+        KaehlerDifferential.D ℂ (QuadField h) (x : QuadField h) =
+          (z : QuadField h) • KaehlerDifferential.D ℂ (QuadField h) (y : QuadField h) := by
+    intro x y z hxyz
+    have := congrArg (KaehlerDifferential.map ℂ ℂ (quadLocalRing h c d hd) (QuadField h)) hxyz
+    rw [quadLocal_map_D, map_smul, quadLocal_map_D,
+      ← IsScalarTower.algebraMap_smul (QuadField h) z] at this
+    exact this
+  have ha' := hpush u' u a ha
+  have hb' := hpush u u' b hb
+  have hdu := quadLocal_D_uniformizer_ne_zero h c d hd hu
+  have hone : (b : QuadField h) * (a : QuadField h) = 1 := by
+    have hcomb : KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) =
+        ((b : QuadField h) * (a : QuadField h)) •
+          KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) := by
+      conv_lhs => rw [hb', ha']
+      rw [smul_smul]
+    have hsub : (((b : QuadField h) * (a : QuadField h)) - 1) •
+        KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) = 0 := by
+      rw [sub_smul, one_smul, ← hcomb, sub_self]
+    rcases smul_eq_zero.mp hsub with hzero | hzero
+    · exact sub_eq_zero.mp hzero
+    · exact absurd hzero hdu
+  refine ⟨(a : QuadField h), a.2, ?_, ha'⟩
+  have : (a : QuadField h)⁻¹ = (b : QuadField h) := inv_eq_of_mul_eq_one_left hone
+  rw [this]
+  exact b.2
+
+/-- The coefficient read off from two uniformizers differs by a unit of the local ring. -/
+theorem quadLocal_coeff_unit {u u' : quadLocalRing h c d hd}
+    (hu : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u})
+    (hu' : IsLocalRing.maximalIdeal (quadLocalRing h c d hd) = Ideal.span {u'})
+    {ω : Ω[QuadField h⁄ℂ]} {f f' : QuadField h}
+    (hf : ω = f • KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h))
+    (hf' : ω = f' • KaehlerDifferential.D ℂ (QuadField h) (u' : QuadField h)) :
+    ∃ e : QuadField h, e ∈ quadLocalRing h c d hd ∧ e⁻¹ ∈ quadLocalRing h c d hd ∧
+      f = e * f' := by
+  obtain ⟨e, he, he', hD⟩ := quadLocal_D_uniformizer_unit h c d hd hu hu'
+  refine ⟨e, he, he', ?_⟩
+  have hdu := quadLocal_D_uniformizer_ne_zero h c d hd hu
+  have hω : ω = (e * f') • KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) := by
+    rw [hf', hD, smul_smul, mul_comm f' e]
+  have : (f - e * f') • KaehlerDifferential.D ℂ (QuadField h) (u : QuadField h) = 0 := by
+    rw [sub_smul, ← hf, ← hω, sub_self]
+  rcases smul_eq_zero.mp this with hzero | hzero
+  · exact sub_eq_zero.mp hzero
+  · exact absurd hzero hdu
+
+
 end
 
 variable {m : ℕ} {α : ℂ} [hm : Fact (0 < m)] [ha : Fact (α ≠ star α)]
@@ -108,7 +221,21 @@ theorem family_local_kaehler_uniformizer (c d : ℂ) (hd : d ^ 2 = (familyH m α
           {KaehlerDifferential.D ℂ (quadLocalRing (familyH m α) c d hd) u} = ⊤ :=
   quadLocal_exists_uniformizer _ c d hd
 
+/-- G09a-2c for the family: at a point place, a uniformizer exists and every differential
+of the function field is a multiple of its differential. -/
+theorem family_place_differential_coeff (c d : ℂ) (hd : d ^ 2 = (familyH m α).eval c)
+    (ω : Ω[QuadField (familyH m α)⁄ℂ]) :
+    ∃ u : quadLocalRing (familyH m α) c d hd,
+      IsLocalRing.maximalIdeal (quadLocalRing (familyH m α) c d hd) = Ideal.span {u} ∧
+        ∃ f : QuadField (familyH m α),
+          ω = f • KaehlerDifferential.D ℂ (QuadField (familyH m α))
+            (u : QuadField (familyH m α)) := by
+  obtain ⟨u, hu, -⟩ := quadLocal_exists_uniformizer (familyH m α) c d hd
+  exact ⟨u, hu, quadLocal_exists_coeff (familyH m α) c d hd hu ω⟩
+
 #print axioms quadLocal_kaehler_span_eq_top
+#print axioms quadLocal_coeff_unit
+#print axioms family_place_differential_coeff
 #print axioms family_local_kaehler_uniformizer
 
 end CurveSymmetry

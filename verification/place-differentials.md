@@ -47,18 +47,41 @@ is `primeLocalization` at the maximal ideal `ker (quadEval h c d hd)` of
 
 `family_local_kaehler_uniformizer` states it for the family.
 
+## Over the function field (G09a-2c)
+
+`kaehler_span_map_eq_top` (generic): one generator of `Ω[S⁄R]` stays a generator
+after a formally étale base change. Applied to `O_v → K`, which is a
+localization, it gives `quadLocal_D_uniformizer_spans`: `du` spans `Ω[K⁄ℂ]` over
+`K`. With G09a-1's `finrank = 1`, `du ≠ 0`
+(`quadLocal_D_uniformizer_ne_zero`), so every differential is `f·du` for a
+unique `f ∈ K` (`quadLocal_exists_coeff`).
+
+`quadLocal_D_uniformizer_unit`: for two uniformizers `u, u'`, `du' = e·du` with
+`e` a unit of `O_v` (stated as `e ∈ O_v` and `e⁻¹ ∈ O_v`).
+`quadLocal_coeff_unit`: the coefficients read off from `u` and `u'` differ by
+that unit. An order at the place, defined as the valuation of the coefficient,
+is therefore independent of the uniformizer. The ℤ-valued order function itself
+is not defined yet; it is introduced when G09b needs it.
+
+All statements here use coefficients in `K`. Writing the regular differentials
+as an `O_v`-submodule of `Ω[K⁄ℂ]` ran into two different `Module O_v Ω[K⁄ℂ]`
+instances (`KaehlerDifferential.module'` versus the restriction along
+`O_v → K`), which made rewriting fail; the field-coefficient formulation avoids
+the ambiguity and says the same thing.
+
 ## Scope
 
 The place at infinity (G07b-3) is not covered: it is not one of the point places
 of `ℂ[t][W]/(W² − h)`, and the same argument has to be run in the chart at
-infinity, which G07b-3 identifies with the conjugate family. Still undefined
-here: `ord_v` itself, `ord_v(dt)`, holomorphic differentials, the genus. No
+infinity, which G07b-3 identifies with the conjugate family (G09a-2d). Still
+undefined here: `ord_v` itself, `ord_v(dt)`, holomorphic differentials, the
+genus (G09a-2e, G09b). No
 divisor, Riemann–Roch or Riemann–Hurwitz statement is assumed anywhere.
 
 ## Checks
 
 - Both modules compile with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,492 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,501 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 91 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.

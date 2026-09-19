@@ -2,6 +2,7 @@ import Mathlib.RingTheory.Kaehler.Basic
 import Mathlib.RingTheory.Nakayama
 import Mathlib.RingTheory.LocalRing.Module
 import Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic
+import Mathlib.RingTheory.Etale.Kaehler
 
 /-!
 # Differentials of a local ring with principal maximal ideal (G09a-2a)
@@ -119,6 +120,32 @@ theorem localization_residue (hres : ∀ s : S, ∃ r : R, s - algebraMap R S r 
   exact P.sub_mem hs (Ideal.mul_mem_left _ _ ht)
 
 end Localization
+
+section BaseChangeSpan
+
+variable (R S T : Type*) [CommRing R] [CommRing S] [CommRing T] [Algebra R S] [Algebra R T]
+  [Algebra S T] [IsScalarTower R S T] [Algebra.FormallyEtale S T]
+
+/-- A single generator of `Ω[S⁄R]` stays a generator after a formally étale base change. -/
+theorem kaehler_span_map_eq_top {v : Ω[S⁄R]} (hv : Submodule.span S {v} = ⊤) :
+    Submodule.span T {KaehlerDifferential.map R R S T v} = ⊤ := by
+  rw [eq_top_iff]
+  rintro ω -
+  obtain ⟨x, rfl⟩ := (KaehlerDifferential.tensorKaehlerEquivOfFormallyEtale R S T).surjective ω
+  induction x using TensorProduct.induction_on with
+  | zero => simp
+  | tmul a m =>
+    have hm : m ∈ Submodule.span S {v} := by rw [hv]; trivial
+    obtain ⟨cc, rfl⟩ := Submodule.mem_span_singleton.mp hm
+    rw [KaehlerDifferential.tensorKaehlerEquivOfFormallyEtale_apply,
+      KaehlerDifferential.mapBaseChange_tmul, map_smul,
+      ← IsScalarTower.algebraMap_smul T cc (KaehlerDifferential.map R R S T v), smul_smul]
+    exact Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _)
+  | add x y hx hy =>
+    rw [map_add]
+    exact Submodule.add_mem _ hx hy
+
+end BaseChangeSpan
 
 #print axioms localKaehler_span_eq_top
 
