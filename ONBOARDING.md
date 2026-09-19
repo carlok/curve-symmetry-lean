@@ -388,6 +388,8 @@ Todo, in intended order:
       maximal ideal and its differential is dt, so the coefficient of f·dt at
       that place is f itself — ord_v(dt) = 0 without a ℤ-valued order
       (PlaceUniformizers).
+- [x] CI for G09a-2e commit a0ff4e7 passed (run 35435065432; Palomar Theorem 1
+      entry build 35435065437 also passed)
 - [ ] G09a-2f the ramified point places: h(c) = 0 forces d = 0, w generates the
       maximal ideal, and dt = (2w/h'(t))·dw with h'(t) a unit there, which is
       ord_v(dt) = 1.
