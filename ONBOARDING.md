@@ -394,6 +394,8 @@ Todo, in intended order:
       maximal ideal (t − c = w²/k with k(c) ≠ 0 from squarefreeness), h'(t) is a
       unit there, and h'(t)·(f·dt) = (2·f·w)·dw, which is ord_v(dt) = 1
       (PlaceUniformizers).
+- [x] CI for G09a-2f commit 2f2eba6 passed (run 35455600594; Palomar Theorem 1
+      entry build 35455600604 also passed)
 - [ ] G09a-2g the value at ∞ (−3), read at the conjugate point place through the
       chart isomorphism of G09a-2d; a ℤ-valued order only if G09b needs one.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;

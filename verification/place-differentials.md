@@ -137,4 +137,4 @@ divisor, Riemann–Roch or Riemann–Hurwitz statement is assumed anywhere.
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 93 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
-- Private Linux runs 35432466431 (`8957029`), 35433426654 (`6b77f3e`) 35434427547 (`8411384`) and 35435065432 (`a0ff4e7`) passed.
+- Private Linux runs 35432466431 (`8957029`), 35433426654 (`6b77f3e`) 35434427547 (`8411384`) 35435065432 (`a0ff4e7`) and 35455600594 (`2f2eba6`) passed.
