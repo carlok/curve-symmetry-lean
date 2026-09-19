@@ -407,6 +407,9 @@ Todo, in intended order:
       transported differential at the conjugate point place, with the closed
       form of the coefficient against w' (InfinityRegularity; the generic
       transport map kaehlerTransport is in LocalDifferentials).
+- [x] CI: G09a-2g commit 8ef2b25 passed; G09b-1 commit 349973b was cancelled by
+      the concurrency group; head commit ad40a51 (G09b-2) passed (run 35456966169,
+      Palomar Theorem 1 entry build 35456966177), and contains both.
 - [ ] G09b-3 cancel the units 2, h'(s) and k in the infinity criterion to get
       ord(φ f) ≥ 3, then the holomorphic differentials as a ℂ-subspace and the
       basis t^i dt/w for i < m.

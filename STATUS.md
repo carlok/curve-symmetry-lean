@@ -73,8 +73,10 @@ proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
 is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
 
-Proof snapshot `2f2eba6` passed private Linux run `35455600594`
-(previous `a0ff4e7`: `35435065432`); the G09a-2g commit is not yet CI-confirmed. Theorem 1 alone, in the separate public
+Proof snapshot `ad40a51` passed private Linux run `35456966169`
+(previous `8ef2b25`: earlier run on that commit; `2f2eba6`: `35455600594`). The
+runs on the intermediate commit `349973b` were cancelled by the concurrency
+group when `ad40a51` was pushed; the passing run contains it. Theorem 1 alone, in the separate public
 repository `carlok/sharp-symmetry-bounds-lean`, is registered with Palomar as
 `PALOMAR-2026-09-18-000007` v1 (2026-09-18): mechanical verification and a
 NanoDa replay by the registry passed, and its editorial review was automated,

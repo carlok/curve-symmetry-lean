@@ -64,3 +64,4 @@ assumed anywhere.
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 95 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
+- Private Linux run 35456966169 passed on the head commit `ad40a51`.
