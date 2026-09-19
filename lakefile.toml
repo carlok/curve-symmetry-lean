@@ -103,5 +103,6 @@ roots = [
   "QuadraticInfinity",
   "FamilyBranchPoints",
   "QuadraticDifferentials",
+  "LocalDifferentials",
   "CurveSymmetry",
 ]
