@@ -382,10 +382,17 @@ Todo, in intended order:
       (InfinityDifferentials, with the generic transport lemma
       kaehler_span_D_equiv in LocalDifferentials). Not included: the
       coefficient-unit statement at infinity.
-- [ ] G09a-2e define ord_v of a differential (ℤ-valued, from the place's
-      valuation of the coefficient); at ∞ the natural route is to read it at the
-      conjugate point place through the chart isomorphism. Then compute
-      ord_v(dt): 0 at unramified places, 1 at each root of h, −3 at ∞.
+- [x] CI for G09a-2d commit 8411384 passed (run 35434427547; Palomar Theorem 1
+      entry build 35434427573 also passed)
+- [x] G09a-2e at an unramified point place (h(c) ≠ 0): t − c generates the
+      maximal ideal and its differential is dt, so the coefficient of f·dt at
+      that place is f itself — ord_v(dt) = 0 without a ℤ-valued order
+      (PlaceUniformizers).
+- [ ] G09a-2f the ramified point places: h(c) = 0 forces d = 0, w generates the
+      maximal ideal, and dt = (2w/h'(t))·dw with h'(t) a unit there, which is
+      ord_v(dt) = 1.
+- [ ] G09a-2g the value at ∞ (−3), read at the conjugate point place through the
+      chart isomorphism of G09a-2d; a ℤ-valued order only if G09b needs one.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
 - (done) G07b-3 original plan, kept for reference:

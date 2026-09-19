@@ -89,6 +89,25 @@ transport of an identity in `Ω`, not just of a generator. For G09a-2e the
 natural route is to read the order at infinity at the conjugate point place
 through this isomorphism, rather than redoing the local theory in that chart.
 
+## A uniformizer at an unramified point place (G09a-2e)
+
+At a point place `(c, d)` with `h(c) ≠ 0`, so `d ≠ 0`,
+`quad_unramified_uniformizer` shows `t − c` generates the maximal ideal of the
+local ring. The argument is the classical one, carried out in the localization:
+`w − d = (h(t) − h(c))/(w + d)` and `w + d` is invertible there because it
+evaluates to `2d ≠ 0`, so `w − d` is a multiple of `t − c`; then an arbitrary
+`a + b·w` in the point ideal splits as
+`(a − a(c)) + b·(w − d) + d·(b − b(c))`, whose three terms are all multiples of
+`t − c` because `X − C c` divides `p − C (p.eval c)`.
+
+`quad_unramified_D_uniformizer`: the differential of that uniformizer is `dt`,
+since `d(t − c) = dt`. With G09a-2c, the coefficient of `f·dt` at such a place
+is `f` itself, so `f·dt` is regular there exactly when `f` is in the local ring.
+That is `ord_v(dt) = 0` in structural form; no `ℤ`-valued order is introduced.
+
+The ramified point places (`h(c) = 0`, uniformizer `w`, `ord_v(dt) = 1`) and the
+value `−3` at infinity are G09a-2f and G09a-2g.
+
 ## Scope
 
 Still undefined here: `ord_v` itself, `ord_v(dt)`, holomorphic differentials, the
@@ -98,8 +117,8 @@ divisor, Riemann–Roch or Riemann–Hurwitz statement is assumed anywhere.
 ## Checks
 
 - Both modules compile with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,513 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,523 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 92 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 93 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
-- Private Linux runs 35432466431 (`8957029`) and 35433426654 (`6b77f3e`) passed.
+- Private Linux runs 35432466431 (`8957029`), 35433426654 (`6b77f3e`) and 35434427547 (`8411384`) passed.
