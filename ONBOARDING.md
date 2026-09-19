@@ -396,8 +396,12 @@ Todo, in intended order:
       (PlaceUniformizers).
 - [x] CI for G09a-2f commit 2f2eba6 passed (run 35455600594; Palomar Theorem 1
       entry build 35455600604 also passed)
-- [ ] G09a-2g the value at ∞ (−3), read at the conjugate point place through the
-      chart isomorphism of G09a-2d; a ℤ-valued order only if G09b needs one.
+- [x] G09a-2g the value at ∞: through the chart isomorphism t ↦ 1/s, dt reads at
+      the conjugate ramified place (0,0) as −2w'·dw' over s²·h'(s), with h'(s) a
+      unit and s = w'²·(unit), i.e. ord(dt) = 1 − 4 = −3 (InfinityDifferentials).
+- [ ] G09b holomorphic differentials = span of t^i dt/w (i < m), genus m, and
+      deg div(dt) = 2m − 2. Needs a regularity criterion at all places at once,
+      so probably a ℤ-valued order after all; expect to split it.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
 - (done) G07b-3 original plan, kept for reference:

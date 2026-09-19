@@ -88,7 +88,7 @@ import FamilyBranchPoints
 import QuadraticDifferentials
 import LocalDifferentials
 import PlaceDifferentials
-import InfinityDifferentials
 import PlaceUniformizers
+import InfinityDifferentials
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -122,7 +122,20 @@ into `h'(t)·(f·dt) = (2·f·w)·dw`: against the uniformizer the coefficient o
 `f·dt` is `f` times a unit times exactly one factor of `w`. That is
 `ord_v(dt) = 1`, again without a `ℤ`-valued order.
 
-The value `−3` at infinity is G09a-2g.
+The value `−3` at infinity is G09a-2g, below.
+
+## The order of `dt` at infinity (G09a-2g)
+
+The chart map sends `t` to `1/s` (`familyInfinityAlgEquiv_quadT`, from
+`familyInfinityMap_t`). Differentiating, `d(1/s) = −s⁻²·ds`, and G09a-2f at the
+conjugate place `(0,0)` — ramified, because `h_conj(0) = 0` — gives
+`h_conj'(s)·ds = 2w'·dw'`. Together:
+`(s²·h_conj'(s))·d(1/s) = −2w'·dw'` (`family_infinity_D_relation`).
+
+`family_infinity_conjugate_ramified` collects what makes this a statement about
+orders: `w'` generates the maximal ideal there, `h_conj'(s)` is a unit, and
+`(s − 0)·k = w'²` with `k(0) ≠ 0`, so `s` is `w'²` times a unit. One factor of
+`w'` in the numerator against four in the denominator is `ord(dt) = −3`.
 
 ## Scope
 
@@ -133,7 +146,7 @@ divisor, Riemann–Roch or Riemann–Hurwitz statement is assumed anywhere.
 ## Checks
 
 - Both modules compile with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,533 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,545 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 93 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.

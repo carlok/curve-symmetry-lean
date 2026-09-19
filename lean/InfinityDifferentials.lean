@@ -1,5 +1,6 @@
 import QuadraticInfinity
 import PlaceDifferentials
+import PlaceUniformizers
 
 /-!
 # Differentials at the place over `t = ∞` (G09a-2d)
@@ -107,7 +108,67 @@ lemma familyInfinity_unit_iff (e : QuadField (familyH m α)) :
     rw [map_inv₀ (familyInfinityMap m α)]
     exact he'
 
+/-! ### The order of `dt` at infinity (G09a-2g) -/
+
+/-- The chart isomorphism sends `t` to `1/s`. -/
+lemma familyInfinityAlgEquiv_quadT :
+    familyInfinityAlgEquiv m α (quadT (familyH m α)) =
+      (quadT (familyH m (star α)))⁻¹ := by
+  rw [familyInfinityAlgEquiv_apply, quadT, familyInfinityMap_t, quadT]
+
+lemma quadT_ne_zero (h : ℂ[X]) [Fact (Irreducible (quadRat h))] : quadT h ≠ 0 := by
+  rw [quadT, IsScalarTower.algebraMap_apply ℂ[X] (RatFunc ℂ) (QuadField h)]
+  exact (map_ne_zero_iff _ (algebraMap (RatFunc ℂ) (QuadField h)).injective).mpr
+    (RatFunc.algebraMap_ne_zero Polynomial.X_ne_zero)
+
+/-- **G09a-2g**: read through the chart isomorphism, `dt` at the place over `t = ∞` becomes
+`−2w'·dw'` divided by `s²·h_conj'(s)`. The conjugate place `(0, 0)` is ramified, so `w'` is
+its uniformizer and `s` is `w'²` times a unit (G09a-2f); `h_conj'(s)` is a unit there. The
+three factors of `w'` in the denominator against one in the numerator are `ord(dt) = −3`. -/
+theorem family_infinity_D_relation :
+    (quadT (familyH m (star α)) ^ 2 *
+          algebraMap ℂ[X] (QuadField (familyH m (star α))) (familyH m (star α)).derivative) •
+        KaehlerDifferential.D ℂ (QuadField (familyH m (star α)))
+          (familyInfinityAlgEquiv m α (quadT (familyH m α))) =
+      (-(2 * AdjoinRoot.root (quadRat (familyH m (star α))))) •
+        KaehlerDifferential.D ℂ (QuadField (familyH m (star α)))
+          (AdjoinRoot.root (quadRat (familyH m (star α)))) := by
+  have hs := quadT_ne_zero (familyH m (star α))
+  have h2f := quad_ramified_coeff (familyH m (star α)) 1
+  rw [one_smul] at h2f
+  rw [familyInfinityAlgEquiv_quadT, Derivation.leibniz_inv, smul_smul]
+  have hcoef : quadT (familyH m (star α)) ^ 2 *
+      algebraMap ℂ[X] (QuadField (familyH m (star α))) (familyH m (star α)).derivative *
+        -(quadT (familyH m (star α)))⁻¹ ^ 2 =
+      -(algebraMap ℂ[X] (QuadField (familyH m (star α))) (familyH m (star α)).derivative) := by
+    field_simp
+  rw [hcoef, neg_smul, h2f, ← neg_smul]
+  congr 1
+  ring
+
+/-- The conjugate place that reads infinity is ramified: `w'` generates its maximal ideal
+and `h_conj'(s)` is a unit there. -/
+theorem family_infinity_conjugate_ramified :
+    IsLocalRing.maximalIdeal (quadLocalRing (familyH m (star α)) 0 0
+          (familyH_star_zero_point m α)) =
+        Ideal.span {algebraMap (QuadRing (familyH m (star α)))
+          (quadLocalRing (familyH m (star α)) 0 0 (familyH_star_zero_point m α))
+          (AdjoinRoot.root (quadPoly (familyH m (star α))))} ∧
+      IsUnit (algebraMap (QuadRing (familyH m (star α)))
+        (quadLocalRing (familyH m (star α)) 0 0 (familyH_star_zero_point m α))
+        (algebraMap ℂ[X] (QuadRing (familyH m (star α)))
+          (familyH m (star α)).derivative)) ∧
+      ∃ k : ℂ[X], k.eval 0 ≠ 0 ∧
+        quadShift (familyH m (star α)) 0 *
+            algebraMap ℂ[X] (QuadRing (familyH m (star α))) k =
+          AdjoinRoot.root (quadPoly (familyH m (star α))) ^ 2 :=
+  ⟨quad_ramified_uniformizer _ 0 0 (familyH_star_zero_point m α) (familyH_eval_zero m (star α)),
+    quad_ramified_derivative_isUnit _ 0 0 (familyH_star_zero_point m α)
+      (familyH_eval_zero m (star α)),
+    quad_ramified_shift_sq _ 0 (familyH_eval_zero m (star α))⟩
+
 #print axioms familyInfinityAlgEquiv
 #print axioms family_infinity_differential_spans
+#print axioms family_infinity_D_relation
 
 end CurveSymmetry

@@ -179,6 +179,16 @@ lemma exists_factor_of_root (hc : h.eval c = 0) :
   have hsq : (X - C c) * (X - C c) ∣ h := ⟨j, by rw [hk, hj]; ring⟩
   exact Polynomial.not_isUnit_X_sub_C c ((Fact.out : Squarefree h) _ hsq)
 
+omit [Fact (Irreducible (quadRat h))] in
+/-- At a ramified point place, `(t − c)·k = w²` with `k(c) ≠ 0`: the coordinate `t − c`
+is the square of the uniformizer up to a unit. -/
+lemma quad_ramified_shift_sq (hc : h.eval c = 0) :
+    ∃ k : ℂ[X], k.eval c ≠ 0 ∧
+      quadShift h c * algebraMap ℂ[X] (QuadRing h) k = AdjoinRoot.root (quadPoly h) ^ 2 := by
+  obtain ⟨k, hk, hkc⟩ := exists_factor_of_root h c hc
+  refine ⟨k, hkc, ?_⟩
+  rw [quadShift, ← map_mul, ← hk, quadRing_root_sq]
+
 /-- At a ramified point place, `t − c` is a multiple of `w` in the local ring. -/
 lemma quadShift_mem_span_root (hc : h.eval c = 0) :
     algebraMap (QuadRing h) (quadLocalRing h c d hd) (quadShift h c) ∈
