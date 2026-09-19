@@ -87,5 +87,6 @@ import QuadraticInfinity
 import FamilyBranchPoints
 import QuadraticDifferentials
 import LocalDifferentials
+import PlaceDifferentials
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

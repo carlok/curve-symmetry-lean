@@ -104,5 +104,6 @@ roots = [
   "FamilyBranchPoints",
   "QuadraticDifferentials",
   "LocalDifferentials",
+  "PlaceDifferentials",
   "CurveSymmetry",
 ]
