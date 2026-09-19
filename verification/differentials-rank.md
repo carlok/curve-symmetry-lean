@@ -56,3 +56,4 @@ uniformizer is `w`.
   `family_kaehler_dt`.
 - `scripts/check_sources.py`: 89 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
+- Private Linux run 35431502060 passed on the introducing commit `f2b650d`.

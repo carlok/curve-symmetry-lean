@@ -352,6 +352,8 @@ Todo, in intended order:
       the family (QuadraticDifferentials; commit introducing
       verification/differentials-rank.md). Base change along the two formally
       étale maps ℂ[t] → ℂ(t) → K; also the chain rule and 2w·dw = h'(t)·dt.
+- [x] CI for G09a-1 commit f2b650d passed (run 35431502060; the Palomar
+      Theorem 1 entry workflow, run 35431501962, also passed unchanged)
 - [ ] G09a-2 order of a differential at a place, uniformizer-independent;
       ord_v(dt) at each place type of G07b-2c and G07b-3.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
