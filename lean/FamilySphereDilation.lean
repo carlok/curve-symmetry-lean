@@ -29,7 +29,7 @@ theorem family_sphere_dilation_proportional {m : ℕ} (hm : 0 < m) {α β c : �
   · intro he
     have ht := (fourTermForm_coefficients hm (c ^ m * β)
       (star c ^ m * star β) (c ^ m * (c * star c)) (star c ^ m * (c * star c))).2.2.1
-    rw [← dilate_family_fourTerm, he, coeff_zero] at ht
+    rw [← dilate_family_fourTerm, he, AddMonoidAlgebra.coeff_zero, Finsupp.zero_apply] at ht
     exact (mul_ne_zero (pow_ne_zero m hc) (mul_ne_zero hc (star_ne_zero.mpr hc))) ht.symm
   · exact family_realLocus_infinite hm ha
   · intro z hz

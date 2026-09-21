@@ -110,7 +110,7 @@ theorem quad_D_ne_zero_of_span {x : QuadField h}
     KaehlerDifferential.D ℂ (QuadField h) x ≠ 0 := by
   intro hzero
   rw [hzero, Submodule.span_singleton_eq_bot.mpr rfl] at hspan
-  haveI : Subsingleton Ω[QuadField h⁄ℂ] := by
+  have : Subsingleton Ω[QuadField h⁄ℂ] := by
     constructor
     intro y z
     have hy : y ∈ (⊥ : Submodule (QuadField h) Ω[QuadField h⁄ℂ]) := by rw [hspan]; trivial

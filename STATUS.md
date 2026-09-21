@@ -70,8 +70,8 @@ Written-declaration counts use line-anchored source declarations, including
 private/protected declarations; they are not novelty counts. The audit allows
 only `propext`, `Classical.choice`, and `Quot.sound`. There are no intentional
 proof placeholders in the library. Local verification was incremental, with
-warnings as errors and installed dependencies reused. Lean is 4.32.0; Mathlib
-is pinned to `81a5d257c8e410db227a6665ed08f64fea08e997`.
+warnings as errors and installed dependencies reused. Lean is 4.34.0; Mathlib
+is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`).
 
 Proof snapshot `ad40a51` passed private Linux run `35456966169`
 (previous `8ef2b25`: earlier run on that commit; `2f2eba6`: `35455600594`). The

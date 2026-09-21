@@ -178,10 +178,11 @@ theorem quadRing_isMaximal_iff (𝔪 : Ideal (QuadRing h)) :
     𝔪.IsMaximal ↔ ∃ (c d : ℂ) (hd : d ^ 2 = h.eval c), 𝔪 = RingHom.ker (quadEval h c d hd) := by
   constructor
   · intro hmax
-    have hcomap := Ideal.isMaximal_comap_of_isIntegral_of_isMaximal (R := ℂ[X]) 𝔪
+    have hcomap := Ideal.isMaximal_comap_of_isIntegral_of_isMaximal
+      (algebraMap ℂ[X] (QuadRing h)) (fun x => Algebra.IsIntegral.isIntegral x) 𝔪
     obtain ⟨c, hc⟩ := exists_X_sub_C_mem hcomap
     obtain ⟨d₀, hd₀⟩ := IsAlgClosed.exists_pow_nat_eq (h.eval c) two_pos
-    letI : Field (QuadRing h ⧸ 𝔪) := Ideal.Quotient.field 𝔪
+    let : Field (QuadRing h ⧸ 𝔪) := Ideal.Quotient.field 𝔪
     let q := Ideal.Quotient.mk 𝔪
     let ι := algebraMap ℂ (QuadRing h ⧸ 𝔪)
     have hqX : q (AdjoinRoot.of _ X) = ι c := by

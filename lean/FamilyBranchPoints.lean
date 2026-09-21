@@ -102,7 +102,7 @@ lemma mem_familyPlacesOver_coe (c : ℂ) (O : ValuationSubring (QuadField (famil
 /-- The places over `∞` are exactly the place at infinity. -/
 lemma familyPlacesOver_infty : familyPlacesOver m α ∞ = {familyInfinityPlace m α} := by
   ext O
-  simp only [familyPlacesOver, elim_infty, Set.mem_setOf_eq, Set.mem_singleton_iff]
+  simp only [familyPlacesOver, elim_infty, Set.mem_ofPred_eq, Set.mem_singleton_iff]
   constructor
   · rintro ⟨htop, hconst, ht⟩
     exact place_eq_infinity_of_t_notMem O htop hconst ht
@@ -135,7 +135,7 @@ lemma familyPlacesOver_coe_ncard (c : ℂ) :
   split_ifs with hc
   · have hset : {d : ℂ | d ^ 2 = (familyH m α).eval c} = {0} := by
       ext d
-      simp only [Set.mem_setOf_eq, Set.mem_singleton_iff]
+      simp only [Set.mem_ofPred_eq, Set.mem_singleton_iff]
       exact hzero hc d
     rw [show Nat.card {d : ℂ // d ^ 2 = (familyH m α).eval c} =
         Nat.card ({d : ℂ | d ^ 2 = (familyH m α).eval c} : Set ℂ) from rfl,
@@ -143,7 +143,7 @@ lemma familyPlacesOver_coe_ncard (c : ℂ) :
   · obtain ⟨d₀, hd₀, hiff⟩ := hne hc
     have hset : {d : ℂ | d ^ 2 = (familyH m α).eval c} = {d₀, -d₀} := by
       ext d
-      simp only [Set.mem_setOf_eq, Set.mem_insert_iff, Set.mem_singleton_iff]
+      simp only [Set.mem_ofPred_eq, Set.mem_insert_iff, Set.mem_singleton_iff]
       exact hiff d
     rw [show Nat.card {d : ℂ // d ^ 2 = (familyH m α).eval c} =
         Nat.card ({d : ℂ | d ^ 2 = (familyH m α).eval c} : Set ℂ) from rfl,
@@ -181,7 +181,7 @@ theorem family_branch_points :
     induction p using OnePoint.rec with
     | infty => simp [hbranch_infty]
     | coe c =>
-        simp only [Set.mem_setOf_eq, Set.mem_insert_iff, Set.mem_image, Finset.mem_coe,
+        simp only [Set.mem_ofPred_eq, Set.mem_insert_iff, Set.mem_image, Finset.mem_coe,
           Multiset.mem_toFinset, mem_roots hh0, IsRoot.def, hbranch_coe]
         constructor
         · intro hc
@@ -195,7 +195,7 @@ theorem family_branch_points :
       Set.ncard_coe_finset, familyH_roots_card hm.out ha.out]
     · rintro ⟨c, -, hc⟩
       exact OnePoint.coe_ne_infty c hc
-  · rw [familyPlacesOver_coe_ncard, if_neg hc]
+  · rw [familyPlacesOver_coe_ncard, ite_eq_right hc]
 
 #print axioms family_branch_points
 

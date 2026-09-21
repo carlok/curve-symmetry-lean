@@ -87,16 +87,16 @@ theorem family_closed_in_projective_charts (m : ℕ) (α : ℂ) :
     ClosedInProjectiveCharts (familyProjectiveCurve m α) := by
   have hA : affineProjectiveChart ⁻¹' familyProjectiveCurve m α =
       {v | eval v (familyPolynomial m α) = 0} := by
-    ext v; exact (affineProjectiveChart_mem m α v).trans (by simp only [Set.mem_setOf_eq, eval_plane])
+    ext v; exact (affineProjectiveChart_mem m α v).trans (by simp only [Set.mem_ofPred_eq, eval_plane])
   have hM : mixedProjectiveChart ⁻¹' familyProjectiveCurve m α =
       {v | eval v (familyMixedPolynomial m α (star α)) = 0} := by
-    ext v; exact (mixedProjectiveChart_mem m α v).trans (by simp only [Set.mem_setOf_eq, eval_plane])
+    ext v; exact (mixedProjectiveChart_mem m α v).trans (by simp only [Set.mem_ofPred_eq, eval_plane])
   have hO : otherMixedProjectiveChart ⁻¹' familyProjectiveCurve m α =
       {v | eval v (familyMixedPolynomial m (star α) α) = 0} := by
-    ext v; exact (otherMixedProjectiveChart_mem m α v).trans (by simp only [Set.mem_setOf_eq, eval_plane])
+    ext v; exact (otherMixedProjectiveChart_mem m α v).trans (by simp only [Set.mem_ofPred_eq, eval_plane])
   have hR : reciprocalProjectiveChart ⁻¹' familyProjectiveCurve m α =
       {v | eval v (familyInfinityPolynomial m α) = 0} := by
-    ext v; exact (reciprocalProjectiveChart_mem m α v).trans (by simp only [Set.mem_setOf_eq, eval_plane])
+    ext v; exact (reciprocalProjectiveChart_mem m α v).trans (by simp only [Set.mem_ofPred_eq, eval_plane])
   unfold ClosedInProjectiveCharts
   rw [hA, hM, hO, hR]
   exact ⟨affineZariski_polynomial_zero_closed _, affineZariski_polynomial_zero_closed _,

@@ -198,7 +198,7 @@ The earlier no-anti-map theorem excludes anti-Möbius additions. -/
 theorem familyAmbientGroup_dihedral {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
     (ha : α ≠ star α) (hα : ‖α‖ = 1) :
     Nonempty (DihedralGroup (2 * m) ≃* familyAmbientGroup m α) := by
-  letI : NeZero (2 * m) := ⟨by omega⟩
+  let : NeZero (2 * m) := ⟨by omega⟩
   obtain ⟨b, hb⟩ := IsAlgClosed.exists_pow_nat_eq (star α ^ 2) (by omega : 0 < 2 * m)
   have ha0 : α ≠ 0 := by intro h; simp [h] at ha
   have hb0 : b ≠ 0 := by
@@ -221,7 +221,7 @@ theorem familyAmbientGroup_generators {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
     ∃ r s : familyAmbientGroup m α,
       orderOf r = 2 * m ∧ orderOf s = 2 ∧ s * r * s = r⁻¹ ∧
       ∀ g, ∃ i : ℕ, i < 2 * m ∧ (g = r ^ i ∨ g = s * r ^ i) := by
-  letI : NeZero (2 * m) := ⟨by omega⟩
+  let : NeZero (2 * m) := ⟨by omega⟩
   obtain ⟨e⟩ := familyAmbientGroup_dihedral hm ha hα
   refine ⟨e (.r 1), e (.sr 0), ?_, ?_, ?_, ?_⟩
   · rw [e.orderOf_eq, DihedralGroup.orderOf_r_one]

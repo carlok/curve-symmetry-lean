@@ -16,7 +16,7 @@ lemma mem_realLocus_eval_pair (P : BPoly) (z : ℂ) :
   have he : (fun i : Fin 2 => if i = 0 then z else star z) = ![z, star z] := by
     ext i
     fin_cases i <;> simp
-  simp only [realLocus, Set.mem_setOf_eq, he]
+  simp only [realLocus, Set.mem_ofPred_eq, he]
 
 /-- An irreducible plane equation with infinitely many real points generates
 the entire ideal of polynomials vanishing on those points. -/

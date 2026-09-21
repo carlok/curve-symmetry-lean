@@ -36,7 +36,7 @@ theorem affineZariski_polynomial_nonzero_open (P : BPoly) :
 
 theorem affineZariski_polynomial_zero_closed (P : BPoly) :
     IsClosed {v : Fin 2 → ℂ | eval v P = 0} := by
-  simpa only [Set.compl_setOf, not_not] using
+  simpa only [Set.compl_ofPred, not_not] using
     (affineZariski_polynomial_nonzero_open P).isClosed_compl
 
 theorem affineZariski_coordinate_nonzero_open (i : Fin 2) :

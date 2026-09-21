@@ -121,8 +121,9 @@ theorem reciprocalProjectiveChart_isOpenEmbedding :
   have he : projectiveFlipFirstHomeomorph ∘
       (otherMixedProjectiveChart ∘ coordinateExchangeHomeomorph) = reciprocalProjectiveChart := by
     funext v
+    have hc : ⇑coordinateExchangeHomeomorph = exchangeCoordinates := rfl
     simp [Function.comp_def, projectiveFlipFirstHomeomorph, projectiveFlipFirst,
-      otherMixedProjectiveChart, reciprocalProjectiveChart, coordinateExchangeHomeomorph,
+      otherMixedProjectiveChart, reciprocalProjectiveChart, hc,
       exchangeCoordinates, projectiveLineFlip_affine]
   rwa [he] at h
 

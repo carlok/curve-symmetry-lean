@@ -60,7 +60,7 @@ theorem criticalZero_homogeneousChart (F : HomogeneousPairs → ℂ) (d : ℕ)
     have hH0 : H (homogeneousChart v) = 0 := by simpa [H, hback] using hz
     have hprod : HasFDerivAt (fun q => A q * H q)
         (0 : HomogeneousPairs →L[ℂ] ℂ) (homogeneousChart v) := by
-      convert hA.hasFDerivAt.mul hH using 1 <;> first | rfl | skip
+      convert hA.hasFDerivAt.mul hH using 1
       apply ContinuousLinearMap.ext
       intro w
       change (0 : ℂ) = A (homogeneousChart v) * 0 + H (homogeneousChart v) * _

@@ -93,8 +93,8 @@ theorem fourTermForm_tangent_data {m : ℕ} (hm : 0 < m) {a b : ℂ}
       Polynomial.Separable (Polynomial.C a * Polynomial.X ^ m + Polynomial.C b) := by
   refine ⟨?_, ?_, ?_, binary_tangent_separable hm ha hb⟩
   · intro n hn
-    rw [fourTermForm_components, if_neg (by omega), if_neg (by omega), add_zero]
-  · rw [fourTermForm_components, if_pos rfl, if_neg (by omega), add_zero]
+    rw [fourTermForm_components, ite_eq_right (by omega), ite_eq_right (by omega), add_zero]
+  · rw [fourTermForm_components, ite_eq_left rfl, ite_eq_right (by omega), add_zero]
   · intro hz
     have he := congrArg (planeEval 1 0) hz
     simp [binaryForm, hm.ne'] at he

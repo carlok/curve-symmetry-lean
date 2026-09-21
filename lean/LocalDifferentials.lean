@@ -132,8 +132,7 @@ theorem kaehler_span_map_eq_top {v : Ω[S⁄R]} (hv : Submodule.span S {v} = ⊤
   rw [eq_top_iff]
   rintro ω -
   obtain ⟨x, rfl⟩ := (KaehlerDifferential.tensorKaehlerEquivOfFormallyEtale R S T).surjective ω
-  induction x using TensorProduct.induction_on with
-  | zero => simp
+  induction x using TensorProduct.inductionOn with
   | tmul a m =>
     have hm : m ∈ Submodule.span S {v} := by rw [hv]; trivial
     obtain ⟨cc, rfl⟩ := Submodule.mem_span_singleton.mp hm
@@ -155,10 +154,10 @@ variable {R A B : Type*} [CommRing R] [CommRing A] [CommRing B] [Algebra R A] [A
 theorem kaehler_span_D_equiv (e : A ≃ₐ[R] B) {a : A}
     (ha : Submodule.span A {KaehlerDifferential.D R A a} = ⊤) :
     Submodule.span B {KaehlerDifferential.D R B (e a)} = ⊤ := by
-  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
-  haveI : IsScalarTower R A B :=
+  let : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  have : IsScalarTower R A B :=
     IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
-  haveI : Algebra.FormallyEtale A B :=
+  have : Algebra.FormallyEtale A B :=
     Algebra.FormallyEtale.of_equiv (AlgEquiv.ofRingEquiv (f := e.toRingEquiv) fun _ => rfl)
   have hspan := kaehler_span_map_eq_top R A B ha
   rwa [KaehlerDifferential.map_D] at hspan
@@ -171,14 +170,14 @@ noncomputable def kaehlerTransport (e : A ≃ₐ[R] B) : Ω[A⁄R] →+ Ω[B⁄R
 
 @[simp] lemma kaehlerTransport_D (e : A ≃ₐ[R] B) (a : A) :
     kaehlerTransport e (KaehlerDifferential.D R A a) = KaehlerDifferential.D R B (e a) := by
-  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
-  haveI : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
+  let : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  have : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
   exact KaehlerDifferential.map_D R R A B a
 
 lemma kaehlerTransport_smul (e : A ≃ₐ[R] B) (a : A) (ω : Ω[A⁄R]) :
     kaehlerTransport e (a • ω) = e a • kaehlerTransport e ω := by
-  letI : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
-  haveI : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
+  let : Algebra A B := e.toRingEquiv.toRingHom.toAlgebra
+  have : IsScalarTower R A B := IsScalarTower.of_algebraMap_eq fun r => (e.commutes r).symm
   show KaehlerDifferential.map R R A B (a • ω) = _
   rw [map_smul, ← IsScalarTower.algebraMap_smul B a]
   rfl

@@ -14,7 +14,7 @@ theorem projectiveAtlasTopology_unique
     (t : TopologicalSpace (ProjectiveLine × ProjectiveLine))
     (h : ∀ i, @Topology.IsOpenEmbedding _ _ affineZariskiTopology t (projectiveChart i)) :
     t = projectiveAtlasTopology := by
-  letI := t
+  let := t
   apply TopologicalSpace.ext
   funext S
   apply propext

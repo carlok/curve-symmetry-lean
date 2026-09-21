@@ -64,7 +64,7 @@ def familyCircleRootEquiv {m : ℕ} [NeZero (2 * m)] (hm : 0 < m) {α w : ℂ}
 theorem family_circle_section_card {m : ℕ} (hm : 0 < m) {α : ℂ}
     (ha : α ≠ star α) {r : ℝ} (hr : 0 < r) :
     Nat.card {z : ℂ // z ∈ extremalCurve m α ∧ ‖z‖ = r} = 2 * m := by
-  letI : NeZero (2 * m) := ⟨by omega⟩
+  let : NeZero (2 * m) := ⟨by omega⟩
   obtain ⟨w, hw, hwr⟩ := family_point_of_norm hm ha hr.le
   rw [family_locus_eq] at hw
   have hw0 : w ≠ 0 := by intro h; simp [h] at hwr; linarith

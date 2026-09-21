@@ -102,7 +102,7 @@ def OrdinaryAtOrigin (P : BPoly) (n : ℕ) : Prop :=
 lemma homogeneousComponent_eq_zero_of_mem_pow {P : BPoly} {n : ℕ}
     (hP : P ∈ idealOfVars (Fin 2) ℂ ^ (n + 1)) : homogeneousComponent n P = 0 := by
   ext d
-  rw [coeff_homogeneousComponent, coeff_zero]
+  rw [coeff_homogeneousComponent, AddMonoidAlgebra.coeff_zero, Finsupp.zero_apply]
   split_ifs with hd
   · exact (mem_pow_idealOfVars_iff' (n + 1) P).mp hP d (by omega)
   · rfl

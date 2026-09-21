@@ -28,7 +28,7 @@ Palomar submission is authorized by the current work.
 
 ## Reproduce
 
-The root is a Lake project pinned to Lean 4.32.0 and an exact Mathlib revision.
+The root is a Lake project pinned to Lean 4.34.0 and an exact Mathlib revision.
 On this Mac, reuse the installed dependency tree without downloading libraries:
 
 ```sh

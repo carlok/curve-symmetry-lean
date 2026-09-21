@@ -110,7 +110,7 @@ theorem family_isometry_iff_rotation {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
 theorem family_isometry_card {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
     (ha : α ≠ star α) (hα : ‖α‖ = 1) :
     Nat.card (isometrySetGroup (extremalCurve m α)) = 2 * m := by
-  letI := family_no_opposite_normalized hm ha hα
+  let := family_no_opposite_normalized hm ha hα
   rw [← family_locus_eq, ← Nat.card_congr (euclideanIsometryEquiv (familyPolynomial m α))]
   change Nat.card (DirectSymmetries (familyPolynomial m α) ⊕
     OppositeSymmetries (familyPolynomial m α)) = _

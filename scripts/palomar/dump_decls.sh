@@ -26,5 +26,5 @@ run_cmd do
     | some v => IO.println s!"VALUE {n} := {v.dbgToString}"
     | none => throwError "no value {n}"
 LEAN
-elan run leanprover/lean4:v4.32.0 lean "$tmp/Dump.lean"
+elan run leanprover/lean4:v4.34.0 lean "$tmp/Dump.lean"
 rm -rf "$tmp"

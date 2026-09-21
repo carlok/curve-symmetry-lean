@@ -36,7 +36,7 @@ noncomputable def primeValuationSubring (P : Ideal A) [P.IsPrime] (hP : P ≠ �
     ValuationSubring K where
   toSubring := (primeLocalization K P).toSubring
   mem_or_inv_mem' x := by
-    haveI := primeLocalization_dvr (K := K) P hP
+    have := primeLocalization_dvr (K := K) P hP
     rcases ValuationRing.isInteger_or_isInteger (primeLocalization K P) x with
       ⟨y, hy⟩ | ⟨y, hy⟩
     · left
@@ -106,7 +106,7 @@ lemma ofPrime_congr (B : ValuationSubring K) {P Q : Ideal B} [P.IsPrime] [Q.IsPr
 /-- The type `A_P` of the valuation subring is a DVR. -/
 lemma primeValuationSubring_dvr (P : Ideal A) [P.IsPrime] (hP : P ≠ ⊥) :
     IsDiscreteValuationRing (primeValuationSubring K P hP) := by
-  haveI := primeLocalization_dvr (K := K) P hP
+  have := primeLocalization_dvr (K := K) P hP
   let e : primeLocalization K P ≃+* primeValuationSubring K P hP :=
     { toFun := fun x => ⟨x.1, x.2⟩
       invFun := fun x => ⟨x.1, x.2⟩
@@ -121,7 +121,7 @@ theorem eq_primeValuationSubring_of_le (P : Ideal A) [P.IsPrime] (hP : P ≠ ⊥
     (O : ValuationSubring K) (hle : primeValuationSubring K P hP ≤ O) (htop : O ≠ ⊤) :
     O = primeValuationSubring K P hP := by
   let B := primeValuationSubring K P hP
-  haveI := primeValuationSubring_dvr (K := K) P hP
+  have := primeValuationSubring_dvr (K := K) P hP
   have hof := ValuationSubring.ofPrime_idealOfLE B O hle
   by_cases hb : B.idealOfLE O hle = ⊥
   · exfalso

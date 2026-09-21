@@ -43,7 +43,7 @@ theorem inversion_clear_denominator (i : Fin 2) (P : BPoly) :
         field_simp
       · refine ⟨n, Q * X j, ?_⟩
         intro v hv
-        simp only [map_mul, eval_X, invertCoordinate, if_neg hj]
+        simp only [map_mul, eval_X, invertCoordinate, ite_eq_right hj]
         rw [hQ v hv]
         ring
 

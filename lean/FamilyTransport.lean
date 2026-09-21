@@ -24,10 +24,10 @@ lemma fourTermForm_proportional_iff {m : ℕ} (hm : 0 < m) (a b c d A B C' D k :
       a = k * A ∧ b = k * B ∧ c = k * C' ∧ d = k * D := by
   constructor
   · intro h
-    have h0 := congrArg (coeff (exponent m 0)) h
-    have h1 := congrArg (coeff (exponent 0 m)) h
-    have h2 := congrArg (coeff (exponent (m + 1) 1)) h
-    have h3 := congrArg (coeff (exponent 1 (m + 1))) h
+    have h0 := congrArg (fun p : BPoly => p.coeff (exponent m 0)) h
+    have h1 := congrArg (fun p : BPoly => p.coeff (exponent 0 m)) h
+    have h2 := congrArg (fun p : BPoly => p.coeff (exponent (m + 1) 1)) h
+    have h3 := congrArg (fun p : BPoly => p.coeff (exponent 1 (m + 1))) h
     obtain ⟨ha, hb, hc, hd⟩ := fourTermForm_coefficients hm a b c d
     obtain ⟨hA, hB, hC, hD⟩ := fourTermForm_coefficients hm A B C' D
     rw [ha, coeff_C_mul, hA] at h0

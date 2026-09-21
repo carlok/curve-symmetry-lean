@@ -75,7 +75,7 @@ lemma familyA_natDegree (hα : α ≠ 0) : (familyA m α).natDegree = m := by
 
 lemma familyB_natDegree : (familyB m).natDegree = m + 1 := by
   have h1 : (X ^ m + 1 : ℂ[X]).natDegree = m := by
-    simpa using natDegree_X_pow_add_C (n := m) (r := (1 : ℂ))
+    simp
   have h1' : (X ^ m + 1 : ℂ[X]) ≠ 0 := by
     intro h
     have he := congrArg (eval 1) h
@@ -91,7 +91,7 @@ lemma familyH_natDegree_of (hm : 0 < m) (ha : α ≠ star α) :
 
 instance familyCoordinateRing_isDomain [hm : Fact (0 < m)] [ha : Fact (α ≠ star α)] :
     IsDomain (FamilyCoordinateRing m α) := by
-  haveI : (Ideal.span {familyPolynomial m α}).IsPrime :=
+  have : (Ideal.span {familyPolynomial m α}).IsPrime :=
     Ideal.isPrime_span_singleton_of_prime
       (UniqueFactorizationMonoid.irreducible_iff_prime.mp
         (familyPolynomial_irreducible hm.out ha.out))

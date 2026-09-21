@@ -14,8 +14,8 @@ lemma sphereInversion_involutive {c : ℂ} (hc : c ≠ 0) :
   | coe z =>
     by_cases hz : z = 0
     · simp [sphereInversion, hz]
-    · simp only [sphereInversion, OnePoint.elim_some, if_neg hz,
-        if_neg (div_ne_zero hc hz), OnePoint.coe_eq_coe]
+    · simp only [sphereInversion, OnePoint.elim_some, ite_eq_right hz,
+        ite_eq_right (div_ne_zero hc hz), OnePoint.coe_eq_coe]
       field_simp
 
 private lemma inversion_degree_le (m : ℕ) (β c : ℂ) :
@@ -46,7 +46,7 @@ theorem family_sphere_inversion_proportional {m : ℕ} (hm : 0 < m) {α β c : �
       (star c ^ m * (c * star c)) (c ^ m * (c * star c))
       (star c ^ m * star β) (c ^ m * β)).1
     change (inversionFamily m β c).coeff (exponent m 0) = _ at hcoef
-    rw [he, coeff_zero] at hcoef
+    rw [he, AddMonoidAlgebra.coeff_zero, Finsupp.zero_apply] at hcoef
     exact (mul_ne_zero (pow_ne_zero m (star_ne_zero.mpr hc))
       (mul_ne_zero hc (star_ne_zero.mpr hc))) hcoef.symm
   · intro z hz
@@ -58,7 +58,7 @@ theorem family_sphere_inversion_proportional {m : ℕ} (hm : 0 < m) {α β c : �
         exact hz
       have ht := hmap (z : Sphere) hzs
       change (if z = 0 then ∞ else ((c / z : ℂ) : Sphere)) ∈ sphericalFamily m β at ht
-      rw [if_neg hz0] at ht
+      rw [ite_eq_right hz0] at ht
       rw [finite_mem_sphericalFamily_iff hm hb, ← family_locus_eq] at ht
       change planeEval (c / z) (star (c / z)) (familyPolynomial m β) = 0 at ht
       rw [inversionFamily_eval m β c hz0 (star_ne_zero.mpr hz0)]
@@ -95,7 +95,7 @@ theorem family_sphere_inversion_filter {m : ℕ} (hm : 0 < m) {α c : ℂ}
       · simp only [sphereInversion, hz, OnePoint.elim_some]
         exact infinity_mem_sphericalFamily hm ha
       · change (if z = 0 then ∞ else ((c / z : ℂ) : Sphere)) ∈ sphericalFamily m α
-        rw [if_neg hz]
+        rw [ite_eq_right hz]
         rw [finite_mem_sphericalFamily_iff hm ha, ← family_locus_eq] at hp ⊢
         change planeEval z (star z) (familyPolynomial m α) = 0 at hp
         change planeEval (c / z) (star (c / z)) (familyPolynomial m α) = 0

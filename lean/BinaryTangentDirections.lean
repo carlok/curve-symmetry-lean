@@ -69,7 +69,7 @@ def binaryTangentRootEquiv {m : ℕ} [NeZero m] (hm : 0 < m) {a b : ℂ}
 theorem binaryTangentDirections_card {m : ℕ} (hm : 0 < m) {a b : ℂ}
     (ha : a ≠ 0) (hb : b ≠ 0) :
     Nat.card (binaryTangentDirections m a b) = m := by
-  letI : NeZero m := ⟨hm.ne'⟩
+  let : NeZero m := ⟨hm.ne'⟩
   obtain ⟨w, hw⟩ := IsAlgClosed.exists_pow_nat_eq (-b / a) hm
   rw [← Nat.card_congr (binaryTangentRootEquiv hm ha hb w hw), Complex.card_rootsOfUnity]
 

@@ -212,8 +212,8 @@ No Mathlib checkout, library cache, or toolchain is duplicated.
 
 Verification environment:
 
-- Lean `leanprover/lean4:v4.32.0`.
-- Mathlib commit `81a5d257c8e410db227a6665ed08f64fea08e997`.
+- Lean `leanprover/lean4:v4.34.0`.
+- Mathlib commit `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`).
 - Existing Mathlib at
   `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
 

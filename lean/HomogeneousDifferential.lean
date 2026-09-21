@@ -34,7 +34,8 @@ theorem criticalZero_transport {𝕜 E : Type*} [NontriviallyNormedField 𝕜]
   · rintro ⟨hz, hder⟩
     refine ⟨by rw [he, hz, mul_zero], hd.mp ?_⟩
     rw [hfun]
-    convert hder.const_mul k using 1 <;> first | rfl | (ext v; simp)
+    convert hder.const_mul k using 1
+    first | rfl | (ext v; simp)
 
 abbrev HomogeneousPairs := (Fin 2 → ℂ) × (Fin 2 → ℂ)
 
@@ -89,7 +90,7 @@ theorem familyProjectiveCritical_mk_iff (m : ℕ) (α : ℂ) (x y : Fin 2 → �
     (Projectivization.mk ℂ x hx, Projectivization.mk ℂ y hy) ∈
       familyProjectiveCritical m α ↔
     CriticalZero (fun q : HomogeneousPairs => familyBihomogeneous m α q.1 q.2) (x, y) := by
-  simp only [familyProjectiveCritical, Set.mem_setOf_eq]
+  simp only [familyProjectiveCritical, Set.mem_ofPred_eq]
   obtain ⟨a, ha⟩ := Projectivization.exists_smul_eq_mk_rep ℂ x hx
   obtain ⟨b, hb⟩ := Projectivization.exists_smul_eq_mk_rep ℂ y hy
   rw [← ha, ← hb]
