@@ -50,7 +50,7 @@ lemma Y_pow_mul_aeval (m : ℕ) (A : Polynomial ℂ) :
   ring
 
 lemma coeff_sum_weight (A : Polynomial ℂ) (m : ℕ) (s : Exponent) :
-    coeff s (∑ k ∈ A.support, monomial (exponent (k + m) k) (A.coeff k)) =
+    (∑ k ∈ A.support, monomial (exponent (k + m) k) (A.coeff k)).coeff s =
       if s 0 = s 1 + m then A.coeff (s 1) else 0 := by
   classical
   have hc : ∀ k, (exponent (k + m) k = s) ↔ (s 0 = s 1 + m ∧ k = s 1) := by
@@ -59,16 +59,16 @@ lemma coeff_sum_weight (A : Polynomial ℂ) (m : ℕ) (s : Exponent) :
     constructor <;> intro h <;> omega
   simp only [coeff_sum, coeff_monomial, hc]
   by_cases h : s 0 = s 1 + m
-  · rw [if_pos h]
+  · rw [ite_eq_left h]
     simp only [h, true_and, Finset.sum_ite_eq']
     split_ifs with hmem
     · rfl
     · exact (Polynomial.notMem_support_iff.mp hmem).symm
-  · rw [if_neg h]
+  · rw [ite_eq_right h]
     exact Finset.sum_eq_zero fun k _ => by simp [h]
 
 lemma coeff_sum_opposite_weight (A : Polynomial ℂ) (m : ℕ) (s : Exponent) :
-    coeff s (∑ k ∈ A.support, monomial (exponent k (k + m)) (A.coeff k)) =
+    (∑ k ∈ A.support, monomial (exponent k (k + m)) (A.coeff k)).coeff s =
       if s 1 = s 0 + m then A.coeff (s 0) else 0 := by
   classical
   have hc : ∀ k, (exponent k (k + m) = s) ↔ (s 1 = s 0 + m ∧ k = s 0) := by
@@ -77,12 +77,12 @@ lemma coeff_sum_opposite_weight (A : Polynomial ℂ) (m : ℕ) (s : Exponent) :
     constructor <;> intro h <;> omega
   simp only [coeff_sum, coeff_monomial, hc]
   by_cases h : s 1 = s 0 + m
-  · rw [if_pos h]
+  · rw [ite_eq_left h]
     simp only [h, true_and, Finset.sum_ite_eq']
     split_ifs with hmem
     · rfl
     · exact (Polynomial.notMem_support_iff.mp hmem).symm
-  · rw [if_neg h]
+  · rw [ite_eq_right h]
     exact Finset.sum_eq_zero fun k _ => by simp [h]
 
 /-- Equation (5): below degree `2m`, an equation negated by a primitive `2m`th
@@ -97,12 +97,12 @@ theorem anti_radial_form {m : ℕ} (hm : 0 < m) {ζ : ℂ} (hζ : IsPrimitiveRoo
   refine ⟨?_, ?_, ?_⟩
   · rw [X_pow_mul_aeval, Y_pow_mul_aeval]
     ext s
-    rw [coeff_add, coeff_sum_weight, coeff_sum_opposite_weight, weightPolynomial_coeff,
+    rw [AddMonoidAlgebra.coeff_add, Finsupp.add_apply, coeff_sum_weight, coeff_sum_opposite_weight, weightPolynomial_coeff,
       oppositeWeightPolynomial_coeff]
     by_cases hs : s ∈ P.support
     · rcases anti_support hm hζ hdeg hanti hs with h | h
-      · rw [if_pos h, if_neg (by omega), add_zero, ← exponent_eq_iff.mpr ⟨h, rfl⟩]
-      · rw [if_neg (by omega), if_pos h, zero_add, ← exponent_eq_iff.mpr ⟨rfl, h⟩]
+      · rw [ite_eq_left h, ite_eq_right (by omega), add_zero, ← exponent_eq_iff.mpr ⟨h, rfl⟩]
+      · rw [ite_eq_right (by omega), ite_eq_left h, zero_add, ← exponent_eq_iff.mpr ⟨rfl, h⟩]
     · have hc := notMem_support_iff.mp hs
       rw [hc]
       split_ifs with h1 h2 h2
