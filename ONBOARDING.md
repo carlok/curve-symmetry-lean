@@ -410,9 +410,18 @@ Todo, in intended order:
 - [x] CI: G09a-2g commit 8ef2b25 passed; G09b-1 commit 349973b was cancelled by
       the concurrency group; head commit ad40a51 (G09b-2) passed (run 35456966169,
       Palomar Theorem 1 entry build 35456966177), and contains both.
-- [ ] G09b-3 cancel the units 2, h'(s) and k in the infinity criterion to get
-      ord(φ f) ≥ 3, then the holomorphic differentials as a ℂ-subspace and the
-      basis t^i dt/w for i < m.
+- [x] Lean v4.34.0 bump merged into codex/main (db011ac, reviewed; local reuse
+      installation mathlib-v4.34.0-reuse; CI runs 35734028877, 35734028940).
+- [x] G09b-3a the infinity criterion with units cancelled: f·dt is regular at ∞
+      iff φ(f)/w'³ lies in the local ring of the conjugate place (0,0)
+      (isRegularAtInfinity_iff_cube; helpers quadLocal_poly_unit,
+      quadRoot_ne_zero).
+- [ ] G09b-3b the holomorphic differentials as a ℂ-subspace (regular at every
+      point place and at ∞; family_place_classification says these are all the
+      places).
+- [ ] G09b-3c the t^i dt/w, i < m, are holomorphic and linearly independent.
+- [ ] G09b-3d they span: a holomorphic f·dt has f·w integral over ℂ[t] (so
+      f = p/w + q), and the order condition at ∞ forces q = 0, deg p < m.
 - [ ] G09b-4 genus m, and the degree identity deg div(dt) = 2m − 2.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.

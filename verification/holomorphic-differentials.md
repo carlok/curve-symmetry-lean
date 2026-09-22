@@ -46,9 +46,20 @@ place over `t = ∞`. For `ω = f·dt` the transport is `φ(f)·d(1/s)`, and G09
 turns that into a coefficient against the uniformizer `w'`:
 `φ(f)·(−2w')/(s²·h_conj'(s))` (`isRegularAtInfinity_iff`).
 
-Left for G09b-3: cancelling `2`, `h_conj'(s)` and the factor `k` of
-`s·k = w'²`, all units of that local ring, which turns the criterion into
-`ord(φ f) ≥ 3`.
+The units are cancelled in G09b-3a below.
+
+## The criterion at infinity with the units cancelled (G09b-3a) — 2026-09-22
+
+First package on Lean 4.34.0 (`db011ac`). `familyInfinity_shift_sq` carries the
+ramified-place identity `(t − c)·k = w²` of G09a-2f into the conjugate function
+field at `c = 0`: `s·k = w'²` with `k(0) ≠ 0`. `quadLocal_poly_unit` (in
+`HolomorphicDifferentials`) makes any polynomial nonvanishing at `c` a unit of
+the local ring at a place over `c`, and `quadRoot_ne_zero` gives `w ≠ 0`.
+
+`isRegularAtInfinity_iff_cube`: the raw coefficient of G09b-2 equals
+`e·(φ(f)/w'³)` with `e = −2k²/h_conj'(s)`, a unit of the local ring (inverse
+`−h_conj'(s)/(2k²)`), so `f·dt` is regular at infinity iff `φ(f)/w'³` lies in
+that local ring. This is `ord_∞(f) ≥ 3`, matching `ord_∞(dt) = −3`.
 
 ## Scope
 
@@ -60,7 +71,7 @@ assumed anywhere.
 ## Checks
 
 - Compiles with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,581 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,594 declarations (Lean 4.34.0), allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 95 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.

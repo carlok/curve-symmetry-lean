@@ -110,6 +110,35 @@ lemma quadLocal_inv_mem_of_isUnit {x : QuadRing h}
   rw [inv_eq_of_mul_eq_one_right hcoe]
   exact y.2
 
+/-- A polynomial in `t` that does not vanish at `c` is a unit of the local ring at any point
+place over `c`: it and its inverse both lie there. -/
+lemma quadLocal_poly_unit (p : ℂ[X]) (hp : p.eval c ≠ 0) :
+    algebraMap ℂ[X] (QuadField h) p ∈ quadLocalRing h c d hd ∧
+      (algebraMap ℂ[X] (QuadField h) p)⁻¹ ∈ quadLocalRing h c d hd := by
+  have htower : algebraMap ℂ[X] (QuadField h) p =
+      algebraMap (QuadRing h) (QuadField h) (algebraMap ℂ[X] (QuadRing h) p) := by
+    rw [← IsScalarTower.algebraMap_apply ℂ[X] (QuadRing h) (QuadField h)]
+  have hmem : algebraMap ℂ[X] (QuadRing h) p ∈ (RingHom.ker (quadEval h c d hd)).primeCompl := by
+    rw [Ideal.primeCompl, Submonoid.mem_mk, Subsemigroup.mem_mk, Set.mem_compl_iff,
+      SetLike.mem_coe, RingHom.mem_ker, quadEval_algebraMap]
+    exact hp
+  refine ⟨?_, ?_⟩
+  · rw [htower]
+    exact Subalgebra.algebraMap_mem _ _
+  · rw [htower]
+    exact quadLocal_inv_mem_of_isUnit h c d hd
+      (IsLocalization.map_units (quadLocalRing h c d hd) ⟨_, hmem⟩)
+
+/-- The root `w` is nonzero in the function field: `w² = h ≠ 0`. -/
+lemma quadRoot_ne_zero : AdjoinRoot.root (quadRat h) ≠ 0 := by
+  intro hzero
+  have hsq := quadRoot_sq h
+  rw [hzero, zero_pow two_ne_zero] at hsq
+  have hne : algebraMap (RatFunc ℂ) (QuadField h) (algebraMap ℂ[X] (RatFunc ℂ) h) ≠ 0 :=
+    (map_ne_zero_iff _ (algebraMap (RatFunc ℂ) (QuadField h)).injective).mpr
+      (RatFunc.algebraMap_ne_zero (Fact.out : Squarefree h).ne_zero)
+  exact hne hsq.symm
+
 /-- **G09b-1, ramified case**: `f·dt` is regular at a place with `h(c) = 0` exactly when
 `f·w` lies in its local ring: `f` may have one pole there. -/
 theorem isRegularAt_ramified (hc : h.eval c = 0) (f : QuadField h) :
