@@ -98,17 +98,42 @@ localizations at maximal ideals — with `quadRing_isMaximal_iff` (G07b-2b) to p
 `f·w` in `ℂ[t][W]/(W² − h)`, so `f·w = a(t) + b(t)·w`
 (`quad_regular_points_coeff`).
 
+## Spanning and the genus (G09b-3d-2, G09b-3d-3)
+
+`holomorphic_coeff_form`: for holomorphic `f·dt`, G09b-3d-1 gives
+`f = a/w + b`. The chart sends it to `a(1/s)·s^(m+1)/w' + b(1/s)`, and G09b-3a
+asks that `φ(f)/w'³` lie in the conjugate local ring, i.e. have valuation at most
+one for the valuation `v` of that place (`infinity_mem_iff`). The valuation
+facts used: `0 < v(w') < 1` (`infinity_val_root`, the uniformizer is not a unit),
+units have valuation one (`infinity_val_unit`), `v(s) = v(w')²`
+(`infinity_val_s`, from `s·k = w'²`), and `v(p(1/s)) = v(w')^(−2·deg p)` for
+`p ≠ 0` (`infinity_val_poly`: `s^(deg p)·p(1/s)` is the reversed polynomial at
+`s`, a unit because its constant term is the leading coefficient, via Mathlib's
+`eval₂_reverse_mul_pow`). The `a/w` part then has valuation
+`v(w')^(2m−2−2·deg a)` and the `b` part `v(w')^(−2·deg b−3)`; the exponent
+bookkeeping is done in the unit group with `group` (`zpow_combine_even`,
+`zpow_combine_odd`). Different parity makes the valuations distinct, so the sum
+has the larger one (`Valuation.map_add_of_distinct_val`), and
+`zpow_le_one_iff_right_of_lt_one₀` turns "at most one" into sign conditions on
+the exponents: `b = 0` and `deg a ≤ m − 1`.
+
+`holomorphicDifferentials_eq_span` follows, `holomorphicBasis` is the basis
+`tⁱ·dt/w`, `i < m`, and **`family_genus`: the holomorphic differentials have
+dimension `m`.** The genus is read as that dimension (route B of the genus scope
+study); the identification of the function field's places with the points of
+the normalization is the approved reading, not a scheme-theoretic theorem.
+
 ## Scope
 
-Not here: the space of holomorphic differentials and the claim that it is spanned by
-`tⁱ·dt/w` for `i < m`; the genus; and the degree identity
-`deg div(dt) = 2m − 2`. No divisor, Riemann–Roch or Riemann–Hurwitz statement is
-assumed anywhere.
+Not here: the Riemann–Hurwitz degree identity `deg div(dt) = 2m − 2` as a
+divisor statement (the local orders `0`, `1`, `−3` are proved, their sum is not
+stated as a divisor degree), and R01. No divisor, Riemann–Roch or
+Riemann–Hurwitz statement is assumed anywhere.
 
 ## Checks
 
-- Compiles with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,637 declarations (Lean 4.34.0), allowlist `propext`,
+- Full clean `lean/check.sh` against `mathlib-v4.34.0-reuse`, warnings as errors.
+- Namespace axiom audit: 1,679 declarations (Lean 4.34.0), allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 98 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.

@@ -426,12 +426,16 @@ Todo, in intended order:
 - [x] G09b-3d-1 regular at every point place ⇒ f·w = a(t) + b(t)·w
       (quad_regular_points_coeff in HolomorphicSpan, via Mathlib's
       MaximalSpectrum.iInf_localization_eq_bot and quadRing_isMaximal_iff).
-- [ ] G09b-3d-2 at ∞, a parity argument with the place's valuation: a/w gives
-      even powers of w', b odd ones, so the triple zero forces b = 0, deg a < m.
-- [ ] G09b-3d-3 spanning, hence a basis of m elements.
-- [ ] G09b-4 genus m, and the degree identity deg div(dt) = 2m − 2.
-- [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
-      deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.
+- [x] G09b-3d-2 at ∞, parity with the place's valuation: a/w gives valuation
+      v(w')^(2m−2−2 deg a), b gives v(w')^(−2 deg b − 3); different parity, so
+      the triple zero forces b = 0, deg a < m (holomorphic_coeff_form).
+- [x] G09b-3d-3 the t^i dt/w span (holomorphicDifferentials_eq_span); basis
+      holomorphicBasis; family_genus: finrank ℂ (holomorphicDifferentials) = m.
+      GENUS m PROVED at the route-B reading (G09 genus half closed).
+- [ ] G09 remainder, optional: the Riemann–Hurwitz degree identity as a divisor
+      statement (the local orders 0 / 1 / −3 are proved; their sum 2m − 2 is not
+      stated as a divisor degree).
+- [ ] R01 quartic genus 3 vs 2 (Kummer cover y⁴ = 2 − x⁴; reuse G09 machinery).
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O
