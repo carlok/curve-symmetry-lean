@@ -137,4 +137,5 @@ Riemann–Hurwitz statement is assumed anywhere.
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 98 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
-- Private Linux run 35456966169 passed on the head commit `ad40a51`.
+- Private Linux run 35456966169 passed on `ad40a51` (Lean 4.32.0); run
+  35738686055 passed on the genus commit `c4a1857` (Lean 4.34.0).

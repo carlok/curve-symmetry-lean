@@ -432,6 +432,8 @@ Todo, in intended order:
 - [x] G09b-3d-3 the t^i dt/w span (holomorphicDifferentials_eq_span); basis
       holomorphicBasis; family_genus: finrank ℂ (holomorphicDifferentials) = m.
       GENUS m PROVED at the route-B reading (G09 genus half closed).
+- [x] CI for the genus commit c4a1857 passed (run 35738686055; Palomar entry
+      build 35738686071).
 - [ ] G09 remainder, optional: the Riemann–Hurwitz degree identity as a divisor
       statement (the local orders 0 / 1 / −3 are proved; their sum 2m − 2 is not
       stated as a divisor degree).
