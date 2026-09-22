@@ -73,6 +73,20 @@ differentials regular at every point place and at infinity; G07b's
 ring where `h(c) ≠ 0`, `f·w` in it where `h(c) = 0`, `φ(f)/w'³` in the local
 ring at infinity.
 
+## `m` independent holomorphic differentials (G09b-3c)
+
+[HolomorphicBasis](../lean/HolomorphicBasis.lean). `holoBasisVec_mem`: for
+`i < m`, `tⁱ·dt/w` is holomorphic, checked with `isHolomorphic_smul_dt_iff` at
+each kind of place — `w` is a unit where `h(c) ≠ 0` (`quadLocal_root_inv_mem`),
+`(tⁱ/w)·w = tⁱ` where `h(c) = 0`, and at infinity, writing `m = i + 1 + j`,
+`φ(tⁱ/w)/w'³ = s^(j+2)/w'⁴ = w'^(2j)·k^(−(j+2))` using `s·k = w'²`.
+
+`holoBasisVec_linearIndependent`: a vanishing `ℂ`-combination gives
+`(p(t)/w)·dt = 0` with `p = Σ gᵢXⁱ`; `dt ≠ 0` and `w ≠ 0` force `p(t) = 0` in the
+function field, `ℂ[t]` embeds injectively (`algebraMap_polynomial_injective`),
+so every `gᵢ` is zero. The holomorphic differentials therefore have dimension
+at least `m`.
+
 ## Scope
 
 Not here: the space of holomorphic differentials and the claim that it is spanned by
@@ -83,8 +97,8 @@ assumed anywhere.
 ## Checks
 
 - Compiles with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,612 declarations (Lean 4.34.0), allowlist `propext`,
+- Namespace axiom audit: 1,635 declarations (Lean 4.34.0), allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 96 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 97 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
 - Private Linux run 35456966169 passed on the head commit `ad40a51`.

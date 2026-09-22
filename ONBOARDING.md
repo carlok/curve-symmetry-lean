@@ -420,7 +420,9 @@ Todo, in intended order:
       (holomorphicDifferentials in HolomorphicSpace): regular at every point
       place and at ∞, which by family_place_classification are all the places;
       isHolomorphic_smul_dt_iff lists the conditions on f for f·dt.
-- [ ] G09b-3c the t^i dt/w, i < m, are holomorphic and linearly independent.
+- [x] G09b-3c the t^i dt/w, i < m, are holomorphic (holoBasisVec_mem) and
+      linearly independent over ℂ (holoBasisVec_linearIndependent), in
+      HolomorphicBasis; so the space has dimension at least m.
 - [ ] G09b-3d they span: a holomorphic f·dt has f·w integral over ℂ[t] (so
       f = p/w + q), and the order condition at ∞ forces q = 0, deg p < m.
 - [ ] G09b-4 genus m, and the degree identity deg div(dt) = 2m − 2.
