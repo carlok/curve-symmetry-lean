@@ -199,7 +199,7 @@ From the repository root on this machine:
 
 ```sh
 rtk proxy sh lean/check.sh \
-  /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
+  /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
 ```
 
 On another machine, pass an existing populated Lake project with compiled
@@ -215,7 +215,7 @@ Verification environment:
 - Lean `leanprover/lean4:v4.34.0`.
 - Mathlib commit `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`).
 - Existing Mathlib at
-  `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean/.lake/packages/mathlib`.
+  `/Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse/.lake/packages/mathlib`.
 
 The script compiles all 68 mathematical modules and the aggregate import with
 warnings treated as errors. In addition to the selected endpoint reports,

@@ -32,7 +32,7 @@ The root is a Lake project pinned to Lean 4.34.0 and an exact Mathlib revision.
 On this Mac, reuse the installed dependency tree without downloading libraries:
 
 ```sh
-rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
+rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
 ```
 
 For a clean machine, with Elan installed:

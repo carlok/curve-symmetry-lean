@@ -62,7 +62,7 @@ Sprints 5–7: Palomar contract, faithful private dry run and final TeX integrat
 | Written theorem/lemma declarations | 726 |
 | Written definitions/abbreviations/structures/inductives | 180 |
 | Lean source lines, including comments and blank lines | 12,031 |
-| Audited namespace declarations, including generated/private machinery | 1,581 |
+| Audited namespace declarations, including generated/private machinery | 1,583 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -71,7 +71,9 @@ private/protected declarations; they are not novelty counts. The audit allows
 only `propext`, `Classical.choice`, and `Quot.sound`. There are no intentional
 proof placeholders in the library. Local verification was incremental, with
 warnings as errors and installed dependencies reused. Lean is 4.34.0; Mathlib
-is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`).
+is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The move from
+Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
+change to any written declaration.
 
 Proof snapshot `ad40a51` passed private Linux run `35456966169`
 (previous `8ef2b25`: earlier run on that commit; `2f2eba6`: `35455600594`). The

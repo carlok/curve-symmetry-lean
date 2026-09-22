@@ -470,15 +470,17 @@ discussion belonged to another project and was cancelled here. Do not resume it.
 
 ## Build and audit commands
 
-Run from the active repository. Lean: leanprover/lean4:v4.32.0.
-Mathlib: 81a5d257c8e410db227a6665ed08f64fea08e997.
-Reuse installation: /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean.
+Run from the active repository. Lean: leanprover/lean4:v4.34.0.
+Mathlib: 5ed2965256430c3649e86755f9576b54eca72435 (tag v4.34.0).
+Reuse installation: /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
+(dependency-only, pins copied from lake-manifest.json; never run `lake update` there).
+The old v4.32 installation /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean no longer matches the pins.
 Do not clone duplicate dependencies, modify their sources, or update pins.
 Root lakefile.toml and lake-manifest.json describe the portable package.
 
 ```sh
-rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
-rtk proxy python3 -B scripts/check_sources.py --reuse /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean
+rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
+rtk proxy python3 -B scripts/check_sources.py --reuse /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
 rtk proxy python3 -B -m unittest discover -s scripts -p 'test_*.py'
 rtk proxy git diff --check
 ```
@@ -486,7 +488,7 @@ rtk proxy git diff --check
 For an incremental build, construct LEAN_PATH from this project's lean/.build
 plus each installed dependency's .lake/build/lib/lean. Compile changed modules
 in dependency order, then CurveSymmetry.lean, then verification/Audit.lean.
-Use elan run leanprover/lean4:v4.32.0 lean -DwarningAsError=true.
+Use elan run leanprover/lean4:v4.34.0 lean -DwarningAsError=true.
 Audit.lean uses run_cmd, not main: do NOT pass --run.
 New modules must appear in both the aggregate imports and Lake roots.
 Beware stale ignored oleans; report incremental checks as incremental.
