@@ -75,10 +75,9 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-Proof snapshot `ad40a51` passed private Linux run `35456966169`
-(previous `8ef2b25`: earlier run on that commit; `2f2eba6`: `35455600594`). The
-runs on the intermediate commit `349973b` were cancelled by the concurrency
-group when `ad40a51` was pushed; the passing run contains it. Theorem 1 alone, in the separate public
+Proof snapshot `db011ac` (Lean 4.34.0) passed private Linux run `35734028877`
+and the Palomar Theorem 1 entry build `35734028940`; the last 4.32.0 snapshot
+was `ad40a51` (run `35456966169`). Theorem 1 alone, in the separate public
 repository `carlok/sharp-symmetry-bounds-lean`, is registered with Palomar as
 `PALOMAR-2026-09-18-000007` v1 (2026-09-18): mechanical verification and a
 NanoDa replay by the registry passed, and its editorial review was automated,
