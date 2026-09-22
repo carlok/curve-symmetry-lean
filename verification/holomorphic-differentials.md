@@ -87,6 +87,17 @@ function field, `ℂ[t]` embeds injectively (`algebraMap_polynomial_injective`),
 so every `gᵢ` is zero. The holomorphic differentials therefore have dimension
 at least `m`.
 
+## Integrality at the point places (G09b-3d-1)
+
+[HolomorphicSpan](../lean/HolomorphicSpan.lean). If `f·dt` is regular at every
+point place, `f·w` lies in each point place's local ring: where `h(c) = 0` that
+is the G09b-1 criterion, and where `h(c) ≠ 0`, `f` does and so does `w`.
+`quad_mem_range_of_forall_local` uses Mathlib's
+`MaximalSpectrum.iInf_localization_eq_bot` — a domain is the intersection of its
+localizations at maximal ideals — with `quadRing_isMaximal_iff` (G07b-2b) to put
+`f·w` in `ℂ[t][W]/(W² − h)`, so `f·w = a(t) + b(t)·w`
+(`quad_regular_points_coeff`).
+
 ## Scope
 
 Not here: the space of holomorphic differentials and the claim that it is spanned by
@@ -97,8 +108,8 @@ assumed anywhere.
 ## Checks
 
 - Compiles with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,635 declarations (Lean 4.34.0), allowlist `propext`,
+- Namespace axiom audit: 1,637 declarations (Lean 4.34.0), allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 97 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 98 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
 - Private Linux run 35456966169 passed on the head commit `ad40a51`.

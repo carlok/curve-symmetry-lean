@@ -94,5 +94,6 @@ import HolomorphicDifferentials
 import InfinityRegularity
 import HolomorphicSpace
 import HolomorphicBasis
+import HolomorphicSpan
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

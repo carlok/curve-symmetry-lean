@@ -423,8 +423,12 @@ Todo, in intended order:
 - [x] G09b-3c the t^i dt/w, i < m, are holomorphic (holoBasisVec_mem) and
       linearly independent over ℂ (holoBasisVec_linearIndependent), in
       HolomorphicBasis; so the space has dimension at least m.
-- [ ] G09b-3d they span: a holomorphic f·dt has f·w integral over ℂ[t] (so
-      f = p/w + q), and the order condition at ∞ forces q = 0, deg p < m.
+- [x] G09b-3d-1 regular at every point place ⇒ f·w = a(t) + b(t)·w
+      (quad_regular_points_coeff in HolomorphicSpan, via Mathlib's
+      MaximalSpectrum.iInf_localization_eq_bot and quadRing_isMaximal_iff).
+- [ ] G09b-3d-2 at ∞, a parity argument with the place's valuation: a/w gives
+      even powers of w', b odd ones, so the triple zero forces b = 0, deg a < m.
+- [ ] G09b-3d-3 spanning, hence a basis of m elements.
 - [ ] G09b-4 genus m, and the degree identity deg div(dt) = 2m − 2.
 - [ ] G09b holomorphic differentials = span of t^i dt/w (i < m); genus m;
       deg div(dt) = 2m − 2. Then R01 quartic genus 3 vs 2.

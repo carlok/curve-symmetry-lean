@@ -111,5 +111,6 @@ roots = [
   "InfinityRegularity",
   "HolomorphicSpace",
   "HolomorphicBasis",
+  "HolomorphicSpan",
   "CurveSymmetry",
 ]
