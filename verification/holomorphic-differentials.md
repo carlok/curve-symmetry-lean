@@ -61,6 +61,18 @@ the local ring at a place over `c`, and `quadRoot_ne_zero` gives `w ≠ 0`.
 `−h_conj'(s)/(2k²)`), so `f·dt` is regular at infinity iff `φ(f)/w'³` lies in
 that local ring. This is `ord_∞(f) ≥ 3`, matching `ord_∞(dt) = −3`.
 
+## The holomorphic differentials as a subspace (G09b-3b)
+
+`isRegularAt_zero`, `isRegularAt_add`, `isRegularAt_smul` (point places) and the
+matching `isRegularAtInfinity_*` (through `kaehlerTransport_smul_base`) close
+regularity under the vector-space operations. `holomorphicDifferentials` in
+[HolomorphicSpace](../lean/HolomorphicSpace.lean) is the `ℂ`-subspace of
+differentials regular at every point place and at infinity; G07b's
+`family_place_classification` is what makes those all the places.
+`isHolomorphic_smul_dt_iff` spells out holomorphy of `f·dt`: `f` in the local
+ring where `h(c) ≠ 0`, `f·w` in it where `h(c) = 0`, `φ(f)/w'³` in the local
+ring at infinity.
+
 ## Scope
 
 Not here: the space of holomorphic differentials and the claim that it is spanned by
@@ -71,8 +83,8 @@ assumed anywhere.
 ## Checks
 
 - Compiles with `-DwarningAsError=true`; the aggregate rebuilds.
-- Namespace axiom audit: 1,594 declarations (Lean 4.34.0), allowlist `propext`,
+- Namespace axiom audit: 1,612 declarations (Lean 4.34.0), allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 95 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 96 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
 - Private Linux run 35456966169 passed on the head commit `ad40a51`.

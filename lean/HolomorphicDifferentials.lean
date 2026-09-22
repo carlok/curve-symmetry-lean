@@ -139,6 +139,33 @@ lemma quadRoot_ne_zero : AdjoinRoot.root (quadRat h) ≠ 0 := by
       (RatFunc.algebraMap_ne_zero (Fact.out : Squarefree h).ne_zero)
   exact hne hsq.symm
 
+/-- The zero differential is regular. -/
+theorem isRegularAt_zero : IsRegularAt h c d hd 0 := by
+  obtain ⟨u, hu, -⟩ := quadLocal_exists_uniformizer h c d hd
+  exact (isRegularAt_iff h c d hd hu (f := 0) (by rw [zero_smul])).mpr
+    (Subalgebra.zero_mem _)
+
+/-- A sum of regular differentials is regular. -/
+theorem isRegularAt_add {ω₁ ω₂ : Ω[QuadField h⁄ℂ]} (h₁ : IsRegularAt h c d hd ω₁)
+    (h₂ : IsRegularAt h c d hd ω₂) : IsRegularAt h c d hd (ω₁ + ω₂) := by
+  obtain ⟨u, hu, -⟩ := quadLocal_exists_uniformizer h c d hd
+  obtain ⟨f₁, hf₁⟩ := quadLocal_exists_coeff h c d hd hu ω₁
+  obtain ⟨f₂, hf₂⟩ := quadLocal_exists_coeff h c d hd hu ω₂
+  have m₁ := (isRegularAt_iff h c d hd hu hf₁).mp h₁
+  have m₂ := (isRegularAt_iff h c d hd hu hf₂).mp h₂
+  exact (isRegularAt_iff h c d hd hu (f := f₁ + f₂) (by rw [hf₁, hf₂, add_smul])).mpr
+    (Subalgebra.add_mem _ m₁ m₂)
+
+/-- A complex multiple of a regular differential is regular. -/
+theorem isRegularAt_smul (z : ℂ) {ω : Ω[QuadField h⁄ℂ]} (h₁ : IsRegularAt h c d hd ω) :
+    IsRegularAt h c d hd (z • ω) := by
+  obtain ⟨u, hu, -⟩ := quadLocal_exists_uniformizer h c d hd
+  obtain ⟨f₁, hf₁⟩ := quadLocal_exists_coeff h c d hd hu ω
+  have m₁ := (isRegularAt_iff h c d hd hu hf₁).mp h₁
+  refine (isRegularAt_iff h c d hd hu (f := algebraMap ℂ (QuadField h) z * f₁) ?_).mpr
+    (Subalgebra.mul_mem _ (quadLocal_const_mem h c d hd z) m₁)
+  rw [hf₁, mul_smul, algebraMap_smul]
+
 /-- **G09b-1, ramified case**: `f·dt` is regular at a place with `h(c) = 0` exactly when
 `f·w` lies in its local ring: `f` may have one pole there. -/
 theorem isRegularAt_ramified (hc : h.eval c = 0) (f : QuadField h) :

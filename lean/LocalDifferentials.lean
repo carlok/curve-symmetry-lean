@@ -182,6 +182,11 @@ lemma kaehlerTransport_smul (e : A ≃ₐ[R] B) (a : A) (ω : Ω[A⁄R]) :
   rw [map_smul, ← IsScalarTower.algebraMap_smul B a]
   rfl
 
+/-- The transport is linear over the common base. -/
+lemma kaehlerTransport_smul_base (e : A ≃ₐ[R] B) (r : R) (ω : Ω[A⁄R]) :
+    kaehlerTransport e (r • ω) = r • kaehlerTransport e ω := by
+  rw [← algebraMap_smul A r ω, kaehlerTransport_smul, AlgEquiv.commutes, algebraMap_smul]
+
 end Transport
 
 #print axioms localKaehler_span_eq_top

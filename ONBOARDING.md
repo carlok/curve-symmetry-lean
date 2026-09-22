@@ -416,9 +416,10 @@ Todo, in intended order:
       iff φ(f)/w'³ lies in the local ring of the conjugate place (0,0)
       (isRegularAtInfinity_iff_cube; helpers quadLocal_poly_unit,
       quadRoot_ne_zero).
-- [ ] G09b-3b the holomorphic differentials as a ℂ-subspace (regular at every
-      point place and at ∞; family_place_classification says these are all the
-      places).
+- [x] G09b-3b the holomorphic differentials as a ℂ-subspace
+      (holomorphicDifferentials in HolomorphicSpace): regular at every point
+      place and at ∞, which by family_place_classification are all the places;
+      isHolomorphic_smul_dt_iff lists the conditions on f for f·dt.
 - [ ] G09b-3c the t^i dt/w, i < m, are holomorphic and linearly independent.
 - [ ] G09b-3d they span: a holomorphic f·dt has f·w integral over ℂ[t] (so
       f = p/w + q), and the order condition at ∞ forces q = 0, deg p < m.
