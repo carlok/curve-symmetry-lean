@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, the Kummer field of the quartic (R01c-1), 2026-09-29.
+Snapshot: Sprint 4, three holomorphic differentials on the quartic (R01d), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -54,7 +54,10 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
 - The Kummer cover `yⁿ = f` for squarefree `f` (R01c-1, `KummerField`):
   irreducibility, the coordinate ring inside the function field, and the
   differentials `Ω = K·dx` with `n·yⁿ⁻¹·dy = f'(x)·dx`. The quartic
-  `X⁴ + Y⁴ = 2` is the case `n = 4`, `f = 2 − x⁴`; its genus is still open.
+  `X⁴ + Y⁴ = 2` is the case `n = 4`, `f = 2 − x⁴`.
+- On the quartic, `dx/y³`, `x·dx/y³` and `dx/y²` are holomorphic and
+  independent (R01d, `FermatHolomorphic`), so its holomorphic differentials
+  have dimension at least three; the exact value is R01e.
 
 ## Still missing
 
@@ -75,11 +78,11 @@ the negative controls are still to run. No arXiv preprint is planned (user,
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 101 |
-| Written theorem/lemma declarations | 798 |
-| Written definitions/abbreviations/structures/inductives | 201 |
-| Lean source lines, including comments and blank lines | 13,430 |
-| Audited namespace declarations, including generated/private machinery | 1,772 |
+| Lean source files (including aggregate) | 102 |
+| Written theorem/lemma declarations | 812 |
+| Written definitions/abbreviations/structures/inductives | 205 |
+| Lean source lines, including comments and blank lines | 13,758 |
+| Audited namespace declarations, including generated/private machinery | 1,823 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -92,8 +95,9 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-Proof snapshot `3a84ca1` (Lean 4.34.0, R01b) passed private Linux run
-`36521674393` and the Palomar Theorem 1 entry build `36521674439`; R01a
+Proof snapshot `30b60ac` (Lean 4.34.0, R01c-1) passed private Linux run
+`36524242075` and the Palomar Theorem 1 entry build `36524242224`; R01b
+(`3a84ca1`) passed `36521674393` and `36521674439`; R01a
 (`bf890d5`) passed `36520991772` and `36520991768`; the genus commit `c4a1857`
 passed `35738686055` and `35738686071` (the merge `db011ac` passed
 `35734028877`); the last 4.32.0 snapshot was `ad40a51` (run `35456966169`). Theorem 1 alone, in the separate public

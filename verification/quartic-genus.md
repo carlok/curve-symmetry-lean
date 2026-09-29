@@ -108,8 +108,39 @@ R01a.
   (`fermatNested 4` from `Fermat` is `kummerPoly 4 (2 − x⁴)`), and the `Fact`
   instance for the field structure from `fermatNested_irreducible`.
 
+## R01d: three holomorphic differentials of the quartic
+
+[FermatHolomorphic](../lean/FermatHolomorphic.lean). In `K = KummerField 4
+(2 − x⁴)`, with `x = quarticX` and `y = quarticY`: `x⁴ + y⁴ = 2`
+(`quartic_relation`) and `y³·dy = −x³·dx` (`quartic_D_relation`, from
+`kummer_D_root`); `dx = −x²·d(1/x)` (`quartic_D_x_inv`).
+
+`quartic_smul_dx_mem_holomorphicSpace` reduces holomorphy of `F·dx` to three
+local tests and uses only that a place `O` is a valuation subring containing
+`ℂ`, so no classification of places is needed:
+
+| Place | Facts used | Coefficient |
+|---|---|---|
+| `x, 1/y ∈ O` | — | `F` against `dx` |
+| `x ∈ O`, `1/y ∉ O` | `y ∈ O` since `y⁴ = 2 − x⁴`; `x` a unit since `x⁴ + y⁴ = 2` is a unit and `y⁴` is not (`IsLocalRing.isUnit_or_isUnit_of_isUnit_add`) | `−F·y³/x³` against `dy` |
+| `x ∉ O` | `1/x ∈ O`; `r = y/x ∈ O` with `r⁴ = 2/x⁴ − 1`, a unit | `−F·x²` against `d(1/x)` |
+
+Two generic helpers: `valuationSubring_mem_of_pow_mem` (`aⁿ ∈ O` forces
+`a ∈ O`) and `valuationSubring_isUnit_iff` (a unit of `O` is an element whose
+inverse lies in `O`).
+
+`quarticHolo i = (Pᵢ/y³)·dx` with `Pᵢ = 1, x, y`: `quarticHolo_mem` checks the
+three tests (at the third, `x²/y³ = (1/x)·(x/y)³`, `x³/y³ = (x/y)³`,
+`x²/y² = (x/y)²`). `quarticHolo_linearIndependent`: a vanishing combination
+gives `a + b·x + c·y = 0`, and `quartic_lin_eq_zero` writes this as
+`AdjoinRoot.mk` of a polynomial of degree at most one in `y`, divisible by the
+degree-four `y⁴ − (2 − x⁴)`, hence zero.
+
 ## Checks
 
+- R01d: module, aggregate and audit compiled with warnings as errors; audit
+  1,823 declarations; 102 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01c-1: module, aggregate and audit compiled with warnings as errors; audit
   1,772 declarations; 101 modules; full clean `lean/check.sh` rerun before the
   commit.

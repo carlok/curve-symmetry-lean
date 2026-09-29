@@ -488,9 +488,23 @@ Sprint 4 genus track and later work, in order (checked = done):
       kummer_D_root: n·yⁿ⁻¹·dy = f'(x)·dx. Quartic: fermatQuartic = 2 − x⁴,
       fermatNested_eq_kummerPoly, and the Fact instance from
       fermatNested_irreducible.
-- [ ] R01d quartic lower bound (FermatHolomorphic): dx/y³, x·dx/y³ and dx/y²
-      are regular at every place (valuation-ring arguments, no classification)
-      and independent over ℂ.
+- [x] CI: R01c-1 30b60ac passed (Lean run 36524242075, Palomar Theorem 1 entry
+      build 36524242224).
+- [x] Figure of the d = 5 quintic (user request 2026-09-29, Python only):
+      figures/quintic.py, numpy 2.5.3 and matplotlib 3.11.2 pinned inline like
+      verify.py, byte-identical output across runs; README shows the real
+      curve. Private f6e25ce; public carlok/sharp-symmetry-bounds-lean 26deee2
+      (noreply address; public Lean build 36524629703 passed; the registered
+      commit ced9fe2 is untouched).
+- [x] R01d quartic lower bound (FermatHolomorphic): quarticX, quarticY with
+      quartic_relation x⁴ + y⁴ = 2 and quartic_D_relation y³dy = −x³dx;
+      quartic_smul_dx_mem_holomorphicSpace reduces holomorphy of F·dx to three
+      local tests (x, 1/y ∈ O; x, 1/x, y ∈ O; 1/x, x/y ∈ O) using only that O is
+      a valuation subring containing ℂ (y ∈ O from y⁴ = 2 − x⁴; units by
+      IsLocalRing.isUnit_or_isUnit_of_isUnit_add; dx = −x²·d(1/x)). No place
+      classification. quarticHolo_mem: dx/y³, x·dx/y³, dx/y² are holomorphic;
+      quarticHolo_linearIndependent via quartic_lin_eq_zero (a + bx + cy = 0
+      forces a = b = c = 0, since y has degree four over ℂ(x)).
 - [ ] R01f similarity ⇒ ℂ-algebra isomorphism of the function fields
       (shift/dilate, proportional_of_realLocus_subset); non-similarity of
       Re(z⁴) = 1 and the m = 2 family through genus (QuarticComparison).

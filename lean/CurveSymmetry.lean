@@ -98,5 +98,6 @@ import HolomorphicSpan
 import FunctionFieldGenus
 import FamilyGenus
 import KummerField
+import FermatHolomorphic
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

@@ -115,5 +115,6 @@ roots = [
   "FunctionFieldGenus",
   "FamilyGenus",
   "KummerField",
+  "FermatHolomorphic",
   "CurveSymmetry",
 ]
