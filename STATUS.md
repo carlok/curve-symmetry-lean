@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, the quartic's chart at infinity (R01e-1), 2026-09-29.
+Snapshot: Sprint 4, the quartic's holomorphic differentials split in four (R01e-2), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -71,6 +71,10 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
   identifies its function field with a second Kummer field, and at a place
   over `x = ∞` the differential `F·dx` is regular iff `φ(F)/s²` lies in the
   local ring (R01e-1, `FermatInfinity`).
+- A holomorphic differential of the quartic is
+  `(a₀(x) + a₁(x)·y + a₂(x)·y² + a₃(x)·y³)·dx/y³` with polynomial `aⱼ`, and each
+  of the four pieces is holomorphic on its own, by the automorphism `y ↦ i·y`
+  (R01e-2, `FermatSplit`).
 
 ## Still missing
 
@@ -91,11 +95,11 @@ the negative controls are still to run. No arXiv preprint is planned (user,
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 107 |
-| Written theorem/lemma declarations | 879 |
-| Written definitions/abbreviations/structures/inductives | 224 |
-| Lean source lines, including comments and blank lines | 14,962 |
-| Audited namespace declarations, including generated/private machinery | 1,991 |
+| Lean source files (including aggregate) | 108 |
+| Written theorem/lemma declarations | 899 |
+| Written definitions/abbreviations/structures/inductives | 229 |
+| Lean source lines, including comments and blank lines | 15,231 |
+| Audited namespace declarations, including generated/private machinery | 2,034 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -108,8 +112,9 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-Proof snapshot `a355d6a` (Lean 4.34.0, R01c-2b) passed private Linux run
-`36531570958` and the Palomar Theorem 1 entry build `36531570799`; R01c-2a
+Proof snapshot `fdc7192` (Lean 4.34.0, R01e-1) passed private Linux run
+`36534148207` and the Palomar Theorem 1 entry build `36534147977`; R01c-2b
+(`a355d6a`) passed `36531570958` and `36531570799`; R01c-2a
 (`b3ace55`) passed `36530871025` and `36530871009`; R01f (`0b86eb5`) passed
 `36526873942` and `36526873791`; R01d
 (`83e7efe`) passed `36525631447` and `36525631472`; R01c-1

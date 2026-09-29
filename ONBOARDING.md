@@ -554,10 +554,18 @@ Sprint 4 genus track and later work, in order (checked = done):
       (F·dx regular iff φ(F)/s² is in the local ring: d(1/s) = −ds/s² and
       kummer_regularAt_unramified); dualS_mem and dualS_inv_notMem (s a
       nonunit), dualR_mem_and_inv_mem (r a unit).
-- [ ] R01e-2 affine step and isotypic split: for holomorphic F·dx, F·y³ lies in
-      every point's local ring (kummer_regularAt_unramified/_ramified), hence
-      in ℂ[x][y] (kummer_mem_range_of_forall_local), so F = Σ aᵢ(x)·y^(i−3);
-      the automorphism y ↦ i·y and its projectors make each term holomorphic.
+- [x] CI: R01e-1 fdc7192 passed (Lean run 36534148207, Palomar Theorem 1 entry
+      build 36534147977).
+- [x] R01e-2 affine step and isotypic split (FermatSplit):
+      quartic_mul_y3_mem_range (F·y³ in every point's local ring by
+      kummer_regularAt_unramified/_ramified, then
+      kummer_mem_range_of_forall_local); kummer_exists_sum (reduce modulo the
+      monic Yⁿ − f: Σ_{j<n} aⱼ(x)·yʲ); quarticRot, the automorphism y ↦ i·y
+      over ℂ(x) (liftAlgHom, bijective by AlgHom.bijective, restricted to ℂ);
+      quarticRot_mem (σ keeps F·dx holomorphic since σx = x);
+      quarticRot_term (σ(aⱼ(x)·yʲ/y³) = iʲ⁺¹·aⱼ(x)·yʲ/y³);
+      quartic_isotypic_mem (4·Gⱼ is a ±1/±i combination of F, σF, σ²F, σ³F);
+      quartic_holomorphic_split (the four pieces are each holomorphic).
 - [ ] R01e-3 degree bound and genus 3: at fermatInfinityPlace,
       aᵢ(x)·y^(i−3)·dx is regular iff deg aᵢ ≤ 1 − i (reversed polynomial a
       unit, s a nonunit, r a unit); span, a basis of three, genus = 3; endpoint

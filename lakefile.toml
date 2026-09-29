@@ -121,5 +121,6 @@ roots = [
   "KummerLocal",
   "KummerPlaces",
   "FermatInfinity",
+  "FermatSplit",
   "CurveSymmetry",
 ]

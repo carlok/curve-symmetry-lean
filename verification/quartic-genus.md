@@ -247,8 +247,37 @@ only this one, because the automorphism `y ↦ i·y` (R01e-2) splits a
 holomorphic differential into terms whose regularity at one place over
 infinity already bounds their degree.
 
+## R01e-2: the split into four pieces
+
+[FermatSplit](../lean/FermatSplit.lean). Every differential of the quartic is
+`F·dx`.
+
+- `quartic_mul_y3_mem_range`: if `F·dx` is holomorphic, then at a point with
+  `f(a) ≠ 0` R01c-2b gives `F` in the local ring (so `F·y³` too, `y` being in
+  it), and at a point with `f(a) = 0` it gives `F·y³` directly. An element of
+  every affine local ring comes from the coordinate ring
+  (`kummer_mem_range_of_forall_local`).
+- `kummer_exists_sum`: an element of `ℂ[x][Y]/(Yⁿ − f)` is `Σ_{j<n} aⱼ(x)·yʲ`
+  (reduce modulo the monic `Yⁿ − f`, `AdjoinRoot.modByMonicHom`). So
+  `F·y³ = a₀ + a₁y + a₂y² + a₃y³`.
+- `quarticRot`: `σ : y ↦ i·y` over `ℂ(x)`, well defined since `(iy)⁴ = y⁴`,
+  bijective as an endomorphism of a finite extension (`AlgHom.bijective`), then
+  restricted to `ℂ`. `quarticRot_mem`: since `σ(x) = x`, R01a's invariance
+  (`kaehlerTransport_mem_holomorphicSpace`) gives `σ(F)·dx` holomorphic.
+- `quarticRot_term`: `σ(aⱼ(x)·yʲ/y³) = iʲ⁺¹·aⱼ(x)·yʲ/y³`, with eigenvalues
+  `i, −1, −i, 1` for `j = 0, 1, 2, 3`.
+- `quartic_isotypic_mem`: in any `σ`-stable `ℂ`-subspace, the eigencomponents
+  of an element lie in it, by `4·G₃ = F + σF + σ²F + σ³F`,
+  `4·G₁ = F − σF + σ²F − σ³F`, `4·G₀ = F − i·σF − σ²F + i·σ³F` and
+  `4·G₂ = F + i·σF − σ²F − i·σ³F`.
+- `quartic_holomorphic_split`: each `aⱼ(x)·yʲ·dx/y³` is holomorphic
+  (membership in `quarticHoloCoeffs`, the `ℂ`-subspace of such `F`).
+
 ## Checks
 
+- R01e-2: module, aggregate and audit compiled with warnings as errors; audit
+  2,034 declarations; 108 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01e-1: module, aggregate and audit compiled with warnings as errors; audit
   1,991 declarations; 107 modules; full clean `lean/check.sh` rerun before the
   commit.

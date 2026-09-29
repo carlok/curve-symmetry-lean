@@ -104,5 +104,6 @@ import PaperRemarks
 import KummerLocal
 import KummerPlaces
 import FermatInfinity
+import FermatSplit
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
