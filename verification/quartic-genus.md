@@ -4,7 +4,7 @@ Remark 5 of the note: `Re(z⁴) = 1` attains the rotation bound in degree four
 but is not in the `m = 2` family, "since its normalization has genus three
 rather than two". User decisions: the proof goes through genus as printed
 (2026-09-15), and the row closes only with the quartic's genus exactly three
-(2026-09-28).
+(2026-09-28). R01e-3 closed it on 2026-09-29 (`paper_degree_four_genus`).
 
 G09 proved the family's genus through its explicit list of places
 (`holomorphicDifferentials m α`). A similarity only gives an isomorphism of
@@ -273,8 +273,38 @@ infinity already bounds their degree.
 - `quartic_holomorphic_split`: each `aⱼ(x)·yʲ·dx/y³` is holomorphic
   (membership in `quarticHoloCoeffs`, the `ℂ`-subspace of such `F`).
 
+## R01e-3: the genus is three
+
+[FermatGenus](../lean/FermatGenus.lean), endpoint in
+[PaperRemarks](../lean/PaperRemarks.lean).
+
+- `fermatInfinityMap_poly`: in the chart at infinity a polynomial in `x`
+  becomes `p(1/s) = rev(p)(s)·s^(−deg p)` (`eval₂_reverse_mul_pow`), and
+  `rev(p)(0)` is the leading coefficient of `p`.
+- `quarticTerm_natDegree_le`: a piece `p(x)·yʲ·dx/y³` with `p ≠ 0`, regular at
+  the place over `x = ∞`, has `deg p + j ≤ 1`. By R01e-1 regularity means
+  `φ(p·yʲ/y³)/s²` lies in the local ring, and
+  `φ(p·yʲ/y³)/s² = rev(p)(s)·rʲ·r⁻³·s³·s^(−(deg p + j + 2))`. The factor
+  `rev(p)(s)·rʲ·r⁻³` is a unit (`rev(p)(0) ≠ 0`, `r(0, ζ) = ζ ≠ 0`). If
+  `deg p + j = 2 + k`, then `s^(−(k+1))` lies in the local ring, and so does
+  `1/s = s^(−(k+1))·sᵏ`, against `dualS_inv_notMem`.
+- `quartic_holomorphicSpace_le_span`: with R01e-2's split, `a₂ = a₃ = 0`, `a₁`
+  is constant and `deg a₀ ≤ 1`, so a holomorphic differential is
+  `c₀·dx/y³ + c₁·x·dx/y³ + e·dx/y²` (`quartic_span_combination`).
+  `quartic_holomorphicSpace_eq_span`: with R01d's `quarticHolo_mem`, equality.
+- `quartic_genus`: the three are independent (`quarticHolo_linearIndependent`),
+  so the genus is three. `fermatFunctionField_genus`: the same for the plane
+  curve's function field, through R01f's `fermatFunctionFieldAlgEquiv` and
+  R01a's `genus_congr`.
+- `paper_degree_four_genus`: four rotations, genus three, genus two for every
+  `m = 2` family curve (`paper_family_genus`), and no direct or opposite
+  similarity (`paper_degree_four_not_in_family`).
+
 ## Checks
 
+- R01e-3: modules, aggregate and audit compiled with warnings as errors; audit
+  2,058 declarations; 109 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01e-2: module, aggregate and audit compiled with warnings as errors; audit
   2,034 declarations; 108 modules; full clean `lean/check.sh` rerun before the
   commit.

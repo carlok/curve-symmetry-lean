@@ -122,7 +122,8 @@ Its affine complexification is
 `X^m(alpha + XY) + Y^m(conjugate(alpha) + XY)`.
 Total degree is m+2; bidegree is (m+1,m+1). The normalization genus m is
 proved at the approved function-field reading (family_genus, G09); the
-quartic comparison R01 is open.
+quartic comparison R01 is proved as printed (genus three against two,
+paper_degree_four_genus).
 
 Types: BPoly is MvPolynomial (Fin 2) C; realLocus evaluates at (z,conj z);
 Sphere is OnePoint C; Möbius matrices are GL(2,C) acting on the standard
@@ -566,10 +567,17 @@ Sprint 4 genus track and later work, in order (checked = done):
       quarticRot_term (σ(aⱼ(x)·yʲ/y³) = iʲ⁺¹·aⱼ(x)·yʲ/y³);
       quartic_isotypic_mem (4·Gⱼ is a ±1/±i combination of F, σF, σ²F, σ³F);
       quartic_holomorphic_split (the four pieces are each holomorphic).
-- [ ] R01e-3 degree bound and genus 3: at fermatInfinityPlace,
-      aᵢ(x)·y^(i−3)·dx is regular iff deg aᵢ ≤ 1 − i (reversed polynomial a
-      unit, s a nonunit, r a unit); span, a basis of three, genus = 3; endpoint
-      paper_degree_four_scope in PaperRemarks. Closes R01.
+- [x] CI: R01e-2 2024297 passed (Lean run 36537209389, Palomar Theorem 1 entry
+      build 36537209167).
+- [x] R01e-3 degree bound and genus 3 (FermatGenus, PaperRemarks):
+      fermatInfinityMap_poly (p(1/s) = rev(p)(s)·s^(−deg p), via
+      eval₂_reverse_mul_pow); quarticTerm_natDegree_le (a regular piece
+      aⱼ(x)·yʲ·dx/y³ with aⱼ ≠ 0 has deg aⱼ + j ≤ 1: in the chart it is the unit
+      rev(aⱼ)(s)·rʲ·r⁻³ times s^(1 − deg aⱼ − j), and 1/s is not in the local
+      ring); quartic_holomorphicSpace_eq_span; quartic_genus;
+      fermatFunctionField_genus. Endpoint paper_degree_four_genus (four
+      rotations, genus 3, every m = 2 family curve genus 2, no similarity).
+      Closes R01.
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O
@@ -612,8 +620,9 @@ Sprint 4 genus track and later work, in order (checked = done):
 
 Sprints 0–3 complete at their stated scopes.
 Sprint 4: the function field, its places, the branch points and the genus m
-are proved at the recorded readings (G07–G09). R01 remains: an intrinsic
-genus, then the quartic's genus three (tracker). The Riemann–Hurwitz divisor
+are proved at the recorded readings (G07–G09). R01 is proved as printed: the
+quartic's genus is three (R01e-3, paper_degree_four_genus). Next: the Sprint 4
+gate. The Riemann–Hurwitz divisor
 identity is not pursued (user, 2026-09-28). Mathlib still has no genus,
 Riemann–Roch or Riemann–Hurwitz. Do not manufacture an invariant or weaken
 the goal.

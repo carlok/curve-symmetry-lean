@@ -117,10 +117,11 @@ roots = [
   "KummerField",
   "FermatHolomorphic",
   "QuarticComparison",
-  "PaperRemarks",
   "KummerLocal",
   "KummerPlaces",
   "FermatInfinity",
   "FermatSplit",
+  "FermatGenus",
+  "PaperRemarks",
   "CurveSymmetry",
 ]

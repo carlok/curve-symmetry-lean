@@ -6,9 +6,9 @@ normalized equality classification, and its converse. The endpoints start
 with real Cartesian polynomials and count actual Mathlib Euclidean isometries.
 The direct subgroup is also proved cyclic and identified with determinant `+1`
 of the real-linear part. Every clause of Theorem 2 is checked for actual
-ambient transformations, and Lemma 4's genus `m` at the function-field reading
-(below). **Remark 5's genus comparison (R01) is not yet formalized.** Theorem
-1 alone is registered with Palomar as `PALOMAR-2026-09-18-000007`, from the
+ambient transformations. So are Lemma 4's genus `m`, at the function-field
+reading (below), and Remark 5's genus comparison (R01): the quartic has genus
+three, the `m = 2` family genus two. Theorem 1 alone is registered with Palomar as `PALOMAR-2026-09-18-000007`, from the
 separate public repository `carlok/sharp-symmetry-bounds-lean`; nothing else
 here has been submitted.
 
@@ -223,13 +223,7 @@ of the normalization is that reading, not a scheme-theoretic theorem.
 
 ## Remaining proof obligations
 
-1. **R01 (Remark 5).** `Re(z⁴) = 1` is not carried onto an `m = 2` family
-   curve by a similarity, because the genera are three and two. Planned: an
-   intrinsic genus for any `K/ℂ`, invariant under `ℂ`-algebra isomorphisms;
-   its agreement with the family's; the Kummer cover `y⁴ = 2 − x⁴` and its
-   genus three; the step from a similarity to an isomorphism of function
-   fields. See the tracker in `ONBOARDING.md`.
-2. **Registry and paper.** The negative controls of the private dry run
+1. **Registry and paper.** The negative controls of the private dry run
    (Sprint 6) and the TeX formalization appendix (Sprint 7). A successful
    local Lean build is not a Palomar dry run or acceptance result.
 
@@ -269,7 +263,7 @@ The root TOML Lakefile, toolchain and exact manifest support a portable Lake
 build. Private Linux CI checks a clean project checkout with the pinned upstream
 dependency artifacts. See the [full coverage ledger](../COVERAGE.md) for the
 supporting claims and their readings; completion of Theorems 1 and 2 does not
-imply completion of every lemma and remark in the exposition (R01 is open).
+imply completion of every lemma and remark in the exposition.
 
 The existing library checkouts and TeX are unchanged. Local kernel verification
 does not certify novelty or replace the literature and independent-review

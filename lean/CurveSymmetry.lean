@@ -100,10 +100,11 @@ import FamilyGenus
 import KummerField
 import FermatHolomorphic
 import QuarticComparison
-import PaperRemarks
 import KummerLocal
 import KummerPlaces
 import FermatInfinity
 import FermatSplit
+import FermatGenus
+import PaperRemarks
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
