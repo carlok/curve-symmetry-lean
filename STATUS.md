@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, the family's genus at the intrinsic reading (R01b), 2026-09-29.
+Snapshot: Sprint 4, the Kummer field of the quartic (R01c-1), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -51,6 +51,10 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
   (`genus_congr`). For the family it agrees with G09's explicit places, so the
   function field of the family curve has genus `m` in this sense (R01b,
   `familyFunctionField_genus`).
+- The Kummer cover `yⁿ = f` for squarefree `f` (R01c-1, `KummerField`):
+  irreducibility, the coordinate ring inside the function field, and the
+  differentials `Ω = K·dx` with `n·yⁿ⁻¹·dy = f'(x)·dx`. The quartic
+  `X⁴ + Y⁴ = 2` is the case `n = 4`, `f = 2 − x⁴`; its genus is still open.
 
 ## Still missing
 
@@ -71,11 +75,11 @@ the negative controls are still to run. No arXiv preprint is planned (user,
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 100 |
-| Written theorem/lemma declarations | 781 |
-| Written definitions/abbreviations/structures/inductives | 193 |
-| Lean source lines, including comments and blank lines | 13,183 |
-| Audited namespace declarations, including generated/private machinery | 1,728 |
+| Lean source files (including aggregate) | 101 |
+| Written theorem/lemma declarations | 798 |
+| Written definitions/abbreviations/structures/inductives | 201 |
+| Lean source lines, including comments and blank lines | 13,430 |
+| Audited namespace declarations, including generated/private machinery | 1,772 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 

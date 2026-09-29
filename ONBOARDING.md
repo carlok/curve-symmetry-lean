@@ -480,9 +480,14 @@ Sprint 4 genus track and later work, in order (checked = done):
       Frac(ℂ[X,Y]/(P_α)) is m. Generic addition: mem_regularAt_comap_iff.
 - [x] CI: R01a bf890d5 passed (Lean run 36520991772, Palomar Theorem 1 entry
       build 36520991768); R01b 3a84ca1 passed (36521674393, 36521674439).
-- [ ] R01c-1 Kummer field ℂ(x)[y]/(yⁿ − f), f squarefree (KummerField):
-      irreducibility by Eisenstein at a simple root plus Gauss; Ω = K·dx;
-      n·yⁿ⁻¹·dy = f'(x)·dx; fermatNested 4 is the Kummer polynomial of 2 − x⁴.
+- [x] R01c-1 Kummer field (KummerField): kummerPoly/KummerRing over ℂ[x],
+      kummerRat/KummerField over ℂ(x); kummerPoly_irreducible (Eisenstein at a
+      simple root of squarefree nonconstant f) and kummerRat_irreducible (Gauss);
+      kummerRingMap_injective (division by the monic Yⁿ − f); kummerKaehlerBasis,
+      kummer_kaehler_finrank = 1, kummer_D_x_ne_zero, kummer_D_algebraMap,
+      kummer_D_root: n·yⁿ⁻¹·dy = f'(x)·dx. Quartic: fermatQuartic = 2 − x⁴,
+      fermatNested_eq_kummerPoly, and the Fact instance from
+      fermatNested_irreducible.
 - [ ] R01d quartic lower bound (FermatHolomorphic): dx/y³, x·dx/y³ and dx/y²
       are regular at every place (valuation-ring arguments, no classification)
       and independent over ℂ.

@@ -83,8 +83,36 @@ makes it `ℂ`-linear (the constants go through `familyRatFuncHom`, a
 `Frac(ℂ[X,Y]/(P_α))` of the family curve has genus `m`** at the reading of
 R01a.
 
+## R01c-1: the Kummer cover `yⁿ = f`
+
+[KummerField](../lean/KummerField.lean), generic in `n` and `f : ℂ[x]`.
+
+- `kummerPoly n f = Yⁿ − f` over `ℂ[x]` with `KummerRing n f` its quotient, and
+  `kummerRat n f` over `ℂ(x)` with `KummerField n f`.
+- Irreducibility, for `n ≠ 0` and `f` squarefree and nonconstant: `f` has a root
+  `c`; Eisenstein's criterion at `(x − c)` applies because every lower
+  coefficient of `Yⁿ − f` is `0` or `−f`, and `(x − c)² ∤ f` by squarefreeness
+  (`kummerPoly_irreducible`). Gauss's lemma for the monic polynomial carries it
+  to `ℂ(x)` (`kummerRat_irreducible`). Mathlib's `X_pow_sub_C_irreducible_*`
+  lemmas do not cover `n = 4`.
+- `kummerRingMap : KummerRing n f → KummerField n f`, `Y ↦ y`, is injective
+  (`kummerRingMap_injective`): if `g(y) = 0` in the field then `Yⁿ − f` divides
+  `g` over `ℂ(x)`, the remainder of `g` by the monic `Yⁿ − f` maps to zero, and
+  `ℂ[x] → ℂ(x)` is injective.
+- Differentials, as in G09a-1: `ℂ(x)` is a localization of `ℂ[x]`, and the field
+  is separable over `ℂ(x)` in characteristic zero, so the basis `dx` of
+  `Ω[ℂ[x]⁄ℂ]` transports (`kummerKaehlerBasis`, `kummer_kaehler_finrank = 1`,
+  `kummer_D_x_ne_zero`); the chain rule is `kummer_D_algebraMap`, and
+  differentiating `yⁿ = f(x)` gives `kummer_D_root`: `n·yⁿ⁻¹·dy = f'(x)·dx`.
+- The quartic: `fermatQuartic = 2 − x⁴`, `fermatNested_eq_kummerPoly`
+  (`fermatNested 4` from `Fermat` is `kummerPoly 4 (2 − x⁴)`), and the `Fact`
+  instance for the field structure from `fermatNested_irreducible`.
+
 ## Checks
 
+- R01c-1: module, aggregate and audit compiled with warnings as errors; audit
+  1,772 declarations; 101 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01b: modules, aggregate and audit compiled with warnings as errors against
   `mathlib-v4.34.0-reuse`; full clean `lean/check.sh` rerun before the commit.
 - Namespace axiom audit: 1,728 declarations, allowlist `propext`,
