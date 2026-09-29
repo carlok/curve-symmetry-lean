@@ -101,5 +101,6 @@ import KummerField
 import FermatHolomorphic
 import QuarticComparison
 import PaperRemarks
+import KummerLocal
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

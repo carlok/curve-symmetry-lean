@@ -118,5 +118,6 @@ roots = [
   "FermatHolomorphic",
   "QuarticComparison",
   "PaperRemarks",
+  "KummerLocal",
   "CurveSymmetry",
 ]
