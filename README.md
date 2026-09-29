@@ -14,6 +14,10 @@ The elementary coefficient method is credited to Lebmeir–Richter-Gebert and Le
 
 The note also replaces the auxiliary `4d` symmetry bound in the checked Pach–de Zeeuw manuscript by `2d`. This improves a constant, not the exponent in their distinct-distance result.
 
+<p align="center"><img src="figures/quintic-real.png" width="360" alt="The quintic Re(z^3(|z|^2 + i)) = 0"></p>
+
+The quintic `Re(z^3(|z|^2 + i)) = 0` from the note: the case `d = 5`, `a = i` of the classification, with six rotations, the maximum `2d - 4`. `uv run figures/quintic.py` draws it, and a view of its complex points in `figures/quintic-complex.png`.
+
 ## Status
 
 Proofs have been reconstructed, checked against exceptional cases, and tested with exact symbolic arithmetic. The literature search found the underlying method, but not the sharp-bound/equality-classification package stated here. **That is not a certificate of novelty.** No external expert review has occurred. The relevant versions and remaining checks are recorded in [CHECKS.md](CHECKS.md).
