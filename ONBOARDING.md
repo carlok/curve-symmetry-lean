@@ -505,9 +505,21 @@ Sprint 4 genus track and later work, in order (checked = done):
       classification. quarticHolo_mem: dx/y³, x·dx/y³, dx/y² are holomorphic;
       quarticHolo_linearIndependent via quartic_lin_eq_zero (a + bx + cy = 0
       forces a = b = c = 0, since y has degree four over ℂ(x)).
-- [ ] R01f similarity ⇒ ℂ-algebra isomorphism of the function fields
-      (shift/dilate, proportional_of_realLocus_subset); non-similarity of
-      Re(z⁴) = 1 and the m = 2 family through genus (QuarticComparison).
+- [x] CI: R01d 83e7efe passed (Lean run 36525631447, Palomar Theorem 1 entry
+      build 36525631472). README rewritten for outside readers (eea7ab3; the
+      Díaz / p20 disclaimer and internal notes removed, user request).
+- [x] R01f (QuarticComparison, PaperRemarks): kummerRing_isFractionRing
+      (IsFractionRing.of_field with integerNormalization); FermatCoordinateRing,
+      FermatFunctionField, fermatFunctionFieldAlgEquiv to the Kummer field
+      (quotientEquivAlg through toNested, then algEquivOfAlgEquiv); simPull and
+      simPullEquiv, the substitution along z ↦ az + b as an automorphism of
+      ℂ[X,Y]; similarity_span_eq (dvd_of_realLocus_subset both ways, so the two
+      equations are associates after the substitution, no degree argument);
+      similarityFunctionFieldEquiv; quartic_three_le_genus;
+      quartic_not_similar_family and quartic_not_oppositeSimilar_family (the
+      quartic is conjugation-symmetric). Endpoints paper_family_genus and
+      paper_degree_four_not_in_family (rotation count 4 and no similarity, for
+      every nonreal α). R01 stays open until R01e (exact genus 3).
 - [ ] R01c-2 Kummer ring places (KummerPlaces): maximal ideals are the points
       (a, b), bⁿ = f(a); uniformizers x − a (f(a) ≠ 0) and y (f(a) = 0); DVR
       from a principal maximal ideal; Dedekind; DedekindPlaces instantiated.

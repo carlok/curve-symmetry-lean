@@ -136,8 +136,44 @@ gives `a + b·x + c·y = 0`, and `quartic_lin_eq_zero` writes this as
 `AdjoinRoot.mk` of a polynomial of degree at most one in `y`, divisible by the
 degree-four `y⁴ − (2 − x⁴)`, hence zero.
 
+## R01f: similarity, isomorphism, non-similarity
+
+[QuarticComparison](../lean/QuarticComparison.lean) and
+[PaperRemarks](../lean/PaperRemarks.lean).
+
+- The Kummer field is the fraction field of the Kummer ring
+  (`kummerRing_isFractionRing`): clear the denominators of a representative with
+  `IsLocalization.integerNormalization`.
+- `FermatCoordinateRing d = ℂ[X,Y]/(X^d + Y^d − 2)` and its fraction field
+  `FermatFunctionField d`; `fermatCoordinateRingEquiv` sends it to the Kummer
+  ring through `toNested` (`fermatNested 4` is `kummerPoly 4 (2 − x⁴)`), and
+  `fermatFunctionFieldAlgEquiv` is the induced isomorphism of fraction fields.
+- `simPull a b` substitutes `X ↦ aX + b`, `Y ↦ āY + b̄`, so that a polynomial
+  pulled back vanishes at `z` exactly when the original vanishes at `az + b`
+  (`mem_realLocus_simPull`); with `a ≠ 0` it is an automorphism
+  (`simPullEquiv`, inverse along `z ↦ a⁻¹z − a⁻¹b`).
+- `similarity_span_eq`: if `z ↦ az + b` carries the real locus of `Q` onto that
+  of `P`, both irreducible with infinite real loci, then `Q` divides the
+  pullback of `P` and `P` divides the pullback of `Q` along the inverse
+  (`dvd_of_realLocus_subset` both ways). Pulling the first back makes the
+  pulled-back `Q` and `P` associates, so the ideals agree; no degree argument is
+  needed. `similarityFunctionFieldEquiv` is the resulting isomorphism of function
+  fields.
+- `quartic_three_le_genus`: three independent holomorphic differentials (R01d)
+  inside a finite-dimensional space. `quartic_not_similar_family`: a direct
+  similarity onto `extremalCurve 2 α` would make the quartic's genus equal to
+  the family's, `2` (R01b), but a genus `2` space is finite-dimensional and
+  would contain the three. The orientation-reversing case follows because
+  `Re(z̄⁴) = Re(z⁴)` (`image_star_quartic`).
+- `paper_degree_four_not_in_family`: the rotation count `4` (`fermat_direct_card`)
+  and no similarity of either kind onto an `m = 2` family curve, for every
+  nonreal parameter; `paper_family_genus` restates `familyFunctionField_genus`.
+
 ## Checks
 
+- R01f: modules, aggregate and audit compiled with warnings as errors; audit
+  1,875 declarations; 104 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01d: module, aggregate and audit compiled with warnings as errors; audit
   1,823 declarations; 102 modules; full clean `lean/check.sh` rerun before the
   commit.

@@ -33,8 +33,11 @@ parameter-equivalence criteria hold. Lemma 4 is checked: irreducibility, the
 singular pair and its ordinary `m`-fold points (in standard charts), and genus
 `m`, read as the genus of the function field (the dimension of its holomorphic
 differentials). Lean reaches the genus through an explicit basis, not through
-Riemann–Hurwitz. Remark 5's comparison of `Re(z^4) = 1` (genus three) with the
-`m = 2` family (genus two) is in progress.
+Riemann–Hurwitz. For Remark 5, no similarity carries `Re(z^4) = 1` onto a curve
+of the `m = 2` family: its function field has three independent holomorphic
+differentials, the family's has genus two, and a similarity induces an
+isomorphism of function fields. That the quartic's genus is exactly three is
+in progress.
 
 [COVERAGE.md](COVERAGE.md) lists each claim with its Lean declarations and the
 reading it is checked at; [STATUS.md](STATUS.md) has the current counts. Only

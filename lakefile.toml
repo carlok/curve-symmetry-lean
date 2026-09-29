@@ -116,5 +116,7 @@ roots = [
   "FamilyGenus",
   "KummerField",
   "FermatHolomorphic",
+  "QuarticComparison",
+  "PaperRemarks",
   "CurveSymmetry",
 ]

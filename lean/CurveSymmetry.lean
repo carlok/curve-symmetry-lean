@@ -99,5 +99,7 @@ import FunctionFieldGenus
 import FamilyGenus
 import KummerField
 import FermatHolomorphic
+import QuarticComparison
+import PaperRemarks
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
