@@ -120,5 +120,6 @@ roots = [
   "PaperRemarks",
   "KummerLocal",
   "KummerPlaces",
+  "FermatInfinity",
   "CurveSymmetry",
 ]

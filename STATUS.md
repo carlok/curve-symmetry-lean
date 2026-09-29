@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, the places of the Kummer cover (R01c-2b), 2026-09-29.
+Snapshot: Sprint 4, the quartic's chart at infinity (R01e-1), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -67,6 +67,10 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
   is Dedekind (R01c-2a, `KummerLocal`). Its places over the affine line, their
   local differentials and the regularity criteria for `F·dx` (R01c-2b,
   `KummerPlaces`).
+- The quartic's chart at infinity: `x = 1/s`, `y = r/s` with `r⁴ = 2s⁴ − 1`
+  identifies its function field with a second Kummer field, and at a place
+  over `x = ∞` the differential `F·dx` is regular iff `φ(F)/s²` lies in the
+  local ring (R01e-1, `FermatInfinity`).
 
 ## Still missing
 
@@ -87,11 +91,11 @@ the negative controls are still to run. No arXiv preprint is planned (user,
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 106 |
-| Written theorem/lemma declarations | 858 |
-| Written definitions/abbreviations/structures/inductives | 216 |
-| Lean source lines, including comments and blank lines | 14,702 |
-| Audited namespace declarations, including generated/private machinery | 1,936 |
+| Lean source files (including aggregate) | 107 |
+| Written theorem/lemma declarations | 879 |
+| Written definitions/abbreviations/structures/inductives | 224 |
+| Lean source lines, including comments and blank lines | 14,962 |
+| Audited namespace declarations, including generated/private machinery | 1,991 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
@@ -104,8 +108,10 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-Proof snapshot `0b86eb5` (Lean 4.34.0, R01f) passed private Linux run
-`36526873942` and the Palomar Theorem 1 entry build `36526873791`; R01d
+Proof snapshot `a355d6a` (Lean 4.34.0, R01c-2b) passed private Linux run
+`36531570958` and the Palomar Theorem 1 entry build `36531570799`; R01c-2a
+(`b3ace55`) passed `36530871025` and `36530871009`; R01f (`0b86eb5`) passed
+`36526873942` and `36526873791`; R01d
 (`83e7efe`) passed `36525631447` and `36525631472`; R01c-1
 (`30b60ac`) passed `36524242075` and `36524242224`; R01b
 (`3a84ca1`) passed `36521674393` and `36521674439`; R01a

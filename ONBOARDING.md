@@ -533,6 +533,8 @@ Sprint 4 genus track and later work, in order (checked = done):
       kummerRing_isDedekindDomain (isDedekindDomain_iff_isDiscreteValuationRing_atPrime;
       nonzero primes are maximal by integrality over ℂ[x]). No integral-closure
       theorem needed.
+- [x] CI: R01c-2a b3ace55 passed (Lean run 36530871025, Palomar Theorem 1 entry
+      build 36530871009).
 - [x] R01c-2b Kummer places (KummerPlaces): kummerLocalRing and kummerPlace
       from DedekindPlaces (Dedekind and fraction-field instances),
       kummerPlace_isComplexPlace, kummerRing_residue,
@@ -541,11 +543,25 @@ Sprint 4 genus track and later work, in order (checked = done):
       f(a) ≠ 0) and kummer_regularAt_ramified (iff F·yⁿ⁻¹ is, where f(a) = 0,
       using n·yⁿ⁻¹dy = f'(x)dx with f'(x) a unit at a simple root);
       kummer_mem_range_of_forall_local (MaximalSpectrum.iInf_localization_eq_bot).
-- [ ] R01e quartic genus exactly 3 (FermatGenus): chart at infinity
-      (x ↦ 1/s, y ↦ r/s, r⁴ = 2s⁴ − 1), F·y³ ∈ ℂ[x][y] at the affine places,
-      isotypic split under y ↦ i·y, degree bound at one infinite place;
-      endpoints paper_family_genus and paper_degree_four_scope in a new
-      PaperRemarks module. Closes R01.
+- [x] CI: R01c-2b a355d6a passed (Lean run 36531570958, Palomar Theorem 1 entry
+      build 36531570799).
+- [x] R01e-1 chart at infinity (FermatInfinity): fermatQuartic = 2 − x⁴ and
+      fermatDual = 2s⁴ − 1 squarefree of degree four (Fact instances, so
+      R01c-2 applies to both); fermatInfinityMap (AdjoinRoot.lift through
+      ratInv: x ↦ 1/s, y ↦ r/s), surjective, hence fermatInfinityAlgEquiv
+      K ≃ₐ[ℂ] K'; fermatInfinityPlace, the comap of kummerPlace at (0, ζ),
+      ζ⁴ = −1, a complex place not containing x; fermat_regularAt_infinity_iff
+      (F·dx regular iff φ(F)/s² is in the local ring: d(1/s) = −ds/s² and
+      kummer_regularAt_unramified); dualS_mem and dualS_inv_notMem (s a
+      nonunit), dualR_mem_and_inv_mem (r a unit).
+- [ ] R01e-2 affine step and isotypic split: for holomorphic F·dx, F·y³ lies in
+      every point's local ring (kummer_regularAt_unramified/_ramified), hence
+      in ℂ[x][y] (kummer_mem_range_of_forall_local), so F = Σ aᵢ(x)·y^(i−3);
+      the automorphism y ↦ i·y and its projectors make each term holomorphic.
+- [ ] R01e-3 degree bound and genus 3: at fermatInfinityPlace,
+      aᵢ(x)·y^(i−3)·dx is regular iff deg aᵢ ≤ 1 − i (reversed polynomial a
+      unit, s a nonunit, r a unit); span, a basis of three, genus = 3; endpoint
+      paper_degree_four_scope in PaperRemarks. Closes R01.
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O

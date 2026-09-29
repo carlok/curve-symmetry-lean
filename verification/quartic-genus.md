@@ -217,8 +217,41 @@ here they come from explicit uniformizers, and Dedekind-ness follows.
   comes from the coordinate ring (`MaximalSpectrum.iInf_localization_eq_bot`
   with `kummerRing_isMaximal_iff`).
 
+## R01e-1: the quartic's chart at infinity
+
+[FermatInfinity](../lean/FermatInfinity.lean). The quartic is `y⁴ = f(x)` with
+`f = 2 − x⁴`. With `x = 1/s` and `y = r/s` the equation becomes
+`r⁴ = 2s⁴ − 1 = g(s)`.
+
+- `fermatQuartic_squarefree`, `fermatDual_squarefree` (associates of
+  `X⁴ − 2` and `X⁴ − 1/2`, separable in characteristic zero) and the degree
+  lemmas: `f` and `g` are squarefree of degree four, so R01c-2 applies to
+  `K = KummerField 4 f` and to `K' = KummerField 4 g`.
+- `fermatInfinityMap`: `x ↦ 1/s`, `y ↦ r/s`, well defined because
+  `(r/s)⁴ = 2 − 1/s⁴ = f(1/s)` (`dualR_pow`, `fermatQuartic_ratInv`). It is onto
+  (`r = φ(y)·s` and `ratInv` is onto `ℂ(s)`), so `fermatInfinityAlgEquiv`.
+- `fermatInfinityPlace`: the pull-back of the place of `K'` at `(0, ζ)`,
+  `ζ⁴ = −1 = g(0)`, an unramified point. It is a complex place and does not
+  contain `x` (`quarticX_notMem_fermatInfinityPlace`, because `1/s` is not in
+  the local ring, `dualS_inv_notMem`).
+- `fermat_regularAt_infinity_iff`: `F·dx` is regular there iff `φ(F)/s²` lies
+  in the local ring at `(0, ζ)`. Transport along the isomorphism
+  (`mem_regularAt_comap_iff`), `d(1/s) = −ds/s²`, and R01c-2b's criterion at an
+  unramified point.
+- `dualS_mem`, `dualR_mem_and_inv_mem`: `s` is in the local ring and `r` is a
+  unit there (`r(0, ζ) = ζ ≠ 0`). These, with `dualS_inv_notMem`, are what the
+  degree bound of R01e-3 uses.
+
+The four places over `x = ∞` are the points `(0, ζ)`; the genus count needs
+only this one, because the automorphism `y ↦ i·y` (R01e-2) splits a
+holomorphic differential into terms whose regularity at one place over
+infinity already bounds their degree.
+
 ## Checks
 
+- R01e-1: module, aggregate and audit compiled with warnings as errors; audit
+  1,991 declarations; 107 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01c-2b: module, aggregate and audit compiled with warnings as errors; audit
   1,936 declarations; 106 modules; full clean `lean/check.sh` rerun before the
   commit.

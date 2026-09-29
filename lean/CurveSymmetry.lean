@@ -103,5 +103,6 @@ import QuarticComparison
 import PaperRemarks
 import KummerLocal
 import KummerPlaces
+import FermatInfinity
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
