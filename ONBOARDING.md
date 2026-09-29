@@ -69,7 +69,9 @@ Do not create recurring work, publish the repository, contact experts or
 Palomar, or make an external submission. Those are not authorized.
 Exception (user, 2026-09-28): a private email to Alcázar, Lávička and Vršek
 is drafted outside this repository and sent by the user; the assistant sends
-nothing. This repository goes public only together with the preprint.
+nothing. No arXiv preprint will be posted (user, 2026-09-29: no arXiv
+access, no novelty claim); the Palomar registration of Theorem 1 is the public
+record. Whether this repository goes public is undecided.
 
 ## Current immutable proof checkpoint
 
@@ -100,7 +102,7 @@ decision 2026-09-17, SPRINTS Sprint 5): the first Palomar entry, Theorem 1 only,
 was developed in palomar/theorem1/, published as the separate public repository
 carlok/sharp-symmetry-bounds-lean and registered by the user as
 PALOMAR-2026-09-18-000007. Any further entry needs an explicit user go; a
-Theorem 2 entry is decided after the preprint (user, 2026-09-28). Never close gaps by
+Theorem 2 entry is undecided (user, 2026-09-28/29). Never close gaps by
 assuming conclusions, using custom axioms, redefining invariants conveniently,
 or replacing genuine genus by an arithmetic branch-count formula.
 Only propext, Classical.choice, and Quot.sound are permitted proof axioms.
@@ -451,6 +453,12 @@ Sprint 4 genus track and later work, in order (checked = done):
       exactly 3 (as Remark 5 prints); the Alcázar email is drafted now and sent
       by the user in parallel; a Theorem 2 Palomar entry is decided after the
       preprint.
+- [x] User decision 2026-09-29, superseding the preprint plan: no arXiv (no
+      access) and no novelty claim, since the specialist decides that. The
+      Palomar registration of Theorem 1 is the public record. The Alcázar email
+      is an FYI (the counterexample, where the formalization is); the rest is
+      up to him. A Theorem 2 entry and publishing this repository are
+      undecided.
 - [x] L01 ledger refresh: SPRINTS, ONBOARDING, COVERAGE, STATUS, CHECKS, both
       READMEs and the private formalization.yaml brought up to the genus commit.
 - [x] R01a intrinsic genus (FunctionFieldGenus, generic in K/ℂ): places are
@@ -513,8 +521,10 @@ Sprint 4 genus track and later work, in order (checked = done):
       user's word).
 - [ ] Negative controls in private CI (Sprint 6 gate), then Sprint 7 TeX
       integration.
-- [ ] Release, every step the user's: Alcázar's answer, arXiv, this
-      repository public with a scrub, journal, Lean Zulip, Mathlib PRs.
+- [ ] Outreach, every step the user's: the Alcázar email (drafted outside
+      the repository). No arXiv or journal step (user, 2026-09-29). Optional and
+      undecided: this repository public after a scrub, a Theorem 2 Palomar
+      entry, Lean Zulip, Mathlib PRs.
 
 ## Remaining major work
 
@@ -530,7 +540,7 @@ Sprint 5: accurate compact Challenge/Solution, permitted import closure,
 Comparator configuration, schema-valid metadata, pinned tools and honest
 literature/review status. Preserve inspected arXiv vs uninspected journal
 version distinctions. Done and registered for Theorem 1; a Theorem 2 entry is
-decided after the preprint.
+undecided (no preprint is planned).
 Sprint 6: immutable clean private Linux contract-faithful dry run, protected
 Comparator, isolated Challenge, credential/network-free proof sandbox,
 NanoDa replay and failing negative controls. No simulated sandbox counts.

@@ -64,8 +64,8 @@ G08 is proved at the recorded fibre-count reading.
 The normalization model (G07) is proved at the approved function-field reading.
 Sprints 5–7: Palomar contract, faithful private dry run and final TeX
 integration. For Theorem 1 the contract exists and the entry is registered;
-the negative controls are still to run. A Theorem 2 entry is decided after the
-preprint.
+the negative controls are still to run. No arXiv preprint is planned (user,
+2026-09-29); a Theorem 2 entry is undecided.
 
 ## Counts and trust boundary
 

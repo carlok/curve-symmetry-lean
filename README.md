@@ -26,8 +26,8 @@ The paper is unchanged during the formalization sprints. This is an independent
 Apache-2.0 project; its remote is the verified private repository
 `carlok/curve-symmetry-lean`. See [SPRINTS.md](SPRINTS.md) for completion gates
 and [migration evidence](verification/MIGRATION.md). This repository stays
-private until the preprint; any further release or Palomar entry needs the
-user's explicit go.
+private. No arXiv preprint is planned; any release or further Palomar entry
+needs the user's explicit go.
 
 ## Reproduce
 
