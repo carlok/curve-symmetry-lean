@@ -18,13 +18,16 @@ The note also replaces the auxiliary `4d` symmetry bound in the checked Pach–d
 
 Proofs have been reconstructed, checked against exceptional cases, and tested with exact symbolic arithmetic. The literature search found the underlying method, but not the sharp-bound/equality-classification package stated here. **That is not a certificate of novelty.** No external expert review has occurred. The relevant versions and remaining checks are recorded in [CHECKS.md](CHECKS.md).
 
-A [Lean port](lean/README.md) verifies every clause of Theorem 1, starting from real Cartesian polynomials and actual Euclidean isometry groups. For Theorem 2, the global Jacobian locus and the four-form completeness theorem are now checked: arbitrary Möbius or anti-Möbius spherical containment forces the stated forms, without assuming preservation of the singular pair. Local tangent-cone calculations and exact coefficient tests are also checked. **The Zariski-closure identification, full sphere-group classification, parameter-filter application, and genus assertions remain incomplete. No Palomar dry run has occurred.** Local development reuses installed Lean/Mathlib without copying libraries; private Linux CI independently rebuilds from the pinned dependencies.
+A [Lean port](lean/README.md) verifies every clause of Theorem 1, starting from real Cartesian polynomials and actual Euclidean isometry groups, and every clause of Theorem 2 for actual ambient transformations: arbitrary Möbius or anti-Möbius spherical containment forces the stated forms, the full ambient group is dihedral of order `4m`, the Euclidean group is the `2m` rotations, and the parameter-equivalence criteria hold. Lemma 4 is proved: irreducibility, the singular pair and its ordinary `m`-fold points (in standard charts), and genus `m` read as the genus of the function field (dimension of its holomorphic differentials). The Lean route to the genus is an explicit basis, not Riemann–Hurwitz. **Remark 5's genus comparison with `Re(z⁴)=1` (three versus two) is not yet formalized.** Readings and scope limits are in [COVERAGE.md](COVERAGE.md). Local development reuses installed Lean/Mathlib without copying libraries; private Linux CI independently rebuilds from the pinned dependencies.
+
+Theorem 1 alone is also published in the separate public repository [`carlok/sharp-symmetry-bounds-lean`](https://github.com/carlok/sharp-symmetry-bounds-lean) and registered with Palomar as [`PALOMAR-2026-09-18-000007`](https://palomar-registry.org/entry?id=PALOMAR-2026-09-18-000007&version=1), after mechanical verification and an automated editorial review. That is neither a human review nor a novelty certificate, and it covers nothing else in this repository.
 
 The paper is unchanged during the formalization sprints. This is an independent
 Apache-2.0 project; its remote is the verified private repository
 `carlok/curve-symmetry-lean`. See [SPRINTS.md](SPRINTS.md) for completion gates
-and [migration evidence](verification/MIGRATION.md). No public release or
-Palomar submission is authorized by the current work.
+and [migration evidence](verification/MIGRATION.md). This repository stays
+private until the preprint; any further release or Palomar entry needs the
+user's explicit go.
 
 ## Reproduce
 

@@ -30,8 +30,9 @@ Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 Theorem 1 has five `paper_*` theorem endpoints. Ambient completeness has two
 endpoints. A sixth `paper_*` endpoint now packages Theorem 2's basic geometry.
-Endpoint counts are not independent-new-result counts. Theorem 2 as a whole
-is still incomplete.
+Endpoint counts are not independent-new-result counts. Every clause of
+Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
+`paper_*` endpoint packages the whole theorem yet.
 
 ## Internal proved machinery
 
@@ -49,11 +50,16 @@ is still incomplete.
 
 Sprint 3 is complete at its stated ambient-transformation scope.
 Sprint 4: the genus `m` is proved at the recorded function-field reading
-(G09a, G09b; `family_genus`). Remaining: the quartic comparison (R01), and,
-optionally, the Riemann–Hurwitz degree identity as a divisor statement. G08 is
-proved at the recorded fibre-count reading.
+(G09a, G09b; `family_genus`). Remaining: the quartic comparison (R01), which
+closes only with the quartic's genus exactly three (user decision
+2026-09-28). The Riemann–Hurwitz degree identity as a divisor statement is not
+pursued (same decision); Lean proves the genus with an explicit basis instead.
+G08 is proved at the recorded fibre-count reading.
 The normalization model (G07) is proved at the approved function-field reading.
-Sprints 5–7: Palomar contract, faithful private dry run and final TeX integration.
+Sprints 5–7: Palomar contract, faithful private dry run and final TeX
+integration. For Theorem 1 the contract exists and the entry is registered;
+the negative controls are still to run. A Theorem 2 entry is decided after the
+preprint.
 
 ## Counts and trust boundary
 

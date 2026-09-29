@@ -8,6 +8,11 @@ Theorem 1. A missing foundation remains an explicit obligation; it is never
 replaced by an axiom, convenient surrogate definition, or concealed hypothesis.
 The TeX remains unchanged until the private dry run passes. Nothing authorizes
 public visibility, Palomar intake, registration, or external expert outreach.
+Exceptions granted since, each by the user: the separate public Theorem 1
+repository and its Palomar registration (2026-09-17/18, the user's actions),
+and a private email to Alcázar et al., drafted by the assistant outside this
+repository and sent by the user (2026-09-28). This repository stays private
+until the preprint.
 
 ## Status ledger
 
@@ -17,10 +22,10 @@ public visibility, Palomar intake, registration, or external expert outreach.
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; genus (G09) and R01 remain, deferred for a first Theorem 1 Palomar entry. |
-| 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1; see the staged-submission section below |
-| 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings. Negative controls not run |
-| 7: TeX integration and final snapshot | Not started | Requires successful dry run |
+| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; G09 genus `m` proved at the route-B reading (`family_genus`, `c4a1857`, run 35738686055), by an explicit basis instead of the paper's Riemann–Hurwitz step (divisor identity not pursued, user decision 2026-09-28). R01 remains. |
+| 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1, registered as `PALOMAR-2026-09-18-000007`; see the staged-submission section below. A Theorem 2 entry is decided after the preprint (user, 2026-09-28). |
+| 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings; the registered commit passed Palomar's official verification (run 35351732435). Negative controls not run; planned in private CI by mutation. |
+| 7: TeX integration and final snapshot | Not started | After the Sprint 4 gate and the negative controls |
 
 Starting checkpoint: 33 Lean modules and 85 axiom reports. Every clause of
 Theorem 1 is checked, using real Cartesian polynomials and actual isometry
@@ -162,6 +167,36 @@ Gate: all clauses of Theorem 2 on actual ambient transformations, not just
 denominator-cleared polynomial identities.
 
 ## Sprint 4 — genus and remaining paper claims
+
+2026-09-28 backlog decisions (user). R01 closes only when the quartic's genus
+is exactly three, as Remark 5 prints; genus at least three would already
+contradict genus two, but does not close the row. Order: an intrinsic genus
+(places as valuation subrings, invariance under `ℂ`-algebra isomorphisms), the
+family bridge, the Kummer field of `y⁴ = 2 − x⁴`, three holomorphic
+differentials, the similarity-to-isomorphism step, then the Kummer places and
+the upper bound. The Riemann–Hurwitz degree identity as a divisor statement is
+not pursued: Lemma 4's genus claim is proved with an explicit basis, and the
+route difference is recorded in COVERAGE (G09) and goes into the TeX appendix.
+This is how the Sprint 4 gate reads "Riemann–Hurwitz machinery" below.
+
+2026-09-22 G09 COMPLETE at the route-B reading. G09a-1 to G09a-2g: `Ω[K⁄ℂ]`
+is one-dimensional over `K`, spanned by `dt`; at every place the differentials
+of the local ring are generated by `du` for any uniformizer `u`, so an order is
+well defined; `dt` has order `0`, `1` and `−3` at unramified, ramified and
+infinite places, stated structurally. G09b-1 to G09b-3d: regularity at each
+place, the holomorphic differentials as a `ℂ`-subspace, the basis
+`tⁱ·dt/w` (`i < m`) and `family_genus`: dimension `m`. Namespace audit 1,679;
+98 modules and nine pins; six tests. Proof snapshot `c4a1857` passed Linux run
+35738686055 and the Palomar Theorem 1 entry build 35738686071. Notes:
+`verification/differentials-rank.md`, `verification/place-differentials.md`,
+`verification/holomorphic-differentials.md`.
+
+2026-09-21/22 toolchain: Lean 4.34.0 and Mathlib `5ed2965` (tag `v4.34.0`),
+prepared on `claude/2026-09-21-lean-v4.34.0`, reviewed against the public
+repository's shared files and merged by fast-forward as `db011ac` (run
+35734028877). The audit rose from 1,581 to 1,583 with no written declaration
+added or removed; the statement spellings that Mathlib renames forced were
+reviewed one by one before the merge.
 
 2026-09-16 G08 COMPLETE at the recorded fibre-count reading (user decision:
 branch point = fewer than two places over the point; no ramification indices).
@@ -443,6 +478,12 @@ certificate and not a human review: the editorial review was automated
 library is not covered. The submission status URL keeps its secret fragment and
 is still not stored here.
 
+2026-09-28 (user): a second entry for Theorem 2 is decided after the preprint;
+nothing is prepared before. It would need a `paper_*` endpoint packaging
+T2.1–T2.7, a second Challenge/Solution and a public copy of the family
+modules. The private `palomar/theorem1/formalization.yaml` was brought in line
+with the registered metadata on 2026-09-29; it remains the development copy.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.
@@ -473,14 +514,22 @@ Gate: positive case passes and negative controls fail. No fake sandbox or
 skipped checker qualifies. This is private CI, not Palomar intake. Ordinary
 GitHub Actions usage was approved; repository publication was not.
 
+2026-09-28 plan for the missing negative controls: a `workflow_dispatch` job in
+this private repository mutates its own checkout (changed theorem type, a
+forbidden axiom, a forbidden Challenge import) and requires each check to
+fail. No throwaway commits, nothing public.
+
 ## Sprint 7 — TeX integration and final snapshot
 
 Only after Sprint 6, refactor the existing note without bloating its mathematical
 exposition. Add a short formalization section/appendix with theorem-to-Lean
 links, reproduction instructions, dependencies, exact scope, AI disclosure,
 and the distinction between kernel checks, dry runs, novelty, and human review.
-Do not imply registration. Rebuild, run ChkTeX, inspect the PDF, and rerun
-verification against the final committed snapshot.
+Cite registration only where it exists: Theorem 1, `PALOMAR-2026-09-18-000007`,
+automated editorial review; imply it for nothing else. State the proof-route
+differences (genus by an explicit basis, not Riemann–Hurwitz; irreducibility by
+Eisenstein). Rebuild, run ChkTeX, inspect the PDF, and rerun verification
+against the final committed snapshot.
 
 Gate: paper, formal statements, metadata, and verification evidence agree at
 one private release-candidate commit.

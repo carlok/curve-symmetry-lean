@@ -27,15 +27,16 @@ classification:
 
 sources:
   - title: "Sharp symmetry bounds for real algebraic curves (working draft, 2026), Theorem 1"
-    type: original-proof
+    type: "unpublished working note"
     authors:
       - "Carlo Perassi"
-    location: "sharp_symmetry_bounds.tex in this repository"
-    relationship: other
+    location: "sharp_symmetry_bounds.tex in this repository; docs/THEOREM1.md in the public entry repository carlok/sharp-symmetry-bounds-lean reproduces the statement and proof outline of Theorem 1"
+    relationship: formalizes
     note: >-
-      Unpublished working note. The bounds, their sharpness and the equality
-      classification are presented there; no independent expert review has
-      taken place and novelty has not been certified.
+      Chronology: the author wrote the working note first, and this entry
+      formalizes its Theorem 1 in Lean; the formalization is not the first
+      presentation of the result. The note itself is unpublished. No
+      independent expert review has taken place and no novelty is claimed.
     author_endorsement: participated
   - title: "Rotations, translations and symmetry detection for complexified curves"
     type: article
@@ -96,7 +97,9 @@ status:
     classification, and the converse for the extremal family). Not formalized
     in this entry: Theorem 2 of the note (ambient Mobius group, parameter
     equivalence, genus of the extremal family), which is developed separately
-    in the same repository and is incomplete (genus not proved).
+    in the same repository: every clause of Theorem 2 and the family's genus
+    are proved there at the recorded readings; the quartic comparison of
+    Remark 5 is not yet formalized.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: []
@@ -141,6 +144,8 @@ fidelity:
     (5) "Not real" is stated as im(a) != 0. (6) The converse is proved without
     the normalization |a| = 1, a slight strengthening. (7) A symmetry T of C is
     required to satisfy T(z) in C exactly when z in C, i.e. T maps C onto C.
+    (8) The sign character and the reflection statement of Lemma 3 are proof
+    ingredients (GeometricRotation, Reflection), not compared statements.
 
 review:
   status: "self-assessed"
@@ -149,8 +154,13 @@ review:
   notes: >-
     Kernel-checked Lean proofs with a namespace-wide axiom audit (only propext,
     Classical.choice, Quot.sound). Challenge and Solution statements and
-    definitions were compared by an elaborated-term pre-check; Palomar's
-    Comparator has not yet been run. No independent human review.
+    definitions were compared by an elaborated-term pre-check. The canonical
+    entry is the public repository carlok/sharp-symmetry-bounds-lean: Palomar's
+    mechanical preflight (Comparator, NanoDa, profile palomar-standard-v1)
+    passed there, its commit ced9fe2 passed Palomar's official verification
+    (run 35351732435), and it is registered as PALOMAR-2026-09-18-000007 after
+    an automated editorial review. This file is the private development copy.
+    No independent human review.
 
 alignment:
   namespace: "SharpSymmetryBounds"

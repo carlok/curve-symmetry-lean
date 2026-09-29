@@ -2,7 +2,7 @@
 
 Continue the complete Lean formalization of sharp symmetry bounds for real
 algebraic curves, ultimately producing a private Palomar-ready candidate.
-Read this entire handoff before acting. Updated 2026-09-17.
+Read this entire handoff before acting. Updated 2026-09-29.
 
 ## Work in the correct checkout
 
@@ -35,7 +35,9 @@ project's active root either.
    verification/genus-scope-study.md, verification/function-field-double-cover.md,
    verification/quadratic-integral-closure.md, verification/points-of-double-cover.md,
    verification/finite-places.md, verification/infinite-place.md,
-   verification/branch-points.md,
+   verification/branch-points.md, verification/differentials-rank.md,
+   verification/place-differentials.md,
+   verification/holomorphic-differentials.md,
    and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
@@ -65,35 +67,39 @@ without a user request. Tag a sprint's completion commit `sprint-N-complete`.
 
 Do not create recurring work, publish the repository, contact experts or
 Palomar, or make an external submission. Those are not authorized.
+Exception (user, 2026-09-28): a private email to Alcázar, Lávička and Vršek
+is drafted outside this repository and sent by the user; the assistant sends
+nothing. This repository goes public only together with the preprint.
 
 ## Current immutable proof checkpoint
 
-The current completion snapshot is the commit introducing
-`verification/branch-points.md`; recover its exact hash with
-`git log -1 --format=%H -- verification/branch-points.md`.
-It adds G08 (FamilyBranchPoints) on top of the G07b-3 snapshot 24404dd.
-Inspect Git rather than assuming a clean tree.
+The current completion snapshot is `c4a1857` (Prove the family has genus m,
+G09b-3d); `681bc60` records its CI. It adds G09 (the genus `m`) on top of the
+Lean 4.34.0 merge `db011ac`. Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
-- New module and aggregate compiled incrementally with warnings as errors.
-- Complete namespace axiom audit: 1,440 declarations.
-- Source preflight: 88 Lean modules, nine exact dependency pins.
+- Full clean `lean/check.sh` against the v4.34 reuse installation, warnings
+  as errors.
+- Complete namespace axiom audit: 1,679 declarations.
+- Source preflight: 98 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 659 written theorem/lemma declarations, 169 written definitions/etc.,
-  10,647 Lean source lines. Counts include machinery, not novel results.
+- 760 written theorem/lemma declarations, 185 written definitions/etc.,
+  12,805 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux run 35093882792 for 24404dd passed.
-The new completion snapshot needs its own CI result; do not inherit that success.
-The preceding e209f92 passed run 34945242761.
+Private Linux run 35738686055 and the Palomar Theorem 1 entry build
+35738686071 passed on `c4a1857`. The merge `db011ac` passed run 35734028877.
+A new completion snapshot needs its own CI result; do not inherit that success.
 Ordinary CI is not a Palomar dry run or independent replay.
 
 ## Fixed objective and honesty boundary
 
 The goal remains the FULL paper, not Theorem 1 alone. Staged exception (user
-decision 2026-09-17, SPRINTS Sprint 5): a first Palomar entry for Theorem 1 is
-prepared in palomar/theorem1/ before the genus work; it still needs the Sprint 6
-private dry run and an explicit user go before any submission. Never close gaps by
+decision 2026-09-17, SPRINTS Sprint 5): the first Palomar entry, Theorem 1 only,
+was developed in palomar/theorem1/, published as the separate public repository
+carlok/sharp-symmetry-bounds-lean and registered by the user as
+PALOMAR-2026-09-18-000007. Any further entry needs an explicit user go; a
+Theorem 2 entry is decided after the preprint (user, 2026-09-28). Never close gaps by
 assuming conclusions, using custom axioms, redefining invariants conveniently,
 or replacing genuine genus by an arithmetic branch-count formula.
 Only propext, Classical.choice, and Quot.sound are permitted proof axioms.
@@ -111,8 +117,9 @@ The real family is
 `C(m,alpha) = {z in C : Re(z^m (|z|^2 + alpha)) = 0}`.
 Its affine complexification is
 `X^m(alpha + XY) + Y^m(conjugate(alpha) + XY)`.
-Total degree is m+2; bidegree is (m+1,m+1). Claimed genuine normalization
-genus m remains unproved in Lean.
+Total degree is m+2; bidegree is (m+1,m+1). The normalization genus m is
+proved at the approved function-field reading (family_genus, G09); the
+quartic comparison R01 is open.
 
 Types: BPoly is MvPolynomial (Fin 2) C; realLocus evaluates at (z,conj z);
 Sphere is OnePoint C; Möbius matrices are GL(2,C) acting on the standard
@@ -199,8 +206,8 @@ All bounded non-genus Sprint 4 rows are now closed. The genus meaning is the
 user-approved function-field genus (verification/genus-scope-study.md).
 FamilyFunctionField proves G07a: family_functionField_double_cover identifies
 Frac(ℂ[X,Y]/(P_α)) with ℂ(t)[W]/(W² − h), h squarefree of degree 2m+1, using
-Fact instances for 0 < m and α ≠ star α. Continue with G07b from the tracker.
-G07–G09 require genuine
+Fact instances for 0 < m and α ≠ star α. G07b, G08 and G09 are now done (see
+the tracker); the next proof work is R01. G07–G09 required genuine
 normalization/ramification/genus foundations; do not replace them by numerical
 identities or opportunistically rename helper steps as completed packages.
 
@@ -220,12 +227,9 @@ Done:
 - [x] Sprint 4: S03 + S04 Lemma 3 sign, S07 equation (5) (IsometrySign,
       RadialAntiForm; commit introducing verification/sign-and-radial-form.md)
 
-Todo, in intended order:
+Sprint 4 genus track and later work, in order (checked = done):
 
 - [x] Genus scope study: verification/genus-scope-study.md (no Lean changes)
-
-Todo, in intended order:
-
 - [x] CI for ba20da2 passed (runs 34938739018, 34938739562)
 - [x] User decision: genus = function-field genus (route B); R01 must go
       through genus as printed
@@ -297,7 +301,9 @@ Todo, in intended order:
       and README updated; commit 85ddda8 build run 35184663672 and preflight
       run 35184670576 both pass (no errors/warnings). Public repo is canonical
       for the entry.
-- [ ] Optional: negative controls (would add public throwaway commits)
+- (moved) Negative controls, formerly "optional, would add public throwaway
+      commits": now planned in private CI, a workflow_dispatch job that
+      mutates its own checkout. Tracked with the open items at the end.
 - [x] User submitted carlok/sharp-symmetry-bounds-lean@85ddda8 on 2026-09-18.
       Status page URL holds a secret fragment; the user keeps it, it is not
       stored in this repository.
@@ -336,9 +342,10 @@ Todo, in intended order:
       PALOMAR-2026-09-18-000007, README badges for build, record, toolchain and
       license. No Lean, Challenge, Solution, comparator or formalization.yaml
       change, so the registered artifact is untouched.
-- [ ] Only after a passing preflight and an explicit user go: the actual
-      Palomar submission (the user submits; no automated submission)
-- (context) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
+- [x] Obsolete todo, kept for history: "only after a passing preflight and an
+      explicit user go, the actual Palomar submission". The user submitted and
+      registered the entry on 2026-09-18 (above).
+- (context, historical) First Palomar entry for Theorem 1 only (user decision 2026-09-16).
       Palomar limits (checked 2026-09-16, how-to-submit + PalomarPolicy
       CONTRIBUTING): Challenge hard limit 1,000 lines / 100 KiB, warning above
       300 lines / 32 KiB; repository ≤ 500 MiB; one repo/commit may carry
@@ -348,6 +355,7 @@ Todo, in intended order:
       paper_family_converse) and only the definitions they need; Solution
       proving them from the library; comparator.json; formalization.yaml;
       static contract checks. Still no submission: Sprint 6 dry run first.
+      (Superseded by the submission and registration recorded above.)
 - [x] G09a-1 Ω_{K/ℂ} is free of rank one on dt, for every squarefree h and for
       the family (QuadraticDifferentials; commit introducing
       verification/differentials-rank.md). Base change along the two formally
@@ -434,10 +442,43 @@ Todo, in intended order:
       GENUS m PROVED at the route-B reading (G09 genus half closed).
 - [x] CI for the genus commit c4a1857 passed (run 35738686055; Palomar entry
       build 35738686071).
-- [ ] G09 remainder, optional: the Riemann–Hurwitz degree identity as a divisor
-      statement (the local orders 0 / 1 / −3 are proved; their sum 2m − 2 is not
-      stated as a divisor degree).
-- [ ] R01 quartic genus 3 vs 2 (Kummer cover y⁴ = 2 − x⁴; reuse G09 machinery).
+- [x] G09 remainder (the Riemann–Hurwitz degree identity as a divisor
+      statement): NOT PURSUED, user decision 2026-09-28. Lemma 4's genus claim
+      is proved with an explicit basis; the route difference is recorded in
+      COVERAGE (G09) and goes into the TeX appendix.
+- [x] User decisions 2026-09-28: R01 closes only with the quartic's genus
+      exactly 3 (as Remark 5 prints); the Alcázar email is drafted now and sent
+      by the user in parallel; a Theorem 2 Palomar entry is decided after the
+      preprint.
+- [x] L01 ledger refresh: SPRINTS, ONBOARDING, COVERAGE, STATUS, CHECKS, both
+      READMEs and the private formalization.yaml brought up to the genus commit.
+- [ ] R01a intrinsic genus (FunctionFieldGenus, generic in K/ℂ): places are
+      valuation subrings ≠ ⊤ containing ℂ; regular at O = in the ℂ-span of the
+      a·db with a, b ∈ O (K-coefficients, avoiding the O-module diamond of
+      G09a-2c); holomorphic space = regular at every place; genus = finrank ℂ.
+      Invariance under ℂ-algebra isomorphisms (kaehlerTransport as a linear
+      equivalence, places by comap) and under automorphisms.
+- [ ] R01b family bridge (FamilyGenus): the intrinsic space of
+      QuadField (familyH m α) equals holomorphicDifferentials m α
+      (family_place_classification; quadPlace and quadLocalRing agree by rfl);
+      ℂ-algebra upgrade of the G07a isomorphism; genus of FamilyFunctionField = m.
+- [ ] R01c-1 Kummer field ℂ(x)[y]/(yⁿ − f), f squarefree (KummerField):
+      irreducibility by Eisenstein at a simple root plus Gauss; Ω = K·dx;
+      n·yⁿ⁻¹·dy = f'(x)·dx; fermatNested 4 is the Kummer polynomial of 2 − x⁴.
+- [ ] R01d quartic lower bound (FermatHolomorphic): dx/y³, x·dx/y³ and dx/y²
+      are regular at every place (valuation-ring arguments, no classification)
+      and independent over ℂ.
+- [ ] R01f similarity ⇒ ℂ-algebra isomorphism of the function fields
+      (shift/dilate, proportional_of_realLocus_subset); non-similarity of
+      Re(z⁴) = 1 and the m = 2 family through genus (QuarticComparison).
+- [ ] R01c-2 Kummer ring places (KummerPlaces): maximal ideals are the points
+      (a, b), bⁿ = f(a); uniformizers x − a (f(a) ≠ 0) and y (f(a) = 0); DVR
+      from a principal maximal ideal; Dedekind; DedekindPlaces instantiated.
+- [ ] R01e quartic genus exactly 3 (FermatGenus): chart at infinity
+      (x ↦ 1/s, y ↦ r/s, r⁴ = 2s⁴ − 1), F·y³ ∈ ℂ[x][y] at the affine places,
+      isotypic split under y ↦ i·y, degree bound at one infinite place;
+      endpoints paper_family_genus and paper_degree_four_scope in a new
+      PaperRemarks module. Closes R01.
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O
@@ -449,28 +490,36 @@ Todo, in intended order:
       containing s with s in the center are the points (0, e), e² = 0·h̃(0),
       so exactly one place over ∞. Combine with G07b-2c for the full list.
       No need for Ostrowski: every valuation subring contains t or 1/t.
-- [ ] G08 exactly 2m+2 ramified places incl. 0, ∞; index two
-- [ ] G09a Ω_{K/ℂ} rank one, order of differentials at places
-- [ ] G09b holomorphic differentials span t^i dt/w (i<m): genus m;
-      Hurwitz degree identity for this cover
-- [ ] R01 quartic genus 3 vs 2 (likely Kummer-cover generalization)
-- [ ] Sprint 4 gate audit, then Sprints 5–7 (contract, dry run, TeX)
+- (superseded 2026-09-29) The original plan lines for G08, G09a, G09b and R01
+      were replaced by the entries above; G08 was proved at the fibre-count
+      reading ("index two" is not formalized) and G09 at the route-B reading.
+- [ ] Sprint 4 gate audit; tag sprint-4-complete (the tag push needs the
+      user's word).
+- [ ] Negative controls in private CI (Sprint 6 gate), then Sprint 7 TeX
+      integration.
+- [ ] Release, every step the user's: Alcázar's answer, arXiv, this
+      repository public with a scrub, journal, Lean Zulip, Mathlib PRs.
 
 ## Remaining major work
 
 Sprints 0–3 complete at their stated scopes.
-Sprint 4 is the highest-risk foundation task: actual normalization/double
-cover, ramification, Riemann–Hurwitz and genuine genus m, and the quartic
-genus comparison R01. No ready-made full genus interface was found in the
-installed Mathlib. Do not manufacture an invariant or weaken the goal.
+Sprint 4: the function field, its places, the branch points and the genus m
+are proved at the recorded readings (G07–G09). R01 remains: an intrinsic
+genus, then the quartic's genus three (tracker). The Riemann–Hurwitz divisor
+identity is not pursued (user, 2026-09-28). Mathlib still has no genus,
+Riemann–Roch or Riemann–Hurwitz. Do not manufacture an invariant or weaken
+the goal.
 
 Sprint 5: accurate compact Challenge/Solution, permitted import closure,
 Comparator configuration, schema-valid metadata, pinned tools and honest
 literature/review status. Preserve inspected arXiv vs uninspected journal
-version distinctions.
+version distinctions. Done and registered for Theorem 1; a Theorem 2 entry is
+decided after the preprint.
 Sprint 6: immutable clean private Linux contract-faithful dry run, protected
 Comparator, isolated Challenge, credential/network-free proof sandbox,
 NanoDa replay and failing negative controls. No simulated sandbox counts.
+For Theorem 1, Palomar's own verifier passed on the public repository; the
+negative controls are still to run, in private CI.
 Sprint 7: only then TeX integration, theorem links, reproducibility and AI
 disclosures, PDF checks and final revision-bound verification.
 
