@@ -521,10 +521,19 @@ Sprint 4 genus track and later work, in order (checked = done):
       user's word).
 - [ ] Negative controls in private CI (Sprint 6 gate), then Sprint 7 TeX
       integration.
-- [ ] Outreach, every step the user's: the Alcázar email (drafted outside
-      the repository). No arXiv or journal step (user, 2026-09-29). Optional and
-      undecided: this repository public after a scrub, a Theorem 2 Palomar
-      entry, Lean Zulip, Mathlib PRs.
+- [ ] Go online (user, 2026-09-29): with no arXiv, make this repository
+      public BEFORE the Alcázar email is sent. Scrub first: local /Users/carlo
+      paths (ONBOARDING, READMEs, verification/MIGRATION.md, SPRINT-1.md), the
+      p20/p20_astra references from the predecessor project (CHECKS, README),
+      personal tooling notes (rtk, .codex, KARPATHY), a README for outsiders,
+      and a secret scan over the WHOLE history, which is published as it is (no
+      rewrite). The Lemma 9 counterexample is already public through the
+      Theorem 1 entry's formalization.yaml and its registry record. The
+      visibility change is the user's action or needs the user's explicit go.
+- [ ] Then add this repository's link to the Alcázar draft
+      (outside the repository); the user sends it. No arXiv or journal step.
+- [ ] Optional and undecided: a Theorem 2 Palomar entry, Lean Zulip, Mathlib
+      PRs.
 
 ## Remaining major work
 

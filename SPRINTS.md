@@ -491,6 +491,13 @@ of Theorem 1 is the public record, and the email to Alcázar et al. is an FYI
 pointing to it. A Theorem 2 entry and publishing this repository are
 undecided. Whether the Sprint 7 TeX appendix is still wanted is open.
 
+2026-09-29 (user), later the same day: queue making this repository public
+before the email is sent, since there is no arXiv. A scrub comes first (local
+paths, predecessor-project references, personal tooling notes, an outsider
+README, a secret scan over the whole history, which is published unchanged).
+The Lemma 9 counterexample is already public in the registered Theorem 1
+entry's metadata.
+
 Create one compact Challenge/Solution pair and Comparator configuration for
 the principal claims. Challenge imports only the permitted Mathlib closure;
 statement definitions have explicit ordinary meanings and no definition holes.
