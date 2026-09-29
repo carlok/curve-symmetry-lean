@@ -119,5 +119,6 @@ roots = [
   "QuarticComparison",
   "PaperRemarks",
   "KummerLocal",
+  "KummerPlaces",
   "CurveSymmetry",
 ]

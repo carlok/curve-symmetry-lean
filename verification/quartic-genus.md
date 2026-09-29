@@ -195,8 +195,33 @@ here they come from explicit uniformizers, and Dedekind-ness follows.
   `ℂ[x]`), so every localization at a nonzero prime is one of these DVRs
   (`isDedekindDomain_iff_isDiscreteValuationRing_atPrime`).
 
+## R01c-2b: the places of the Kummer field over the affine line
+
+[KummerPlaces](../lean/KummerPlaces.lean). With the Kummer ring Dedekind
+(R01c-2a) and the field its fraction field (R01f), `DedekindPlaces` gives
+`kummerLocalRing a b hb` (a subalgebra of the field) and `kummerPlace a b hb`
+(the valuation subring with the same members).
+
+- `kummerPlace_isComplexPlace`: a place over `ℂ` in the sense of R01a.
+- `kummerLocal_kaehler_span_eq_top`: the local ring's residues are constants
+  (`kummerRing_residue`, `localization_residue`) and its differentials are
+  finitely generated (essentially of finite type), so `du` generates them for
+  any uniformizer `u` (G09a-2a); `kummerPlace_generator` turns that into R01a's
+  generator condition.
+- `kummer_regularAt_unramified`: where `f(a) ≠ 0` the uniformizer is `x − a` and
+  `d(x − a) = dx`, so `F·dx` is regular iff `F` lies in the local ring.
+- `kummer_regularAt_ramified`: where `f(a) = 0` the uniformizer is `y`, and
+  `dx = (n·yⁿ⁻¹/f'(x))·dy` with `n` and `f'(x)` units (`f'(a) = k(a) ≠ 0` for
+  `f = (x − a)·k`), so `F·dx` is regular iff `F·yⁿ⁻¹` lies in the local ring.
+- `kummer_mem_range_of_forall_local`: an element in every point's local ring
+  comes from the coordinate ring (`MaximalSpectrum.iInf_localization_eq_bot`
+  with `kummerRing_isMaximal_iff`).
+
 ## Checks
 
+- R01c-2b: module, aggregate and audit compiled with warnings as errors; audit
+  1,936 declarations; 106 modules; full clean `lean/check.sh` rerun before the
+  commit.
 - R01c-2a: module, aggregate and audit compiled with warnings as errors; audit
   1,904 declarations; 105 modules; full clean `lean/check.sh` rerun before the
   commit.

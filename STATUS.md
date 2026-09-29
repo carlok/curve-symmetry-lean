@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, the local rings of the Kummer cover (R01c-2a), 2026-09-29.
+Snapshot: Sprint 4, the places of the Kummer cover (R01c-2b), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -64,7 +64,9 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
   Kummer field (`fermatFunctionFieldAlgEquiv`).
 - The Kummer ring `ℂ[x][Y]/(Yⁿ − f)` for squarefree `f`: maximal ideals are the
   points, each local ring is a DVR with an explicit uniformizer, and the ring
-  is Dedekind (R01c-2a, `KummerLocal`).
+  is Dedekind (R01c-2a, `KummerLocal`). Its places over the affine line, their
+  local differentials and the regularity criteria for `F·dx` (R01c-2b,
+  `KummerPlaces`).
 
 ## Still missing
 
@@ -85,11 +87,11 @@ the negative controls are still to run. No arXiv preprint is planned (user,
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 105 |
-| Written theorem/lemma declarations | 844 |
-| Written definitions/abbreviations/structures/inductives | 214 |
-| Lean source lines, including comments and blank lines | 14,446 |
-| Audited namespace declarations, including generated/private machinery | 1,904 |
+| Lean source files (including aggregate) | 106 |
+| Written theorem/lemma declarations | 858 |
+| Written definitions/abbreviations/structures/inductives | 216 |
+| Lean source lines, including comments and blank lines | 14,702 |
+| Audited namespace declarations, including generated/private machinery | 1,936 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 
