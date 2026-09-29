@@ -73,22 +73,23 @@ nothing. This repository goes public only together with the preprint.
 
 ## Current immutable proof checkpoint
 
-The current completion snapshot is `c4a1857` (Prove the family has genus m,
-G09b-3d); `681bc60` records its CI. It adds G09 (the genus `m`) on top of the
-Lean 4.34.0 merge `db011ac`. Inspect Git rather than assuming a clean tree.
+The current completion snapshot is `3a84ca1` (R01b: the family's genus at the
+intrinsic reading), on top of R01a `bf890d5` and the genus commit `c4a1857`.
+Inspect Git rather than assuming a clean tree.
 
 Local checks for that proof checkpoint:
 
 - Full clean `lean/check.sh` against the v4.34 reuse installation, warnings
   as errors.
-- Complete namespace axiom audit: 1,679 declarations.
-- Source preflight: 98 Lean modules, nine exact dependency pins.
+- Complete namespace axiom audit: 1,728 declarations.
+- Source preflight: 100 Lean modules, nine exact dependency pins.
 - All six package tests passed; whitespace check passed.
-- 760 written theorem/lemma declarations, 185 written definitions/etc.,
-  12,805 Lean source lines. Counts include machinery, not novel results.
+- 781 written theorem/lemma declarations, 193 written definitions/etc.,
+  13,183 Lean source lines. Counts include machinery, not novel results.
 
-Private Linux run 35738686055 and the Palomar Theorem 1 entry build
-35738686071 passed on `c4a1857`. The merge `db011ac` passed run 35734028877.
+Private Linux run 36521674393 and the Palomar Theorem 1 entry build
+36521674439 passed on `3a84ca1`; R01a `bf890d5` passed 36520991772 and
+36520991768; `c4a1857` passed 35738686055 and 35738686071.
 A new completion snapshot needs its own CI result; do not inherit that success.
 Ordinary CI is not a Palomar dry run or independent replay.
 
@@ -469,6 +470,8 @@ Sprint 4 genus track and later work, in order (checked = done):
       and genus_quadField_family = m. familyFunctionFieldAlgEquiv makes G07a's
       isomorphism ℂ-linear; familyFunctionField_genus: the genus of
       Frac(ℂ[X,Y]/(P_α)) is m. Generic addition: mem_regularAt_comap_iff.
+- [x] CI: R01a bf890d5 passed (Lean run 36520991772, Palomar Theorem 1 entry
+      build 36520991768); R01b 3a84ca1 passed (36521674393, 36521674439).
 - [ ] R01c-1 Kummer field ℂ(x)[y]/(yⁿ − f), f squarefree (KummerField):
       irreducibility by Eisenstein at a simple root plus Gauss; Ω = K·dx;
       n·yⁿ⁻¹·dy = f'(x)·dx; fermatNested 4 is the Kummer polynomial of 2 − x⁴.

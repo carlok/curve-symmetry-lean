@@ -91,3 +91,6 @@ R01a.
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py`: 100 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
+- Private Linux runs: `36520991772` on R01a `bf890d5` and `36521674393` on
+  R01b `3a84ca1` passed; the Palomar Theorem 1 entry builds `36520991768` and
+  `36521674439` passed on the same commits.
