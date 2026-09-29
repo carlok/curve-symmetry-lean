@@ -461,10 +461,14 @@ Sprint 4 genus track and later work, in order (checked = done):
       kaehlerTransportEquiv, IsComplexPlace.comap,
       kaehlerTransport_mem_holomorphicSpace (automorphisms too),
       holomorphicSpaceEquiv, genus_congr. Note: verification/quartic-genus.md.
-- [ ] R01b family bridge (FamilyGenus): the intrinsic space of
-      QuadField (familyH m α) equals holomorphicDifferentials m α
-      (family_place_classification; quadPlace and quadLocalRing agree by rfl);
-      ℂ-algebra upgrade of the G07a isomorphism; genus of FamilyFunctionField = m.
+- [x] R01b family bridge (FamilyGenus): mem_regularAt_quadPlace_iff (R01a
+      regularity at a point place is IsRegularAt), familyInfinityPlace_eq_comap
+      and mem_regularAt_familyInfinityPlace_iff (at ∞ it is
+      IsRegularAtInfinity), IsComplexPlace.family_cases (no other places), so
+      family_holomorphicSpace_eq: holomorphicSpace = holomorphicDifferentials m α
+      and genus_quadField_family = m. familyFunctionFieldAlgEquiv makes G07a's
+      isomorphism ℂ-linear; familyFunctionField_genus: the genus of
+      Frac(ℂ[X,Y]/(P_α)) is m. Generic addition: mem_regularAt_comap_iff.
 - [ ] R01c-1 Kummer field ℂ(x)[y]/(yⁿ − f), f squarefree (KummerField):
       irreducibility by Eisenstein at a simple root plus Gauss; Ω = K·dx;
       n·yⁿ⁻¹·dy = f'(x)·dx; fermatNested 4 is the Kummer polynomial of 2 − x⁴.
@@ -496,6 +500,12 @@ Sprint 4 genus track and later work, in order (checked = done):
 - (superseded 2026-09-29) The original plan lines for G08, G09a, G09b and R01
       were replaced by the entries above; G08 was proved at the fibre-count
       reading ("index two" is not formalized) and G09 at the route-B reading.
+- [ ] Toolchain bump to Lean/Mathlib v4.35.0 once it is tagged stable
+      (2026-09-29: only v4.35.0-rc3, about 211 Mathlib commits past our pin;
+      v4.34.1 is six Lean runtime fixes with an identical Mathlib, not worth a
+      new installation). Same procedure as v4.34: a claude/ branch, review of
+      every statement edit, the shared-files check against the public
+      repository, a new reuse installation; land it between R01 packages.
 - [ ] Sprint 4 gate audit; tag sprint-4-complete (the tag push needs the
       user's word).
 - [ ] Negative controls in private CI (Sprint 6 gate), then Sprint 7 TeX

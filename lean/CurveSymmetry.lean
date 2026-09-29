@@ -96,5 +96,6 @@ import HolomorphicSpace
 import HolomorphicBasis
 import HolomorphicSpan
 import FunctionFieldGenus
+import FamilyGenus
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/

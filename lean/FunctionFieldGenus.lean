@@ -168,6 +168,17 @@ lemma kaehlerTransport_mem_regularAt (e : K ≃ₐ[ℂ] L) (O : ValuationSubring
       kaehlerTransport_D]
   exact hmap ⟨ω, hω, rfl⟩
 
+/-- Regularity at a pulled-back place is regularity of the transported differential. -/
+theorem mem_regularAt_comap_iff (e : K ≃ₐ[ℂ] L) (O : ValuationSubring L) (ω : Ω[K⁄ℂ]) :
+    ω ∈ regularAt (O.comap (e : K →+* L)) ↔ kaehlerTransport e ω ∈ regularAt O := by
+  refine ⟨kaehlerTransport_mem_regularAt e O, fun hω => ?_⟩
+  have hO : (O.comap (e : K →+* L)).comap (e.symm : L →+* K) = O := by
+    ext y
+    simp [ValuationSubring.mem_comap]
+  rw [← hO] at hω
+  have hback := kaehlerTransport_mem_regularAt e.symm (O.comap (e : K →+* L)) hω
+  rwa [kaehlerTransport_symm_apply] at hback
+
 /-- An isomorphism of `ℂ`-algebras carries holomorphic differentials to holomorphic
 differentials. With `L = K` this is invariance under automorphisms. -/
 theorem kaehlerTransport_mem_holomorphicSpace (e : K ≃ₐ[ℂ] L) {ω : Ω[K⁄ℂ]}

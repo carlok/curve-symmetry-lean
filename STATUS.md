@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, intrinsic genus (R01a), 2026-09-29.
+Snapshot: Sprint 4, the family's genus at the intrinsic reading (R01b), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -48,7 +48,9 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
 - The genus of any field over `ℂ` without a chosen model (R01a,
   `FunctionFieldGenus`): places as valuation subrings, regular and holomorphic
   differentials, and invariance of the genus under `ℂ`-algebra isomorphisms
-  (`genus_congr`). It is not yet connected to the family (R01b).
+  (`genus_congr`). For the family it agrees with G09's explicit places, so the
+  function field of the family curve has genus `m` in this sense (R01b,
+  `familyFunctionField_genus`).
 
 ## Still missing
 
@@ -69,11 +71,11 @@ preprint.
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 99 |
-| Written theorem/lemma declarations | 770 |
-| Written definitions/abbreviations/structures/inductives | 191 |
-| Lean source lines, including comments and blank lines | 13,016 |
-| Audited namespace declarations, including generated/private machinery | 1,709 |
+| Lean source files (including aggregate) | 100 |
+| Written theorem/lemma declarations | 781 |
+| Written definitions/abbreviations/structures/inductives | 193 |
+| Lean source lines, including comments and blank lines | 13,183 |
+| Audited namespace declarations, including generated/private machinery | 1,728 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 

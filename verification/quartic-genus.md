@@ -49,11 +49,45 @@ quartic, the place classifications show every place is a discrete valuation
 ring; R01b proves that `holomorphicSpace` agrees with G09's
 `holomorphicDifferentials` there.
 
+R01a checks (commit `bf890d5`): full clean `lean/check.sh` against
+`mathlib-v4.34.0-reuse`, audit 1,709, 99 modules, six tests.
+
+## R01b: the family at the intrinsic reading
+
+[FamilyGenus](../lean/FamilyGenus.lean).
+
+- Point places. `quadPlace` is built from the same localization as
+  `quadLocalRing`, so the two have the same members by definition. G09a-2b
+  gives a uniformizer `u` whose `du` generates the local ring's differentials;
+  `exists_D_eq_smul_of_span_eq_top` turns that into the generator condition,
+  and `mem_regularAt_iff_of_generator` with `isRegularAt_iff` gives
+  `mem_regularAt_quadPlace_iff`: regular at `quadPlace` in the sense of R01a iff
+  `IsRegularAt` (G09b-1). Since `du ≠ 0`, the coefficient against `du` is
+  unique, which is what matches the two formulations.
+- Infinity. `familyInfinityPlace` is the pull-back of the conjugate family's
+  `(0, 0)` along the chart map; `familyInfinityPlace_eq_comap` restates it along
+  the `ℂ`-algebra isomorphism `familyInfinityAlgEquiv`, and the generic
+  `mem_regularAt_comap_iff` (added to FunctionFieldGenus) gives
+  `mem_regularAt_familyInfinityPlace_iff`: regular there iff
+  `IsRegularAtInfinity` (G09b-2), which is defined through the same transport.
+- No other places: `IsComplexPlace.family_cases` is
+  `family_place_classification` (G07b-3) with the constants stated through `ℂ`.
+
+Hence `family_holomorphicSpace_eq`: `holomorphicSpace (QuadField (familyH m α))
+= holomorphicDifferentials m α`, and `genus_quadField_family = m` by
+`family_genus`. G07a's isomorphism `QuadField (familyH m α) ≅
+FamilyFunctionField m α` was an existential ring isomorphism; `familyQuadLift`
+retypes G07a's `familyLift` on `QuadField` and `familyFunctionFieldAlgEquiv`
+makes it `ℂ`-linear (the constants go through `familyRatFuncHom`, a
+`ℂ`-algebra map). **`familyFunctionField_genus`: the function field
+`Frac(ℂ[X,Y]/(P_α))` of the family curve has genus `m`** at the reading of
+R01a.
+
 ## Checks
 
-- Module, aggregate and audit compiled with warnings as errors against
+- R01b: modules, aggregate and audit compiled with warnings as errors against
   `mathlib-v4.34.0-reuse`; full clean `lean/check.sh` rerun before the commit.
-- Namespace axiom audit: 1,709 declarations, allowlist `propext`,
+- Namespace axiom audit: 1,728 declarations, allowlist `propext`,
   `Classical.choice`, `Quot.sound`.
-- `scripts/check_sources.py`: 99 modules, 9 exact dependency revisions.
+- `scripts/check_sources.py`: 100 modules, 9 exact dependency revisions.
 - Package tests: 6 passing.
