@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4 genus of the family (G09b-3d), 2026-09-22.
+Snapshot: Sprint 4, intrinsic genus (R01a), 2026-09-29.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -45,6 +45,10 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
 - Affine spectrum density, all boundary-chart closure identities, inversion
   homeomorphisms, four open projective charts, atlas uniqueness and projective
   irreducibility. These are proved ingredients, not a genus theorem.
+- The genus of any field over `ℂ` without a chosen model (R01a,
+  `FunctionFieldGenus`): places as valuation subrings, regular and holomorphic
+  differentials, and invariance of the genus under `ℂ`-algebra isomorphisms
+  (`genus_congr`). It is not yet connected to the family (R01b).
 
 ## Still missing
 
@@ -65,11 +69,11 @@ preprint.
 
 | Metric | Value |
 |---|---:|
-| Lean source files (including aggregate) | 98 |
-| Written theorem/lemma declarations | 760 |
-| Written definitions/abbreviations/structures/inductives | 185 |
-| Lean source lines, including comments and blank lines | 12,805 |
-| Audited namespace declarations, including generated/private machinery | 1,679 |
+| Lean source files (including aggregate) | 99 |
+| Written theorem/lemma declarations | 770 |
+| Written definitions/abbreviations/structures/inductives | 191 |
+| Lean source lines, including comments and blank lines | 13,016 |
+| Audited namespace declarations, including generated/private machinery | 1,709 |
 | Exact dependency pins | 9 |
 | Package-test cases | 6 passing |
 

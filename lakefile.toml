@@ -112,5 +112,6 @@ roots = [
   "HolomorphicSpace",
   "HolomorphicBasis",
   "HolomorphicSpan",
+  "FunctionFieldGenus",
   "CurveSymmetry",
 ]

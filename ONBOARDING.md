@@ -37,7 +37,7 @@ project's active root either.
    verification/finite-places.md, verification/infinite-place.md,
    verification/branch-points.md, verification/differentials-rank.md,
    verification/place-differentials.md,
-   verification/holomorphic-differentials.md,
+   verification/holomorphic-differentials.md, verification/quartic-genus.md,
    and sharp_symmetry_bounds.tex.
 3. Confirm the next requested scope with the current user message. Without a
    request to continue proofs, do not begin another package merely because this
@@ -452,12 +452,15 @@ Sprint 4 genus track and later work, in order (checked = done):
       preprint.
 - [x] L01 ledger refresh: SPRINTS, ONBOARDING, COVERAGE, STATUS, CHECKS, both
       READMEs and the private formalization.yaml brought up to the genus commit.
-- [ ] R01a intrinsic genus (FunctionFieldGenus, generic in K/ℂ): places are
-      valuation subrings ≠ ⊤ containing ℂ; regular at O = in the ℂ-span of the
-      a·db with a, b ∈ O (K-coefficients, avoiding the O-module diamond of
-      G09a-2c); holomorphic space = regular at every place; genus = finrank ℂ.
-      Invariance under ℂ-algebra isomorphisms (kaehlerTransport as a linear
-      equivalence, places by comap) and under automorphisms.
+- [x] R01a intrinsic genus (FunctionFieldGenus, generic in K/ℂ): places are
+      valuation subrings ≠ ⊤ containing ℂ (IsComplexPlace); regular at O = in
+      the ℂ-span of the a·db with a, b ∈ O (regularAt; K-coefficients, avoiding
+      the O-module diamond of G09a-2c); holomorphicSpace = regular at every
+      place; genus = finrank ℂ. mem_regularAt_iff_of_generator (ω = f·du with
+      f ∈ O when du generates), exists_D_eq_smul_of_span_eq_top, and invariance:
+      kaehlerTransportEquiv, IsComplexPlace.comap,
+      kaehlerTransport_mem_holomorphicSpace (automorphisms too),
+      holomorphicSpaceEquiv, genus_congr. Note: verification/quartic-genus.md.
 - [ ] R01b family bridge (FamilyGenus): the intrinsic space of
       QuadField (familyH m α) equals holomorphicDifferentials m α
       (family_place_classification; quadPlace and quadLocalRing agree by rfl);

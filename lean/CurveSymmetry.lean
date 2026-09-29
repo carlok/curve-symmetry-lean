@@ -95,5 +95,6 @@ import InfinityRegularity
 import HolomorphicSpace
 import HolomorphicBasis
 import HolomorphicSpan
+import FunctionFieldGenus
 
 /-! Aggregate import for the complete proof library. No statement-only Challenge import. -/
