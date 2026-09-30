@@ -25,8 +25,8 @@ claim); the Palomar registration of Theorem 1 is the public record.
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
 | 4: genus and remaining mathematical claims | Complete (gate 2026-09-30) | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; G09 genus `m` proved at the route-B reading (`family_genus`, `c4a1857`, run 35738686055), by an explicit basis instead of the paper's Riemann–Hurwitz step (divisor identity not pursued, user decision 2026-09-28). R01 proved as printed (`paper_degree_four_genus`: genus three against two, packages R01a–R01f). Gate passed 2026-09-30 ([SPRINT-4](verification/SPRINT-4.md)), tag `sprint-4-complete`. |
 | 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1, registered as `PALOMAR-2026-09-18-000007`; see the staged-submission section below. A Theorem 2 entry is undecided; no preprint is planned (user, 2026-09-29). |
-| 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings; the registered commit passed Palomar's official verification (run 35351732435). Negative controls not run; planned in private CI by mutation. |
-| 7: TeX integration and final snapshot | Not started | After the Sprint 4 gate and the negative controls |
+| 6: private contract-faithful Linux dry run | Mechanical preflight and negative controls passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings; the registered commit passed Palomar's official verification (run 35351732435). Negative controls passed 2026-09-30 (run 36669665932): a changed theorem type, a forbidden axiom and a forbidden Challenge import are each rejected by their pre-check. |
+| 7: TeX integration and final snapshot | Not started | Next; the Sprint 4 gate and the negative controls are done (2026-09-30) |
 
 Starting checkpoint: 33 Lean modules and 85 axiom reports. Every clause of
 Theorem 1 is checked, using real Cartesian polynomials and actual isometry
@@ -541,6 +541,20 @@ GitHub Actions usage was approved; repository publication was not.
 this private repository mutates its own checkout (changed theorem type, a
 forbidden axiom, a forbidden Challenge import) and requires each check to
 fail. No throwaway commits, nothing public.
+
+2026-09-30: done, in the repository (public since that day).
+`palomar-negative-controls.yml` runs three jobs on `workflow_dispatch` and on
+changes to the entry or its scripts. Each mutates its own throwaway checkout
+with `scripts/palomar/negative_control.py`, builds the entry (every mutation
+still compiles) and requires the targeted pre-check to fail for the intended
+reason: the Challenge bounding the full group by `3d` makes the statement
+dumps differ; the Solution proving `full_bound_sharp` from a new axiom is
+named by the axiom check; a Challenge importing `PaperBounds` is rejected by
+the new `check_challenge_imports.sh`, which the entry build now also runs. Run
+`36669665932` (commit `35f51bc`): all three controls rejected; entry build
+`36669665920` and Linux run `36669665863` passed. These exercise the CI
+pre-checks; Palomar's own Comparator and NanoDa replay already passed for the
+registered entry.
 
 ## Sprint 7 — TeX integration and final snapshot
 

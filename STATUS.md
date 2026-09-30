@@ -92,8 +92,8 @@ pursued (same decision); Lean proves the genus with an explicit basis instead.
 G08 is proved at the recorded fibre-count reading.
 The normalization model (G07) is proved at the approved function-field reading.
 Sprints 5–7: Palomar contract, faithful private dry run and final TeX
-integration. For Theorem 1 the contract exists and the entry is registered;
-the negative controls are still to run. No arXiv preprint is planned (user,
+integration. For Theorem 1 the contract exists, the entry is registered, and
+its negative controls passed in CI on 2026-09-30 (run `36669665932`). No arXiv preprint is planned (user,
 2026-09-29); a Theorem 2 entry is undecided.
 
 ## Counts and trust boundary
@@ -117,7 +117,10 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-The Sprint 4 gate commit `b402b7e` (documentation only) passed Linux run
+The negative controls commit `35f51bc` passed Linux run `36669665863`, the
+entry build `36669665920` and the negative controls `36669665932`; the
+publication commit `f0b97b7` passed `36667893633` and `36667893653`. The
+Sprint 4 gate commit `b402b7e` (documentation only) passed Linux run
 `36666548466`; the publication scrub `b3592a6` passed the Palomar Theorem 1
 entry build `36667242134`. Proof snapshot `b8c207e` (Lean 4.34.0, R01e-3)
 passed Linux run `36617682447` and the Palomar Theorem 1 entry build `36617682484`; R01e-2

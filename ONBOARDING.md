@@ -602,8 +602,10 @@ Sprint 4 genus track and later work, in order (checked = done):
       repository, a new reuse installation; land it between R01 packages.
 - [x] Sprint 4 gate audit (verification/SPRINT-4.md); tag sprint-4-complete
       pushed on the user's word (2026-09-30).
-- [ ] Optional, after publication (user, 2026-09-30): negative controls in CI
-      (Sprint 6 gate), Sprint 7 TeX integration.
+- [x] Negative controls (Sprint 6 gate, 2026-09-30): workflow
+      palomar-negative-controls, run 36669665932 on 35f51bc; the theorem-type,
+      forbidden-axiom and forbidden-import controls are each rejected by their
+      pre-check; new Challenge import pre-check in the entry build.
 - [x] Go-online scrub (2026-09-30): machine-local paths, predecessor-project
       references and personal tooling notes removed from the tree; the secret
       scan over the whole history (111 commits) found nothing; the history is
@@ -611,10 +613,15 @@ Sprint 4 genus track and later work, in order (checked = done):
 - [x] Repository public since 2026-09-30 (user's go): default branch renamed
       from codex/main to main, CI triggers updated, GitHub description without
       "work in progress", website set to the Theorem 1 Palomar entry.
-- [ ] The user adds this repository's link to the Alcázar draft (outside the
-      repository) and sends it. No arXiv or journal step.
-- [ ] Optional and undecided: a Theorem 2 Palomar entry, Lean Zulip, Mathlib
-      PRs.
+- [x] The Alcázar email was sent by the user on 2026-09-30. No arXiv or
+      journal step.
+- [ ] Optional items the user agreed to (2026-09-30), in order: the Sprint 7
+      TeX appendix; the Mathlib v4.35.0 bump once it is stable; a Theorem 2
+      Palomar entry (its submission is the user's). Undecided: Lean Zulip,
+      Mathlib PRs.
+- [ ] Future, a project of its own (user idea, 2026-09-30): port the
+      formalization as a mission to prove2.me or a similar platform, so that
+      others can build on it more easily than on a 900-theorem repository.
 
 ## Remaining major work
 
@@ -636,8 +643,8 @@ undecided (no preprint is planned).
 Sprint 6: immutable clean private Linux contract-faithful dry run, protected
 Comparator, isolated Challenge, credential/network-free proof sandbox,
 NanoDa replay and failing negative controls. No simulated sandbox counts.
-For Theorem 1, Palomar's own verifier passed on the public repository; the
-negative controls are still to run, in private CI.
+For Theorem 1, Palomar's own verifier passed on the public repository, and
+the negative controls passed in CI on 2026-09-30.
 Sprint 7: only then TeX integration, theorem links, reproducibility and AI
 disclosures, PDF checks and final revision-bound verification.
 

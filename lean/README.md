@@ -223,8 +223,8 @@ of the normalization is that reading, not a scheme-theoretic theorem.
 
 ## Remaining proof obligations
 
-1. **Registry and paper.** The negative controls of the private dry run
-   (Sprint 6) and the TeX formalization appendix (Sprint 7). A successful
+1. **Paper.** The TeX formalization appendix (Sprint 7). The negative
+   controls of the dry run (Sprint 6) passed in CI on 2026-09-30. A successful
    local Lean build is not a Palomar dry run or acceptance result.
 
 ## Reuse the installed libraries
