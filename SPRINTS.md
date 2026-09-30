@@ -23,7 +23,7 @@ claim); the Palomar registration of Theorem 1 is the public record.
 | 1: reproducible package and statement inventory | Complete | `459e644bb4919c2e71841e7ba62a8d6418c24d38`; [Linux run 34046925427](https://github.com/carlok/curve-symmetry-lean/actions/runs/34046925427) passed; 34 files / 532 declarations audited; [report](verification/SPRINT-1.md) and [coverage ledger](COVERAGE.md) |
 | 2: global geometry and Möbius completeness | Complete at the classical complex-point atlas scope | Arbitrary ambient completeness, uniquely characterized Zariski atlas, projective closure and global irreducibility checked; 960 declarations audited; [checkpoint evidence](verification/SPRINT-2.md). Commit `d29fd22` passed Linux run `34749984410`. |
 | 3: complete ambient symmetry theorem | Complete | T2.1–T2.7, G13, R02 and R03 proved for actual transformations; completion commit introduces `verification/arc-and-circle-completion.md`. [Evidence](verification/SPRINT-3.md). |
-| 4: genus and remaining mathematical claims | In progress | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; G09 genus `m` proved at the route-B reading (`family_genus`, `c4a1857`, run 35738686055), by an explicit basis instead of the paper's Riemann–Hurwitz step (divisor identity not pursued, user decision 2026-09-28). R01 proved as printed (`paper_degree_four_genus`: genus three against two, packages R01a–R01f). Gate pending. |
+| 4: genus and remaining mathematical claims | Complete (gate 2026-09-30) | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; G09 genus `m` proved at the route-B reading (`family_genus`, `c4a1857`, run 35738686055), by an explicit basis instead of the paper's Riemann–Hurwitz step (divisor identity not pursued, user decision 2026-09-28). R01 proved as printed (`paper_degree_four_genus`: genus three against two, packages R01a–R01f). Gate passed 2026-09-30 ([SPRINT-4](verification/SPRINT-4.md)), tag `sprint-4-complete`. |
 | 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1, registered as `PALOMAR-2026-09-18-000007`; see the staged-submission section below. A Theorem 2 entry is undecided; no preprint is planned (user, 2026-09-29). |
 | 6: private contract-faithful Linux dry run | Mechanical preflight passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings; the registered commit passed Palomar's official verification (run 35351732435). Negative controls not run; planned in private CI by mutation. |
 | 7: TeX integration and final snapshot | Not started | After the Sprint 4 gate and the negative controls |
@@ -182,7 +182,12 @@ This is how the Sprint 4 gate reads "Riemann–Hurwitz machinery" below.
 
 2026-09-29: R01 is closed as printed. The quartic's function field has genus
 exactly three (`fermatFunctionField_genus`, R01e-3); endpoint
-`paper_degree_four_genus`. The Sprint 4 gate is next.
+`paper_degree_four_genus`.
+
+2026-09-30: Sprint 4 gate passed. All ten Sprint 4 rows were re-read against
+the TeX; none is closed by a substitute invariant; the genus route (explicit
+basis instead of Riemann–Hurwitz) is recorded. Record:
+[SPRINT-4](verification/SPRINT-4.md); tag `sprint-4-complete`.
 
 2026-09-22 G09 COMPLETE at the route-B reading. G09a-1 to G09a-2g: `Ω[K⁄ℂ]`
 is one-dimensional over `K`, spanned by `dt`; at every place the differentials

@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4, the quartic has genus three and R01 is closed (R01e-3), 2026-09-29.
+Snapshot: Sprint 4 complete, gate passed, 2026-09-30.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -86,8 +86,8 @@ Theorem 2 (T2.1–T2.7) is proved, each by its own declarations; no single
 Sprint 3 is complete at its stated ambient-transformation scope.
 Sprint 4: the genus `m` is proved at the recorded function-field reading
 (G09a, G09b; `family_genus`). The quartic comparison (R01) is proved as
-printed, with the quartic's genus exactly three (R01e-3). Every Sprint 4 claim
-is closed; the Sprint 4 gate (row audit, tag) is next. The Riemann–Hurwitz degree identity as a divisor statement is not
+printed, with the quartic's genus exactly three (R01e-3). Sprint 4 is
+complete: its gate passed on 2026-09-30 ([SPRINT-4](verification/SPRINT-4.md)). The Riemann–Hurwitz degree identity as a divisor statement is not
 pursued (same decision); Lean proves the genus with an explicit basis instead.
 G08 is proved at the recorded fibre-count reading.
 The normalization model (G07) is proved at the approved function-field reading.
@@ -117,8 +117,9 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-Proof snapshot `2024297` (Lean 4.34.0, R01e-2) passed private Linux run
-`36537209389` and the Palomar Theorem 1 entry build `36537209167`; R01e-1
+Proof snapshot `b8c207e` (Lean 4.34.0, R01e-3) passed private Linux run
+`36617682447` and the Palomar Theorem 1 entry build `36617682484`; R01e-2
+(`2024297`) passed `36537209389` and `36537209167`; R01e-1
 (`fdc7192`) passed `36534148207` and `36534147977`; R01c-2b
 (`a355d6a`) passed `36531570958` and `36531570799`; R01c-2a
 (`b3ace55`) passed `36530871025` and `36530871009`; R01f (`0b86eb5`) passed

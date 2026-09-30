@@ -2,7 +2,7 @@
 
 Continue the complete Lean formalization of sharp symmetry bounds for real
 algebraic curves, ultimately producing a private Palomar-ready candidate.
-Read this entire handoff before acting. Updated 2026-09-29.
+Read this entire handoff before acting. Updated 2026-09-30.
 
 ## Work in the correct checkout
 
@@ -578,6 +578,12 @@ Sprint 4 genus track and later work, in order (checked = done):
       fermatFunctionField_genus. Endpoint paper_degree_four_genus (four
       rotations, genus 3, every m = 2 family curve genus 2, no similarity).
       Closes R01.
+- [x] CI: R01e-3 b8c207e passed (Lean run 36617682447, Palomar Theorem 1 entry
+      build 36617682484).
+- [x] Sprint 4 gate (verification/SPRINT-4.md, 2026-09-30): the ten Sprint 4
+      rows re-read against the TeX, no substitute invariant, genus route
+      recorded; annotated tag sprint-4-complete on the gate commit (pushing it
+      is the user's word).
 - (done) G07b-3 original plan, kept for reference:
       Refinement: the chart at infinity is the family with conj α,
       w'² = h_{conj α}(s), so transfer places along the ring iso. Plan: t ∉ O ⇒ s = 1/t ∈ O
@@ -621,8 +627,9 @@ Sprint 4 genus track and later work, in order (checked = done):
 Sprints 0–3 complete at their stated scopes.
 Sprint 4: the function field, its places, the branch points and the genus m
 are proved at the recorded readings (G07–G09). R01 is proved as printed: the
-quartic's genus is three (R01e-3, paper_degree_four_genus). Next: the Sprint 4
-gate. The Riemann–Hurwitz divisor
+quartic's genus is three (R01e-3, paper_degree_four_genus). Sprint 4 is
+complete (gate 2026-09-30). Next, by user decision 2026-09-30: finish the
+backlog, scrub for publication, then the user makes the repository public. The Riemann–Hurwitz divisor
 identity is not pursued (user, 2026-09-28). Mathlib still has no genus,
 Riemann–Roch or Riemann–Hurwitz. Do not manufacture an invariant or weaken
 the goal.
