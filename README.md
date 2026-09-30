@@ -24,19 +24,20 @@ classification, with six rotations, the maximum `2d - 4`.
 
 ## Lean formalization
 
-The [Lean port](lean/README.md) checks every clause of Theorem 1, starting from
-real Cartesian polynomials and actual Euclidean isometry groups, and every
-clause of Theorem 2 for actual ambient transformations: arbitrary Möbius or
-anti-Möbius containment forces the stated forms, the full ambient group is
-dihedral of order `4m`, the Euclidean group is the `2m` rotations, and the
-parameter-equivalence criteria hold. Lemma 4 is checked: irreducibility, the
-singular pair and its ordinary `m`-fold points (in standard charts), and genus
-`m`, read as the genus of the function field (the dimension of its holomorphic
-differentials). Lean reaches the genus through an explicit basis, not through
-Riemann–Hurwitz. For Remark 5, the function field of `Re(z^4) = 1` has genus
-exactly three and the `m = 2` family's has genus two; a similarity induces an
-isomorphism of function fields, so no similarity carries the quartic onto a
-curve of that family.
+The [Lean port](lean/README.md) checks every theorem, lemma and remark of the
+note, in 108 modules with about 900 theorems and lemmas. It covers every clause
+of Theorem 1, starting from real Cartesian polynomials and actual Euclidean
+isometry groups, and every clause of Theorem 2 for actual ambient
+transformations: arbitrary Möbius or anti-Möbius containment forces the stated
+forms, the full ambient group is dihedral of order `4m`, the Euclidean group is
+the `2m` rotations, and the parameter-equivalence criteria hold. Lemma 4 is
+checked: irreducibility, the singular pair and its ordinary `m`-fold points (in
+standard charts), and genus `m`, read as the genus of the function field (the
+dimension of its holomorphic differentials). Lean reaches the genus through an
+explicit basis, not through Riemann–Hurwitz. For Remark 5, the function field of
+`Re(z^4) = 1` has genus exactly three and the `m = 2` family's has genus two; a
+similarity induces an isomorphism of function fields, so no similarity carries
+the quartic onto a curve of that family.
 
 [COVERAGE.md](COVERAGE.md) lists each claim with its Lean declarations and the
 reading it is checked at; [STATUS.md](STATUS.md) has the current counts. Only
@@ -110,6 +111,8 @@ replace them.
 - `palomar/theorem1/`: development copy of the Theorem 1 entry.
 - `verification/`: per-package notes and the axiom audit.
 - `figures/`: the figure above and its script.
-- [SPRINTS.md](SPRINTS.md): the work plan and its history.
+- [SPRINTS.md](SPRINTS.md): the work plan and its history; completed sprints
+  are tagged `sprint-0-complete` to `sprint-4-complete`.
+- [ONBOARDING.md](ONBOARDING.md): handoff notes for the coding agents.
 
 License: Apache-2.0.

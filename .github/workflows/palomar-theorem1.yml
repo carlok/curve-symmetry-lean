@@ -2,7 +2,7 @@ name: Palomar Theorem 1 entry build
 
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - 'palomar/theorem1/**'
       - 'scripts/palomar/**'

@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4 complete, gate passed, 2026-09-30.
+Snapshot: Sprint 4 complete; repository public since 2026-09-30 (default branch `main`).
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -117,8 +117,10 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-Proof snapshot `b8c207e` (Lean 4.34.0, R01e-3) passed Linux run
-`36617682447` and the Palomar Theorem 1 entry build `36617682484`; R01e-2
+The Sprint 4 gate commit `b402b7e` (documentation only) passed Linux run
+`36666548466`; the publication scrub `b3592a6` passed the Palomar Theorem 1
+entry build `36667242134`. Proof snapshot `b8c207e` (Lean 4.34.0, R01e-3)
+passed Linux run `36617682447` and the Palomar Theorem 1 entry build `36617682484`; R01e-2
 (`2024297`) passed `36537209389` and `36537209167`; R01e-1
 (`fdc7192`) passed `36534148207` and `36534147977`; R01c-2b
 (`a355d6a`) passed `36531570958` and `36531570799`; R01c-2a

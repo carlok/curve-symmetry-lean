@@ -266,7 +266,7 @@ over `ℂ(t)`. Module and aggregate passed warnings-as-errors compilation;
 namespace audit 1,286; preflight 81 modules and nine pins; six tests. Previous
 proof snapshot `ba20da2` passed Linux runs 34938739018 and 34938739562.
 Completion commit introduces `verification/function-field-double-cover.md`.
-Work now happens on `codex/main` only; sprint completions are tagged.
+Work now happens on `main` only (`codex/main` until 2026-09-30); sprint completions are tagged.
 
 2026-09-15 two packages COMPLETE: Lemma 3 sign (S03, S04) and equation (5)
 (S07). IsometrySign proves `f∘T = ±f` for every actual isometry of a real

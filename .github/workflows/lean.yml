@@ -2,7 +2,7 @@ name: Lean Linux build
 
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
   pull_request:
   workflow_dispatch:
 

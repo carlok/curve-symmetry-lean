@@ -9,12 +9,13 @@ Read this entire handoff before acting. Updated 2026-09-30.
 **Active repository:** this checkout (`curve_symmetry` on the author's
 machine; machine-local paths are kept outside the repository).
 
-GitHub: `carlok/curve-symmetry-lean`
+GitHub: `carlok/curve-symmetry-lean`, public since 2026-09-30
 Remote: `git@github.com:carlok/curve-symmetry-lean.git`
-Working branch: `codex/main` only (GitHub default; not literally `main`).
+Working branch: `main` only, the GitHub default (named `codex/main` until
+2026-09-30).
 Sprint completion points are annotated tags `sprint-0-complete` to
 `sprint-4-complete`. The old `codex/sprint-*` branches were deleted on
-2026-09-15 with user approval; all their commits are in `codex/main`.
+2026-09-15 with user approval; all their commits are in `main`.
 License: Apache-2.0.
 
 **A second local checkout exists** on the author's machine, named
@@ -55,7 +56,7 @@ service capacity errors were not GitHub failures.
 
 After a verified implementation checkpoint, update coverage, status,
 verification evidence and this handoff as needed. Use scoped commits directly
-on codex/main and push it (one CI run per push; the workflow cancels an
+on main and push it (one CI run per push; the workflow cancels an
 in-progress run on the same branch, so wait for CI before pushing again when
 its result matters). Do not force-push. Do not delete branches or tags
 without a user request. Tag a sprint's completion commit `sprint-N-complete`.
@@ -607,9 +608,11 @@ Sprint 4 genus track and later work, in order (checked = done):
       references and personal tooling notes removed from the tree; the secret
       scan over the whole history (111 commits) found nothing; the history is
       published as it is, no rewrite.
-- [ ] Make the repository public (user's go, 2026-09-30), then add its link to
-      the Alcázar draft (outside the repository); the user sends it. No arXiv
-      or journal step.
+- [x] Repository public since 2026-09-30 (user's go): default branch renamed
+      from codex/main to main, CI triggers updated, GitHub description without
+      "work in progress", website set to the Theorem 1 Palomar entry.
+- [ ] The user adds this repository's link to the Alcázar draft (outside the
+      repository) and sends it. No arXiv or journal step.
 - [ ] Optional and undecided: a Theorem 2 Palomar entry, Lean Zulip, Mathlib
       PRs.
 
