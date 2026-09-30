@@ -615,8 +615,11 @@ Sprint 4 genus track and later work, in order (checked = done):
       "work in progress", website set to the Theorem 1 Palomar entry.
 - [x] The Alcázar email was sent by the user on 2026-09-30. No arXiv or
       journal step.
-- [ ] Optional items the user agreed to (2026-09-30), in order: the Sprint 7
-      TeX appendix; the Mathlib v4.35.0 bump once it is stable; a Theorem 2
+- [x] Sprint 7 TeX appendix (2026-09-30, verification/SPRINT-7.md): Appendix
+      A "Formal verification" in sharp_symmetry_bounds.tex; six pages, chktex
+      clean, verify.py passed; mathematical text unchanged.
+- [ ] Optional items the user agreed to (2026-09-30), remaining in order: the
+      Mathlib v4.35.0 bump once it is stable (rc3 on 2026-09-30); a Theorem 2
       Palomar entry (its submission is the user's). Undecided: Lean Zulip,
       Mathlib PRs.
 - [ ] Future, a project of its own (user idea, 2026-09-30): port the

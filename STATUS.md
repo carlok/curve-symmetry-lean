@@ -140,5 +140,7 @@ repository `carlok/sharp-symmetry-bounds-lean`, is registered with Palomar as
 NanoDa replay by the registry passed, and its editorial review was automated,
 not human. No independent human review or novelty certification exists, and
 nothing in this repository beyond Theorem 1 is covered.
-TeX and PDF are unchanged. Sprints 0–3 are mathematically complete at their
-stated scope; the complete paper and Palomar readiness are not.
+The TeX and PDF gained Appendix A, "Formal verification", on 2026-09-30
+(Sprint 7, [SPRINT-7](verification/SPRINT-7.md)); the mathematical text is
+unchanged. Sprints 0–4 and 7 are complete at their stated scopes; Palomar
+registration covers Theorem 1 only.

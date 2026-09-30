@@ -1,7 +1,8 @@
 # Sharp symmetry bounds for real algebraic curves
 
 A short note, [PDF](sharp_symmetry_bounds.pdf) and [TeX](sharp_symmetry_bounds.tex),
-and a Lean 4 / Mathlib formalization of its results.
+and a Lean 4 / Mathlib formalization of its results. Appendix A of the note
+maps each statement to its Lean declarations.
 
 ## Results
 

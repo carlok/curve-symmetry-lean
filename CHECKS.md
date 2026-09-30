@@ -125,6 +125,7 @@ Completed checks:
 - Final log search: no LaTeX warnings, undefined references, multiply defined labels, overfull boxes, or underfull boxes.
 - `chktex -q`: exit 0, no diagnostics. Three local suppressions cover the two conventional declaration lines and the correct Riemann–Hurwitz en dash; no mathematical-content warnings are hidden globally.
 - All four PDF pages were rendered and visually inspected for clipped equations, overbars, reference rendering, and page flow. No layout defect requiring a change was found.
+- 2026-09-30 (Sprint 7): Appendix A, "Formal verification", was added; the PDF now has six pages. `latexmk`, the log search, `chktex -q` (five local suppressions) and a page-by-page inspection passed again, and `uv run verify.py` passed its 2,082 checks. Details in [verification/SPRINT-7.md](verification/SPRINT-7.md).
 - A deterministic prose-only `unslop` pass protected the mathematics, TeX syntax, and bibliography. Two transition words were removed; an automatic lowercase sentence start was corrected manually. The final pass, with 346 protected spans, reported an empty diff. This was stylistic checking only.
 - A final theorem-wording check made the spherical closure explicit in the full Möbius-group statement: `c/z` sends zero to infinity and must not be described as a self-map of the affine real locus alone.
 - The only new workspace subtree is `curve_symmetry/`. No existing tracked file was changed by this task; the pre-existing dirty/untracked state was preserved. No git staging, commit, push, or external communication occurred.

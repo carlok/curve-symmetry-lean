@@ -26,7 +26,7 @@ claim); the Palomar registration of Theorem 1 is the public record.
 | 4: genus and remaining mathematical claims | Complete (gate 2026-09-30) | S03, S04, S07, S10, G06 and G10 proved; G07a (function-field double cover), G07b-1 (integral closure) and G07b-2a/2b (Dedekind closure, points of the affine double cover), G07b-2c (places over the finite `t`-line) and G07b-3 (place over `t = ∞`, full classification) proved; G08 proved at the recorded fibre-count reading; G09 genus `m` proved at the route-B reading (`family_genus`, `c4a1857`, run 35738686055), by an explicit basis instead of the paper's Riemann–Hurwitz step (divisor identity not pursued, user decision 2026-09-28). R01 proved as printed (`paper_degree_four_genus`: genus three against two, packages R01a–R01f). Gate passed 2026-09-30 ([SPRINT-4](verification/SPRINT-4.md)), tag `sprint-4-complete`. |
 | 5: Palomar contract and editorial preparation | In progress (Theorem 1 entry only) | Staged strategy, user decision 2026-09-17: first entry is Theorem 1, registered as `PALOMAR-2026-09-18-000007`; see the staged-submission section below. A Theorem 2 entry is undecided; no preprint is planned (user, 2026-09-29). |
 | 6: private contract-faithful Linux dry run | Mechanical preflight and negative controls passed (Theorem 1 entry) | Palomar's own verifier, reusable workflow at PalomarSubmission@ec6064a, runs 35183549777 on public carlok/sharp-symmetry-bounds-lean@4408003 and 35184670576 on @85ddda8 (with reviewer docs): status pass, no errors or warnings; the registered commit passed Palomar's official verification (run 35351732435). Negative controls passed 2026-09-30 (run 36669665932): a changed theorem type, a forbidden axiom and a forbidden Challenge import are each rejected by their pre-check. |
-| 7: TeX integration and final snapshot | Not started | Next; the Sprint 4 gate and the negative controls are done (2026-09-30) |
+| 7: TeX integration and final snapshot | Complete (2026-09-30) | Appendix A, "Formal verification": statement-to-Lean map, readings, route differences, registration scope, AI disclosure; six pages, chktex clean, verify.py passed ([SPRINT-7](verification/SPRINT-7.md)) |
 
 Starting checkpoint: 33 Lean modules and 85 axiom reports. Every clause of
 Theorem 1 is checked, using real Cartesian polynomials and actual isometry
@@ -570,6 +570,12 @@ against the final committed snapshot.
 
 Gate: paper, formal statements, metadata, and verification evidence agree at
 one private release-candidate commit.
+
+2026-09-30: done. Appendix A of `sharp_symmetry_bounds.tex` maps every
+theorem, lemma and remark to its Lean declarations and states the readings,
+the route differences and the registration scope; the mathematical text is
+unchanged. latexmk, chktex, a page-by-page inspection and `uv run verify.py`
+passed. Record: [SPRINT-7](verification/SPRINT-7.md).
 
 ## Completion discipline
 

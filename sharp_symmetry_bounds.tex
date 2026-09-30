@@ -6,9 +6,13 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{enumitem}
+\usepackage{url}
 \usepackage{hyperref}
 \usepackage{microtype}
-\hypersetup{colorlinks=true,linkcolor=blue,citecolor=teal,urlcolor=blue}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=teal,urlcolor=blue,
+  pdftitle={Sharp symmetry bounds for real algebraic curves},
+  pdfauthor={Carlo Perassi}}
+\DeclareUrlCommand\lean{\urlstyle{tt}}
 \setlist{leftmargin=2em,itemsep=0.25ex,topsep=0.5ex}
 \allowdisplaybreaks % chktex 1
 \newtheorem{theorem}{Theorem}
@@ -22,7 +26,7 @@
 \DeclareMathOperator{\Rea}{Re}
 \title{Sharp symmetry bounds for real algebraic curves}
 \author{Carlo Perassi}
-\date{September 5, 2026 --- working draft}
+\date{September 5, 2026 --- revised September 30, 2026}
 
 \begin{document}
 \maketitle
@@ -41,6 +45,8 @@ The parameter is a complete invariant under holomorphic M\"obius equivalence,
 and is determined up to conjugation under full M\"obius equivalence.
 An irreducible quintic with a rotation of order six illustrates why a
 symmetry of a zero set need not fix its defining polynomial.
+Every statement is checked in Lean~4 with Mathlib
+(Appendix~\ref{app:lean}).
 \end{abstract}
 
 \section{Statements and context}
@@ -317,7 +323,7 @@ exactly~\eqref{eq:group}. Among them only the rotations are Euclidean
 isometries, since $c/z$ does not fix infinity.
 \end{proof}
 
-\begin{remark}[Scope of the classification]
+\begin{remark}[Scope of the classification]\label{rem:scope}
 The restriction $d\ge5$ in the equality clause of
 Theorem~\ref{thm:bounds} is necessary: in degree four,
 $\Rea(z^4)=1$ also attains the rotation bound and is not in the
@@ -328,6 +334,88 @@ If $\alpha$ is algebraic, all the maps in~\eqref{eq:group} have
 algebraic coefficients. These are explicit consequences of the
 classification, not separate finiteness or descent theorems.
 \end{remark}
+
+\appendix
+\section{Formal verification}\label{app:lean}
+
+Every theorem, lemma and remark above is checked in Lean~4~\cite{Lean4} with
+Mathlib~\cite{Mathlib}, in the repository
+\url{https://github.com/carlok/curve-symmetry-lean}: 108 modules and about 900
+theorems and lemmas, built with Lean~4.34.0 and Mathlib at commit
+\texttt{5ed2965} (tag \texttt{v4.34.0}), with nine exact dependency pins. The
+proofs use only the axioms \lean{propext}, \lean{Classical.choice} and
+\lean{Quot.sound}, with no \lean{sorry} and no \lean{native_decide}; an audit
+checks this for every declaration of the project. The statements start from
+real Cartesian polynomials, the actual Euclidean isometry groups of their real
+loci and actual M\"obius and anti-M\"obius maps of the Riemann sphere.
+
+\paragraph{Where each statement is checked.}
+\begin{itemize}[before=\raggedright]
+\item Theorem~\ref{thm:bounds}: \lean{paper_sharp_bounds} (finiteness, the
+  cyclic direct group and both bounds), \lean{paper_rotation_sharp} and
+  \lean{paper_full_sharp} (sharpness), \lean{paper_equality_classification}
+  and \lean{paper_family_converse} (the equality case).
+\item Theorem~\ref{thm:family}: \lean{paper_family_geometry};
+  \lean{family_mobius_complete} and \lean{family_anti_mobius_complete} (every
+  equivalence has one of the four forms); \lean{family_mobius_self_mem_iff}
+  and \lean{family_no_anti_mobius_self}; \lean{familyAmbientGroup_dihedral}
+  and \lean{familyAmbientGroup_card}; \lean{family_isometry_card};
+  \lean{family_mobius_equivalence_iff} and
+  \lean{family_anti_mobius_equivalence_iff}.
+\item Lemma~\ref{lem:sign}: \lean{paper_isometry_sign}. Equation~\eqref{eq:radial}:
+  \lean{paper_high_order_radial_form}. The quintic~\eqref{eq:quintic}:
+  \lean{quintic_isometry_count}.
+\item Lemma~\ref{lem:geometry}: \lean{paper_family_geometry} (irreducibility),
+  \lean{family_projective_critical_eq_pair} (the singular pair),
+  \lean{family_ordinary_multiple_points}, \lean{paper_family_genus} and
+  \lean{family_metric_circle_card}.
+\item Remark~\ref{rem:scope}: \lean{paper_degree_four_genus},
+  \lean{family_arc_equivalence_iff} and
+  \lean{familyAmbientGroup_algebraic_representative}.
+\end{itemize}
+The file \texttt{COVERAGE.md} of the repository lists every claim, including
+the supporting ones, with its declarations.
+
+\paragraph{Readings.}
+A few words of the text receive one precise meaning in Lean, and a reader
+should check that it is the intended one. The normalization of $V_\alpha$ is
+read as its function field, a double cover of $\C(t)$. Its genus is the
+dimension of the holomorphic differentials of the function field, those
+regular at every place, a place being a valuation ring containing $\C$. This
+genus does not depend on a model, so an isomorphism of function fields
+preserves it; a similarity between real loci induces such an isomorphism, and
+this is how Remark~\ref{rem:scope} is checked, for orientation-preserving and
+orientation-reversing similarities and every nonreal parameter. Branch points
+are counted by fibres (one place over the point instead of two); ramification
+indices are not formalized. Singular points, multiplicities and tangent cones
+are computed in the four standard charts of $\PP^1\times\PP^1$, on complex
+points with the classical Zariski topology; invariance under a change of
+chart is not claimed.
+
+\paragraph{Different routes.}
+Lean obtains the genus in Lemma~\ref{lem:geometry} from an explicit basis
+$t^i\,dt/w$, $0\le i<m$, of the holomorphic differentials, where
+$w^2=-t(t^m+1)(\alpha t^m+\overline\alpha)$, instead of from Riemann--Hurwitz. % chktex 8
+The genus three in Remark~\ref{rem:scope} comes the same way: in the
+coordinates $X=z$, $Y=\overline z$ the curve $\Rea(z^4)=1$ becomes
+$X^4+Y^4=2$, and $dX/Y^3$, $X\,dX/Y^3$ and $dX/Y^2$ form a basis. The
+irreducibility of~\eqref{eq:doublecover} follows from Eisenstein's criterion at
+$t=0$ after reversing the quadratic variable, in place of the nonsquare
+argument.
+
+\paragraph{What is checked, and by whom.}
+The Lean kernel checks every statement listed above, and GitHub Actions
+rebuilds the repository from a clean checkout. Theorem~\ref{thm:bounds} alone
+is also published in \url{https://github.com/carlok/sharp-symmetry-bounds-lean}
+and registered with the Palomar registry as
+\texttt{PALOMAR-2026-09-18-000007}, after mechanical verification and an % chktex 8
+automated editorial review; nothing else in this note is registered. The
+readings above are the author's choices. No independent human review has
+taken place, and neither the kernel checks nor the registration certify
+novelty. The Lean code was written with AI coding agents under the author's
+direction. With Elan installed, \texttt{lake exe cache get} and
+\texttt{lake build} in the repository rebuild the proofs, and
+\texttt{lake env lean verification/Audit.lean} reruns the axiom audit.
 
 \begin{thebibliography}{9}
 \raggedright % chktex 1
@@ -360,5 +448,19 @@ Lemma~9. A journal article with this title appeared in
 Journal of Computational and Applied Mathematics \textbf{357} (2019),
 302--318, \href{https://doi.org/10.1016/j.cam.2019.02.036}{doi:10.1016/j.cam.2019.02.036};
 the comparison here is with the arXiv version only.
+
+\bibitem{Lean4}
+L.~de~Moura and S.~Ullrich,
+\emph{The Lean~4 theorem prover and programming language},
+in Automated Deduction, CADE~28, Lecture Notes in Computer Science
+\textbf{12699}, Springer, 2021, 625--635.
+\href{https://doi.org/10.1007/978-3-030-79876-5_37}{doi:10.1007/978-3-030-79876-5\_37}.
+
+\bibitem{Mathlib}
+The mathlib Community,
+\emph{The Lean mathematical library},
+in Proceedings of the 9th ACM SIGPLAN International Conference on Certified
+Programs and Proofs (CPP 2020), 367--381.
+\href{https://doi.org/10.1145/3372885.3373824}{doi:10.1145/3372885.3373824}.
 \end{thebibliography}
 \end{document}
