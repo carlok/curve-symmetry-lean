@@ -7,7 +7,7 @@ Date: 2026-09-06.
 ## Local verification
 
 - Built 33 mathematical modules and `CurveSymmetry.lean`, treating warnings as errors.
-- Reused `/Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean` read-only;
+- Reused an existing local Lake installation with compiled Mathlib, read-only;
   the toolchain and all nine dependency checkout revisions match the root pins.
   This validates pins and uses existing compiled artifacts; it is not a fresh
   local build of Mathlib or a byte-level attestation of its artifact provenance.

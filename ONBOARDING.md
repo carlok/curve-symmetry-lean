@@ -6,26 +6,23 @@ Read this entire handoff before acting. Updated 2026-09-30.
 
 ## Work in the correct checkout
 
-**Active repository:**
-`/Users/carlo/Documents/varie/hacks/lean4/curve_symmetry`
+**Active repository:** this checkout (`curve_symmetry` on the author's
+machine; machine-local paths are kept outside the repository).
 
-Private GitHub: `carlok/curve-symmetry-lean`
+GitHub: `carlok/curve-symmetry-lean`
 Remote: `git@github.com:carlok/curve-symmetry-lean.git`
 Working branch: `codex/main` only (GitHub default; not literally `main`).
 Sprint completion points are annotated tags `sprint-0-complete` to
-`sprint-3-complete`. The old `codex/sprint-*` branches were deleted on
+`sprint-4-complete`. The old `codex/sprint-*` branches were deleted on
 2026-09-15 with user approval; all their commits are in `codex/main`.
 License: Apache-2.0.
 
-**A second local checkout exists:**
-`/Users/carlo/Documents/varie/hacks/lean4/curve-symmetry-lean`.
-It was inspected read-only on this date: clean at `004c3df`, an old Sprint 1
-checkpoint, tracking the same remote. It is NOT where the recent work was
-done. Do not switch to it, delete it, merge it, or overwrite it without a
+**A second local checkout exists** on the author's machine, named
+`curve-symmetry-lean`: clean at `004c3df`, an old Sprint 1 checkpoint,
+tracking the same remote. It is NOT where the recent work was done. Do not switch to it, delete it, merge it, or overwrite it without a
 user request. Use explicit working directories in tools.
 
-The desktop task may start in the still older directory
-`/Users/carlo/Documents/varie/hacks/t/transcendental`; that is not this
+A desktop task may start in an older, unrelated workspace; that is not this
 project's active root either.
 
 ## First actions and working agreement
@@ -48,9 +45,7 @@ Preserve unrelated or uncommitted changes. Work one meaningful bounded step
 per request unless more are explicitly requested. Explain what coverage gap
 each step closes; avoid endless helper milestones.
 
-Read /Users/carlo/.codex/RTK.md and /Users/carlo/.codex/KARPATHY.md.
-Prefix shell commands with `rtk`, normally `rtk proxy`. Use apply_patch for
-edits. If .codegraph/ exists, consult CodeGraph before code exploration; it
+If .codegraph/ exists, consult CodeGraph before code exploration; it
 was absent in this active repository at the recent checks.
 Do not spawn agents unless authorized by the current instructions.
 
@@ -508,7 +503,7 @@ Sprint 4 genus track and later work, in order (checked = done):
       forces a = b = c = 0, since y has degree four over ℂ(x)).
 - [x] CI: R01d 83e7efe passed (Lean run 36525631447, Palomar Theorem 1 entry
       build 36525631472). README rewritten for outside readers (eea7ab3; the
-      Díaz / p20 disclaimer and internal notes removed, user request).
+      predecessor-project disclaimer and internal notes removed, user request).
 - [x] R01f (QuarticComparison, PaperRemarks): kummerRing_isFractionRing
       (IsFractionRing.of_field with integerNormalization); FermatCoordinateRing,
       FermatFunctionField, fermatFunctionFieldAlgEquiv to the Kummer field
@@ -604,21 +599,17 @@ Sprint 4 genus track and later work, in order (checked = done):
       new installation). Same procedure as v4.34: a claude/ branch, review of
       every statement edit, the shared-files check against the public
       repository, a new reuse installation; land it between R01 packages.
-- [ ] Sprint 4 gate audit; tag sprint-4-complete (the tag push needs the
-      user's word).
-- [ ] Negative controls in private CI (Sprint 6 gate), then Sprint 7 TeX
-      integration.
-- [ ] Go online (user, 2026-09-29): with no arXiv, make this repository
-      public BEFORE the Alcázar email is sent. Scrub first: local /Users/carlo
-      paths (ONBOARDING, READMEs, verification/MIGRATION.md, SPRINT-1.md), the
-      p20/p20_astra references from the predecessor project (CHECKS, README),
-      personal tooling notes (rtk, .codex, KARPATHY), a README for outsiders,
-      and a secret scan over the WHOLE history, which is published as it is (no
-      rewrite). The Lemma 9 counterexample is already public through the
-      Theorem 1 entry's formalization.yaml and its registry record. The
-      visibility change is the user's action or needs the user's explicit go.
-- [ ] Then add this repository's link to the Alcázar draft
-      (outside the repository); the user sends it. No arXiv or journal step.
+- [x] Sprint 4 gate audit (verification/SPRINT-4.md); tag sprint-4-complete
+      pushed on the user's word (2026-09-30).
+- [ ] Optional, after publication (user, 2026-09-30): negative controls in CI
+      (Sprint 6 gate), Sprint 7 TeX integration.
+- [x] Go-online scrub (2026-09-30): machine-local paths, predecessor-project
+      references and personal tooling notes removed from the tree; the secret
+      scan over the whole history (111 commits) found nothing; the history is
+      published as it is, no rewrite.
+- [ ] Make the repository public (user's go, 2026-09-30), then add its link to
+      the Alcázar draft (outside the repository); the user sends it. No arXiv
+      or journal step.
 - [ ] Optional and undecided: a Theorem 2 Palomar entry, Lean Zulip, Mathlib
       PRs.
 
@@ -667,17 +658,17 @@ discussion belonged to another project and was cancelled here. Do not resume it.
 
 Run from the active repository. Lean: leanprover/lean4:v4.34.0.
 Mathlib: 5ed2965256430c3649e86755f9576b54eca72435 (tag v4.34.0).
-Reuse installation: /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
-(dependency-only, pins copied from lake-manifest.json; never run `lake update` there).
-The old v4.32 installation /Users/carlo/Documents/varie/hacks/lean4/diaz-modulus-lean no longer matches the pins.
+Reuse installation `<reuse>`: a local Lake project with Mathlib compiled at the
+pinned revision (dependency-only, pins copied from lake-manifest.json; never run
+`lake update` there).
 Do not clone duplicate dependencies, modify their sources, or update pins.
 Root lakefile.toml and lake-manifest.json describe the portable package.
 
 ```sh
-rtk proxy sh lean/check.sh /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
-rtk proxy python3 -B scripts/check_sources.py --reuse /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
-rtk proxy python3 -B -m unittest discover -s scripts -p 'test_*.py'
-rtk proxy git diff --check
+sh lean/check.sh <reuse>
+python3 -B scripts/check_sources.py --reuse <reuse>
+python3 -B -m unittest discover -s scripts -p 'test_*.py'
+git diff --check
 ```
 
 For an incremental build, construct LEAN_PATH from this project's lean/.build

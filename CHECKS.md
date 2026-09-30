@@ -24,7 +24,7 @@ The classification of *all* curves attaining the ordinary-degree rotation bound 
 
 ## What was retained from the earlier direction
 
-The useful starting point from `p20_astra.tex` was the restriction imposed on monomial weights by a Möbius rotation, and the use of the conjugation-symmetric complexification in `P1 x P1`. The autonomous result here uses those ideas over arbitrary real coefficients, with no transcendental-point or algebraic-coefficient hypothesis.
+The useful starting point from an earlier draft was the restriction imposed on monomial weights by a Möbius rotation, and the use of the conjugation-symmetric complexification in `P1 x P1`. The autonomous result here uses those ideas over arbitrary real coefficients, with no transcendental-point or algebraic-coefficient hypothesis.
 
 The general finite Möbius-group bounds, orbit/descriptive-set-theoretic material, and semialgebraic algebraicity argument were not copied. They would broaden the paper and make its contribution less distinct. The familiar Cassini quartics were also dropped as a novelty candidate: Rigby's discussion already gives their order-eight inversive groups.
 
@@ -68,7 +68,7 @@ Theorem 1 cites Theorem 2 for examples, but the proof of Theorem 2 does not use 
 11. **Reducible counterexamples to overgeneralization.** `Re(z^d) = 0` is a union of lines with `2d` rotations and `4d` isometries. It defeats both strengthened bounds without irreducibility. A circle has infinitely many symmetries.
 12. **Algebraic coefficients.** The only arithmetic observation retained is immediate from the explicit group equations: if `alpha` is algebraic, the permitted `c` are algebraic. No unproved descent or effectivity assertion is used.
 13. **Genus check by a second calculation.** Arithmetic genus in bidegree `(m+1,m+1)` is `m^2`. Subtracting the two ordinary-point contributions, each `m(m-1)/2`, gives `m`, agreeing with the double cover's `2m+2` branch points. The genus is that of the normalization, not the singular model.
-14. **No claim to solve a problem in transcendence.** No Díaz input or conclusion is present. The standalone contribution is in plane-curve symmetry.
+14. **Scope.** The note is about plane-curve symmetry only; it makes no claim in transcendence theory.
 
 ## Literature audit
 
@@ -128,12 +128,7 @@ Completed checks:
 - A deterministic prose-only `unslop` pass protected the mathematics, TeX syntax, and bibliography. Two transition words were removed; an automatic lowercase sentence start was corrected manually. The final pass, with 346 protected spans, reported an empty diff. This was stylistic checking only.
 - A final theorem-wording check made the spherical closure explicit in the full Möbius-group statement: `c/z` sends zero to infinity and must not be described as a self-map of the affine real locus alone.
 - The only new workspace subtree is `curve_symmetry/`. No existing tracked file was changed by this task; the pre-existing dirty/untracked state was preserved. No git staging, commit, push, or external communication occurred.
-- SHA-256 checks match the values recorded before this task:
-
-```text
-dcbd80d9d3de369717784dfc8c7729d18f8e2b94766d011becff83ba37f95072  p20.tex
-f5efbe7773c9cd5e96a0eb200564fbc21fba8a1ca248b45fae6f5076c646c710  p20_astra.tex
-```
+- SHA-256 checks of the workspace's pre-existing drafts matched the values recorded before this task.
 
 ## Before making a public novelty claim
 
@@ -141,4 +136,4 @@ f5efbe7773c9cd5e96a0eb200564fbc21fba8a1ca248b45fae6f5076c646c710  p20_astra.tex
 - Ask a specialist in plane-curve symmetry to look for an existing sharp-degree/equality theorem, especially in classical inversive-geometry and curve-recognition literature.
 - Obtain an independent mathematical review of the normalization/localization step and the completeness of the ambient group classification. The current checker shares the author's derivation.
 - Continue the Lean development with the global Möbius completeness argument, actual sphere actions and group classification, and normalization/genus. Theorem 1 now checks in full; Theorem 2 does not. Its local chart and four-form coefficient calculations have been checked without assuming that the four forms exhaust arbitrary Möbius equivalences. No registry validation has run. (2026-09-06 text. Since then Theorem 2 and the genus are proved and Theorem 1 is registered; see the update above. What remains of this item is R01.)
-- Private email to Alcázar, Lávička and Vršek (user decision 2026-09-28): drafted outside this repository and sent by the user. It reports the Lemma 9 counterexample, states that no novelty is claimed, and points to the Theorem 1 formalization and its Palomar entry. User decision 2026-09-29: no arXiv preprint and no novelty claim; whether the bounds are known is for the specialist to say.
+- A note from the author to Alcázar, Lávička and Vršek reports the Lemma 9 counterexample, claims no novelty, and points to the Theorem 1 formalization and its Palomar entry. No arXiv preprint is planned, and no novelty is claimed; whether the bounds are known is for the specialist to say.

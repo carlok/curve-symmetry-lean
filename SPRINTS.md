@@ -328,8 +328,8 @@ Sprint 6's private contract-faithful dry run still precedes any submission.
 After a review outcome: `revision_required` or alignment/metadata problems ->
 fix and resubmit the corrected commit; `rejected` for research interest -> do
 not expect Theorem 2 alone to pass; the user then considers going public in
-stages (e.g. prove2me, then GitHub). Going public is not authorized until the
-user explicitly says so. Genus work (G09, R01) was deferred then; both are proved now (2026-09-29).
+stages (e.g. prove2me, then GitHub). Going public was authorized by the user on
+2026-09-30. Genus work (G09, R01) was deferred then; both are proved now (2026-09-29).
 Palomar limits checked 2026-09-16/17: Challenge hard limit 1,000 lines /
 100 KiB, warning above 300 lines / 32 KiB; repository <= 500 MiB; several
 entries may share one repository and commit via separate configuration paths.

@@ -2,8 +2,8 @@
 
 Date: 2026-09-06.
 
-- Source: `/Users/carlo/Documents/varie/hacks/t/transcendental/curve_symmetry`.
-- Destination: `/Users/carlo/Documents/varie/hacks/lean4/curve_symmetry`.
+- Source: the `curve_symmetry/` directory of the author's previous workspace.
+- Destination: this repository's location on the author's machine.
 - The destination did not exist; the source had no nested Git repository and
   none of its files was tracked by the parent repository.
 - The complete directory was moved with overwrite protection. No compatibility
@@ -15,7 +15,7 @@ Date: 2026-09-06.
 - The pre-move build compiled 33 modules with warnings as errors and returned
   exit 0. All 85 endpoint axiom reports used only `propext`, `Classical.choice`,
   and `Quot.sound`.
-- Lean 4.32.0 and the compiled dependencies from the existing `diaz-modulus-lean`
+- Lean 4.32.0 and the compiled dependencies of an existing local Lake
   installation were reused. No library checkout or toolchain was copied.
 - The TeX SHA-256 at migration was
   `3aff1c6edf6f189de6fa56c690631c266364a3b129408eb0fd5a200ceb186925`.

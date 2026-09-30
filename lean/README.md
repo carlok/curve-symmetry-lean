@@ -229,15 +229,14 @@ of the normalization is that reading, not a scheme-theoretic theorem.
 
 ## Reuse the installed libraries
 
-From the repository root on this machine:
+From the repository root, pass an existing Lake project whose Mathlib is
+compiled at the pinned revision, with a matching toolchain installed:
 
 ```sh
-rtk proxy sh lean/check.sh \
-  /Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse
+sh lean/check.sh /path/to/existing-lean-project
 ```
 
-On another machine, pass an existing populated Lake project with compiled
-Mathlib and an installed matching toolchain. The script checks its toolchain
+The script checks its toolchain
 and all nine dependency checkout revisions against this project's committed
 pins, then uses the compiled package directories through `LEAN_PATH`. It invokes
 neither Lake nor a package fetch, and invokes `elan run` without `--install`.
@@ -248,10 +247,9 @@ Verification environment:
 
 - Lean `leanprover/lean4:v4.34.0`.
 - Mathlib commit `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`).
-- Existing Mathlib at
-  `/Users/carlo/Documents/varie/hacks/lean4/mathlib-v4.34.0-reuse/.lake/packages/mathlib`.
+- A local Lake project with Mathlib compiled at that commit.
 
-The script compiles all 97 mathematical modules and the aggregate import with
+The script compiles all 108 mathematical modules and the aggregate import with
 warnings treated as errors. In addition to the selected endpoint reports,
 `verification/Audit.lean` checks every `CurveSymmetry` declaration, including
 private names, against only `propext`, `Classical.choice`, and `Quot.sound`.
@@ -260,7 +258,7 @@ There are no intentional proof holes, added axioms, or
 it is not a clean rebuild of Mathlib itself.
 
 The root TOML Lakefile, toolchain and exact manifest support a portable Lake
-build. Private Linux CI checks a clean project checkout with the pinned upstream
+build. Linux CI (GitHub Actions) checks a clean project checkout with the pinned upstream
 dependency artifacts. See the [full coverage ledger](../COVERAGE.md) for the
 supporting claims and their readings; completion of Theorems 1 and 2 does not
 imply completion of every lemma and remark in the exposition.
