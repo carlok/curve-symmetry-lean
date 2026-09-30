@@ -1,0 +1,50 @@
+name: Palomar Theorem 1 negative controls
+
+# Sprint 6 gate: each job mutates its own throwaway checkout of the Theorem 1
+# entry (nothing is committed), builds it, and requires the targeted pre-check
+# to fail. A job succeeds only when its check rejects the mutated entry.
+# These exercise the CI pre-checks, not the sandboxed Palomar Comparator.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main', 'codex/**']
+    paths:
+      - 'palomar/theorem1/**'
+      - 'scripts/palomar/**'
+      - '.github/workflows/palomar-negative-controls.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: palomar-negative-controls-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  control:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        control: [theorem-type, forbidden-axiom, forbidden-import]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Mutate the throwaway checkout
+        working-directory: palomar/theorem1
+        run: python3 ../../scripts/palomar/negative_control.py mutate "${{ matrix.control }}"
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
+        with:
+          lake-package-directory: palomar/theorem1
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Require the targeted pre-check to fail
+        working-directory: palomar/theorem1
+        run: python3 ../../scripts/palomar/negative_control.py expect "${{ matrix.control }}"

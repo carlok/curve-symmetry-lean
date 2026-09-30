@@ -42,6 +42,9 @@ jobs:
           lake env sh ../../scripts/palomar/dump_decls.sh Challenge > /tmp/challenge.txt
           lake env sh ../../scripts/palomar/dump_decls.sh Solution > /tmp/solution.txt
           diff /tmp/challenge.txt /tmp/solution.txt
+      - name: Pre-check (not Comparator) Challenge imports only Mathlib
+        working-directory: palomar/theorem1
+        run: sh ../../scripts/palomar/check_challenge_imports.sh Challenge.lean
       - name: Pre-check (not Comparator) Solution axioms
         working-directory: palomar/theorem1
         run: lake env lean ../../scripts/palomar/CheckSolutionAxioms.lean
