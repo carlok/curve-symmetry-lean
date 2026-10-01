@@ -1,6 +1,6 @@
 # Mathematical and verification snapshot
 
-Snapshot: Sprint 4 complete; repository public since 2026-09-30 (default branch `main`).
+Snapshot: Sprints 4 and 7 complete; repository public since 2026-09-30 (default branch `main`).
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results
@@ -117,7 +117,9 @@ is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The mov
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-The negative controls commit `35f51bc` passed Linux run `36669665863`, the
+The Sprint 7 commit `f618c4a` (tag `sprint-7-complete`) passed Linux run
+`36670722550` and the Palomar Theorem 1 entry build `36670722442`. The
+negative controls commit `35f51bc` passed Linux run `36669665863`, the
 entry build `36669665920` and the negative controls `36669665932`; the
 publication commit `f0b97b7` passed `36667893633` and `36667893653`. The
 Sprint 4 gate commit `b402b7e` (documentation only) passed Linux run

@@ -110,10 +110,13 @@ replace them.
 
 - `lean/`: the library; `lean/CurveSymmetry.lean` imports all of it.
 - `palomar/theorem1/`: development copy of the Theorem 1 entry.
-- `verification/`: per-package notes and the axiom audit.
+- `verification/`: per-package notes and the axiom audit. Some older notes
+  cite `ONBOARDING.md`, the coding agents' handoff file; it was removed on
+  2026-10-01 and remains in the git history.
 - `figures/`: the figure above and its script.
 - [SPRINTS.md](SPRINTS.md): the work plan and its history; completed sprints
-  are tagged `sprint-0-complete` to `sprint-4-complete`.
-- [ONBOARDING.md](ONBOARDING.md): handoff notes for the coding agents.
+  are tagged `sprint-0-complete` to `sprint-4-complete` and
+  `sprint-7-complete` (Sprints 5 and 6 concern the Palomar entry and are not
+  tagged).
 
 License: Apache-2.0.
