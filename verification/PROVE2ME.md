@@ -3,9 +3,9 @@
 The whole formalization is published on Prove2Me as the mission
 [Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves)
 (account `carlok`), so that others can import its definitions and theorems and build
-on them. It was uploaded privately, checked, and made public on 2026-10-07. Admission
-of the mission to the platform's public catalog is a moderator's decision; the
-theorems and definitions are public either way. The scripts are in
+on them. It was uploaded privately, checked, and made public on 2026-10-07. A moderator
+approved the mission for the public catalog the same day; it is complete, with the
+goal and all 41 milestones proved. The scripts are in
 `scripts/prove2me/`.
 
 ## What is there

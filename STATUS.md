@@ -4,6 +4,8 @@ Snapshot: Sprints 4 and 7 complete; repository public since 2026-09-30 (default 
 Published on Prove2Me on 2026-10-07 as the mission
 [Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves)
 (208 theorems, all proved, and 12 definition files; [verification/PROVE2ME.md](verification/PROVE2ME.md)).
+The mission is approved and complete: goal and 41 milestones proved. CI on the record commit `743870b`:
+Lean run `37639640128`, Palomar Theorem 1 entry run `37639640082`, both green.
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results

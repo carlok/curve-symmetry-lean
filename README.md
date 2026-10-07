@@ -4,6 +4,18 @@ A short note, [PDF](sharp_symmetry_bounds.pdf) and [TeX](sharp_symmetry_bounds.t
 and a Lean 4 / Mathlib formalization of its results. Appendix A of the note
 maps each statement to its Lean declarations.
 
+## News
+
+- 2026-10-07: the whole formalization is a completed mission on Prove2Me,
+  [Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves).
+  The goal (Theorem 1, the bounds) and all 41 milestones are proved, and the mission
+  was approved for the public catalog. Its 208 theorems and 12 definition files can
+  be imported by other Prove2Me developments. Details: [verification/PROVE2ME.md](verification/PROVE2ME.md).
+- 2026-10-07: six docstrings that called proved points pending now name the
+  theorems that prove them; `scripts/prove2me/` holds the upload scripts.
+- 2026-09-30: repository public. Theorem 1 is registered with Palomar as
+  `PALOMAR-2026-09-18-000007`.
+
 ## Results
 
 For an infinite real plane curve of degree `d >= 2`, defined by a polynomial
@@ -52,10 +64,10 @@ and registered with Palomar as
 after mechanical verification and an automated editorial review. That is
 neither a human review nor a novelty certificate.
 
-The whole formalization is also on Prove2Me as the mission
+The whole formalization is also on Prove2Me as the completed mission
 [Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves):
 12 definition files and 208 proved theorems, ported to the platform's Lean v4.33.1,
-that other developments can import. See [verification/PROVE2ME.md](verification/PROVE2ME.md).
+with the goal and all 41 milestones proved. Other developments can import them. See [verification/PROVE2ME.md](verification/PROVE2ME.md).
 
 The Lean code was written with AI coding agents under the author's direction.
 
