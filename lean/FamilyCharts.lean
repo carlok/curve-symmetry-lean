@@ -52,8 +52,8 @@ theorem family_mixed_not_singular {m : ℕ} (hm : 0 < m) (a b : ℂ) :
   exact one_ne_zero he
 
 /-- The one-variable tangent-direction polynomial has no repeated root.
-This is the algebraic ingredient for ordinary multiple points, not yet an
-interface to the singularity or normalization of a projective scheme. -/
+This is the algebraic ingredient for ordinary multiple points; the statement
+about the singular points themselves is `family_ordinary_multiple_points`. -/
 theorem binary_tangent_separable {m : ℕ} (hm : 0 < m) {a b : ℂ} (ha : a ≠ 0) (hb : b ≠ 0) :
     Polynomial.Separable (Polynomial.C a * Polynomial.X ^ m + Polynomial.C b) := by
   have he : Polynomial.C a * Polynomial.X ^ m + Polynomial.C b =

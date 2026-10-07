@@ -52,7 +52,7 @@ theorem family_no_opposite_normalized {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
   exact (g.property.2 z).mpr hz
 
 /-- Every actual Euclidean self-isometry is direct, including m=2.
-The translation coefficient is not yet eliminated by this endpoint. -/
+The translation coefficient is eliminated in `family_affine_self_filter`. -/
 theorem family_isometry_direct {m : ℕ} (hm : 2 ≤ m) {α : ℂ}
     (ha : α ≠ star α) (hα : ‖α‖ = 1) (f : ℂ ≃ᵢ ℂ)
     (hf : ∀ z ∈ extremalCurve m α, f z ∈ extremalCurve m α) :

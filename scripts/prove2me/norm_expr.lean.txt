@@ -1,0 +1,18 @@
+
+open Lean in
+/-- Auxiliary proofs (`foo._proof_N`) are shared between declarations of one file, so a
+merged file may cite another, identical auxiliary proof: their names are erased
+(proof irrelevance). Instance pairs proved equal in `instance_equivalences.lean` are
+identified. Private names are mapped to their user names. -/
+def isAuxProof (n : Name) : Bool :=
+  n.components.any fun c => (c.toString.splitOn "_proof_").length > 1
+
+open Lean in
+def instanceEquiv : List (Name × Name) := [(`NonUnitalNonAssocSemiring.toDistribSMul, `instDistribSMul)]
+
+open Lean in
+def normE (e : Expr) : Expr := e.replace fun
+  | .const n ls =>
+    if isAuxProof n then some (.const `_aux_proof [])
+    else some (.const ((instanceEquiv.lookup n).getD (privateToUserName n)) ls)
+  | _ => none

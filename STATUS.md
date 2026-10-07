@@ -1,6 +1,9 @@
 # Mathematical and verification snapshot
 
 Snapshot: Sprints 4 and 7 complete; repository public since 2026-09-30 (default branch `main`).
+Published on Prove2Me on 2026-10-07 as the mission
+[Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves)
+(208 theorems, all proved, and 12 definition files; [verification/PROVE2ME.md](verification/PROVE2ME.md)).
 Full claim-by-claim detail is in [COVERAGE.md](COVERAGE.md).
 
 ## Paper-facing results

@@ -28,7 +28,8 @@ lemma familyBihomogeneous_smul_right (m : ℕ) (α a : ℂ) (x y : Fin 2 → ℂ
 
 /-- The bihomogeneous zero locus on the standard product of projective lines.
 The next lemma proves that its meaning does not depend on chosen representatives.
-Its identification with the Zariski closure is a separate pending obligation. -/
+Its identification with the Zariski closure of the affine curve is
+`family_projectiveAtlas_affine_closure`. -/
 def familyProjectiveCurve (m : ℕ) (α : ℂ) : Set (ProjectiveLine × ProjectiveLine) :=
   {p | familyBihomogeneous m α p.1.rep p.2.rep = 0}
 
@@ -132,7 +133,9 @@ lemma familyProjective_infinity_infinity {m : ℕ} (hm : 0 < m) (α : ℂ) :
   simp [familyBihomogeneous, hm.ne']
 
 /-- The real part of the projective zero locus is exactly the genuine spherical
-closure, including infinity. This is not yet Zariski-density or map transport. -/
+closure, including infinity. Zariski density and the transport of maps are
+proved separately (`family_projectiveAtlas_real_closure`,
+`family_mobius_complex_transport`). -/
 theorem sphericalFamily_projective_iff {m : ℕ} (hm : 0 < m) {α : ℂ}
     (ha : α ≠ star α) (p : Sphere) :
     sphereRealDiagonal p ∈ familyProjectiveCurve m α ↔ p ∈ sphericalFamily m α := by

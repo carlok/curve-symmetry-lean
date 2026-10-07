@@ -13,8 +13,9 @@ theorem family_projectiveAtlas_isClosed (m : ℕ) (α : ℂ) :
     IsClosed (familyProjectiveCurve m α) :=
   (projectiveAtlas_isClosed_iff _).mpr (family_closed_in_projective_charts m α)
 
-/-- Closure in the family-independent chart-final topology. Identification of
-that topology with standard projective Zariski geometry is a separate task. -/
+/-- Closure in the family-independent chart-final topology, which
+`projectiveAtlasTopology_characterization` identifies as the unique topology making
+the four affine Zariski charts open embeddings (it is not compared with a scheme). -/
 theorem family_projectiveAtlas_affine_closure {m : ℕ} (hm : 0 < m) (α : ℂ) :
     closure (affineProjectiveChart '' {v : Fin 2 → ℂ | eval v (familyPolynomial m α) = 0}) =
       familyProjectiveCurve m α :=

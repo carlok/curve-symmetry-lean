@@ -69,8 +69,8 @@ theorem family_projective_transport_of_identity {m : ℕ} {α β k : ℂ} {g : M
   simp [hk]
 
 /-- Arbitrary inclusion of the spherical real loci forces equivalence of the
-constructed complex projective zero loci. This does not yet prove invariance
-of the intrinsic singularity condition. -/
+constructed complex projective zero loci. The transport of the singular points
+is `family_mobius_projective_critical_transport` and its anti-Möbius analogue. -/
 theorem family_mobius_complex_transport {m : ℕ} (hm : 0 < m) {α β : ℂ}
     (ha : α ≠ star α) (hb : β ≠ star β) (g : MobiusMatrix)
     (hmap : ∀ p ∈ sphericalFamily m α, g • p ∈ sphericalFamily m β)

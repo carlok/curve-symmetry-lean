@@ -52,6 +52,11 @@ and registered with Palomar as
 after mechanical verification and an automated editorial review. That is
 neither a human review nor a novelty certificate.
 
+The whole formalization is also on Prove2Me as the mission
+[Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves):
+12 definition files and 208 proved theorems, ported to the platform's Lean v4.33.1,
+that other developments can import. See [verification/PROVE2ME.md](verification/PROVE2ME.md).
+
 The Lean code was written with AI coding agents under the author's direction.
 
 ## Literature
@@ -110,6 +115,7 @@ replace them.
 
 - `lean/`: the library; `lean/CurveSymmetry.lean` imports all of it.
 - `palomar/theorem1/`: development copy of the Theorem 1 entry.
+- `scripts/prove2me/`: the scripts that produced and checked the Prove2Me upload.
 - `verification/`: per-package notes and the axiom audit. Some older notes
   cite `ONBOARDING.md`, the coding agents' handoff file; it was removed on
   2026-10-01 and remains in the git history.
