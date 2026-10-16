@@ -143,7 +143,7 @@ lemma quadEval_surjective (c d : ℂ) (hd : d ^ 2 = h.eval c) :
 /-- A maximal ideal of `ℂ[t]` contains some `t − c`. -/
 lemma exists_X_sub_C_mem {𝔫 : Ideal ℂ[X]} (hmax : 𝔫.IsMaximal) : ∃ c : ℂ, X - C c ∈ 𝔫 := by
   have hbot : ⊥ < 𝔫 := Ideal.bot_lt_of_maximal 𝔫 (Polynomial.not_isField ℂ)
-  obtain ⟨p, hp, hp0⟩ := SetLike.exists_of_lt hbot
+  obtain ⟨p, hp, hp0⟩ := IsConcreteLE.exists_of_lt hbot
   have hp0' : p ≠ 0 := by simpa using hp0
   induction hn : p.natDegree using Nat.strong_induction_on generalizing p with
   | _ n ih =>

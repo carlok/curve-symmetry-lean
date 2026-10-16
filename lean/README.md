@@ -246,8 +246,8 @@ No Mathlib checkout, library cache, or toolchain is duplicated.
 
 Verification environment:
 
-- Lean `leanprover/lean4:v4.34.0`.
-- Mathlib commit `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`).
+- Lean `leanprover/lean4:v4.35.0`.
+- Mathlib commit `56a005855ea17e0b0958f73ec801ae140b0a1679` (tag `v4.35.0`).
 - A local Lake project with Mathlib compiled at that commit.
 
 The script compiles all 108 mathematical modules and the aggregate import with

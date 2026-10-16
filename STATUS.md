@@ -111,14 +111,16 @@ its negative controls passed in CI on 2026-09-30 (run `36669665932`). No arXiv p
 | Lean source lines, including comments and blank lines | 15,420 |
 | Audited namespace declarations, including generated/private machinery | 2,058 |
 | Exact dependency pins | 9 |
-| Package-test cases | 6 passing |
+| Package-test cases | 10 passing |
 
 Written-declaration counts use line-anchored source declarations, including
 private/protected declarations; they are not novelty counts. The audit allows
 only `propext`, `Classical.choice`, and `Quot.sound`. There are no intentional
 proof placeholders in the library. Local verification was incremental, with
-warnings as errors and installed dependencies reused. Lean is 4.34.0; Mathlib
-is pinned to `5ed2965256430c3649e86755f9576b54eca72435` (tag `v4.34.0`). The move from
+warnings as errors and installed dependencies reused. Lean is 4.35.0; Mathlib
+is pinned to `56a005855ea17e0b0958f73ec801ae140b0a1679` (tag `v4.35.0`). The move from
+Lean 4.34.0 (2026-10-16) left the audited count at 2,058; it changed proofs in five
+modules and the spelling, not the meaning, of six statements. The move from
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 

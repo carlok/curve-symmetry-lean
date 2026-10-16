@@ -19,12 +19,12 @@ theorem polynomial_hasFDerivAt {𝕜 σ : Type*} [NontriviallyNormedField 𝕜]
   induction P using MvPolynomial.induction_on with
   | C c =>
       convert (hasFDerivAt_const (𝕜 := 𝕜) c x) using 1 <;>
-        first | rfl | (ext v; simp [polynomialDifferential])
+        (ext v; simp [polynomialDifferential])
   | add P Q hP hQ =>
-      convert hP.add hQ using 1 <;> first | rfl | (ext v; simp [polynomialDifferential, add_mul, Finset.sum_add_distrib])
+      convert hP.add hQ using 1 <;> (ext v; simp [polynomialDifferential, add_mul, Finset.sum_add_distrib])
   | mul_X P i hP =>
       have hi := (ContinuousLinearMap.proj i : (σ → 𝕜) →L[𝕜] 𝕜).hasFDerivAt (x := x)
-      convert hP.mul hi using 1 <;> first | rfl | (ext v; simp [polynomialDifferential, pderiv_X,
+      convert hP.mul hi using 1 <;> (ext v; simp [polynomialDifferential, pderiv_X,
         Pi.single_apply, apply_ite, mul_add, Finset.sum_add_distrib, Finset.mul_sum,
         mul_comm, mul_left_comm])
 

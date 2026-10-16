@@ -151,9 +151,9 @@ and `h_conj'(s)` is a unit there. -/
 theorem family_infinity_conjugate_ramified :
     IsLocalRing.maximalIdeal (quadLocalRing (familyH m (star α)) 0 0
           (familyH_star_zero_point m α)) =
-        Ideal.span {algebraMap (QuadRing (familyH m (star α)))
+        Ideal.span {(algebraMap (QuadRing (familyH m (star α)))
           (quadLocalRing (familyH m (star α)) 0 0 (familyH_star_zero_point m α))
-          (AdjoinRoot.root (quadPoly (familyH m (star α))))} ∧
+          (AdjoinRoot.root (quadPoly (familyH m (star α)))))} ∧
       IsUnit (algebraMap (QuadRing (familyH m (star α)))
         (quadLocalRing (familyH m (star α)) 0 0 (familyH_star_zero_point m α))
         (algebraMap ℂ[X] (QuadRing (familyH m (star α)))

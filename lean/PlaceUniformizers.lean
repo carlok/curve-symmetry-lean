@@ -192,8 +192,8 @@ lemma quad_ramified_shift_sq (hc : h.eval c = 0) :
 /-- At a ramified point place, `t − c` is a multiple of `w` in the local ring. -/
 lemma quadShift_mem_span_root (hc : h.eval c = 0) :
     algebraMap (QuadRing h) (quadLocalRing h c d hd) (quadShift h c) ∈
-      Ideal.span {algebraMap (QuadRing h) (quadLocalRing h c d hd)
-        (AdjoinRoot.root (quadPoly h))} := by
+      Ideal.span {(algebraMap (QuadRing h) (quadLocalRing h c d hd)
+        (AdjoinRoot.root (quadPoly h)))} := by
   obtain ⟨k, hk, hkc⟩ := exists_factor_of_root h c hc
   have hkmem : algebraMap ℂ[X] (QuadRing h) k ∈
       (RingHom.ker (quadEval h c d hd)).primeCompl := by
@@ -219,8 +219,8 @@ ramified place. -/
 lemma quadKer_le_span_root (hc : h.eval c = 0) (p : QuadRing h)
     (hp : p ∈ RingHom.ker (quadEval h c d hd)) :
     algebraMap (QuadRing h) (quadLocalRing h c d hd) p ∈
-      Ideal.span {algebraMap (QuadRing h) (quadLocalRing h c d hd)
-        (AdjoinRoot.root (quadPoly h))} := by
+      Ideal.span {(algebraMap (QuadRing h) (quadLocalRing h c d hd)
+        (AdjoinRoot.root (quadPoly h)))} := by
   have hd0 : d = 0 := by
     have : d ^ 2 = 0 := by rw [hd, hc]
     exact pow_eq_zero_iff two_ne_zero |>.mp this
@@ -239,8 +239,8 @@ lemma quadKer_le_span_root (hc : h.eval c = 0) (p : QuadRing h)
 /-- **G09a-2f**: at a ramified point place, `w` generates the maximal ideal. -/
 theorem quad_ramified_uniformizer (hc : h.eval c = 0) :
     IsLocalRing.maximalIdeal (quadLocalRing h c d hd) =
-      Ideal.span {algebraMap (QuadRing h) (quadLocalRing h c d hd)
-        (AdjoinRoot.root (quadPoly h))} := by
+      Ideal.span {(algebraMap (QuadRing h) (quadLocalRing h c d hd)
+        (AdjoinRoot.root (quadPoly h)))} := by
   have hd0 : d = 0 := by
     have : d ^ 2 = 0 := by rw [hd, hc]
     exact pow_eq_zero_iff two_ne_zero |>.mp this
@@ -303,8 +303,8 @@ variable {m : ℕ} {α : ℂ} [hm : Fact (0 < m)] [ha : Fact (α ≠ star α)]
 theorem family_unramified_uniformizer (c d : ℂ) (hd : d ^ 2 = (familyH m α).eval c)
     (hc : (familyH m α).eval c ≠ 0) :
     IsLocalRing.maximalIdeal (quadLocalRing (familyH m α) c d hd) =
-        Ideal.span {algebraMap (QuadRing (familyH m α)) (quadLocalRing (familyH m α) c d hd)
-          (quadShift (familyH m α) c)} ∧
+        Ideal.span {(algebraMap (QuadRing (familyH m α)) (quadLocalRing (familyH m α) c d hd)
+          (quadShift (familyH m α) c))} ∧
       KaehlerDifferential.D ℂ (QuadField (familyH m α))
           ((algebraMap (QuadRing (familyH m α)) (quadLocalRing (familyH m α) c d hd)
             (quadShift (familyH m α) c) : quadLocalRing (familyH m α) c d hd) :
@@ -323,9 +323,9 @@ maximal ideal, and `h_α'(t)` is a unit there, so `f·dt` reads as `2·f·w·dw`
 that unit. -/
 theorem family_ramified_uniformizer (c : ℂ) (hc : (familyH m α).eval c = 0) :
     IsLocalRing.maximalIdeal (quadLocalRing (familyH m α) c 0 (familyH_root_point c hc)) =
-        Ideal.span {algebraMap (QuadRing (familyH m α))
+        Ideal.span {(algebraMap (QuadRing (familyH m α))
           (quadLocalRing (familyH m α) c 0 (familyH_root_point c hc))
-          (AdjoinRoot.root (quadPoly (familyH m α)))} ∧
+          (AdjoinRoot.root (quadPoly (familyH m α))))} ∧
       IsUnit (algebraMap (QuadRing (familyH m α))
         (quadLocalRing (familyH m α) c 0 (familyH_root_point c hc))
         (algebraMap ℂ[X] (QuadRing (familyH m α)) (familyH m α).derivative)) :=

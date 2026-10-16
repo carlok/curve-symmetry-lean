@@ -6,6 +6,10 @@ maps each statement to its Lean declarations.
 
 ## News
 
+- 2026-10-16: moved to Lean 4.35.0 and Mathlib `v4.35.0`. Only proofs changed, in five
+  modules (renamed lemmas, a stricter linter, and set braces the new parser reads
+  differently); no theorem changed its meaning, and the axiom audit still covers 2,058
+  declarations. The Prove2Me copy stays on the platform's Lean 4.33.1.
 - 2026-10-07: the whole formalization is a completed mission on Prove2Me,
   [Sharp symmetry bounds for real algebraic curves](https://prove2.me/missions/Sharp_symmetry_bounds_for_real_algebraic_curves).
   The goal (Theorem 1, the bounds) and all 41 milestones are proved, and the mission
@@ -89,7 +93,7 @@ versions checked and the remaining checks are in [CHECKS.md](CHECKS.md).
 
 ## Reproduce
 
-The root is a Lake project pinned to Lean 4.34.0 and an exact Mathlib revision.
+The root is a Lake project pinned to Lean 4.35.0 and an exact Mathlib revision.
 With Elan installed:
 
 ```sh

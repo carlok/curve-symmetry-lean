@@ -26,7 +26,8 @@ goal and all 41 milestones proved. The scripts are in
 ## The port
 
 Prove2Me verifies in Lean v4.33.1 with Mathlib `0df444a`; this repository is on Lean
-v4.34.0 with Mathlib `5ed2965`. The port changed 56 lines in 22 files, all inside
+v4.34.0 with Mathlib `5ed2965` (Lean v4.35.0 since 2026-10-16; the Prove2Me copy
+was not changed). The port changed 56 lines in 22 files, all inside
 proofs or imports, and no statement. Examples are a renamed import
 (`Mathlib.Data.Complex.Basic`), older lemma names (`MvPolynomial.coeff_add`,
 `if_pos`/`if_neg`, `Ideal.eq_bot_of_comap_eq_bot`), and the pre-bump form of a few

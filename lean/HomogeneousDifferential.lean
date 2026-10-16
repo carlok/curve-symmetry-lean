@@ -30,12 +30,12 @@ theorem criticalZero_transport {𝕜 E : Type*} [NontriviallyNormedField 𝕜]
     refine ⟨(mul_eq_zero.mp ((he x).symm.trans hz)).resolve_left hk, ?_⟩
     have h := (hd.mpr hder).const_mul k⁻¹
     rw [hfun] at h
-    convert h using 1 <;> first | rfl | (ext v; simp [inv_mul_cancel_left₀ hk])
+    convert h using 1 <;> (ext v; simp [inv_mul_cancel_left₀ hk])
   · rintro ⟨hz, hder⟩
     refine ⟨by rw [he, hz, mul_zero], hd.mp ?_⟩
     rw [hfun]
     convert hder.const_mul k using 1
-    first | rfl | (ext v; simp)
+    ext v; simp
 
 abbrev HomogeneousPairs := (Fin 2 → ℂ) × (Fin 2 → ℂ)
 

@@ -201,6 +201,11 @@ place, the holomorphic differentials as a `ℂ`-subspace, the basis
 `verification/differentials-rank.md`, `verification/place-differentials.md`,
 `verification/holomorphic-differentials.md`.
 
+2026-10-16 toolchain: Lean 4.35.0 and Mathlib `56a0058` (tag `v4.35.0`, 651 Mathlib
+commits past `5ed2965`), prepared on `claude/2026-10-16-lean-v4.35.0`. Five modules
+changed, none shared with the public Theorem 1 repository; the audit stays at 2,058.
+Note: `verification/lean-v4.35.md`.
+
 2026-09-21/22 toolchain: Lean 4.34.0 and Mathlib `5ed2965` (tag `v4.34.0`),
 prepared on `claude/2026-09-21-lean-v4.34.0`, reviewed against the public
 repository's shared files and merged by fast-forward as `db011ac` (run
