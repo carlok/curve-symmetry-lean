@@ -124,7 +124,9 @@ modules and the spelling, not the meaning, of six statements. The move from
 Lean 4.32.0 raised the audited declaration count from 1,581 to 1,583 with no
 change to any written declaration.
 
-The Sprint 7 commit `f618c4a` (tag `sprint-7-complete`) passed Linux run
+The Lean 4.35.0 commit `a2c13b7` passed Linux run `38872333753`, the Palomar
+Theorem 1 entry build `38872333805` and the negative controls `38872333742` on
+`main` (branch runs `38871662856` and `38871665746`). The Sprint 7 commit `f618c4a` (tag `sprint-7-complete`) passed Linux run
 `36670722550` and the Palomar Theorem 1 entry build `36670722442`. The
 negative controls commit `35f51bc` passed Linux run `36669665863`, the
 entry build `36669665920` and the negative controls `36669665932`; the

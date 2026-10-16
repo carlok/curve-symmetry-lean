@@ -32,3 +32,5 @@ of the library stays on the platform's Lean 4.33.1 and Mathlib `0df444a`.
   `Classical.choice`, `Quot.sound`.
 - `scripts/check_sources.py --reuse`: 109 modules, 9 exact dependency revisions.
 - Package tests: 10 passing.
+- CI on `main` at `a2c13b7`: Linux build `38872333753`, Palomar Theorem 1 entry
+  build `38872333805`, negative controls `38872333742`, all green.
